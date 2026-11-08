@@ -1,0 +1,167 @@
+{
+  "status": 200,
+  "responseCode": 1,
+  "response": {
+    "rows": [
+      {
+        "id": "ld1-1643399857816-1643399863476-0",
+        "title": "In The Street",
+        "unitCode": "HMSG",
+        "type": "edanmdm",
+        "url": "edanmdm:hmsg_66.5446",
+        "content": {
+          "freetext": {
+            "date": [
+              {
+                "label": "Date",
+                "content": "1909"
+              }
+            ],
+            "name": [
+              {
+                "label": "Artist",
+                "content": "Abraham Walkowitz, American, b. Tyumen, Russia, 1878–1965"
+              }
+            ],
+            "notes": [
+              {
+                "label": "Provenance",
+                "content": "Jh Purchased From Aca Gallery, New York 1951"
+              },
+              {
+                "label": "Exhibition History",
+                "content": "HIRSHHORN MUSEUM AND SCULPTURE GARDEN, Smithsonian Institution, Washington, DC. \"The Golden Door: Artist-Immigrants of America, 1876-1976,\" 20 May-20 October 1976, no. 8, color ill. p. 121."
+              }
+            ],
+            "setName": [
+              {
+                "label": "See more items in",
+                "content": "Hirshhorn Museum and Sculpture Garden Collection"
+              },
+              {
+                "label": "School",
+                "content": "Early American Modernism"
+              }
+            ],
+            "creditLine": [
+              {
+                "label": "Credit Line",
+                "content": "Hirshhorn Museum and Sculpture Garden, Smithsonian Institution, Washington, DC, Gift of Joseph H. Hirshhorn, 1966"
+              }
+            ],
+            "dataSource": [
+              {
+                "label": "Data Source",
+                "content": "Hirshhorn Museum and Sculpture Garden"
+              }
+            ],
+            "identifier": [
+              {
+                "label": "Accession Number",
+                "content": "66.5446"
+              }
+            ],
+            "objectType": [
+              {
+                "label": "Type",
+                "content": "Painting"
+              }
+            ],
+            "physicalDescription": [
+              {
+                "label": "Medium",
+                "content": "Oil on canvas"
+              },
+              {
+                "label": "Dimensions",
+                "content": "14 1/8 x 11 1/8 in. (35.8 x 28.1 cm)"
+              }
+            ]
+          },
+          "indexedStructured": {
+            "date": [
+              "1900s"
+            ],
+            "name": [
+              "Walkowitz, Abraham"
+            ],
+            "object_type": [
+              "Paintings"
+            ],
+            "online_media_type": [
+              "Images"
+            ]
+          },
+          "descriptiveNonRepeating": {
+            "guid": "http://n2t.net/ark:/65665/py2d3da219b-90bd-49e6-8857-60e98363dd4a",
+            "title": {
+              "label": "Title",
+              "content": "In The Street"
+            },
+            "record_ID": "hmsg_66.5446",
+            "unit_code": "HMSG",
+            "title_sort": "IN THE STREET",
+            "data_source": "Hirshhorn Museum and Sculpture Garden",
+            "record_link": "https://hirshhorn.si.edu/collection/artwork/?edanUrl=edanmdm:hmsg_66.5446",
+            "online_media": {
+              "media": [
+                {
+                  "id": "media:HMSG-66.5446-000001",
+                  "guid": "http://n2t.net/ark:/65665/su6f94fe2c8-43e7-449b-83ac-f7986f783e9b",
+                  "type": "Images",
+                  "idsId": "HMSG-66.5446-000001",
+                  "usage": {
+                    "access": "CC0"
+                  },
+                  "width": 745,
+                  "height": 960,
+                  "content": "https://ids.si.edu/ids/deliveryService?id=HMSG-66.5446-000001",
+                  "maxsize": 0,
+                  "thumbnail": "https://ids.si.edu/ids/deliveryService?id=HMSG-66.5446-000001",
+                  "altTextAccessibility": "Abraham Walkowitz",
+                  "extDescrAccessibility": "Oil on canvas 14 1/8 x 11 1/8 in. (35.8 x 28.1 cm)",
+                  "resources": [
+                    {
+                      "label": "High-resolution TIFF",
+                      "url": "https://ids.si.edu/ids/download?id=HMSG-66.5446-000001.tif",
+                      "width": 795,
+                      "height": 1024,
+                      "dimensions": "795x1024"
+                    },
+                    {
+                      "label": "High-resolution JPEG",
+                      "url": "https://ids.si.edu/ids/download?id=HMSG-66.5446-000001.jpg",
+                      "width": 795,
+                      "height": 1024,
+                      "dimensions": "795x1024"
+                    },
+                    {
+                      "label": "Screen Image",
+                      "url": "https://ids.si.edu/ids/download?id=HMSG-66.5446-000001_screen"
+                    },
+                    {
+                      "label": "Thumbnail Image",
+                      "url": "https://ids.si.edu/ids/download?id=HMSG-66.5446-000001_thumb"
+                    }
+                  ]
+                }
+              ],
+              "mediaCount": 1
+            },
+            "metadata_usage": {
+              "access": "CC0"
+            }
+          }
+        },
+        "hash": "924510f6f12db9848fa6d01fc1dd404410edccd5",
+        "docSignature": "8da2e7d0453ddac393281eec03170c6d",
+        "timestamp": "1663783477",
+        "lastTimeUpdated": "1793207018",
+        "version": "1793182715"
+      }
+    ],
+    "facets": {},
+    "rowCount": 10255,
+    "message": "content found"
+  }
+}

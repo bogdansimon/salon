@@ -1,0 +1,755 @@
+{
+  "info": {
+    "total": 61,
+    "parameters": {
+      "skip": 5,
+      "limit": 1,
+      "type": "Painting",
+      "cc0": "1",
+      "has_image": "1",
+      "highlight": "1",
+      "select": "accession_number,accession_number_sortable,cover_accession_number,department,collection,gallery,classification_type,department",
+      "classification_type": "Painting"
+    }
+  },
+  "data": [
+    {
+      "id": 135382,
+      "accession_number": "1958.39",
+      "share_license_status": "CC0",
+      "tombstone": "The Red Kerchief (Femme à la capeline rouge), c. 1868–73. Claude Monet (French, 1840–1926). Oil on fabric; framed: 128.3 x 105.7 x 14.6 cm (50 1/2 x 41 5/8 x 5 3/4 in.); unframed: 99 x 79.8 cm (39 x 31 7/16 in.). The Cleveland Museum of Art, Bequest of Leonard C. Hanna Jr., 1958.39",
+      "current_location": "222 Impressionism & Post-Impressionism",
+      "title": "The Red Kerchief",
+      "title_in_original_language": "Femme à la capeline rouge",
+      "creation_date": "c. 1868–73",
+      "creation_date_earliest": 1868,
+      "creation_date_latest": 1873,
+      "artists_tags": [
+        "male"
+      ],
+      "culture": [
+        "France"
+      ],
+      "technique": "oil on fabric",
+      "support_materials": [],
+      "department": "Modern European Painting and Sculpture",
+      "collection": "Mod Euro - Painting 1800-1960",
+      "type": "Painting",
+      "measurements": "Framed: 128.3 x 105.7 x 14.6 cm (50 1/2 x 41 5/8 x 5 3/4 in.); Unframed: 99 x 79.8 cm (39 x 31 7/16 in.)",
+      "dimensions": {
+        "framed": {
+          "height": 1.283,
+          "height_inch": 50,
+          "height_inch_fraction": 0.5,
+          "width": 1.057,
+          "width_inch": 41,
+          "width_inch_fraction": 0.625,
+          "depth": 0.146,
+          "depth_inch": 5,
+          "depth_inch_fraction": 0.75
+        },
+        "unframed": {
+          "height": 0.99,
+          "height_inch": 39,
+          "height_inch_fraction": 0.0,
+          "width": 0.798,
+          "width_inch": 31,
+          "width_inch_fraction": 0.4375
+        }
+      },
+      "state_of_the_work": null,
+      "edition_of_the_work": null,
+      "copyright": null,
+      "inscriptions": [
+        {
+          "inscription": "Not signed\r\n",
+          "inscription_translation": null,
+          "inscription_remark": null,
+          "sortorder": null
+        }
+      ],
+      "exhibitions": {
+        "current": [
+          {
+            "id": 343629,
+            "title": "Claude Monet - Seasons and Moments",
+            "description": "<i>Claude Monet - Seasons and Moments</i>. The Museum of Modern Art (March 7-May 15, 1960); Los Angeles County Museum of Art (June 14-August 7, 1960).",
+            "opening_date": "1960-03-07T05:00:00"
+          },
+          {
+            "id": 338832,
+            "title": "Paintings by Monet",
+            "description": "<i>Paintings by Monet</i>. The Art Institute of Chicago, Chicago, IL (organizer) (March 15-May 11, 1975).",
+            "opening_date": "1975-03-15T04:00:00"
+          },
+          {
+            "id": 343615,
+            "title": "Hommage a Claude Monet",
+            "description": "<i>Hommage a Claude Monet</i>. Musée du Louvre, Paris, France (February 9-May 5, 1980).",
+            "opening_date": "1980-02-09T05:00:00"
+          },
+          {
+            "id": 310025,
+            "title": "Creativity in Art and Science, 1860-1960",
+            "description": "<i>Creativity in Art and Science, 1860-1960</i>. The Cleveland Museum of Art, Cleveland, OH (organizer) (September 16-November 8, 1987).",
+            "opening_date": "1987-09-16T04:00:00"
+          },
+          {
+            "id": 343621,
+            "title": "Claude Monet: 1840-1926",
+            "description": "<i>Claude Monet: 1840-1926</i>. The Art Institute of Chicago, Chicago, IL (organizer) (July 14-November 26, 1995).",
+            "opening_date": "1995-07-04T04:00:00"
+          },
+          {
+            "id": 213923,
+            "title": "Impressionists in Winter: Effets de Neige",
+            "description": "<i>Impressionists in Winter: Effets de Neige</i>. The Phillips Collection, Washington, DC (organizer) (September 19, 1998-January 3, 1999); Fine Arts Museum of San Francisco, Yerba Buena Gardens, CA (January 30-May 2, 1999); The Brooklyn Museum, Brooklyn, NY (May 27-August 29, 1999).",
+            "opening_date": "1998-09-19T00:00:00"
+          },
+          {
+            "id": 216847,
+            "title": "Faces of Impressionism: Portraits from American Collections",
+            "description": "<i>Faces of Impressionism: Portraits from American Collections</i>. The Baltimore Museum of Art (organizer) (October 10, 1999-January 30, 2000); Museum of Fine Arts, Houston (March 25-May 7, 2000); The Cleveland Museum of Art, Cleveland, OH (May 28-July 30, 2000).",
+            "opening_date": "1999-10-10T00:00:00"
+          },
+          {
+            "id": 227545,
+            "title": "Monet's Garden",
+            "description": "<i>Monet's Garden</i>. Kunsthaus Zürich, CH-8024 Zürich, Switzerland (organizer) (October 29, 2004-March 13, 2005).",
+            "opening_date": "2004-10-29T00:00:00"
+          },
+          {
+            "id": 182153,
+            "title": "Monet to Dalí: Modern Masters from the Cleveland Museum of Art",
+            "description": "<i>Monet to Dalí: Modern Masters from the Cleveland Museum of Art</i>. Beijing World Art Museum (May 26-August 27, 2006); Mori Art Center (September 16-November 26, 2006); Seoul Art Center, South Korea (December 22, 2006-March 28, 2007); Seoul Olympic Museum of Art, South Korea (April 7-May 20, 2007); Vancouver Art Gallery, Vancouver, Canada (June 9-September 16, 2007); The Cleveland Museum of Art, Cleveland, OH (organizer) (October 21, 2007-January 13, 2008); Frist Art Museum, Nashville, TN (February 15-June 1, 2008); Utah Museum of Fine Arts, Salt Lake City, UT (June 22-September 21, 2008); The Detroit Institute of Arts, Detroit, MI (October 12, 2008-January 18, 2009).",
+            "opening_date": "2006-05-27T00:00:00"
+          },
+          {
+            "id": 216795,
+            "title": "Becoming Edvard Munch: Influence, Anxiety, and Myth",
+            "description": "<i>Becoming Edvard Munch: Influence, Anxiety, and Myth</i>. The Art Institute of Chicago, Chicago, IL (organizer) (February 14-April 26, 2009).",
+            "opening_date": "2009-02-14T00:00:00"
+          },
+          {
+            "id": 220678,
+            "title": "Claude Monet",
+            "description": "<i>Claude Monet</i>. Galeries Nationales du Grand Palais, 75008 Paris, France (September 20, 2010-January 24, 2011).",
+            "opening_date": "2010-09-20T00:00:00"
+          },
+          {
+            "id": 213320,
+            "title": "Lend-Back - Painting the Modern Garden",
+            "description": "<i>Lend-Back - Painting the Modern Garden</i>. Allen Memorial Art Museum, Oberlin, OH (organizer) (August 27, 2015-January 3, 2016).",
+            "opening_date": "2015-08-27T00:00:00"
+          },
+          {
+            "id": 213583,
+            "title": "Monet: The Early Years",
+            "description": "<i>Monet: The Early Years</i>. Kimbell Art Museum, Fort Worth, TX (organizer) (October 16, 2016-January 29, 2017); Fine Arts Museum of San Francisco, Legion of Honor, San Francisco, CA (February 25-May 29, 2017).",
+            "opening_date": "2016-10-16T00:00:00"
+          },
+          {
+            "id": 304929,
+            "title": "Claude Monet",
+            "description": "<i>Claude Monet</i>. Albertina, Wien, Austria (organizer) (September 21, 2018-January 6, 2019) https://www.albertina.at/en/exhibitions/monet/.",
+            "opening_date": "2018-09-21T04:00:00"
+          }
+        ],
+        "legacy": [
+          {
+            "description": "<em>Claude Monet: Exposition rétrospective.</em> Musée de l'Orangerie, Paris, France (1931).",
+            "opening_date": "1931-01-01T00:00:00"
+          },
+          {
+            "description": "<em>Claude Monet de 1865 à 1888.</em> Durand-Ruel, Paris, France (1935).",
+            "opening_date": "1935-01-01T00:00:00"
+          },
+          {
+            "description": "<em>Five Centuries of History Mirrored in Five Centuries of French Art.</em> World's Fair (Pavillon de la France), New York, NY (1939).",
+            "opening_date": "1939-01-01T00:00:00"
+          },
+          {
+            "description": "<em>A Loan Exhibition of Paintings by Claude Monet.</em> Wildenstein &amp; Co., New York, NY (1945).",
+            "opening_date": "1945-01-01T00:00:00"
+          }
+        ]
+      },
+      "provenance": [
+        {
+          "description": "Michel Monet [1878-1966] Giverny, France, bequeathed from the artist's estate to his son, 1931",
+          "citations": [],
+          "footnotes": [],
+          "date": "1931-1939",
+          "sortorder": 1
+        },
+        {
+          "description": "Edouard Molyneux [1891-1974] Paris, France, 1939",
+          "citations": [],
+          "footnotes": [],
+          "date": "1939-1948",
+          "sortorder": 2
+        },
+        {
+          "description": "(Carroll Carstairs Gallery, New York, NY, September 16, 1948, sold to Leonard C. Hanna, Jr.)",
+          "citations": [],
+          "footnotes": [],
+          "date": "1948",
+          "sortorder": 3
+        },
+        {
+          "description": "Leonard C. Hanna, Jr. [1889-1958], Cleveland, OH, bequeathed to the Cleveland Museum of Art",
+          "citations": [],
+          "footnotes": [],
+          "date": "1948-1958",
+          "sortorder": 4
+        },
+        {
+          "description": "The Cleveland Museum of Art, Cleveland, OH",
+          "citations": [],
+          "footnotes": null,
+          "date": "1958-",
+          "sortorder": 5
+        }
+      ],
+      "find_spot": null,
+      "related_works": [],
+      "former_accession_numbers": [],
+      "did_you_know": "Madame Monet’s red cape draws the viewer’s attention beyond the glass of the French doors capturing her glance, a brief moment frozen in time. This painting was very special to Monet and he kept it with him for his entire life.",
+      "early_education_description": null,
+      "artlens_description": null,
+      "description": "This painting depicts Monet's first wife, Camille, outside on a snowy day passing by the French doors of their home at Argenteuil. Her face is rendered in a radically bold Impressionist technique of mere daubs of paint quickly applied, just as the snow and trees are defined by broad, broken strokes of pure white and green.",
+      "external_resources": {
+        "wikidata": [
+          "https://www.wikidata.org/wiki/Q50772913"
+        ],
+        "internet_archive": [
+          "https://archive.org/details/clevelandart-1958.39-the-red-kerchief"
+        ]
+      },
+      "citations": [
+        {
+          "citation": "Becker, Christoph. <em>Monet's Garden</em>. Ostfildern-Ruit, Germany: Hatje Cantz, 2004.",
+          "page_number": "Reproduced: p. 25, fig. 9",
+          "url": null
+        },
+        {
+          "citation": "Geffroy, Gustave. <em>Claude Monet, sa vie, son œuvre</em>. Paris, FR: G. Crès et cie, 1922.",
+          "page_number": "Reproduced: opp. p. 140",
+          "url": null
+        },
+        {
+          "citation": "Trevise, Duc de. \"Le Pelerinage de Giverny.\" <em>Revue de l'Art Ancien et Moderne </em>51 (January-May 1927: 42-50.",
+          "page_number": "Reproduced: p. 45",
+          "url": null
+        },
+        {
+          "citation": "Fels, Florent. \"Claude Monet or the Fading Luminary.\" <em>Formes; An International Art Review </em>15 (May 1931<em>)</em>: 74b-75.",
+          "page_number": "Reproduced: p. 74c",
+          "url": null
+        },
+        {
+          "citation": "Malingue, Maurice. <em>Claude Monet.</em> Monaco: Les Documents d'art, 1943.",
+          "page_number": "Reproduced: p. 63",
+          "url": null
+        },
+        {
+          "citation": "Rewald, John. <em>The History of Impressionism</em>. New York, NY: Museum of Modern Art, 1946.",
+          "page_number": "Reproduced: p. 207",
+          "url": null
+        },
+        {
+          "citation": "Reuterswärd, Oscar. <em>Monet: En konstnärshistorik.</em> Stockholm: Bonniers, 1948.",
+          "page_number": "Reproduced: p. 51",
+          "url": null
+        },
+        {
+          "citation": "<em>Catalogue de reproductions en couleurs de la peinture de 1860 à ... = Catalogue of colour reproductions of painting from 1860 to ... = Catálogo de reproducciones en color de la pintura de 1860 a</em>. Paris, France: Unesco, 1949.",
+          "page_number": "Reproduced: p. 234",
+          "url": null
+        },
+        {
+          "citation": "Besson, George. <em>Claude Monet (1840-1926)</em>. Paris: Braun, 1949.",
+          "page_number": "Reproduced: pl. 28",
+          "url": null
+        },
+        {
+          "citation": "Coe, Nancy. <em>The History of the Collecting of European Paintings and Drawings in the City of Cleveland</em>. Thesis M.A. Oberlin College, 1955.",
+          "page_number": "Reproduced: vol. 2, p. 75",
+          "url": null
+        },
+        {
+          "citation": "Cleveland Museum of Art.<em> In Memoriam: Leonard C. Hanna, Jr. </em>Cleveland: The Cleveland Museum of Art, 1958.",
+          "page_number": "Reproduced: no. 23",
+          "url": null
+        },
+        {
+          "citation": "<em>The Bulletin of the Cleveland Museum of Art XLVI </em>no.6<em>.</em> (June, 1959): 123.",
+          "page_number": "Reproduced: p. 123",
+          "url": null
+        },
+        {
+          "citation": "Museum of Modern Art (New York, N.Y.), and William Chapin Seitz. <em>Claude Monet: Seasons and Moments</em>. New York. Museum of Modern Art. Catalogues. 1959-1963. 1960.",
+          "page_number": "Mentioned: cat. no. 13",
+          "url": null
+        },
+        {
+          "citation": "Gimpel, René. <em>Journal d'un Collectionneur, Marchand de Tableaux</em>. [Paris]: Calmann-Lévy, 1963.",
+          "page_number": "Reproduced: opp. p 78",
+          "url": null
+        },
+        {
+          "citation": "The Cleveland Museum of Art. <em>Handbook of the Cleveland Museum of Art/1966</em>. Cleveland, OH: The Cleveland Museum of Art, 1966.",
+          "page_number": "Reproduced: p. 174",
+          "url": "https://archive.org/details/CMAHandbook1966/page/n198"
+        },
+        {
+          "citation": "The Cleveland Museum of Art. <em>Handbook of the Cleveland Museum of Art/1969</em>. Cleveland, OH: The Cleveland Museum of Art, 1969.",
+          "page_number": "Reproduced: p. 174",
+          "url": "https://archive.org/details/CMAHandbook1969/page/n198"
+        },
+        {
+          "citation": "Arnason, H. H. \"Motherwell: The Window and the Wall.\" <em>ARTnews</em> 68 (Summer 1969): 48-50.",
+          "page_number": "Reproduced: p. 50; mentioned: p. 48",
+          "url": null
+        },
+        {
+          "citation": "Isaacson, Joel. <em>Monet: Le Dejeuner Sur L'herbe</em>. London, United Kingdom: Allen Lane the Penguin Press, 1972.",
+          "page_number": "Reproduced: p. 14",
+          "url": null
+        },
+        {
+          "citation": "Bortolatto, Luigina Rossi. <em>L'opera Completa Di Claude Monet, 1870-1889</em>. Milano: Rizzoli, 1972.",
+          "page_number": "Reproduced: no. 77",
+          "url": null
+        },
+        {
+          "citation": "Tsuji, Kunio, Yoshiaki Inui, and Shūji Takashina. <em>Mone to inshōha = Monet et l'impressionnisme.</em> Tōkyō: Chūō Kōronsha, 1972.",
+          "page_number": "Reproduced: no. 33",
+          "url": null
+        },
+        {
+          "citation": "Champa, Kermit Swiler. <em>Studies in Early Impressionism</em>. New Haven, CT: Yale University Press, 1973.",
+          "page_number": "Reproduced: p.31 fig. 40",
+          "url": null
+        },
+        {
+          "citation": "Rewald, John. <em>The History of Impressionism.</em> New York, NY: Museum of Modern Art, 1973.",
+          "page_number": "Reproduced: p. 251",
+          "url": null
+        },
+        {
+          "citation": "Nordenfalk, Carl Adam Johan. \"Outdoors-Indoors: A 2000-Year-Old Space Problem in Western Art.\" In <em>Proceedings of the American Philosophical Society</em> 117, no. 4 (1973): 253-54, fig. 31.",
+          "page_number": "Reproduced: p. 253-254, fig. 31",
+          "url": null
+        },
+        {
+          "citation": "Wildenstein, Daniel. <em>Claude Monet: biographie et catalogue raisonné</em>. Lausanne, Switzerland: La Bibliothèque des arts, 1974.",
+          "page_number": "Reproduced: p. 257",
+          "url": null
+        },
+        {
+          "citation": "Monet, Claude, and Susan Wise. <em>Paintings by Monet: [Exhibition] March 15 Through May 11, 1975, the Art Institute of Chicago</em>. Chicago: Art Institute of Chicago, 1975.",
+          "page_number": "Mentioned and Reproduced: cat. no. 26, p 24",
+          "url": null
+        },
+        {
+          "citation": "House, John. <em>Monet</em>. Oxford, United Kingdom: Phaidon; New York, NY, Dutton, 1977.",
+          "page_number": "Reproduced: no. 18",
+          "url": null
+        },
+        {
+          "citation": "The Cleveland Museum of Art. <em>Handbook of the Cleveland Museum of Art/1978</em>. Cleveland, OH: The Cleveland Museum of Art, 1978.",
+          "page_number": "Reproduced: p. 216",
+          "url": "https://archive.org/details/CMAHandbook1978/page/n236"
+        },
+        {
+          "citation": "House, John. \"The New Monet Catalogue.\" <em>The Burlington Magazine</em> 120, no. 907 (1978): 678-39.",
+          "page_number": "Mentioned: p. 680",
+          "url": null
+        },
+        {
+          "citation": "\"Hommage a Monet.\" <em>Le Petit Journal des Grandes Expositions</em> 88 (1980): fig. 25.",
+          "page_number": "Reproduced: fig. 25",
+          "url": null
+        },
+        {
+          "citation": "Monet, Claude, Hélène Adhémar, Anne Distel, and Sylvie Patin. <em>Hommage à Claude Monet (1840-1926): 1980, année du patrimoine, Grand Palais, 8 février - 5 mai 1980</em>. Paris: Éditions de la Réunion des musée nationaux, Ministère de la culture et de la communication, 1980.",
+          "page_number": "Mentioned and Reproduced: cat. no. 25",
+          "url": null
+        },
+        {
+          "citation": "\"Grand Palais, Paris; Exposition.\" <em>L'Œil </em>297 (April, 1980): 74.",
+          "page_number": "Reproduced: p. 74",
+          "url": null
+        },
+        {
+          "citation": "House, John. <em>Monet</em>. Oxford, United Kingdom: Phaidon, NY, 1981.",
+          "page_number": "Reproduced: no. 8",
+          "url": null
+        },
+        {
+          "citation": "Borowitz, Helen O. \"The Rembrandt and Monet of Marcel Proust.\" <em>The Bulletin of the Cleveland Museum of Art LXX, </em>no. 2. (February, 1983):90.",
+          "page_number": "Reproduced: p. 90, fig. 16",
+          "url": null
+        },
+        {
+          "citation": "Keller, Horst. <em>Claude Monet</em>. München, Germany: Bruckmann, 1985.",
+          "page_number": "Reproduced: plate 44",
+          "url": null
+        },
+        {
+          "citation": "Kijima, Shunsuke, Kimio Nakayama, Yoshiaki Tōno, Makoto Ōoka, and Katsunori Miyauchi. <em>Mone = Monet.</em> Tōkyō, Japan: Shūeisha, 1985.",
+          "page_number": "Reproduced: p. 6",
+          "url": null
+        },
+        {
+          "citation": "Stuckey. Charles F. <em>Monet: A Retrospective</em>. New York, NY: 1985.",
+          "page_number": "Reproduced: p. 75, plate 27",
+          "url": null
+        },
+        {
+          "citation": "Taillandier, Yvon. <em>Monet.</em> New York, NY: Crown, 1987.",
+          "page_number": "Reproduced: p. 40",
+          "url": null
+        },
+        {
+          "citation": "Henning, Edward B. <em>Creativity in Art and Science</em>, 1860-1960. [Cleveland, Ohio]: Published by the Cleveland Museum of Art in cooperation with Indiana University Press, 1987.",
+          "page_number": "Mentioned and Reproduced: p. 95, cat. no. 2",
+          "url": null
+        },
+        {
+          "citation": "Sagner-Düchting, <em>Karin. Claude Monet 1840-1926: ein Fest für die Augen.</em> Köln, Germany: Benedikt Taschen Verlag, 1990.",
+          "page_number": "Reproduced: p. 68",
+          "url": null
+        },
+        {
+          "citation": "Cleveland Museum of Art. <em>Masterpieces from East and West.</em> New York, NY: Rizzoli International, 1992.",
+          "page_number": "Reproduced: p. 7-8",
+          "url": null
+        },
+        {
+          "citation": "Chong, Alan. <em>European &amp; American Painting in the Cleveland Museum of Art: A Summary Catalogue</em>. Cleveland, Ohio: Cleveland Museum of Art, 1993.",
+          "page_number": "Reproduced: p. 158",
+          "url": null
+        },
+        {
+          "citation": "Taylor, John Russell, <em>Claude Monet: Impressions of France : from Le Havre to Giverny.</em> London, United Kingdom: Collins &amp; Brown, 1995.",
+          "page_number": "Reproduced: p. 70",
+          "url": null
+        },
+        {
+          "citation": "Tucker, Paul Hayes. <em>Claude Monet: Life and Art.</em> New Haven, CT: Yale University Press, 1995.",
+          "page_number": "Mentioned: p. 66-68, Reproduced: pl. 75",
+          "url": null
+        },
+        {
+          "citation": "Stuckey, Charles F., Claude Monet, and Sophia Shaw. <em>Claude Monet: 1840-1926</em>. New York: Thames and Hudson, 1995.",
+          "page_number": "Mentioned and Reproduced cat. no. 24, p. 244",
+          "url": null
+        },
+        {
+          "citation": "Pelfrey, Robert H. <em>Art and Mass Media</em>. Dubuque, Iowa: Kendall/Hunt, 1996.",
+          "page_number": "Reproduced: p. 165, fig. 7.3",
+          "url": null
+        },
+        {
+          "citation": "Wildenstein, Daniel, <em>Monet</em>. Köln, Germany: Taschen, 1996.",
+          "page_number": "Reproduced: p. 90, vol. 1; p. 257, vol. 2",
+          "url": null
+        },
+        {
+          "citation": "Weiss, Susanne. <em>Claude Monet: ein distanzierter Blick auf Stadt und Land</em> : <em>Werke 1859-1889</em>. Berlin, Germany: Reimer, 1997.",
+          "page_number": "Reproduced: p. 55, fig. 15",
+          "url": null
+        },
+        {
+          "citation": "Moffett, Charles S. <em>Impressionists in Winter: Effets De Neige</em>. Washington, D.C.: Phillips Collection in collaboration with Philip Wilson Publishers, 1998.",
+          "page_number": "Reproduced: cat. no. 6",
+          "url": null
+        },
+        {
+          "citation": "Sallis, John. <em>Shades--of Painting at the Limit</em>. Bloomington, IN: Indiana University Press, 1998.",
+          "page_number": "Reproduced: p. 52, fig. 4",
+          "url": null
+        },
+        {
+          "citation": "Pittman, Dianne W. <em>Bazille: Purity, Pose, and Painting in the 1860s</em>. University Park, PA: Pennsylvania State University, 1998.",
+          "page_number": "Reproduced: p. 207, p. 209, fig. 131",
+          "url": null
+        },
+        {
+          "citation": "D Argencourt, Louise and Roger Diederen. <em>The Cleveland Museum of Art: Catalogue of Paintings, Part Four; European Paintings of the 19th Century.</em> Cleveland, OH: Cleveland Museum of Art, 1999.",
+          "page_number": "Reproduced: p. 155",
+          "url": null
+        },
+        {
+          "citation": "Museum of Fine Arts, Boston. Mone, Runowāru to inshōha no fūkei: kaikan kinen dai ikkai kikakuten = <em>Monet, Renoir, and the impressionist landscape.</em> [Japan]: Nagoya Bosuton Bijutsukan, 1999.",
+          "page_number": "Reproduced: p. 28, fig. 28",
+          "url": null
+        },
+        {
+          "citation": "Johnston, Sona, Susan Bollendorf, and John House. <em>Faces of Impressionism: Portraits from American Collections</em>. Baltimore, Md: Baltimore Museum of Art in association with Rizzoli International, 1999.",
+          "page_number": "Reproduced: p. 126-127",
+          "url": null
+        },
+        {
+          "citation": "Wildenstein, Daniel. <em>Monet, or, The Triumph of Impressionism.</em> Köln, Germany: Taschen, 1999.",
+          "page_number": "Reproduced: p. 90, cat. no. 257",
+          "url": null
+        },
+        {
+          "citation": "Johnston, Sona.<em> Faces of Impressionism: Portraits from American Collections</em>. New York, NY : Rizzoli, 1999.",
+          "page_number": "Reproduced: p. 127, cat. no. 44",
+          "url": null
+        },
+        {
+          "citation": "Knight, Lynne. <em>Snow Effects: Poems on Impressionists in Winter</em>. Concord, CA: Small Poetry Press, 2000.",
+          "page_number": "Reproduced: p. 24",
+          "url": null
+        },
+        {
+          "citation": "Jiminez, Jill Berk, and Joanna Banham. <em>Dictionary of Artists' Models.</em> London, United Kingdom: Fitzroy Dearborn, 2001.",
+          "page_number": "Reproduced: p. 167",
+          "url": null
+        },
+        {
+          "citation": "<em>Norio Shimada, and Keiko Sakagami. Kurōdo Mone meigashū: hikari to kaze no kiseki</em>. Tōkyō, Japan: Nihon Bijutsu Kyōiku Sentā, 2001.",
+          "page_number": "Reproduced: p. 123",
+          "url": null
+        },
+        {
+          "citation": "Clancy, John I. <em>Impressionism: Historical Overview and Bibliography.</em> New York, NY: Nova Science Publishers, 2003.",
+          "page_number": "Reproduced: p. 20",
+          "url": null
+        },
+        {
+          "citation": "Burgess, Margaret, \"The Colorful Mr. Hanna\", Cleveland Museum of Art. <em>Cleveland Art: The Cleveland Museum of Art Members Magazine</em>. Vol. 45 no. 09, November 2005",
+          "page_number": "Mentioned & reproduced: p.7",
+          "url": "https://archive.org/details/CMAMM2005-09/page/6/"
+        },
+        {
+          "citation": "Borzello, Frances. <em>At Home: The Domestic Interior in Art.</em> London, United Kingdom: Thames &amp; Hudson, 2006.",
+          "page_number": "Reproduced: p. 65",
+          "url": null
+        },
+        {
+          "citation": "Lambert, Stéphane.<em> L'adieu au paysage: les nymphéas de Claude Monet</em>. Paris, France: Différence, 2008.",
+          "page_number": "Reproduced: fig. 12",
+          "url": null
+        },
+        {
+          "citation": "Baillio, Joseph. <em>Claude Monet, 1840-1926</em>:<em> Paris, Galeries Nationales, Grand Palais, September 22, 2010-January 24, 2011</em>. Paris: Réunion des musées nationaux, 2010.",
+          "page_number": "Reproduced: p. 103, Mentioned: p. 254-255",
+          "url": null
+        },
+        {
+          "citation": "Braschi, Cecilia. \"1840-1926. Monet, une Vie Dediee a la Peinture.\" <em>Dossier de l'Art </em>177 (September 2010): 2-23.",
+          "page_number": "Reproduced: p. 21",
+          "url": null
+        },
+        {
+          "citation": "Marchesseau, Daniel. <em>Monet au Musée Marmottan et dans les collections suisses ; Estampes japonaises, Fondation Claude Monet, Giverny. </em>Martigny, Switzerland: Fondation Pierre Gianadda, 2011.",
+          "page_number": "Reproduced: p. 201, fig. 24",
+          "url": null
+        },
+        {
+          "citation": "Franklin, David and C. Griffith Mann. <em>Treasures from the Cleveland Museum of Art</em>. Cleveland, OH: Cleveland Museum of Art, London, United Kingdom, Scala Publishers Ltd., 2012.",
+          "page_number": "Reproduced: p. 262-3",
+          "url": null
+        },
+        {
+          "citation": "Cleveland Museum of Art. <em>The CMA Companion: A Guide to the Cleveland Museum of Art</em>. Cleveland: Cleveland Museum of Art, 2014.",
+          "page_number": "Mentioned and reproduced: P. 289",
+          "url": ""
+        },
+        {
+          "citation": "“A Walking Tour: The entire new museum wing by wing, with curators calling out a few favorite works in the collection.” <em>Cleveland Art: Cleveland Museum of Art Members Magazine</em> 54, no. 1 (January/February 2014): 8-33.",
+          "page_number": "Reproduced and Mentioned: p. 20",
+          "url": "https://archive.org/details/CMAMM2014-01"
+        },
+        {
+          "citation": "Patin, Sylvie. <em>Monet's Private Picture Gallery at Giverny: Paintings by Monet and His Friends.</em> Montreuil, France: Gourcuff Gradenigo; Giverny: Éditions Claude Monet Giverny: Fondation Claude Monet, 2016.",
+          "page_number": "Reproduced: P. 12, 14, 16-17, 23",
+          "url": null
+        },
+        {
+          "citation": "Cleveland Museum of Art. <em>Museum Masters: 2016-17 Companion Guide.</em> [Cleveland, Ohio]: Cleveland Museum of Art, 2016.",
+          "page_number": "Mentioned and Reproduced: P. 22",
+          "url": ""
+        },
+        {
+          "citation": "Cachorro Fernandez, Emilio. \"Habitaciones con Vistas. Pulsion Escopica A Traves de la Ventana\". Archivo español de arte 88, issue 350 (April-June 2015): 157-172.",
+          "page_number": "Reproduced: p. 170, fig. 6",
+          "url": null
+        },
+        {
+          "citation": "Shackelford, George T. M., et. al. <em>Monet: The Early Years.</em> Fort Worth, TX: Kimball Art Museum, 2016.",
+          "page_number": "Mention: p. 107; 202 Reproduced: cover; p. 106, cat. 12",
+          "url": null
+        },
+        {
+          "citation": "Bortolatto, Luigina Rossi. <em>Tout l'œuvre peint de Monet, 1870-1889.</em> Paris: Flammarion, 1981.",
+          "page_number": "Reproduced: P. 93, fig. 78",
+          "url": null
+        },
+        {
+          "citation": "Widaur, Heinz. \"From Pleinairism to Impressionism.\" In <em>Claude Monet: A Floating World.</em> Heinz Widauer and Dieter Buchhart, eds., 55-79. Vienna: The Albertina Museum, 2018.",
+          "page_number": "Mentioned and reproduced: p. 76-79, cat. 24",
+          "url": null
+        },
+        {
+          "citation": "Michael, Cora. \"Gauguin in the the Buckeye and Hoosier States: Portrait of Teuraheimata and its Midwestern Collectors.\" In <em>Paul Gauguin: Teuraheimata a Potoru, a Rediscovery, </em>11-19. New York: Jill Newhouse Gallery; [Akron, Ohio]: Thomas French Fine Art, 2019.",
+          "page_number": "Mentioned: P. 14",
+          "url": ""
+        },
+        {
+          "citation": "Shackelford, George T. M. <em>Monet: the Late Years.</em> Fort Worth, Texas: Kimbell Art Museum; San Francisco: Fine Arts Museums of San Francisco, New Haven; London: Distributed by Yale University Press, 2019.",
+          "page_number": "Reproduced: P. 15, 29",
+          "url": null
+        },
+        {
+          "citation": "Rubin, James Henry. Monet. 2020, 54.",
+          "page_number": "Mentioned and reproduced; pp. 53-54, fig. 37.",
+          "url": ""
+        },
+        {
+          "citation": "Dombrowski, André. <em>Monet's Minutes: Impressionism and the Industrialization of Time. </em>New Haven; London: Yale University Press, 2023.",
+          "page_number": "Mentioned and reproduced: p. 21-22, fig. 11",
+          "url": ""
+        },
+        {
+          "citation": "Dombrowski, Andre. \"Reflexions sur le Manieres de 'Saisir' et de 'Fixer' une Impression en 1874.\" <em>Revue de L'Art </em>223 (January 2024): 32-41.",
+          "page_number": "Mentioned and reproduced: p. 37-38, fig. 3, Cover",
+          "url": ""
+        },
+        {
+          "citation": "Siegel, Harmon. <em>Painting with Monet</em>. Princeton, New Jersey: Princeton University Press, 2024.",
+          "page_number": "Mentioned and reproduced: p. 207-209, figs. 7.5, 7.6, and 7.7",
+          "url": ""
+        },
+        {
+          "citation": "Wullschläger, Jackie. <em>Monet: The Restless Vision. </em>New York: Alfred A. Knopf, 2024.",
+          "page_number": "Reproduced: p. 106, plate 12; Mentioned: p. 149",
+          "url": ""
+        },
+        {
+          "citation": "Manœuvre, Laurent. “1870-1888: Une Nouvelle Peinture.” <em>Dossier de l'art</em>, n. 336 (April/May 2026): 22-29.",
+          "page_number": "Reproduced: p. 26",
+          "url": ""
+        }
+      ],
+      "url": "https://clevelandart.org/art/1958.39",
+      "images": {
+        "annotation": null,
+        "web": {
+          "url": "https://openaccess-cdn.clevelandart.org/1958.39/1958.39_web.jpg",
+          "width": "723",
+          "height": "900",
+          "filesize": "242663",
+          "filename": "1958.39_web.jpg"
+        },
+        "print": {
+          "url": "https://openaccess-cdn.clevelandart.org/1958.39/1958.39_print.jpg",
+          "width": "2732",
+          "height": "3400",
+          "filesize": "3767988",
+          "filename": "1958.39_print.jpg"
+        },
+        "full": {
+          "url": "https://openaccess-cdn.clevelandart.org/1958.39/1958.39_full.tif",
+          "width": "11652",
+          "height": "14500",
+          "filesize": "506893484",
+          "filename": "1958.39_full.tif"
+        }
+      },
+      "alternate_images": [
+        {
+          "web": {
+            "url": "https://openaccess-cdn.clevelandart.org/1958.39/1958.39_alt0_web.jpg",
+            "width": "720",
+            "height": "893",
+            "filesize": "471772"
+          },
+          "print": {
+            "url": "https://openaccess-cdn.clevelandart.org/1958.39/1958.39_alt0_print.jpg",
+            "width": "2742",
+            "height": "3400",
+            "filesize": "6551534"
+          },
+          "full": {
+            "url": "https://openaccess-cdn.clevelandart.org/1958.39/1958.39_alt0_full.tif",
+            "width": "4033",
+            "height": "5000",
+            "filesize": "60526808"
+          },
+          "date_created": "2006-04-11T15:09:16",
+          "annotation": ""
+        },
+        {
+          "web": {
+            "url": "https://openaccess-cdn.clevelandart.org/1958.39/1958.39_alt1_web.jpg",
+            "width": "717",
+            "height": "893",
+            "filesize": "459830"
+          },
+          "print": {
+            "url": "https://openaccess-cdn.clevelandart.org/1958.39/1958.39_alt1_print.jpg",
+            "width": "2731",
+            "height": "3400",
+            "filesize": "6598773"
+          },
+          "full": {
+            "url": "https://openaccess-cdn.clevelandart.org/1958.39/1958.39_alt1_full.tif",
+            "width": "4016",
+            "height": "5000",
+            "filesize": "60271236"
+          },
+          "date_created": "2006-04-10T19:40:23",
+          "annotation": ""
+        }
+      ],
+      "creditline": "Bequest of Leonard C. Hanna Jr.",
+      "image_credit": null,
+      "sketchfab_id": null,
+      "sketchfab_url": null,
+      "gallery_donor_text": "Nancy F. and Joseph P. Keithley Gallery",
+      "athena_id": 135382,
+      "creators": [
+        {
+          "id": 1844,
+          "description": "Claude Monet (French, 1840–1926)",
+          "extent": null,
+          "qualifier": null,
+          "role": "artist",
+          "biography": "Claude Monet spent his youth in Le Havre in Normandy, where his father worked as a wholesale grocer. By the age of sixteen, he had exhibited some of his caricatures in an art supply store, leading to his acquaintance with Boudin (q.v.). It was Boudin who first encouraged him to paint out of doors. In 1859 Monet traveled to Paris, where he saw Boudin's salon debut and met Constant Troyon (1810-1865). A year later he joined the Académie Suisse, where he was introduced to Pissarro (q.v.), but his studies were interrupted in 1861 when he was drafted for a seven-year stint in the military. His family would pay for his release from military duties only if he gave up painting. Finding this unacceptable, Monet served for one year in Algeria before an early return to France to convalesce after a severe illness. In 1862 he met Jongkind (q.v.), another important influence on the young painter's development. Monet's father then allowed him to pursue his art career in Paris, where he entered the studio of the Swiss painter Charles Gleyre (1806-1874). He studied with Gleyre until 1864 and befriended Frédéric Bazille (1841-1870), Renoir (q.v.), and Sisley (q.v.), with whom he painted in the forest of Fontainebleau (Déjeuner sur l'herbe, 1865, two fragments in Musée d'Orsay, Paris). Monet first exhibited at the Salon of 1865 and would do so again in 1866, 1868, and 1880. In 1868 he shared a studio with Bazille and Renoir but was soon forced to leave Paris to escape his creditors. He took his mistress, Camille Doncieux, and their son, Jean, to Fécamp, then Étretat, and finally Saint-Michel. There Renoir provided hospitality, and the two also painted at the boating and bathing center of La Grenouillère on the Seine. In 1870 Monet married Camille and, to escape the Franco-Prussian War, left for London, where he remained for nine months and met Durand-Ruel, his first dealer. In the summer of 1871 he visited the Netherlands and then settled in Argenteuil, to the west of Paris. He converted a boat into a studio, as Daubigny (q.v.) had done before him, allowing him to explore different viewpoints for his landscapes. He assisted in the organization of the First Impressionist Exhibition in 1874, partly because Durand-Ruel's worsened business situation had prevented the dealer from buying his art. The following year he participated in the Hôtel Drouot sale with Morisot (q.v.), Renoir, and Sisley. In 1878 Monet and his wife moved to Vétheuil with the Hoschedés, who had previously commissioned some works. Camille died the following year, and, while Ernest Hoschedé spent most of his time in Paris trying to settle his precarious financial situation, Monet stayed behind with Ernest's wife, Alice. In 1881 he moved with her and her children to Poissy and within two years was living at Giverny, where he would remain for the rest of his life. He painted some of his famous scenes-the haystack and poplar series, for example- in 1890-91. Ernest Hoschedé died in 1891, and Monet married Alice the following year. At Giverny, Monet explored the themes of his garden and water lilies. He continued to travel, going to Norway in 1895, making three trips to London from 1899 through 1901, and taking Alice to Venice in 1908. The final years of his life were mainly spent working on his Great Decorations, large paintings of a water lily pond designed for two oval rooms at the Paris Orangerie. Monet is generally considered the most typical exponent of impressionism.",
+          "name_in_original_language": null,
+          "birth_year": "1840",
+          "death_year": "1926",
+          "use_in_caption": true,
+          "include_extent": false,
+          "weight": 1
+        }
+      ],
+      "legal_status": "accessioned",
+      "accession_date": "1958-11-29T00:00:00",
+      "sortable_date": 1868,
+      "date_added_to_oa": null,
+      "date_text": "c. 1868–73",
+      "collapse_artists": false,
+      "on_loan": false,
+      "recently_acquired": false,
+      "record_type": "object",
+      "conservation_statement": null,
+      "has_conservation_images": false,
+      "cover_accession_number": null,
+      "is_nazi_era_provenance": true,
+      "impression": null,
+      "alternate_titles": [
+        "La Capeline Rouge-Madame Monet"
+      ],
+      "is_highlight": true,
+      "updated_at": "2026-11-07 15:29:56.264000"
+    }
+  ]
+}

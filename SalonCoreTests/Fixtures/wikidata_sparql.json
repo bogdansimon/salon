@@ -1,0 +1,58 @@
+{
+  "head": {
+    "vars": [
+      "p",
+      "img",
+      "sl"
+    ]
+  },
+  "results": {
+    "bindings": [
+      {
+        "p": {
+          "type": "uri",
+          "value": "http://www.wikidata.org/entity/Q12418"
+        },
+        "img": {
+          "type": "uri",
+          "value": "http://commons.wikimedia.org/wiki/Special:FilePath/Mona%20Lisa%2C%20by%20Leonardo%20da%20Vinci%2C%20from%20C2RMF%20retouched.jpg"
+        },
+        "sl": {
+          "datatype": "http://www.w3.org/2001/XMLSchema#integer",
+          "type": "literal",
+          "value": "146"
+        }
+      },
+      {
+        "p": {
+          "type": "uri",
+          "value": "http://www.wikidata.org/entity/Q151047"
+        },
+        "img": {
+          "type": "uri",
+          "value": "http://commons.wikimedia.org/wiki/Special:FilePath/Sandro%20Botticelli%20-%20La%20nascita%20di%20Venere%20-%20Google%20Art%20Project%20-%20edited.jpg"
+        },
+        "sl": {
+          "datatype": "http://www.w3.org/2001/XMLSchema#integer",
+          "type": "literal",
+          "value": "57"
+        }
+      },
+      {
+        "p": {
+          "type": "uri",
+          "value": "http://www.wikidata.org/entity/Q467376"
+        },
+        "img": {
+          "type": "uri",
+          "value": "http://commons.wikimedia.org/wiki/Special:FilePath/Johannes%20Vermeer%20-%20De%20Soldaat%20en%20het%20Lachende%20Meisje%20-%20Google%20Art%20Project.jpg"
+        },
+        "sl": {
+          "datatype": "http://www.w3.org/2001/XMLSchema#integer",
+          "type": "literal",
+          "value": "24"
+        }
+      }
+    ]
+  }
+}

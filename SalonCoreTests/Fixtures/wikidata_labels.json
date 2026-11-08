@@ -1,0 +1,35 @@
+{
+  "entities": {
+    "Q41264": {
+      "type": "item",
+      "id": "Q41264",
+      "labels": {
+        "en": {
+          "language": "en",
+          "value": "Johannes Vermeer"
+        }
+      }
+    },
+    "Q682827": {
+      "type": "item",
+      "id": "Q682827",
+      "labels": {
+        "en": {
+          "language": "en",
+          "value": "The Frick Collection"
+        }
+      }
+    },
+    "Q296955": {
+      "type": "item",
+      "id": "Q296955",
+      "labels": {
+        "en": {
+          "language": "en",
+          "value": "oil paint"
+        }
+      }
+    }
+  },
+  "success": 1
+}

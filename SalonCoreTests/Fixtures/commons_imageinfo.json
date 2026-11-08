@@ -1,0 +1,40 @@
+{
+  "batchcomplete": "",
+  "query": {
+    "pages": {
+      "13479804": {
+        "pageid": 13479804,
+        "ns": 6,
+        "title": "File:Johannes Vermeer - De Soldaat en het Lachende Meisje - Google Art Project.jpg",
+        "imagerepository": "local",
+        "imageinfo": [
+          {
+            "size": 12197636,
+            "width": 4785,
+            "height": 5213,
+            "thumburl": "https://thumb.wikimedia.org/wikipedia/commons/thumb/2/2e/Johannes_Vermeer_-_De_Soldaat_en_het_Lachende_Meisje_-_Google_Art_Project.jpg/3840px-Johannes_Vermeer_-_De_Soldaat_en_het_Lachende_Meisje_-_Google_Art_Project.jpg?utm_source=commons.wikimedia.org&utm_campaign=imageinfo&utm_content=thumbnail",
+            "thumbwidth": 4096,
+            "thumbheight": 4462,
+            "thumbattribs": {
+              "src": "https://thumb.wikimedia.org/wikipedia/commons/thumb/2/2e/Johannes_Vermeer_-_De_Soldaat_en_het_Lachende_Meisje_-_Google_Art_Project.jpg/3840px-Johannes_Vermeer_-_De_Soldaat_en_het_Lachende_Meisje_-_Google_Art_Project.jpg?utm_source=commons.wikimedia.org&utm_campaign=imageinfo&utm_content=thumbnail",
+              "decoding": "async",
+              "loading": "lazy",
+              "width": 4096,
+              "height": 4462
+            },
+            "url": "https://upload.wikimedia.org/wikipedia/commons/2/2e/Johannes_Vermeer_-_De_Soldaat_en_het_Lachende_Meisje_-_Google_Art_Project.jpg?utm_source=commons.wikimedia.org&utm_campaign=imageinfo&utm_content=original",
+            "descriptionurl": "https://commons.wikimedia.org/wiki/File:Johannes_Vermeer_-_De_Soldaat_en_het_Lachende_Meisje_-_Google_Art_Project.jpg",
+            "descriptionshorturl": "https://commons.wikimedia.org/w/index.php?curid=13479804",
+            "extmetadata": {
+              "LicenseShortName": {
+                "value": "Public domain",
+                "source": "commons-desc-page",
+                "hidden": ""
+              }
+            }
+          }
+        ]
+      }
+    }
+  }
+}

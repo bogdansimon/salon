@@ -1,0 +1,2209 @@
+{
+  "offset": 7,
+  "rows": 10,
+  "found": 4628,
+  "items": [
+    {
+      "id": "1170011749_object",
+      "created": "2020-03-21T10:35:06Z",
+      "modified": "2025-07-11T17:31:25Z",
+      "backside_protection": true,
+      "acquisition_date": "1911-01-01T00:00:00Z",
+      "acquisition_date_precision": "1911-12-31",
+      "dimensions": [
+        {
+          "notes": "425 x 545 mm",
+          "part": "Netto",
+          "type": "height",
+          "unit": "cm",
+          "value": "42.5"
+        },
+        {
+          "notes": "425 x 545 mm",
+          "part": "Netto",
+          "type": "width",
+          "unit": "cm",
+          "value": "54.5"
+        },
+        {
+          "notes": "615 x 721 x 68 mm",
+          "part": "Brutto",
+          "type": "height",
+          "unit": "cm",
+          "value": "61.5"
+        },
+        {
+          "notes": "615 x 721 x 68 mm",
+          "part": "Brutto",
+          "type": "width",
+          "unit": "cm",
+          "value": "72.1"
+        },
+        {
+          "notes": "615 x 721 x 68 mm",
+          "part": "Brutto",
+          "type": "depth",
+          "unit": "cm",
+          "value": "6.8"
+        }
+      ],
+      "documentation": [
+        {
+          "title": "Fra gullalder til cobra: dansk kunst i 150 år",
+          "author": "Knut Ljøgodt",
+          "notes": "kat.nr. 22, omt. p. 62, 110-111, afb. p. 111",
+          "shelfmark": "C 30890",
+          "year_of_publication": "2005"
+        },
+        {
+          "title": "Kristian Zahrtmann",
+          "author": "Rasmus Kjærboe",
+          "notes": "afb. p. 23",
+          "year_of_publication": "2019"
+        },
+        {
+          "title": "Dobbeltsyner. Ingemann Andersen i Danmark og Italien",
+          "author": "Tine Nielsen Fabienke",
+          "notes": "afb. p. 98",
+          "year_of_publication": "2022"
+        }
+      ],
+      "exhibitions": [
+        {
+          "exhibition": "Fra Guldalder til Cobra: Dansk kunst i 150 år",
+          "date_start": "2005-06-11T00:00:00.000Z",
+          "date_end": "2005-09-18T00:00:00.000Z",
+          "venue": "Nordnorsk Kunstmuseum, Tromsø"
+        },
+        {
+          "exhibition": "Fynboernes Italien - landskaber og folkeliv",
+          "date_start": "2013-05-25T00:00:00.000Z",
+          "date_end": "2013-09-07T00:00:00.000Z",
+          "venue": "Faaborg Museum"
+        },
+        {
+          "exhibition": "Fynboernes Italien - landskaber og folkeliv",
+          "date_start": "2013-09-13T00:00:00.000Z",
+          "date_end": "2013-11-16T00:00:00.000Z",
+          "venue": "Sophienholm"
+        },
+        {
+          "exhibition": "Kristian Zahrtmann. Queer, kunst og lidenskab",
+          "date_start": "2019-05-17T00:00:00.000Z",
+          "date_end": "2019-09-01T00:00:00.000Z",
+          "venue": "Ribe Kunstmuseum"
+        },
+        {
+          "exhibition": "Kristian Zahrtmann. Queer, kunst og lidenskab",
+          "date_start": "2019-09-20T00:00:00.000Z",
+          "date_end": "2020-01-05T00:00:00.000Z",
+          "venue": "Fuglsang Kunstmuseum"
+        },
+        {
+          "exhibition": "Kristian Zahrtmann. Queer, kunst og lidenskab",
+          "date_start": "2020-02-05T00:00:00.000Z",
+          "date_end": "2020-08-30T00:00:00.000Z",
+          "venue": "Den Hirschsprungske Samling"
+        }
+      ],
+      "inscriptions": [
+        {
+          "content": "fntv: 18KZ (monogram) 91",
+          "type": "Inscription"
+        }
+      ],
+      "materials": [
+        "canvas"
+      ],
+      "object_names": [
+        {
+          "name": "Painting"
+        }
+      ],
+      "production": [
+        {
+          "creator": "Zahrtmann, Kristian",
+          "creator_forename": "Kristian",
+          "creator_surname": "Zahrtmann",
+          "creator_date_of_birth": "1843-03-31T00:00:00.000Z",
+          "creator_date_of_death": "1917-06-22T00:00:00.000Z",
+          "creator_nationality": "Danish",
+          "creator_gender": "MALE",
+          "creator_history": "Kristian Zahrtmann hørte til kunstnergenerationen omkring P.S. Krøyer og Th. Philipsen, som tilsluttede sig det moderne gennembrud og naturalismen. Skønt Z. lod sin kunst bære præg af en tilsyneladende realistisk form, levede der også en romantisk tendens i hans temperament, som gjorde, at netop han kunne give det fra guldalderen nedarvede historiemaleri en sidste opblomstring i dansk kunst. Helt fremtrædende i Z.s værk står hans store serie med motiv fra prinsesse Leonora Christinas livshistorie, sådan som den bl.a. er skildret i hendes berømte Jammers-Minde (1674). I 1869 fik Z. værket i historikeren Sophus Birket-Smiths udgivelse, og fra da af levede han i sin livslange psykiske symbiose med heltinden. De tidligste af disse Leonora Christina- billeder viser inspiration fra guldalderen og postguldalderen (W. Marstrand og Carl Bloch), men i 1880erne indebar kendskabet til værker af Adolph von Menzel samt begejstringen for Rembrandt en udvikling hen imod den stemningsmæssige konkretisering, mens 90erne medførte en mere teatralsk følelse og lysmættethed, der bl.a. er inspireret af Eugène Delacroix. På grund af sin hang til de store følelser og psykologien fik Z. kun ringe officiel påskønnelse for sine historiemalerier. Skønt han vandt en delt præmie med maleren Vilh. Rosenstand for hovedværket Studenterne drager ud til Københavns forsvar (1888), blev det den sidstnævnte, der fik æren at udføre opgaven til solemnitetssalen på København Universitet. Derimod blev Z.s historiemaleri påskønnet af tidens mere fremskridtsvenlige gemytter på grund af deres tankevækkende følelsesintensitet, som, ud over inspirationen fra det historiske stof, også skyldtes vekselvirkningen mellem en rigt facetteret personlighed og litteraturen, teaterkunsten og filosofien. På det psykiske plan hænger Leonora Christina-serien sammen med Z.s moderbinding og muligheden for en latent homoseksualitet, som særligt i hans sene liv udmøntede sig i flere, mere eller mindre heldige mande- og mytebilleder, Prometheus (1905), Sokrates og Alkibides (1907, 1911), Adam i Paradis (1913-14). Mere almenmenneskeligt relevant vidner Z.s historiemaleri om hans insisteren på den klassiske dannelse og det at tænke store tanker. Det var dette, der gjorde Z. til sin tids vigtigste kunstneriske lærerkraft, således at hans afdeling af Kunstnernes Studieskole ved Akademiet ligefrem kaldes Zahrtmanns Skole. Her modtog han omkring 200 danske, norske, svenske og finske elever, som nød godt af hans åbenhed over for eksperimenter. Skønt fynboerne Peter Hansen, Fritz Syberg, Poul S. Christiansen og Johannes Larsen vel hørte til inderkredsen, siger det noget om Z.s respekt for det enkelte kunstnertemperament, at han også nåede af blive en påskønnet lærer for Oluf Hartmann og senere modernister som f.eks. Edvard Weie, Harald Giersing og Olaf Rude. På grund af Z.s store indsats i det danske kunstliv som lærer og som medstifter af Den frie Udstilling lod hans ven fra akademitiden, xylograf F. Hendriksen hans righoldige korrespondance tale i en mindebog, der udkom i 1919. Gælder det derimod det maleriske værk, må bedømmelsen være mere svingende. Med sin respekt for guldalderen fik Z. det problem, at han ikke nåede meget videre end til realismen og kun nølende modtog træk fra impressionismen i sine seneste billeder fra Italien. Derfor måtte han opleve, at impressionismens danske bannerfører, Karl Madsen, ganske vist skrev pænt om hans bedste Leonora Christina-billeder, men samtidig forholdt sig køligt til hans motiver fra Italien. Imidlertid er flere af de sidstnævnte værker habile arbejder, begyndende med en række i samtiden fornyende genrebilleder fra 1870ernes Rom og Sarasinesco og afsluttende med flere havne- og havebilleder fra Ravello, Amalfi og Portofino, der typisk er malet omkring århundredskiftet og vibrerer i glødende, sensuelle farver. Kærligheden til Italien resulterede i, at Z. mellem 1890 og 1911 hver sommer opholdt sig i bjergbyen Civita d'Antino syd for Rom for at male, og i denne værkgruppe kan billederne Piger der bærer kalk (1883), Drenge foran kirken i Civita d'Antino (1884) og Skt. Lidani fest (1890) fremhæves. Der blev tale om en kunstnerkoloni, hvor Z. gerne samlede venner og elever omkring sig og både her og andetsteds i Italien virkede stærkt inspirerende ved at fremhæve de klassiske, igangsættende værdier, han altid så i det mediterrane folkeliv, i lokalkoloritten og ikke mindst i den venezianske renæssancekunst.",
+          "creator_lref": "1261_person"
+        }
+      ],
+      "production_date": [
+        {
+          "start": "1891-01-01T00:00:00.000Z",
+          "end": "1891-12-31T00:00:00.000Z",
+          "period": "1891"
+        }
+      ],
+      "techniques": [
+        "Oil on canvas"
+      ],
+      "titles": [
+        {
+          "title": "Bird's Eye View from Ravello towards Torello",
+          "language": "engelsk"
+        }
+      ],
+      "number_of_parts": 1,
+      "object_number": "KMS3109",
+      "object_url": "https://api.smk.dk/api/v1/art?object_number=KMS3109",
+      "frontend_url": "https://open.smk.dk/artwork/image/KMS3109",
+      "iiif_manifest": "https://api.smk.dk/api/v1/iiif/manifest?id=KMS3109",
+      "enrichment_url": "https://enrichment.api.smk.dk/api/enrichment/KMS3109",
+      "similar_images_url": "https://similar.api.smk.dk/similar/?object_number=KMS3109",
+      "production_dates_notes": [
+        "Værkdatering: 1891"
+      ],
+      "public_domain": true,
+      "rights": "https://creativecommons.org/publicdomain/mark/1.0/",
+      "on_display": false,
+      "has_3d_file": false,
+      "has_image": true,
+      "image_width": 1600,
+      "image_height": 1246,
+      "image_thumbnail": "https://api.smk.dk/api/v1/thumbnail/6d720d0f-e554-4f24-aae7-7693e872e4c4.jpg",
+      "image_native": "https://api.smk.dk/api/v1/thumbnail/6d720d0f-e554-4f24-aae7-7693e872e4c4.jpg",
+      "colors": [
+        "#77733d",
+        "#908d41",
+        "#657b42",
+        "#d0da83"
+      ],
+      "suggested_bg_color": [
+        "#908d41"
+      ],
+      "entropy": 9.792481,
+      "contrast": 2.078558,
+      "saturation": 3.7741985,
+      "colortemp": 4.2285376,
+      "brightness": 5.986269,
+      "artist": [
+        "Kristian Zahrtmann"
+      ]
+    },
+    {
+      "id": "1170011750_object",
+      "created": "2020-03-21T10:35:08Z",
+      "modified": "2025-07-11T17:31:25Z",
+      "acquisition_date": "1884-01-01T00:00:00Z",
+      "acquisition_date_precision": "1884-12-31",
+      "dimensions": [
+        {
+          "notes": "935 x 870 mm",
+          "part": "Netto",
+          "type": "height",
+          "unit": "cm",
+          "value": "93.5"
+        },
+        {
+          "notes": "935 x 870 mm",
+          "part": "Netto",
+          "type": "width",
+          "unit": "cm",
+          "value": "87"
+        },
+        {
+          "part": "Brutto",
+          "type": "height",
+          "unit": "cm",
+          "value": "132.7"
+        },
+        {
+          "part": "Brutto",
+          "type": "width",
+          "unit": "cm",
+          "value": "126.3"
+        },
+        {
+          "part": "Brutto",
+          "type": "depth",
+          "unit": "cm",
+          "value": "7"
+        }
+      ],
+      "documentation": [
+        {
+          "title": "Danske dronninger i tusind år",
+          "author": "Steffen Heiberg",
+          "notes": "afb. p.216 (f)",
+          "shelfmark": "2000-305",
+          "year_of_publication": "2000"
+        },
+        {
+          "title": "Lysets malere: nordisk malerkunst fra klassicisme til modernisme",
+          "author": "Bengt-Arne Person",
+          "notes": "omt. p. 126",
+          "shelfmark": "2000-393",
+          "year_of_publication": "1999"
+        },
+        {
+          "title": "Ære være Leonora: Kristian Zahrtmann og Leonora Christina",
+          "author": "Marianne Saabye=såbye",
+          "notes": "kat. 12, omt. p. 30, 68, afb. p. 69, fig. 45",
+          "shelfmark": "C 36538",
+          "year_of_publication": "[2006]"
+        },
+        {
+          "title": "Kristian Zahrtmann 1843-1917",
+          "author": "Ubekendt",
+          "notes": "afb. p. 41 og omt. p. 37f",
+          "shelfmark": "ka1999-200",
+          "year_of_publication": "1999"
+        },
+        {
+          "title": "I. P. Jacobsen og Kunsten",
+          "author": "Anders Ehlers Dam & Gry Hedin",
+          "notes": "afb. p. 59, omt. p. 56",
+          "year_of_publication": "2016"
+        },
+        {
+          "title": "Kristian Zahrtmann",
+          "author": "Rasmus Kjærboe",
+          "notes": "afb. p. 63",
+          "year_of_publication": "2019"
+        }
+      ],
+      "exhibitions": [
+        {
+          "exhibition": "Den danske helt i 1000 år",
+          "date_start": "2001-08-25T00:00:00.000Z",
+          "date_end": "2002-01-13T00:00:00.000Z",
+          "venue": "Koldinghus"
+        },
+        {
+          "exhibition": "Ære være Leonora",
+          "date_start": "2006-09-01T00:00:00.000Z",
+          "date_end": "2006-12-30T00:00:00.000Z",
+          "venue": "Den Hirschsprungske Samling"
+        },
+        {
+          "exhibition": "J.P. Jacobsen og Kunsten",
+          "date_start": "2016-05-18T00:00:00.000Z",
+          "date_end": "2016-09-17T00:00:00.000Z",
+          "venue": "Faaborg Museum"
+        },
+        {
+          "exhibition": "J.P. Jacobsen og Kunsten",
+          "date_start": "2016-09-28T00:00:00.000Z",
+          "date_end": "2017-02-27T00:00:00.000Z",
+          "venue": "Museum Thy"
+        },
+        {
+          "exhibition": "Kristian Zahrtmann. Queer, kunst og lidenskab",
+          "date_start": "2019-05-17T00:00:00.000Z",
+          "date_end": "2019-09-01T00:00:00.000Z",
+          "venue": "Ribe Kunstmuseum"
+        },
+        {
+          "exhibition": "Kristian Zahrtmann. Queer, kunst og lidenskab",
+          "date_start": "2019-09-20T00:00:00.000Z",
+          "date_end": "2020-01-05T00:00:00.000Z",
+          "venue": "Fuglsang Kunstmuseum"
+        },
+        {
+          "exhibition": "Kristian Zahrtmann. Queer, kunst og lidenskab",
+          "date_start": "2020-02-05T00:00:00.000Z",
+          "date_end": "2020-08-30T00:00:00.000Z",
+          "venue": "Den Hirschsprungske Samling"
+        }
+      ],
+      "inscriptions": [
+        {
+          "content": "fnth: 18KZ (monogram) 82",
+          "type": "Inscription"
+        }
+      ],
+      "materials": [
+        "canvas"
+      ],
+      "object_names": [
+        {
+          "name": "Painting"
+        }
+      ],
+      "production": [
+        {
+          "creator": "Zahrtmann, Kristian",
+          "creator_forename": "Kristian",
+          "creator_surname": "Zahrtmann",
+          "creator_date_of_birth": "1843-03-31T00:00:00.000Z",
+          "creator_date_of_death": "1917-06-22T00:00:00.000Z",
+          "creator_nationality": "Danish",
+          "creator_gender": "MALE",
+          "creator_history": "Kristian Zahrtmann hørte til kunstnergenerationen omkring P.S. Krøyer og Th. Philipsen, som tilsluttede sig det moderne gennembrud og naturalismen. Skønt Z. lod sin kunst bære præg af en tilsyneladende realistisk form, levede der også en romantisk tendens i hans temperament, som gjorde, at netop han kunne give det fra guldalderen nedarvede historiemaleri en sidste opblomstring i dansk kunst. Helt fremtrædende i Z.s værk står hans store serie med motiv fra prinsesse Leonora Christinas livshistorie, sådan som den bl.a. er skildret i hendes berømte Jammers-Minde (1674). I 1869 fik Z. værket i historikeren Sophus Birket-Smiths udgivelse, og fra da af levede han i sin livslange psykiske symbiose med heltinden. De tidligste af disse Leonora Christina- billeder viser inspiration fra guldalderen og postguldalderen (W. Marstrand og Carl Bloch), men i 1880erne indebar kendskabet til værker af Adolph von Menzel samt begejstringen for Rembrandt en udvikling hen imod den stemningsmæssige konkretisering, mens 90erne medførte en mere teatralsk følelse og lysmættethed, der bl.a. er inspireret af Eugène Delacroix. På grund af sin hang til de store følelser og psykologien fik Z. kun ringe officiel påskønnelse for sine historiemalerier. Skønt han vandt en delt præmie med maleren Vilh. Rosenstand for hovedværket Studenterne drager ud til Københavns forsvar (1888), blev det den sidstnævnte, der fik æren at udføre opgaven til solemnitetssalen på København Universitet. Derimod blev Z.s historiemaleri påskønnet af tidens mere fremskridtsvenlige gemytter på grund af deres tankevækkende følelsesintensitet, som, ud over inspirationen fra det historiske stof, også skyldtes vekselvirkningen mellem en rigt facetteret personlighed og litteraturen, teaterkunsten og filosofien. På det psykiske plan hænger Leonora Christina-serien sammen med Z.s moderbinding og muligheden for en latent homoseksualitet, som særligt i hans sene liv udmøntede sig i flere, mere eller mindre heldige mande- og mytebilleder, Prometheus (1905), Sokrates og Alkibides (1907, 1911), Adam i Paradis (1913-14). Mere almenmenneskeligt relevant vidner Z.s historiemaleri om hans insisteren på den klassiske dannelse og det at tænke store tanker. Det var dette, der gjorde Z. til sin tids vigtigste kunstneriske lærerkraft, således at hans afdeling af Kunstnernes Studieskole ved Akademiet ligefrem kaldes Zahrtmanns Skole. Her modtog han omkring 200 danske, norske, svenske og finske elever, som nød godt af hans åbenhed over for eksperimenter. Skønt fynboerne Peter Hansen, Fritz Syberg, Poul S. Christiansen og Johannes Larsen vel hørte til inderkredsen, siger det noget om Z.s respekt for det enkelte kunstnertemperament, at han også nåede af blive en påskønnet lærer for Oluf Hartmann og senere modernister som f.eks. Edvard Weie, Harald Giersing og Olaf Rude. På grund af Z.s store indsats i det danske kunstliv som lærer og som medstifter af Den frie Udstilling lod hans ven fra akademitiden, xylograf F. Hendriksen hans righoldige korrespondance tale i en mindebog, der udkom i 1919. Gælder det derimod det maleriske værk, må bedømmelsen være mere svingende. Med sin respekt for guldalderen fik Z. det problem, at han ikke nåede meget videre end til realismen og kun nølende modtog træk fra impressionismen i sine seneste billeder fra Italien. Derfor måtte han opleve, at impressionismens danske bannerfører, Karl Madsen, ganske vist skrev pænt om hans bedste Leonora Christina-billeder, men samtidig forholdt sig køligt til hans motiver fra Italien. Imidlertid er flere af de sidstnævnte værker habile arbejder, begyndende med en række i samtiden fornyende genrebilleder fra 1870ernes Rom og Sarasinesco og afsluttende med flere havne- og havebilleder fra Ravello, Amalfi og Portofino, der typisk er malet omkring århundredskiftet og vibrerer i glødende, sensuelle farver. Kærligheden til Italien resulterede i, at Z. mellem 1890 og 1911 hver sommer opholdt sig i bjergbyen Civita d'Antino syd for Rom for at male, og i denne værkgruppe kan billederne Piger der bærer kalk (1883), Drenge foran kirken i Civita d'Antino (1884) og Skt. Lidani fest (1890) fremhæves. Der blev tale om en kunstnerkoloni, hvor Z. gerne samlede venner og elever omkring sig og både her og andetsteds i Italien virkede stærkt inspirerende ved at fremhæve de klassiske, igangsættende værdier, han altid så i det mediterrane folkeliv, i lokalkoloritten og ikke mindst i den venezianske renæssancekunst.",
+          "creator_lref": "1261_person"
+        }
+      ],
+      "production_date": [
+        {
+          "start": "1882-01-01T00:00:00.000Z",
+          "end": "1882-12-31T00:00:00.000Z",
+          "period": "1882"
+        }
+      ],
+      "techniques": [
+        "Oil on canvas"
+      ],
+      "titles": [
+        {
+          "title": "Leonora Christina in the Maribo Monastery",
+          "language": "engelsk"
+        }
+      ],
+      "number_of_parts": 1,
+      "object_number": "KMS1232",
+      "object_url": "https://api.smk.dk/api/v1/art?object_number=KMS1232",
+      "frontend_url": "https://open.smk.dk/artwork/image/KMS1232",
+      "iiif_manifest": "https://api.smk.dk/api/v1/iiif/manifest?id=KMS1232",
+      "enrichment_url": "https://enrichment.api.smk.dk/api/enrichment/KMS1232",
+      "similar_images_url": "https://similar.api.smk.dk/similar/?object_number=KMS1232",
+      "production_dates_notes": [
+        "Værkdatering: 1882"
+      ],
+      "public_domain": true,
+      "rights": "https://creativecommons.org/publicdomain/mark/1.0/",
+      "on_display": false,
+      "alternative_images": [
+        {
+          "mime_type": "image/tiff",
+          "iiif_id": "https://iip.smk.dk/iiif/jp2/fq977v58k_KMS1232.TIF.jp2",
+          "iiif_info": "https://iip.smk.dk/iiif/jp2/fq977v58k_KMS1232.TIF.jp2/info.json",
+          "width": 8160,
+          "height": 8160,
+          "size": 68891610.34482759,
+          "thumbnail": "https://iip-thumb.smk.dk/iiif/jp2/fq977v58k_KMS1232.TIF.jp2/full/!1024,/0/default.jpg",
+          "native": "https://iip.smk.dk/iiif/jp2/fq977v58k_KMS1232.TIF.jp2/full/full/0/native.jpg",
+          "orientation": "landscape"
+        },
+        {
+          "mime_type": "image/tiff",
+          "iiif_id": "https://iip.smk.dk/iiif/jp2/cz30pw62f_KMS1232.TIF.reconstructed.tif.jp2",
+          "iiif_info": "https://iip.smk.dk/iiif/jp2/cz30pw62f_KMS1232.TIF.reconstructed.tif.jp2/info.json",
+          "width": 6620,
+          "height": 7216,
+          "size": 28400171.03448276,
+          "thumbnail": "https://iip-thumb.smk.dk/iiif/jp2/cz30pw62f_KMS1232.TIF.reconstructed.tif.jp2/full/!1024,/0/default.jpg",
+          "native": "https://iip.smk.dk/iiif/jp2/cz30pw62f_KMS1232.TIF.reconstructed.tif.jp2/full/full/0/native.jpg",
+          "cropped": [
+            "true"
+          ],
+          "orientation": "portrait"
+        }
+      ],
+      "image_mime_type": "image/tiff",
+      "image_iiif_id": "https://iip.smk.dk/iiif/jp2/vt150n41g_KMS1232.TIF.reconstructed-cropped.tif.jp2",
+      "image_iiif_info": "https://iip.smk.dk/iiif/jp2/vt150n41g_KMS1232.TIF.reconstructed-cropped.tif.jp2/info.json",
+      "image_width": 6584,
+      "image_height": 7097,
+      "image_size": 27851048,
+      "image_thumbnail": "https://iip-thumb.smk.dk/iiif/jp2/vt150n41g_KMS1232.TIF.reconstructed-cropped.tif.jp2/full/!1024,/0/default.jpg",
+      "image_native": "https://api.smk.dk/api/v1/download/W3siaW1nX3VybCI6Imh0dHBzOi8vaWlwLnNtay5kay9paWlmL2pwMi92dDE1MG40MWdfS01TMTIzMi5USUYucmVjb25zdHJ1Y3RlZC1jcm9wcGVkLnRpZi5qcDIvZnVsbC9mdWxsLzAvbmF0aXZlLmpwZyIsInB1YmxpY19kb21haW4iOnRydWUsIm9iamVjdF9udW1iZXIiOiJLTVMxMjMyIiwibnVtIjoiIn1d/KMS1232.jpg",
+      "image_orientation": "portrait",
+      "image_hq": true,
+      "has_3d_file": false,
+      "has_image": true,
+      "colors": [
+        "#222222",
+        "#2c3b20",
+        "#666666",
+        "#111111"
+      ],
+      "suggested_bg_color": [
+        "#666666"
+      ],
+      "entropy": 9.684452,
+      "contrast": 2.4150434,
+      "saturation": 1.9033972,
+      "colortemp": 3.7247372,
+      "brightness": 3.3905535,
+      "artist": [
+        "Kristian Zahrtmann"
+      ]
+    },
+    {
+      "id": "1170011751_object",
+      "created": "2020-03-21T10:35:10Z",
+      "modified": "2025-09-26T06:29:41Z",
+      "current_location_name": "Sal 223",
+      "current_location_date": "2025-09-22T00:00:00Z",
+      "acquisition_date": "1996-01-01T00:00:00Z",
+      "acquisition_date_precision": "1996-12-31",
+      "dimensions": [
+        {
+          "notes": "1050 x 1500 x 40 mm",
+          "part": "Netto",
+          "type": "height",
+          "unit": "cm",
+          "value": "105"
+        },
+        {
+          "notes": "1050 x 1500 x 40 mm",
+          "part": "Netto",
+          "type": "width",
+          "unit": "cm",
+          "value": "150"
+        },
+        {
+          "notes": "1050 x 1500 x 40 mm",
+          "part": "Netto",
+          "type": "depth",
+          "unit": "cm",
+          "value": "4"
+        },
+        {
+          "notes": "1416 x 1881 x 76 mm",
+          "part": "Brutto",
+          "type": "height",
+          "unit": "cm",
+          "value": "141.6"
+        },
+        {
+          "notes": "1416 x 1881 x 76 mm",
+          "part": "Brutto",
+          "type": "width",
+          "unit": "cm",
+          "value": "188.1"
+        },
+        {
+          "notes": "1416 x 1881 x 76 mm",
+          "part": "Brutto",
+          "type": "depth",
+          "unit": "cm",
+          "value": "7.6"
+        }
+      ],
+      "documentation": [
+        {
+          "title": "Kristian Zahrtmann",
+          "author": "S. Danneskjold-Samsøe",
+          "notes": "p.424 (\"hun staar piberygende foran kaminen i pal. Corsini i Rom omgivet af hoffolk, og uden at genere sig løfter hun sin kjole op bagtil for at varme sig ved ilden. (...) Fraset det dristigt og paradoksalt valgte, men taktfuldt givne motiv, er billedet et almindeligt historiemaleri.\"). Værkfortegnelse nr. 1003.",
+          "shelfmark": "15503",
+          "year_of_publication": "1942"
+        },
+        {
+          "title": "Kunst i privat Eje",
+          "author": "Ubekendt",
+          "notes": "bd. 1, p. 224.",
+          "shelfmark": "16361",
+          "year_of_publication": "1944-1945"
+        },
+        {
+          "title": "Fortegnelse over Arbejder af Kr. Zahrtmann i Aarene 1905-13",
+          "author": "Kontorchef H. Chr. Christensen",
+          "notes": "Værkfortegnelse nr. 616.",
+          "shelfmark": "2798",
+          "year_of_publication": "1913"
+        },
+        {
+          "title": "Bilder av Kristina: Drottning av Sverige - Drottning i Rom",
+          "author": "Per Sandin",
+          "notes": "Afb. p. 258, omt. p. 258f",
+          "year_of_publication": "2013"
+        },
+        {
+          "title": "Periskop: forum for kunsthistorisk debat",
+          "author": "Ubekendt",
+          "notes": "Nr. 4, 1995, heri: Morten Steen Hansen, \"Kristian Zahrtmanns sene historiemalerier\", p. 62f.",
+          "shelfmark": "C 40425 ti",
+          "year_of_publication": "1993-"
+        },
+        {
+          "title": "Kristian Zahrtmann",
+          "author": "Rasmus Kjærboe",
+          "notes": "afb. p. 68",
+          "year_of_publication": "2019"
+        },
+        {
+          "title": "Kvinder i opbrud",
+          "author": "Naja Rasmussen",
+          "notes": "Afb. p. 86",
+          "year_of_publication": "2022"
+        },
+        {
+          "title": "The First Homosexuals. The Birth of a New Identity 1869-1939",
+          "author": "Jonathan D. Katz",
+          "notes": "afb. 231",
+          "year_of_publication": "2025"
+        }
+      ],
+      "exhibitions": [
+        {
+          "exhibition": "”The First Homosexuals”",
+          "date_start": "2025-05-01T00:00:00.000Z",
+          "date_end": "2025-08-01T00:00:00.000Z",
+          "venue": "Wrightwood 659"
+        },
+        {
+          "exhibition": "Kristian Zahrtmann. Queer, kunst og lidenskab",
+          "date_start": "2019-05-17T00:00:00.000Z",
+          "date_end": "2019-09-01T00:00:00.000Z",
+          "venue": "Ribe Kunstmuseum"
+        },
+        {
+          "exhibition": "Kristian Zahrtmann. Queer, kunst og lidenskab",
+          "date_start": "2019-09-20T00:00:00.000Z",
+          "date_end": "2020-01-05T00:00:00.000Z",
+          "venue": "Fuglsang Kunstmuseum"
+        },
+        {
+          "exhibition": "Kristian Zahrtmann. Queer, kunst og lidenskab",
+          "date_start": "2020-02-05T00:00:00.000Z",
+          "date_end": "2020-08-30T00:00:00.000Z",
+          "venue": "Den Hirschsprungske Samling"
+        },
+        {
+          "exhibition": "Nordic Highlights",
+          "date_start": "2017-04-08T00:00:00.000Z",
+          "date_end": "2017-08-13T00:00:00.000Z",
+          "venue": "SMK København"
+        },
+        {
+          "exhibition": "Bilder av Kristina",
+          "date_start": "2013-04-19T00:00:00.000Z",
+          "date_end": "2014-01-05T00:00:00.000Z",
+          "venue": "Livrustkammaren, Stockholm"
+        }
+      ],
+      "inscriptions": [
+        {
+          "content": "19 KZ [monogram] 08",
+          "type": "signature"
+        }
+      ],
+      "labels": [
+        {
+          "text": "This intimate historical painting shows the abdicated Swedish Queen Christina lifting up her dress to heat her behind by the fire. Zahrtmann may have become interested in Christina through his work on the Danish queen Leonora Christina, but he was also fascinated by the myth concerning her ambiguous gender identity. The ambiguity is accentuated here by the phallic pipe and by her inhabiting a traditionally masculine sphere: The spiritual, intellectual sphere, as symbolised by the book and statue. Zahrtmann was a controversial figure who taught many of the painters of the modern breakthrough. His radical choices of colour and motif stood out amongst the concepts of beauty prevalent in his time. Many figures in his work transcend the gender ideals of his time, but in real life he did not think women could be artists.",
+          "type": "EXHIBITIONTEXT",
+          "source": "Peter Nørgaard Larsen"
+        }
+      ],
+      "materials": [
+        "canvas"
+      ],
+      "object_names": [
+        {
+          "name": "Painting"
+        }
+      ],
+      "production": [
+        {
+          "creator": "Zahrtmann, Kristian",
+          "creator_forename": "Kristian",
+          "creator_surname": "Zahrtmann",
+          "creator_date_of_birth": "1843-03-31T00:00:00.000Z",
+          "creator_date_of_death": "1917-06-22T00:00:00.000Z",
+          "creator_nationality": "Danish",
+          "creator_gender": "MALE",
+          "creator_history": "Kristian Zahrtmann hørte til kunstnergenerationen omkring P.S. Krøyer og Th. Philipsen, som tilsluttede sig det moderne gennembrud og naturalismen. Skønt Z. lod sin kunst bære præg af en tilsyneladende realistisk form, levede der også en romantisk tendens i hans temperament, som gjorde, at netop han kunne give det fra guldalderen nedarvede historiemaleri en sidste opblomstring i dansk kunst. Helt fremtrædende i Z.s værk står hans store serie med motiv fra prinsesse Leonora Christinas livshistorie, sådan som den bl.a. er skildret i hendes berømte Jammers-Minde (1674). I 1869 fik Z. værket i historikeren Sophus Birket-Smiths udgivelse, og fra da af levede han i sin livslange psykiske symbiose med heltinden. De tidligste af disse Leonora Christina- billeder viser inspiration fra guldalderen og postguldalderen (W. Marstrand og Carl Bloch), men i 1880erne indebar kendskabet til værker af Adolph von Menzel samt begejstringen for Rembrandt en udvikling hen imod den stemningsmæssige konkretisering, mens 90erne medførte en mere teatralsk følelse og lysmættethed, der bl.a. er inspireret af Eugène Delacroix. På grund af sin hang til de store følelser og psykologien fik Z. kun ringe officiel påskønnelse for sine historiemalerier. Skønt han vandt en delt præmie med maleren Vilh. Rosenstand for hovedværket Studenterne drager ud til Københavns forsvar (1888), blev det den sidstnævnte, der fik æren at udføre opgaven til solemnitetssalen på København Universitet. Derimod blev Z.s historiemaleri påskønnet af tidens mere fremskridtsvenlige gemytter på grund af deres tankevækkende følelsesintensitet, som, ud over inspirationen fra det historiske stof, også skyldtes vekselvirkningen mellem en rigt facetteret personlighed og litteraturen, teaterkunsten og filosofien. På det psykiske plan hænger Leonora Christina-serien sammen med Z.s moderbinding og muligheden for en latent homoseksualitet, som særligt i hans sene liv udmøntede sig i flere, mere eller mindre heldige mande- og mytebilleder, Prometheus (1905), Sokrates og Alkibides (1907, 1911), Adam i Paradis (1913-14). Mere almenmenneskeligt relevant vidner Z.s historiemaleri om hans insisteren på den klassiske dannelse og det at tænke store tanker. Det var dette, der gjorde Z. til sin tids vigtigste kunstneriske lærerkraft, således at hans afdeling af Kunstnernes Studieskole ved Akademiet ligefrem kaldes Zahrtmanns Skole. Her modtog han omkring 200 danske, norske, svenske og finske elever, som nød godt af hans åbenhed over for eksperimenter. Skønt fynboerne Peter Hansen, Fritz Syberg, Poul S. Christiansen og Johannes Larsen vel hørte til inderkredsen, siger det noget om Z.s respekt for det enkelte kunstnertemperament, at han også nåede af blive en påskønnet lærer for Oluf Hartmann og senere modernister som f.eks. Edvard Weie, Harald Giersing og Olaf Rude. På grund af Z.s store indsats i det danske kunstliv som lærer og som medstifter af Den frie Udstilling lod hans ven fra akademitiden, xylograf F. Hendriksen hans righoldige korrespondance tale i en mindebog, der udkom i 1919. Gælder det derimod det maleriske værk, må bedømmelsen være mere svingende. Med sin respekt for guldalderen fik Z. det problem, at han ikke nåede meget videre end til realismen og kun nølende modtog træk fra impressionismen i sine seneste billeder fra Italien. Derfor måtte han opleve, at impressionismens danske bannerfører, Karl Madsen, ganske vist skrev pænt om hans bedste Leonora Christina-billeder, men samtidig forholdt sig køligt til hans motiver fra Italien. Imidlertid er flere af de sidstnævnte værker habile arbejder, begyndende med en række i samtiden fornyende genrebilleder fra 1870ernes Rom og Sarasinesco og afsluttende med flere havne- og havebilleder fra Ravello, Amalfi og Portofino, der typisk er malet omkring århundredskiftet og vibrerer i glødende, sensuelle farver. Kærligheden til Italien resulterede i, at Z. mellem 1890 og 1911 hver sommer opholdt sig i bjergbyen Civita d'Antino syd for Rom for at male, og i denne værkgruppe kan billederne Piger der bærer kalk (1883), Drenge foran kirken i Civita d'Antino (1884) og Skt. Lidani fest (1890) fremhæves. Der blev tale om en kunstnerkoloni, hvor Z. gerne samlede venner og elever omkring sig og både her og andetsteds i Italien virkede stærkt inspirerende ved at fremhæve de klassiske, igangsættende værdier, han altid så i det mediterrane folkeliv, i lokalkoloritten og ikke mindst i den venezianske renæssancekunst.",
+          "creator_lref": "1261_person"
+        }
+      ],
+      "production_date": [
+        {
+          "start": "1908-01-01T00:00:00.000Z",
+          "end": "1908-12-31T00:00:00.000Z",
+          "period": "1908"
+        }
+      ],
+      "techniques": [
+        "Oil on canvas"
+      ],
+      "titles": [
+        {
+          "title": "Queen Christina in Palazzo Corsini",
+          "language": "engelsk"
+        }
+      ],
+      "number_of_parts": 1,
+      "object_number": "KMS7961",
+      "object_url": "https://api.smk.dk/api/v1/art?object_number=KMS7961",
+      "frontend_url": "https://open.smk.dk/artwork/image/KMS7961",
+      "iiif_manifest": "https://api.smk.dk/api/v1/iiif/manifest?id=KMS7961",
+      "enrichment_url": "https://enrichment.api.smk.dk/api/enrichment/KMS7961",
+      "similar_images_url": "https://similar.api.smk.dk/similar/?object_number=KMS7961",
+      "production_dates_notes": [
+        "Værkdatering: 1908"
+      ],
+      "public_domain": true,
+      "rights": "https://creativecommons.org/publicdomain/mark/1.0/",
+      "on_display": true,
+      "has_3d_file": false,
+      "has_image": true,
+      "image_width": 1600,
+      "image_height": 1106,
+      "image_thumbnail": "https://api.smk.dk/api/v1/thumbnail/36f8be03-6328-4078-8469-f5f0b4bb6769.jpg",
+      "image_native": "https://api.smk.dk/api/v1/thumbnail/36f8be03-6328-4078-8469-f5f0b4bb6769.jpg",
+      "colors": [
+        "#222222",
+        "#111111",
+        "#795025",
+        "#212257",
+        "#999999"
+      ],
+      "suggested_bg_color": [
+        "#795025"
+      ],
+      "entropy": 9.7901745,
+      "contrast": 2.08914,
+      "saturation": 3.6084611,
+      "colortemp": 3.517864,
+      "brightness": 3.2489324,
+      "artist": [
+        "Kristian Zahrtmann"
+      ]
+    },
+    {
+      "id": "1170011752_object",
+      "created": "2020-03-21T10:35:13Z",
+      "modified": "2026-06-25T11:07:18Z",
+      "current_location_name": "Sal 223",
+      "current_location_date": "2024-10-07T00:00:00Z",
+      "acquisition_date": "1884-01-01T00:00:00Z",
+      "acquisition_date_precision": "1884-12-31",
+      "dimensions": [
+        {
+          "notes": "925 x 865 mm",
+          "part": "Netto",
+          "type": "height",
+          "unit": "cm",
+          "value": "92.5"
+        },
+        {
+          "notes": "925 x 865 mm",
+          "part": "Netto",
+          "type": "width",
+          "unit": "cm",
+          "value": "86.5"
+        },
+        {
+          "part": "Brutto",
+          "type": "height",
+          "unit": "cm",
+          "value": "128"
+        },
+        {
+          "part": "Brutto",
+          "type": "width",
+          "unit": "cm",
+          "value": "122"
+        },
+        {
+          "part": "Brutto",
+          "type": "depth",
+          "unit": "cm",
+          "value": "10"
+        }
+      ],
+      "documentation": [
+        {
+          "title": "Danske dronninger i tusind år",
+          "author": "Steffen Heiberg",
+          "notes": "afb. p.217 (f), omt. p. 217-18",
+          "shelfmark": "2000-305",
+          "year_of_publication": "2000"
+        },
+        {
+          "title": "Livstid - Modne kvinder i kunsten",
+          "author": "Tine Nygaard=nygård",
+          "notes": "Afb. p. 180",
+          "year_of_publication": "2026"
+        },
+        {
+          "title": "Princely Funerals in Europe 1400-1700. Commemoration, Diplomacy and Political Propaganda.",
+          "author": "Monique Chatenet",
+          "notes": "Afb. p. 37. Plate XIX.",
+          "year_of_publication": "2021"
+        },
+        {
+          "title": "Lysets malere: nordisk malerkunst fra klassicisme til modernisme",
+          "author": "Bengt-Arne Person",
+          "notes": "omt. p. 126-27",
+          "shelfmark": "2000-393",
+          "year_of_publication": "1999"
+        },
+        {
+          "title": "Från modernism till samtidskonst: svenska kvinnliga konstnärer",
+          "author": "Ubekendt",
+          "notes": "afb. p. 25, omt. p. 25",
+          "shelfmark": "2003-218",
+          "year_of_publication": "2003"
+        },
+        {
+          "title": "Dansk kunst: tusind års kunsthistorie",
+          "author": "Hans Edvard Nørregård-Nielsen",
+          "notes": "afb. p. 403 og omt. p. 404-405",
+          "shelfmark": "2003-520",
+          "year_of_publication": "2003"
+        },
+        {
+          "title": "Gyldendals bog om Danmarks historie",
+          "author": "Ole Feldbæk",
+          "notes": "afb. p. 113",
+          "shelfmark": "2004-392",
+          "year_of_publication": "2004"
+        },
+        {
+          "title": "SMK highlights: Statens Museum for Kunst",
+          "author": "Sven Bjerkhof",
+          "notes": "omt. og afb. p. 99",
+          "shelfmark": "2005-071",
+          "year_of_publication": "2005"
+        },
+        {
+          "title": "Ny dansk Billedkunst",
+          "author": "Niels Th. Mortensen",
+          "notes": "pmt. p. 94, ill. p. 95",
+          "shelfmark": "25107",
+          "year_of_publication": "1957"
+        },
+        {
+          "title": "Fra gullalder til cobra: dansk kunst i 150 år",
+          "author": "Knut Ljøgodt",
+          "notes": "afb. p. 27, omt. p. 26",
+          "shelfmark": "C 30890",
+          "year_of_publication": "2005"
+        },
+        {
+          "title": "Ære være Leonora: Kristian Zahrtmann og Leonora Christina",
+          "author": "Marianne Saabye=såbye",
+          "notes": "kat. 11, omt. p. 29-30, 64, afb. p. 65, fig. 43",
+          "shelfmark": "C 36538",
+          "year_of_publication": "[2006]"
+        },
+        {
+          "title": "I. P. Jacobsen og Kunsten",
+          "author": "Anders Ehlers Dam & Gry Hedin",
+          "notes": "afb. p. 58, omt. p. 56",
+          "year_of_publication": "2016"
+        },
+        {
+          "title": "Henrik Olsen \"Abandon the Parents\"",
+          "author": "Marianne Torp",
+          "notes": "afb. sektion Z",
+          "year_of_publication": "2014"
+        },
+        {
+          "title": "Kristian Zahrtmann",
+          "author": "Rasmus Kjærboe",
+          "notes": "afb. p. 64",
+          "year_of_publication": "2019"
+        },
+        {
+          "title": "Anna Ancher. Sonne, Licht, Skagen",
+          "author": "Ulrike Wolff-Thomsen",
+          "notes": "afb. fig. 6, p. 199",
+          "year_of_publication": "2022"
+        }
+      ],
+      "exhibitions": [
+        {
+          "exhibition": "J.P. Jacobsen og Kunsten",
+          "date_start": "2016-05-18T00:00:00.000Z",
+          "date_end": "2016-09-17T00:00:00.000Z",
+          "venue": "Faaborg Museum"
+        },
+        {
+          "exhibition": "J.P. Jacobsen og Kunsten",
+          "date_start": "2016-09-28T00:00:00.000Z",
+          "date_end": "2017-02-27T00:00:00.000Z",
+          "venue": "Museum Thy"
+        },
+        {
+          "exhibition": "Ære være Leonora",
+          "date_start": "2006-09-01T00:00:00.000Z",
+          "date_end": "2006-12-30T00:00:00.000Z",
+          "venue": "Den Hirschsprungske Samling"
+        },
+        {
+          "exhibition": "Kristian Zahrtmann. Queer, kunst og lidenskab",
+          "date_start": "2019-05-17T00:00:00.000Z",
+          "date_end": "2019-09-01T00:00:00.000Z",
+          "venue": "Ribe Kunstmuseum"
+        },
+        {
+          "exhibition": "Kristian Zahrtmann. Queer, kunst og lidenskab",
+          "date_start": "2019-09-20T00:00:00.000Z",
+          "date_end": "2020-01-05T00:00:00.000Z",
+          "venue": "Fuglsang Kunstmuseum"
+        },
+        {
+          "exhibition": "Kristian Zahrtmann. Queer, kunst og lidenskab",
+          "date_start": "2020-02-05T00:00:00.000Z",
+          "date_end": "2020-08-30T00:00:00.000Z",
+          "venue": "Den Hirschsprungske Samling"
+        },
+        {
+          "exhibition": "Nordic Highlights",
+          "date_start": "2017-04-08T00:00:00.000Z",
+          "date_end": "2017-08-13T00:00:00.000Z",
+          "venue": "SMK København"
+        }
+      ],
+      "inscriptions": [
+        {
+          "content": "fnth: 18KZ (monogram) 82",
+          "type": "Inscription"
+        }
+      ],
+      "labels": [
+        {
+          "text": "Surrounded by silverware and magnificent silks, the dowager queen Sophie Amalie (1628-1685) breathes her last. A grotesque figure whose status and wealth cannot deliver her from a violent and painful death by asphyxiation.\r\n\r\nLeonora Christine's memoirs\r\nThe painting belongs to the group of around 100 pictures, studies, and sculptures that Zahrtmann created on the basis of Leonora Christine’s (1621-1698) memoirs Jammersminde (Memory of Woe) from 1869. Her life and destiny, spanning the range from wealth and power through imprisonment and shame to rehabilitation and release, fascinated Zahrtmann for almost 50 years.\r\n\r\nSophie Amalie was behind Leonora Christine’s arrest and 22 years of imprisonment in Blåtårn. Zahrtmann hated her for that, and his sentiments are apperent with exceptional honesty in this depiction of her death throes.\r\n\r\nRenewer of historical painting\r\nAs an artist, the splendour-loving Zahrtmann became the great renewer of historical painting. In addition to his personal interpretations of Leonora Christine’s life, he was particularly interested in scenes of classical mythology.\r\n\r\nOver the years the colours became more intense and the interpretations more private, making them more bizarre in the eyes of his contemporaries. In his late figure compositions, he brought together \"exceptional\" human beings and obvious homoerotic fascinations in a high-tension exchange between life and work.",
+          "type": "OTHERTEXT",
+          "source": "PNL"
+        }
+      ],
+      "materials": [
+        "canvas"
+      ],
+      "object_names": [
+        {
+          "name": "Painting"
+        }
+      ],
+      "production": [
+        {
+          "creator": "Zahrtmann, Kristian",
+          "creator_forename": "Kristian",
+          "creator_surname": "Zahrtmann",
+          "creator_date_of_birth": "1843-03-31T00:00:00.000Z",
+          "creator_date_of_death": "1917-06-22T00:00:00.000Z",
+          "creator_nationality": "Danish",
+          "creator_gender": "MALE",
+          "creator_history": "Kristian Zahrtmann hørte til kunstnergenerationen omkring P.S. Krøyer og Th. Philipsen, som tilsluttede sig det moderne gennembrud og naturalismen. Skønt Z. lod sin kunst bære præg af en tilsyneladende realistisk form, levede der også en romantisk tendens i hans temperament, som gjorde, at netop han kunne give det fra guldalderen nedarvede historiemaleri en sidste opblomstring i dansk kunst. Helt fremtrædende i Z.s værk står hans store serie med motiv fra prinsesse Leonora Christinas livshistorie, sådan som den bl.a. er skildret i hendes berømte Jammers-Minde (1674). I 1869 fik Z. værket i historikeren Sophus Birket-Smiths udgivelse, og fra da af levede han i sin livslange psykiske symbiose med heltinden. De tidligste af disse Leonora Christina- billeder viser inspiration fra guldalderen og postguldalderen (W. Marstrand og Carl Bloch), men i 1880erne indebar kendskabet til værker af Adolph von Menzel samt begejstringen for Rembrandt en udvikling hen imod den stemningsmæssige konkretisering, mens 90erne medførte en mere teatralsk følelse og lysmættethed, der bl.a. er inspireret af Eugène Delacroix. På grund af sin hang til de store følelser og psykologien fik Z. kun ringe officiel påskønnelse for sine historiemalerier. Skønt han vandt en delt præmie med maleren Vilh. Rosenstand for hovedværket Studenterne drager ud til Københavns forsvar (1888), blev det den sidstnævnte, der fik æren at udføre opgaven til solemnitetssalen på København Universitet. Derimod blev Z.s historiemaleri påskønnet af tidens mere fremskridtsvenlige gemytter på grund af deres tankevækkende følelsesintensitet, som, ud over inspirationen fra det historiske stof, også skyldtes vekselvirkningen mellem en rigt facetteret personlighed og litteraturen, teaterkunsten og filosofien. På det psykiske plan hænger Leonora Christina-serien sammen med Z.s moderbinding og muligheden for en latent homoseksualitet, som særligt i hans sene liv udmøntede sig i flere, mere eller mindre heldige mande- og mytebilleder, Prometheus (1905), Sokrates og Alkibides (1907, 1911), Adam i Paradis (1913-14). Mere almenmenneskeligt relevant vidner Z.s historiemaleri om hans insisteren på den klassiske dannelse og det at tænke store tanker. Det var dette, der gjorde Z. til sin tids vigtigste kunstneriske lærerkraft, således at hans afdeling af Kunstnernes Studieskole ved Akademiet ligefrem kaldes Zahrtmanns Skole. Her modtog han omkring 200 danske, norske, svenske og finske elever, som nød godt af hans åbenhed over for eksperimenter. Skønt fynboerne Peter Hansen, Fritz Syberg, Poul S. Christiansen og Johannes Larsen vel hørte til inderkredsen, siger det noget om Z.s respekt for det enkelte kunstnertemperament, at han også nåede af blive en påskønnet lærer for Oluf Hartmann og senere modernister som f.eks. Edvard Weie, Harald Giersing og Olaf Rude. På grund af Z.s store indsats i det danske kunstliv som lærer og som medstifter af Den frie Udstilling lod hans ven fra akademitiden, xylograf F. Hendriksen hans righoldige korrespondance tale i en mindebog, der udkom i 1919. Gælder det derimod det maleriske værk, må bedømmelsen være mere svingende. Med sin respekt for guldalderen fik Z. det problem, at han ikke nåede meget videre end til realismen og kun nølende modtog træk fra impressionismen i sine seneste billeder fra Italien. Derfor måtte han opleve, at impressionismens danske bannerfører, Karl Madsen, ganske vist skrev pænt om hans bedste Leonora Christina-billeder, men samtidig forholdt sig køligt til hans motiver fra Italien. Imidlertid er flere af de sidstnævnte værker habile arbejder, begyndende med en række i samtiden fornyende genrebilleder fra 1870ernes Rom og Sarasinesco og afsluttende med flere havne- og havebilleder fra Ravello, Amalfi og Portofino, der typisk er malet omkring århundredskiftet og vibrerer i glødende, sensuelle farver. Kærligheden til Italien resulterede i, at Z. mellem 1890 og 1911 hver sommer opholdt sig i bjergbyen Civita d'Antino syd for Rom for at male, og i denne værkgruppe kan billederne Piger der bærer kalk (1883), Drenge foran kirken i Civita d'Antino (1884) og Skt. Lidani fest (1890) fremhæves. Der blev tale om en kunstnerkoloni, hvor Z. gerne samlede venner og elever omkring sig og både her og andetsteds i Italien virkede stærkt inspirerende ved at fremhæve de klassiske, igangsættende værdier, han altid så i det mediterrane folkeliv, i lokalkoloritten og ikke mindst i den venezianske renæssancekunst.",
+          "creator_lref": "1261_person"
+        }
+      ],
+      "production_date": [
+        {
+          "start": "1882-01-01T00:00:00.000Z",
+          "end": "1882-12-31T00:00:00.000Z",
+          "period": "1882"
+        }
+      ],
+      "techniques": [
+        "Oil on canvas"
+      ],
+      "titles": [
+        {
+          "title": "The Death of Queen Sophie Amalie",
+          "language": "engelsk"
+        }
+      ],
+      "number_of_parts": 1,
+      "object_number": "KMS1231",
+      "object_url": "https://api.smk.dk/api/v1/art?object_number=KMS1231",
+      "frontend_url": "https://open.smk.dk/artwork/image/KMS1231",
+      "iiif_manifest": "https://api.smk.dk/api/v1/iiif/manifest?id=KMS1231",
+      "enrichment_url": "https://enrichment.api.smk.dk/api/enrichment/KMS1231",
+      "similar_images_url": "https://similar.api.smk.dk/similar/?object_number=KMS1231",
+      "production_dates_notes": [
+        "Værkdatering: 1882"
+      ],
+      "public_domain": true,
+      "rights": "https://creativecommons.org/publicdomain/mark/1.0/",
+      "on_display": true,
+      "alternative_images": [
+        {
+          "mime_type": "image/tiff",
+          "iiif_id": "https://iip.smk.dk/iiif/jp2/zs25xd66p_kms1231.tif.jp2",
+          "iiif_info": "https://iip.smk.dk/iiif/jp2/zs25xd66p_kms1231.tif.jp2/info.json",
+          "width": 4096,
+          "height": 3720,
+          "size": 15772960,
+          "thumbnail": "https://iip-thumb.smk.dk/iiif/jp2/zs25xd66p_kms1231.tif.jp2/full/!1024,/0/default.jpg",
+          "native": "https://iip.smk.dk/iiif/jp2/zs25xd66p_kms1231.tif.jp2/full/full/0/native.jpg",
+          "orientation": "landscape"
+        }
+      ],
+      "image_mime_type": "image/tiff",
+      "image_iiif_id": "https://iip.smk.dk/iiif/jp2/xp68km230_kms1231.tif.reconstructed.tif.jp2",
+      "image_iiif_info": "https://iip.smk.dk/iiif/jp2/xp68km230_kms1231.tif.reconstructed.tif.jp2/info.json",
+      "image_width": 3350,
+      "image_height": 3586,
+      "image_size": 11345557,
+      "image_thumbnail": "https://iip-thumb.smk.dk/iiif/jp2/xp68km230_kms1231.tif.reconstructed.tif.jp2/full/!1024,/0/default.jpg",
+      "image_native": "https://api.smk.dk/api/v1/download/W3siaW1nX3VybCI6Imh0dHBzOi8vaWlwLnNtay5kay9paWlmL2pwMi94cDY4a20yMzBfa21zMTIzMS50aWYucmVjb25zdHJ1Y3RlZC50aWYuanAyL2Z1bGwvZnVsbC8wL25hdGl2ZS5qcGciLCJwdWJsaWNfZG9tYWluIjp0cnVlLCJvYmplY3RfbnVtYmVyIjoiS01TMTIzMSIsIm51bSI6IiJ9XQ==/KMS1231.jpg",
+      "image_orientation": "portrait",
+      "image_hq": true,
+      "has_3d_file": false,
+      "has_image": true,
+      "colors": [
+        "#3a351f",
+        "#593d1c",
+        "#222222",
+        "#b97438",
+        "#795025",
+        "#777777",
+        "#999999",
+        "#b93530"
+      ],
+      "suggested_bg_color": [
+        "#b97438"
+      ],
+      "entropy": 9.78999,
+      "contrast": 2.9493735,
+      "saturation": 3.1420543,
+      "colortemp": 4.2836676,
+      "brightness": 5.183491,
+      "has_text": true,
+      "artist": [
+        "Kristian Zahrtmann"
+      ]
+    },
+    {
+      "id": "1170011753_object",
+      "created": "2020-03-21T10:35:16Z",
+      "modified": "2025-07-11T17:31:26Z",
+      "acquisition_date": "1930-01-01T00:00:00Z",
+      "acquisition_date_precision": "1930-12-31",
+      "dimensions": [
+        {
+          "notes": "735 x 570 mm",
+          "part": "Netto",
+          "type": "height",
+          "unit": "cm",
+          "value": "73.5"
+        },
+        {
+          "notes": "735 x 570 mm",
+          "part": "Netto",
+          "type": "width",
+          "unit": "cm",
+          "value": "57"
+        },
+        {
+          "notes": "844 x 676 x 60 mm",
+          "part": "Brutto",
+          "type": "height",
+          "unit": "cm",
+          "value": "84.4"
+        },
+        {
+          "notes": "844 x 676 x 60 mm",
+          "part": "Brutto",
+          "type": "width",
+          "unit": "cm",
+          "value": "67.6"
+        },
+        {
+          "notes": "844 x 676 x 60 mm",
+          "part": "Brutto",
+          "type": "depth",
+          "unit": "cm",
+          "value": "6"
+        }
+      ],
+      "documentation": [
+        {
+          "title": "Fortegnelse over den danske Samlings Malerier og Skulpturer: Statens Museum for Kunst",
+          "author": "Ubekendt",
+          "notes": "kat. 39",
+          "shelfmark": "11786",
+          "year_of_publication": "1934"
+        },
+        {
+          "title": "Abildgaard=abildgård: kunstneren mellem oprørerne",
+          "author": "Patrick Kragelund",
+          "notes": "Ill. p. 465, 468. Omtales p. 464 - 472. Kragelund foreslår anden titel: \"Retfærdigheden\".",
+          "shelfmark": "2000-057",
+          "year_of_publication": "1999"
+        },
+        {
+          "title": "Abildgaard, Homer and the dawn of the millennium",
+          "author": "Patrick Kragelund",
+          "notes": "p. 202",
+          "shelfmark": "2002-265"
+        },
+        {
+          "title": "Maleren Abildgaard",
+          "author": "Bente Skovgaard=skovgård",
+          "notes": "afb. pl. 52",
+          "shelfmark": "28071",
+          "year_of_publication": "1961"
+        },
+        {
+          "title": "Abildgaard=abildgård, 1743-1809",
+          "author": "Ubekendt",
+          "notes": "kat.nr. 30, omt. p. 116, ill. p. 117",
+          "shelfmark": "C 42692",
+          "year_of_publication": "2008"
+        },
+        {
+          "title": "Nicolai Abildgaard: der Lehrer von Friedrich und Runge",
+          "author": "Ubekendt",
+          "notes": "kat. 30, omt. p. 132, ill. p. 133 + 184 (detalje)",
+          "shelfmark": "C 43272",
+          "year_of_publication": "2009"
+        },
+        {
+          "title": "Nicolai Abildgaard: Kroppen i oprør",
+          "author": "Thomas Lederballe",
+          "notes": "Afb. p. 119 og 266 (kat. 63). omt. p. 117. katalogtekst p. 117.",
+          "shelfmark": "C 44316",
+          "year_of_publication": "2009"
+        },
+        {
+          "title": "Fortegnelse over den danske Samlings Malerier og Skulpturer: Statens Museum for Kunst",
+          "author": "Ubekendt",
+          "notes": "kat. 39",
+          "shelfmark": "11786",
+          "year_of_publication": "1934"
+        },
+        {
+          "title": "Fem hundrede danske og skandinaviske malerier",
+          "author": "Ubekendt",
+          "notes": "kat. 39",
+          "shelfmark": "D 9138 mus",
+          "year_of_publication": "1954"
+        },
+        {
+          "title": "Fortegnelse over den danske Samlings Malerier og Skulpturer: Statens Museum for Kunst",
+          "author": "Ubekendt",
+          "notes": "kat. 39",
+          "shelfmark": "eks11 May 2009 16:29:19:580",
+          "year_of_publication": "1944"
+        },
+        {
+          "title": "The Church, The Revolution, and the 'Peintre Philosophe'",
+          "author": "Patrick Kragelund",
+          "notes": "p. 49, 54f, fig. 15"
+        },
+        {
+          "title": "Between Formula and Freestyle, Nicolai Abildgaard and 18th-century Painting Technique",
+          "author": "Troels Filtenborg",
+          "notes": "p. 18",
+          "year_of_publication": "2014"
+        }
+      ],
+      "exhibitions": [
+        {
+          "exhibition": "Nicolai Abildgaard - Kroppen i oprør",
+          "date_start": "2008-11-12T00:00:00.000Z",
+          "date_end": "2009-02-09T00:00:00.000Z",
+          "venue": "Louvre"
+        },
+        {
+          "exhibition": "Nicolai Abildgaard - Kroppen i oprør",
+          "date_start": "2009-03-02T00:00:00.000Z",
+          "date_end": "2009-06-13T00:00:00.000Z",
+          "venue": "Hamburger Kunsthalle"
+        },
+        {
+          "exhibition": "Nicolai Abildgaard - Kroppen i oprør",
+          "date_start": "2009-08-28T00:00:00.000Z",
+          "date_end": "2010-01-23T00:00:00.000Z",
+          "venue": "SMK København"
+        },
+        {
+          "exhibition": "Fire danske klassikere : Nicolai Abildgaard, Jens Juel, Christoffer Wilhelm Eckersberg og Bertel Thorvaldsen",
+          "date_start": "1992-10-15T00:00:00.000Z",
+          "date_end": "1993-01-10T00:00:00.000Z",
+          "venue": "Nasjonalgalleriet, Oslo"
+        },
+        {
+          "exhibition": "Danmark og den franske revolution",
+          "date_start": "1989-06-14T00:00:00.000Z",
+          "date_end": "1989-09-30T00:00:00.000Z",
+          "venue": "Det Kongelige Bibliotek"
+        },
+        {
+          "exhibition": "Dansk Guldålder",
+          "date_start": "1964-01-23T00:00:00.000Z",
+          "date_end": "1964-04-05T00:00:00.000Z",
+          "venue": "Nationalmuseum, Stockholm"
+        }
+      ],
+      "inscriptions": [
+        {
+          "content": "N. Abildgaard. 1800.",
+          "type": "signature"
+        }
+      ],
+      "materials": [
+        "canvas"
+      ],
+      "object_names": [
+        {
+          "name": "Painting"
+        }
+      ],
+      "production": [
+        {
+          "creator": "Abildgaard, Nicolai",
+          "creator_forename": "Nicolai",
+          "creator_surname": "Abildgaard",
+          "creator_date_of_birth": "1743-09-11T00:00:00.000Z",
+          "creator_date_of_death": "1809-06-04T00:00:00.000Z",
+          "creator_nationality": "Danish",
+          "creator_gender": "MALE",
+          "creator_history": "Nicolai Abildgaard hørte allerede i læreårene på Akademiet hos Edv. Mandelberg og Johs. Wiedewelt om nyklassicismens patriarker, grev de Caylus, Rafael Mengs og J.J. Winckelmann. I 1771 vandt han Akademiets rejsestipendium, og lagde sig i Rom efter historiemaleriet i den store stil (Carracci, Rafael, Michelangelo, Giulio Romano og Tizian). I kredsen omkring billedhuggeren Tobias Sergel og maleren Johann Füssli modtog han impulser, der førte bort fra hans læreres klassicisme. A. udviklede her sin sans for det sublime i drama og poesi hos Shakespeare, Homer og Ossian. Hans arbejde med oldnordiske motiver fra Edda og Saxo foregreb de opgaver, der ventede derhjemme. Med Den sårede Filoktet placerede A. sig markant i før-romantikernes avantgarde, men Michelangelos patos fordunklede aldrig hans beundring for Rafaels \"disegno\". Natlige genfærd og drømmesyn befolker hans lærreder, men som oplysningsmand hyldede han samtidig idealerne om fornuftens forrang og kunstens opdragende mission. De krav til kunstnerens lærdom og filosofiske dannelse, som Winckelmann havde genfremsat, blev i vid udstrækning retningsgivende for A., der i allegorien og historiemaleriet så kunstens højeste udtryksform. Portrætter og landskaber var under den \"philosopherende Malers\" værdighed. I lighed med samtidige som Füssli og William Blake vendte A. konsekvent virkelighedsgengivelsen ryggen. Figurtegning og farve præges af en vidtgående og til tider bizar stilisering, selv efter 1790, da hans formsprog bliver mere klassicistisk. 1778 modtog A. bestillingen på 10 malerier af de Oldenborgske konger til Christiansborgs riddersal og fuldførte projektet i 1791. Ved slotsbranden 1794 gik næsten alt til grunde. Hvad der er bevaret, røber et overlegent greb om opgavens krav. Den hierarkiske rumfølge, der fra Potentatgemakkets Europa førte frem til riddersalens Danmark, var anlagt som én sammenhængende \"geographisk\" allegori. I pagt med tidens gryende nationale selvbevidsthed var nationen i selve riddersalen sidestillet med kongehuset. A. udførte flere mindre bestillinger, gravmæler, mindesten, vignetter og illustrationer. Til opførelsen af Johannes Ewalds Balders død (1779), leverede A. udkast til kostumer i oldnordisk stil. Uden for de britiske øer var han den første, der illustrerede Ossian. Samarbejdet med kobberstikkeren J.F. Clemens gjorde hans Sokrates og Ossian kendte, også uden for landets grænser. A. bidrog som kunstner til reformtidens samfundsdebat med en række anonymt udgivne satiriske stik fra 1785-87, igen s.m. Clemens. Ligesom illustrationerne til Holbergs Niels Klim er de højdepunkter inden for genren. Også A.s store bogsamling røber sympati for religiøse fritænkere og politisk reform. A. hilste den franske revolution med begejstring og søgte i 1789-90 at give den ny tids frihedsidealer en plads i riddersalens kongeserie, men skitsen Christian VII, der ophæver stavnsbåndet blev afvist. I 1791 blev maleren afskediget og udsmykningen af riddersalen indstillet. Samme forår offentliggjorde A. subskribtionsindbydelsen til Frihedsstøtten, hvis billedprogram han i alt væsentligt udarbejdede. Også medaljen om forbuddet mod slavehandelen blev finansieret ved offentlig subskription. Hans revolutionære sympatier kommer klart til udtryk i den allegoriske Jupiter, udstillet på Salonen 1794. Men nu var den politiske stemning vendt, og A. blev som kunstner i stigende grad isoleret. Han var dog fortsat aktiv i sit private atelier, men efter 1791 fuldførte han som maler ikke flere officielle opgaver. Med censurens genindførelse 1799 ophørte hans deltagelse i den offentlige debat. 1804 fik han bestilling på en serie malerier til tronsalen i det nye kongeslot, men kronprins Frederik ville ikke som maleren, og maleren ville ikke gå på akkord. Forbindelsen med hoffet opretholdt han dog i sine arbejder som arkitekt med udkast til møbler og rumdekorationer. Antikken blev i løbet af 1790erne en stadig vigtigere inspirationskilde. De to serier malerier med motiv fra skuespil af Voltaire og Terents blev A.s sidste store rumdekorationer. De var ikke bestemt for hoffet, men for et borgerhjem og malerens egne stuer, Terents-serien en brudegave til A.s anden hustru. Den indledte en række muntert erotiske arbejder, der vidner om en stor fortrolighed med den antikke kærlighedsdigtning. A. var for excentrisk til at danne skole, men for A.J. Carstens var han afgørende, og for Thorvaldsen mere end en mentor. A. blev en af den danske kunsts fædre, men hans idealer stod romantikken og naturalismen fjernt. I det 20. århundrede har et mere mangfoldigt kunstsyn mindsket afstanden.",
+          "creator_lref": "241_person"
+        }
+      ],
+      "production_date": [
+        {
+          "start": "1800-01-01T00:00:00.000Z",
+          "end": "1800-12-31T00:00:00.000Z",
+          "period": "1800"
+        }
+      ],
+      "techniques": [
+        "Oil on canvas"
+      ],
+      "titles": [
+        {
+          "title": "Jurisprudence. Allegorical Figure",
+          "notes": "Engelsk titel ifølge kataloget \"Ældre Dansk Malerkunst\" 2001",
+          "language": "engelsk"
+        }
+      ],
+      "number_of_parts": 1,
+      "object_number": "KMS3880",
+      "object_url": "https://api.smk.dk/api/v1/art?object_number=KMS3880",
+      "frontend_url": "https://open.smk.dk/artwork/image/KMS3880",
+      "iiif_manifest": "https://api.smk.dk/api/v1/iiif/manifest?id=KMS3880",
+      "enrichment_url": "https://enrichment.api.smk.dk/api/enrichment/KMS3880",
+      "similar_images_url": "https://similar.api.smk.dk/similar/?object_number=KMS3880",
+      "production_dates_notes": [
+        "Værkdatering: 1800"
+      ],
+      "work_status": [
+        "part of a series"
+      ],
+      "public_domain": true,
+      "rights": "https://creativecommons.org/publicdomain/mark/1.0/",
+      "on_display": false,
+      "alternative_images": [
+        {
+          "mime_type": "image/tiff",
+          "iiif_id": "https://iip.smk.dk/iiif/jp2/cr56n184r_KMS3880.tif.jp2",
+          "iiif_info": "https://iip.smk.dk/iiif/jp2/cr56n184r_KMS3880.tif.jp2/info.json",
+          "width": 3541,
+          "height": 4584,
+          "size": 16801448.275862068,
+          "thumbnail": "https://iip-thumb.smk.dk/iiif/jp2/cr56n184r_KMS3880.tif.jp2/full/!1024,/0/default.jpg",
+          "native": "https://iip.smk.dk/iiif/jp2/cr56n184r_KMS3880.tif.jp2/full/full/0/native.jpg",
+          "orientation": "portrait"
+        }
+      ],
+      "image_mime_type": "image/tiff",
+      "image_iiif_id": "https://iip.smk.dk/iiif/jp2/mw22v869s_KMS3880.tif.reconstructed.tif.jp2",
+      "image_iiif_info": "https://iip.smk.dk/iiif/jp2/mw22v869s_KMS3880.tif.reconstructed.tif.jp2/info.json",
+      "image_width": 3537,
+      "image_height": 4575,
+      "image_size": 10023728,
+      "image_thumbnail": "https://iip-thumb.smk.dk/iiif/jp2/mw22v869s_KMS3880.tif.reconstructed.tif.jp2/full/!1024,/0/default.jpg",
+      "image_native": "https://api.smk.dk/api/v1/download/W3siaW1nX3VybCI6Imh0dHBzOi8vaWlwLnNtay5kay9paWlmL2pwMi9tdzIydjg2OXNfS01TMzg4MC50aWYucmVjb25zdHJ1Y3RlZC50aWYuanAyL2Z1bGwvZnVsbC8wL25hdGl2ZS5qcGciLCJwdWJsaWNfZG9tYWluIjp0cnVlLCJvYmplY3RfbnVtYmVyIjoiS01TMzg4MCIsIm51bSI6IiJ9XQ==/KMS3880.jpg",
+      "image_cropped": true,
+      "image_orientation": "portrait",
+      "image_hq": true,
+      "has_3d_file": false,
+      "has_image": true,
+      "colors": [
+        "#777777",
+        "#5a5527",
+        "#795025",
+        "#214e77",
+        "#fcf1a6",
+        "#ffcfa5",
+        "#b97438"
+      ],
+      "suggested_bg_color": [
+        "#b97438"
+      ],
+      "entropy": 9.791736,
+      "contrast": 2.752926,
+      "saturation": 3.383715,
+      "colortemp": 3.7342687,
+      "brightness": 5.571107,
+      "artist": [
+        "Nicolai Abildgaard"
+      ]
+    },
+    {
+      "id": "1170011754_object",
+      "created": "2020-03-21T10:35:21Z",
+      "modified": "2025-07-11T17:31:26Z",
+      "acquisition_date": "1991-01-01T00:00:00Z",
+      "acquisition_date_precision": "1991-12-31",
+      "dimensions": [
+        {
+          "notes": "730 x 575 mm",
+          "part": "Netto",
+          "type": "height",
+          "unit": "cm",
+          "value": "73"
+        },
+        {
+          "notes": "730 x 575 mm",
+          "part": "Netto",
+          "type": "width",
+          "unit": "cm",
+          "value": "57.5"
+        },
+        {
+          "notes": "851 x 689 x 58 mm",
+          "part": "Brutto",
+          "type": "height",
+          "unit": "cm",
+          "value": "85.1"
+        },
+        {
+          "notes": "851 x 689 x 58 mm",
+          "part": "Brutto",
+          "type": "width",
+          "unit": "cm",
+          "value": "68.9"
+        },
+        {
+          "notes": "851 x 689 x 58 mm",
+          "part": "Brutto",
+          "type": "depth",
+          "unit": "cm",
+          "value": "5.8"
+        }
+      ],
+      "documentation": [
+        {
+          "title": "Abildgaard=abildgård: kunstneren mellem oprørerne",
+          "author": "Patrick Kragelund",
+          "notes": "Ill. p. 465, 469. Omtales p. 464-472, 488",
+          "shelfmark": "2000-057",
+          "year_of_publication": "1999"
+        },
+        {
+          "title": "Abildgaard=abildgård, 1743-1809",
+          "author": "Ubekendt",
+          "notes": "kat.nr. 32, omt. p. 120, ill. p. 121",
+          "shelfmark": "C 42692",
+          "year_of_publication": "2008"
+        },
+        {
+          "title": "Nicolai Abildgaard: der Lehrer von Friedrich und Runge",
+          "author": "Ubekendt",
+          "notes": "kat. 32, omt. p. 136, ill. p. 137",
+          "shelfmark": "C 43272",
+          "year_of_publication": "2009"
+        },
+        {
+          "title": "Nicolai Abildgaard: Kroppen i oprør",
+          "author": "Thomas Lederballe",
+          "notes": "Afb. p. 118 og 265 (kat. 62). omt. p. 117. katalogtekst p. 265.",
+          "shelfmark": "C 44316",
+          "year_of_publication": "2009"
+        },
+        {
+          "title": "Between Formula and Freestyle, Nicolai Abildgaard and 18th-century Painting Technique",
+          "author": "Troels Filtenborg",
+          "notes": "p. 18",
+          "year_of_publication": "2014"
+        }
+      ],
+      "exhibitions": [
+        {
+          "exhibition": "Nicolai Abildgaard - Kroppen i oprør",
+          "date_start": "2008-11-12T00:00:00.000Z",
+          "date_end": "2009-02-09T00:00:00.000Z",
+          "venue": "Louvre"
+        },
+        {
+          "exhibition": "Nicolai Abildgaard - Kroppen i oprør",
+          "date_start": "2009-03-02T00:00:00.000Z",
+          "date_end": "2009-06-13T00:00:00.000Z",
+          "venue": "Hamburger Kunsthalle"
+        },
+        {
+          "exhibition": "Nicolai Abildgaard - Kroppen i oprør",
+          "date_start": "2009-08-28T00:00:00.000Z",
+          "date_end": "2010-01-23T00:00:00.000Z",
+          "venue": "SMK København"
+        },
+        {
+          "exhibition": "Umisteligt! Danske kulturværdier",
+          "date_start": "2001-02-23T00:00:00.000Z",
+          "date_end": "2001-05-05T00:00:00.000Z",
+          "venue": "Det Kongelige Bibliotek"
+        }
+      ],
+      "inscriptions": [
+        {
+          "content": "N.Abildgaard 1800",
+          "type": "signature"
+        }
+      ],
+      "materials": [
+        "canvas"
+      ],
+      "object_names": [
+        {
+          "name": "Painting"
+        }
+      ],
+      "production": [
+        {
+          "creator": "Abildgaard, Nicolai",
+          "creator_forename": "Nicolai",
+          "creator_surname": "Abildgaard",
+          "creator_date_of_birth": "1743-09-11T00:00:00.000Z",
+          "creator_date_of_death": "1809-06-04T00:00:00.000Z",
+          "creator_nationality": "Danish",
+          "creator_gender": "MALE",
+          "creator_history": "Nicolai Abildgaard hørte allerede i læreårene på Akademiet hos Edv. Mandelberg og Johs. Wiedewelt om nyklassicismens patriarker, grev de Caylus, Rafael Mengs og J.J. Winckelmann. I 1771 vandt han Akademiets rejsestipendium, og lagde sig i Rom efter historiemaleriet i den store stil (Carracci, Rafael, Michelangelo, Giulio Romano og Tizian). I kredsen omkring billedhuggeren Tobias Sergel og maleren Johann Füssli modtog han impulser, der førte bort fra hans læreres klassicisme. A. udviklede her sin sans for det sublime i drama og poesi hos Shakespeare, Homer og Ossian. Hans arbejde med oldnordiske motiver fra Edda og Saxo foregreb de opgaver, der ventede derhjemme. Med Den sårede Filoktet placerede A. sig markant i før-romantikernes avantgarde, men Michelangelos patos fordunklede aldrig hans beundring for Rafaels \"disegno\". Natlige genfærd og drømmesyn befolker hans lærreder, men som oplysningsmand hyldede han samtidig idealerne om fornuftens forrang og kunstens opdragende mission. De krav til kunstnerens lærdom og filosofiske dannelse, som Winckelmann havde genfremsat, blev i vid udstrækning retningsgivende for A., der i allegorien og historiemaleriet så kunstens højeste udtryksform. Portrætter og landskaber var under den \"philosopherende Malers\" værdighed. I lighed med samtidige som Füssli og William Blake vendte A. konsekvent virkelighedsgengivelsen ryggen. Figurtegning og farve præges af en vidtgående og til tider bizar stilisering, selv efter 1790, da hans formsprog bliver mere klassicistisk. 1778 modtog A. bestillingen på 10 malerier af de Oldenborgske konger til Christiansborgs riddersal og fuldførte projektet i 1791. Ved slotsbranden 1794 gik næsten alt til grunde. Hvad der er bevaret, røber et overlegent greb om opgavens krav. Den hierarkiske rumfølge, der fra Potentatgemakkets Europa førte frem til riddersalens Danmark, var anlagt som én sammenhængende \"geographisk\" allegori. I pagt med tidens gryende nationale selvbevidsthed var nationen i selve riddersalen sidestillet med kongehuset. A. udførte flere mindre bestillinger, gravmæler, mindesten, vignetter og illustrationer. Til opførelsen af Johannes Ewalds Balders død (1779), leverede A. udkast til kostumer i oldnordisk stil. Uden for de britiske øer var han den første, der illustrerede Ossian. Samarbejdet med kobberstikkeren J.F. Clemens gjorde hans Sokrates og Ossian kendte, også uden for landets grænser. A. bidrog som kunstner til reformtidens samfundsdebat med en række anonymt udgivne satiriske stik fra 1785-87, igen s.m. Clemens. Ligesom illustrationerne til Holbergs Niels Klim er de højdepunkter inden for genren. Også A.s store bogsamling røber sympati for religiøse fritænkere og politisk reform. A. hilste den franske revolution med begejstring og søgte i 1789-90 at give den ny tids frihedsidealer en plads i riddersalens kongeserie, men skitsen Christian VII, der ophæver stavnsbåndet blev afvist. I 1791 blev maleren afskediget og udsmykningen af riddersalen indstillet. Samme forår offentliggjorde A. subskribtionsindbydelsen til Frihedsstøtten, hvis billedprogram han i alt væsentligt udarbejdede. Også medaljen om forbuddet mod slavehandelen blev finansieret ved offentlig subskription. Hans revolutionære sympatier kommer klart til udtryk i den allegoriske Jupiter, udstillet på Salonen 1794. Men nu var den politiske stemning vendt, og A. blev som kunstner i stigende grad isoleret. Han var dog fortsat aktiv i sit private atelier, men efter 1791 fuldførte han som maler ikke flere officielle opgaver. Med censurens genindførelse 1799 ophørte hans deltagelse i den offentlige debat. 1804 fik han bestilling på en serie malerier til tronsalen i det nye kongeslot, men kronprins Frederik ville ikke som maleren, og maleren ville ikke gå på akkord. Forbindelsen med hoffet opretholdt han dog i sine arbejder som arkitekt med udkast til møbler og rumdekorationer. Antikken blev i løbet af 1790erne en stadig vigtigere inspirationskilde. De to serier malerier med motiv fra skuespil af Voltaire og Terents blev A.s sidste store rumdekorationer. De var ikke bestemt for hoffet, men for et borgerhjem og malerens egne stuer, Terents-serien en brudegave til A.s anden hustru. Den indledte en række muntert erotiske arbejder, der vidner om en stor fortrolighed med den antikke kærlighedsdigtning. A. var for excentrisk til at danne skole, men for A.J. Carstens var han afgørende, og for Thorvaldsen mere end en mentor. A. blev en af den danske kunsts fædre, men hans idealer stod romantikken og naturalismen fjernt. I det 20. århundrede har et mere mangfoldigt kunstsyn mindsket afstanden.",
+          "creator_lref": "241_person"
+        }
+      ],
+      "production_date": [
+        {
+          "start": "1800-01-01T00:00:00.000Z",
+          "end": "1800-12-31T00:00:00.000Z",
+          "period": "1800"
+        }
+      ],
+      "techniques": [
+        "Oil on canvas"
+      ],
+      "titles": [
+        {
+          "title": "Philosophy. Allegorical figure.",
+          "notes": "Engelsk titel ifølge kataloget \"Ældre Dansk Malerkunst\" 2001",
+          "language": "engelsk"
+        }
+      ],
+      "number_of_parts": 1,
+      "object_number": "KMS7591",
+      "object_url": "https://api.smk.dk/api/v1/art?object_number=KMS7591",
+      "frontend_url": "https://open.smk.dk/artwork/image/KMS7591",
+      "iiif_manifest": "https://api.smk.dk/api/v1/iiif/manifest?id=KMS7591",
+      "enrichment_url": "https://enrichment.api.smk.dk/api/enrichment/KMS7591",
+      "similar_images_url": "https://similar.api.smk.dk/similar/?object_number=KMS7591",
+      "production_dates_notes": [
+        "Værkdatering: 1800"
+      ],
+      "work_status": [
+        "part of a series"
+      ],
+      "public_domain": true,
+      "rights": "https://creativecommons.org/publicdomain/mark/1.0/",
+      "on_display": false,
+      "alternative_images": [
+        {
+          "mime_type": "image/tiff",
+          "iiif_id": "https://iip.smk.dk/iiif/jp2/b2773w690_KMS7591.tif.jp2",
+          "iiif_info": "https://iip.smk.dk/iiif/jp2/b2773w690_KMS7591.tif.jp2/info.json",
+          "width": 3202,
+          "height": 4134,
+          "size": 13702154.48275862,
+          "thumbnail": "https://iip-thumb.smk.dk/iiif/jp2/b2773w690_KMS7591.tif.jp2/full/!1024,/0/default.jpg",
+          "native": "https://iip.smk.dk/iiif/jp2/b2773w690_KMS7591.tif.jp2/full/full/0/native.jpg",
+          "orientation": "portrait"
+        }
+      ],
+      "image_mime_type": "image/tiff",
+      "image_iiif_id": "https://iip.smk.dk/iiif/jp2/3x816q91r_KMS7591.tif.reconstructed.tif.jp2",
+      "image_iiif_info": "https://iip.smk.dk/iiif/jp2/3x816q91r_KMS7591.tif.reconstructed.tif.jp2/info.json",
+      "image_width": 3202,
+      "image_height": 4132,
+      "image_size": 8706334,
+      "image_thumbnail": "https://iip-thumb.smk.dk/iiif/jp2/3x816q91r_KMS7591.tif.reconstructed.tif.jp2/full/!1024,/0/default.jpg",
+      "image_native": "https://api.smk.dk/api/v1/download/W3siaW1nX3VybCI6Imh0dHBzOi8vaWlwLnNtay5kay9paWlmL2pwMi8zeDgxNnE5MXJfS01TNzU5MS50aWYucmVjb25zdHJ1Y3RlZC50aWYuanAyL2Z1bGwvZnVsbC8wL25hdGl2ZS5qcGciLCJwdWJsaWNfZG9tYWluIjp0cnVlLCJvYmplY3RfbnVtYmVyIjoiS01TNzU5MSIsIm51bSI6IiJ9XQ==/KMS7591.jpg",
+      "image_cropped": true,
+      "image_orientation": "portrait",
+      "image_hq": true,
+      "has_3d_file": false,
+      "has_image": true,
+      "colors": [
+        "#3a351f",
+        "#333333",
+        "#555555",
+        "#2c3b20",
+        "#777777",
+        "#ec6449",
+        "#a9c97f",
+        "#f9ea87",
+        "#908d41"
+      ],
+      "suggested_bg_color": [
+        "#908d41"
+      ],
+      "entropy": 9.78038,
+      "contrast": 2.6380599,
+      "saturation": 3.025427,
+      "colortemp": 3.9384382,
+      "brightness": 4.817312,
+      "artist": [
+        "Nicolai Abildgaard"
+      ]
+    },
+    {
+      "id": "1170012425_object",
+      "created": "2020-03-21T10:43:00Z",
+      "modified": "2026-10-09T08:14:28Z",
+      "collection": [
+        ""
+      ],
+      "acquisition_date": "1809-01-01T00:00:00Z",
+      "acquisition_date_precision": "1809-12-31",
+      "dimensions": [
+        {
+          "notes": "225 x 165 mm",
+          "part": "Netto",
+          "type": "height",
+          "unit": "cm",
+          "value": "22.5"
+        },
+        {
+          "notes": "225 x 165 mm",
+          "part": "Netto",
+          "type": "width",
+          "unit": "cm",
+          "value": "16.5"
+        },
+        {
+          "notes": "355 x 300 x 35 mm",
+          "part": "Brutto",
+          "type": "height",
+          "unit": "cm",
+          "value": "35.5"
+        },
+        {
+          "notes": "355 x 300 x 35 mm",
+          "part": "Brutto",
+          "type": "width",
+          "unit": "cm",
+          "value": "30"
+        },
+        {
+          "notes": "355 x 300 x 35 mm",
+          "part": "Brutto",
+          "type": "depth",
+          "unit": "cm",
+          "value": "3.5"
+        }
+      ],
+      "documentation": [
+        {
+          "title": "Malerisamlingens Tilvækst og Tilpasning gennem Tiderne. Galleriet under Spengler og Høyens Revision",
+          "author": "Peter Hertz",
+          "notes": "p. 334",
+          "shelfmark": "15041",
+          "year_of_publication": "1925"
+        },
+        {
+          "title": "Two golden ages: masterpieces of Dutch and Danish painting",
+          "author": "Lene Bøgh Rønberg",
+          "notes": "afb. p. 124 nr. 70, p. 126, p. 176 kat. 70 ill. (f), omt. p. 178",
+          "shelfmark": "2001-085",
+          "year_of_publication": "2001"
+        },
+        {
+          "title": "Ein \"Schau-Spiel\" der Malkunst: das Fensterbild in der holländischen Malerei des 17. und 18. Jahrhunderts",
+          "author": "Stephanie Sonntag",
+          "notes": "omt. p. 88, 117f., 214, afb. p. 306 (abb. 34)",
+          "shelfmark": "2006-326",
+          "year_of_publication": "2006"
+        },
+        {
+          "title": "Beschreibendes und kritisches Verzeichnis der Werke der hervorragendsten Holländischen Maler des XVII Jahrhunderts",
+          "author": "Cornelis Hofstede de Groot",
+          "notes": "vol. V (1912): nr. 109 (som Slingeland)",
+          "shelfmark": "2119",
+          "year_of_publication": "1907-28"
+        },
+        {
+          "title": "Den hollandske linie i dansk guldaldermaleri: en undersøgelse af indflydelsen fra hollandsk malerkunst fra det 17. århundrede på dansk malerkunst ca. 1800-1850",
+          "author": "Lene Bøgh Rønberg",
+          "notes": "fig. 114, omt. p. 217",
+          "shelfmark": "2002-627",
+          "year_of_publication": "2002"
+        }
+      ],
+      "exhibitions": [
+        {
+          "exhibition": "I lyset af Holland: mesterværker fra hollandsk og dansk guldalder",
+          "date_start": "2001-01-26T00:00:00.000Z",
+          "date_end": "2001-06-15T00:00:00.000Z",
+          "venue": "SMK København"
+        },
+        {
+          "exhibition": "I lyset af Holland: mesterværker fra hollandsk og dansk guldalder",
+          "date_start": "2001-06-14T00:00:00.000Z",
+          "date_end": "2001-09-15T00:00:00.000Z",
+          "venue": "Rijksmuseum, Amsterdam"
+        }
+      ],
+      "labels": [
+        {
+          "text": "Pa bagsiden ser vi, hvordan egetræspanelet er blevet præpareret med en lys grundering og derefter et tyndt brunt farvelag (imprimatura), som om den skulle bruges som forside. Det er velkendt, at ‘fine’ maleritavler blev grunderet og malet på begge sider, for at stabilisere tavlen. Det lille røde laksegl for neden til højre er Konsul Hans Wests samlermærke. Lakseglet er et våbenskjold med to halvmaner og en fugl på skjoldet samt et hestehoved som hjelmtegn. West opbyggede en stor samling malerier under sin tid som dansk konsul i Bruxelles 1803-05. Sidenhen blev samlingen købt af Frederik 6.",
+          "type": "EXHIBITIONTEXT",
+          "source": "Eva de la Fuente Pedersen",
+          "date": "2018-09-08T00:00:00.000Z"
+        },
+        {
+          "text": "On the back we can see how the oak panel has been prepared with a light-coloured ground layer then a thin coat of brown paint (imprimatura), as if it was the front of the painting. It is well known that in some cases ‘superior’ panels were prepared on both sides to increase stability. The small red wax seal to the bottom right is the stamp of Consul Hans West. The seal isa coat of arms with two half-moons and a bird on the shield, with a horse’s head as a crest. West established a large collection of old master paintings during his stay in Brussels 1803-05 as Danish consul. Later the collection was bought by the Danish King Frederik 6.",
+          "type": "EXHIBITIONTEXT",
+          "source": "Eva de la Fuente Pedersen",
+          "date": "2018-09-08T00:00:00.000Z"
+        }
+      ],
+      "materials": [
+        "wood"
+      ],
+      "object_names": [
+        {
+          "name": "Painting"
+        }
+      ],
+      "production": [
+        {
+          "creator": "Slingelandt, Pieter Cornelisz. van",
+          "creator_forename": "Pieter Cornelisz. van",
+          "creator_surname": "Slingelandt",
+          "creator_date_of_birth": "1640-01-01T00:00:00.000Z",
+          "creator_date_of_death": "1691-01-01T00:00:00.000Z",
+          "creator_nationality": "Dutch",
+          "creator_gender": "MALE",
+          "creator_lref": "33086_person"
+        },
+        {
+          "creator": "Dou, Gerard",
+          "creator_forename": "Gerard",
+          "creator_surname": "Dou",
+          "creator_date_of_birth": "1613-01-01T00:00:00.000Z",
+          "creator_date_of_death": "1675-01-01T00:00:00.000Z",
+          "creator_nationality": "Dutch",
+          "creator_gender": "MALE",
+          "creator_qualifier": "earlier ascribed to",
+          "creator_role": "earlier ascribed to",
+          "creator_lref": "1634_person"
+        }
+      ],
+      "production_date": [
+        {
+          "start": "1655-01-01T00:00:00.000Z",
+          "end": "1691-12-31T00:00:00.000Z",
+          "period": "1655-1691"
+        }
+      ],
+      "techniques": [
+        "Oil on panel"
+      ],
+      "titles": [
+        {
+          "title": "Girl with a Parrot",
+          "language": "engelsk"
+        }
+      ],
+      "notes": [
+        "Tidligere Inventarnumre:\r\n- Fortegnelser over Wahls og Morells Køb p. \n- Papirer vedr. Morells køb\r\n- Wahls Manual 1737-65, p. \n- Kunstkammerets Inventar, tome\r\n\r\nKatalognumre: \n- Spengler nr. 454 (som Dou)\r\n- Cat. 1864 nr. 419\r\n- Cat. 1875 nr. 337\r\n- Kat. 1904 nr. 322\r\n- Kat. 1922 nr. 479\r\n- Kat. 1946 nr. 666"
+      ],
+      "number_of_parts": 1,
+      "object_history_note": [
+        "- Solgt kort efter 1807 af maleren H. Cabott til Konsul Hans West som Gerrit Dou for 100rdl\r\n\r\nPlaceringshistorie:\r\n- 1946: sal XXVIII\r\n- 1952: magasin\r\n- 1969, 11. sept.: Sølvgade"
+      ],
+      "object_number": "KMSsp454",
+      "object_url": "https://api.smk.dk/api/v1/art?object_number=KMSsp454",
+      "frontend_url": "https://open.smk.dk/artwork/image/KMSsp454",
+      "iiif_manifest": "https://api.smk.dk/api/v1/iiif/manifest?id=KMSsp454",
+      "enrichment_url": "https://enrichment.api.smk.dk/api/enrichment/KMSsp454",
+      "similar_images_url": "https://similar.api.smk.dk/similar/?object_number=KMSsp454",
+      "production_dates_notes": [
+        "Værkdatering"
+      ],
+      "public_domain": true,
+      "rights": "https://creativecommons.org/publicdomain/mark/1.0/",
+      "on_display": false,
+      "has_3d_file": false,
+      "has_image": true,
+      "image_width": 1170,
+      "image_height": 1600,
+      "image_thumbnail": "https://api.smk.dk/api/v1/thumbnail/cb7d1b30-8719-4861-9bdb-77c9dab55d4b.jpg",
+      "image_native": "https://api.smk.dk/api/v1/thumbnail/cb7d1b30-8719-4861-9bdb-77c9dab55d4b.jpg",
+      "colors": [
+        "#000000",
+        "#382510",
+        "#541f0e",
+        "#3a351f"
+      ],
+      "suggested_bg_color": [
+        "#3a351f"
+      ],
+      "entropy": 9.102963,
+      "contrast": 2.0672936,
+      "saturation": 4.879171,
+      "colortemp": 6.7229614,
+      "brightness": 2.1611571,
+      "artist": [
+        "Pieter Cornelisz. van Slingelandt"
+      ]
+    },
+    {
+      "id": "1170012431_object",
+      "created": "2020-03-21T10:43:05Z",
+      "modified": "2025-07-11T17:31:43Z",
+      "current_location_name": "Sal 219",
+      "current_location_date": "2021-03-22T00:00:00Z",
+      "acquisition_date": "1926-01-01T00:00:00Z",
+      "acquisition_date_precision": "1926-12-31",
+      "dimensions": [
+        {
+          "notes": "255 x 330 mm",
+          "part": "Netto",
+          "type": "height",
+          "unit": "cm",
+          "value": "25.5"
+        },
+        {
+          "notes": "255 x 330 mm",
+          "part": "Netto",
+          "type": "width",
+          "unit": "cm",
+          "value": "33"
+        },
+        {
+          "part": "Brutto",
+          "type": "height",
+          "unit": "cm",
+          "value": "36.6"
+        },
+        {
+          "part": "Brutto",
+          "type": "width",
+          "unit": "cm",
+          "value": "44.4"
+        },
+        {
+          "part": "Brutto",
+          "type": "depth",
+          "unit": "cm",
+          "value": "6.1"
+        }
+      ],
+      "documentation": [
+        {
+          "title": "Lysets malere: nordisk malerkunst fra klassicisme til modernisme",
+          "author": "Bengt-Arne Person",
+          "notes": "afb. p. 106 (f),",
+          "shelfmark": "2000-393",
+          "year_of_publication": "1999"
+        },
+        {
+          "title": "Danish painting: the golden age: a loan exhibition from the Statens Museum for Kunst, Copenhagen: The National Gallery, London, 5 September - 20 November 1984",
+          "author": "Kasper Monrad",
+          "notes": "kat. 47.",
+          "shelfmark": "51145",
+          "year_of_publication": "cop. 1984"
+        },
+        {
+          "title": "Danish painting: the golden age",
+          "author": "Henrik Bramsen",
+          "notes": "kat. 47.",
+          "shelfmark": "51145",
+          "year_of_publication": "1984"
+        },
+        {
+          "title": "Hverdagsbilleder: dansk guldalder - kunstnerne og deres vilkår",
+          "author": "Kasper Monrad",
+          "notes": "p. 202, fig. 196.",
+          "shelfmark": "C 17885",
+          "year_of_publication": "1989"
+        },
+        {
+          "title": "Hvorfor stirrer Rørbye i sin kaffekop?",
+          "author": "Kasper Monrad",
+          "notes": "p. 31 (afb.)."
+        }
+      ],
+      "inscriptions": [
+        {
+          "content": "M.RÖRBÿE 1844.",
+          "type": "signature"
+        }
+      ],
+      "labels": [
+        {
+          "text": "On the back of Rørbye’s painting there is an advertisement for the manufacturer and trader of the millboard Rørbye used to paint The View from the Temple of Athena on the Acropolis. The business was owned by the English paint dealer, frame maker, and restorer Robert Davy (c. 1771-1843), who sold art supplies from his shop on Newman Street in London. Rørbye never visited London, but could have purchased the millboard on his travels in southern Europe then brought it back to Denmark, where he made the painting in 1844. The advertisement claims Davy to be the sole manufacturer of ‘genuine Flemish grounds’ on wooden panels and millboards, at the same time as promoting a new sketching block with 30 pages for sketching in oil. In the 1800s artists usually bought their art supplies from grocers and chemists, then later from specialised ‘artists’ colourmen’ like Robert Davy.",
+          "type": "EXHIBITIONTEXT",
+          "source": "Anne Haack Christensen",
+          "date": "2018-09-08T00:00:00.000Z"
+        }
+      ],
+      "materials": [
+        "millboard"
+      ],
+      "object_names": [
+        {
+          "name": "Painting"
+        }
+      ],
+      "production": [
+        {
+          "creator": "Rørbye, Martinus",
+          "creator_forename": "Martinus",
+          "creator_surname": "Rørbye",
+          "creator_date_of_birth": "1803-05-17T00:00:00.000Z",
+          "creator_date_of_death": "1848-08-29T00:00:00.000Z",
+          "creator_nationality": "Danish",
+          "creator_gender": "MALE",
+          "creator_history": "Martinus Rørbye voksede op i en dansk embedsfamilie, der var bosat i Drammen i Norge til hans 12-årsalder. Han gennemgik alle Akademiets klasser, men opnåede dog ikke den store guldmedalje. Han kan betragtes som en af de centrale skikkelser i guldalderen og hørte til blandt Eckersbergs yndlingselever, men der spores tillige af og til påvirkninger fra hans egentlige akademilærer C.A. Lorentzen, især i det koloristiske. Det indfølte portræt af Lorentzen er i øvrigt et af de få fra R.s hånd, når undtages et par genreagtige portrætter af slægtninge samt de betydeligere gruppeportrætter af familien Fenger og ægteparret von Zeuthen. Efter flere forsøg i den særlige københavnske folkelivsgenre lykkedes det i 1831 at skabe helstøbte værker med en perfekt balance mellem arkitektur- og figurskildring, et på én gang karakterfast og livfuldt borgerligt tidsbillede med små moraliserende pointer efter Eckersbergskolens principper. Han var allerede fra de unge år umådelig rejselysten og nåede gennem årene godt rundt, selv i rigets fjerneste kroge. Norge besøgte han igen 1830, og forsøgte sig med landskabsbilleder, til dels under indtryk af J.C. Dahls kunst. I sådanne, ligesom i nogle natstykker ved fuldmåne eller fakkelskær, spores måske i videre forstand en indflydelse fra det tyske, romantiske maleri, især C.D. Friedrich. R.s første 3-årige ophold i Italien blev afbrudt af en længere rejse sammen med G. Bindesbøll til Grækenland og Tyrkiet, som gav sig udslag i en rig produktion af arkitektur- og landskabsbilleder og ikke mindst scener fra det brogede folkeliv. Af betydning for hans opfattelse af de orientalske motiver blev den franske maler Horace Vernet, som han beundrede. Fra Rom tog han afstikkere til Sorrento-halvøen (1835), Sabinerbjergene (1836) og Sicilien (1840). R. nedfældede flittigt i skitsebogen sine visuelle indtryk i hastige, karakterfulde rids, der ofte med stor præcision og indlevelse ramte topografiske og etnografiske særegenheder, som han siden indføjede i større malede kompositioner. Alt havde hans interesse, lige fra planter og dyr til klædedragter, møbler og husgeråd. Flere af hans laverede pennetegninger har dog karakter af selvstændige, gennemarbejdede prospekter af kendte motiver fra København og provinsen.",
+          "creator_lref": "1166_person"
+        }
+      ],
+      "production_date": [
+        {
+          "start": "1844-01-01T00:00:00.000Z",
+          "end": "1844-12-31T00:00:00.000Z",
+          "period": "1844"
+        }
+      ],
+      "techniques": [
+        "Oil on millboard"
+      ],
+      "titles": [
+        {
+          "title": "The View from the Temple of Athena on the Acropolis",
+          "language": "engelsk"
+        }
+      ],
+      "number_of_parts": 1,
+      "object_number": "KMS3769",
+      "object_url": "https://api.smk.dk/api/v1/art?object_number=KMS3769",
+      "frontend_url": "https://open.smk.dk/artwork/image/KMS3769",
+      "iiif_manifest": "https://api.smk.dk/api/v1/iiif/manifest?id=KMS3769",
+      "enrichment_url": "https://enrichment.api.smk.dk/api/enrichment/KMS3769",
+      "similar_images_url": "https://similar.api.smk.dk/similar/?object_number=KMS3769",
+      "production_dates_notes": [
+        "Værkdatering: 1844"
+      ],
+      "public_domain": true,
+      "rights": "https://creativecommons.org/publicdomain/mark/1.0/",
+      "on_display": true,
+      "alternative_images": [
+        {
+          "mime_type": "image/tiff",
+          "iiif_id": "https://iip.smk.dk/iiif/jp2/td96k320f_KMSKMS3769.tif.jp2",
+          "iiif_info": "https://iip.smk.dk/iiif/jp2/td96k320f_KMSKMS3769.tif.jp2/info.json",
+          "width": 3965,
+          "height": 3033,
+          "size": 12445811.034482758,
+          "thumbnail": "https://iip-thumb.smk.dk/iiif/jp2/td96k320f_KMSKMS3769.tif.jp2/full/!1024,/0/default.jpg",
+          "native": "https://iip.smk.dk/iiif/jp2/td96k320f_KMSKMS3769.tif.jp2/full/full/0/native.jpg",
+          "orientation": "landscape"
+        }
+      ],
+      "image_mime_type": "image/tiff",
+      "image_iiif_id": "https://iip.smk.dk/iiif/jp2/w0892f396_KMSKMS3769-cropped.tif.jp2",
+      "image_iiif_info": "https://iip.smk.dk/iiif/jp2/w0892f396_KMSKMS3769-cropped.tif.jp2/info.json",
+      "image_width": 3780,
+      "image_height": 2888,
+      "image_size": 11301402,
+      "image_thumbnail": "https://iip-thumb.smk.dk/iiif/jp2/w0892f396_KMSKMS3769-cropped.tif.jp2/full/!1024,/0/default.jpg",
+      "image_native": "https://api.smk.dk/api/v1/download/W3siaW1nX3VybCI6Imh0dHBzOi8vaWlwLnNtay5kay9paWlmL2pwMi93MDg5MmYzOTZfS01TS01TMzc2OS1jcm9wcGVkLnRpZi5qcDIvZnVsbC9mdWxsLzAvbmF0aXZlLmpwZyIsInB1YmxpY19kb21haW4iOnRydWUsIm9iamVjdF9udW1iZXIiOiJLTVMzNzY5IiwibnVtIjoiIn1d/KMS3769.jpg",
+      "image_orientation": "landscape",
+      "image_hq": true,
+      "has_3d_file": false,
+      "has_image": true,
+      "colors": [
+        "#5a5527",
+        "#ffe7c9",
+        "#fdcec7",
+        "#f9aca5",
+        "#593d1c",
+        "#77733d",
+        "#3a351f",
+        "#bed69f"
+      ],
+      "suggested_bg_color": [
+        "#77733d"
+      ],
+      "entropy": 9.790643,
+      "contrast": 3.869712,
+      "saturation": 2.900585,
+      "colortemp": 3.9413528,
+      "brightness": 6.0248713,
+      "artist": [
+        "Martinus Rørbye"
+      ]
+    },
+    {
+      "id": "1170012433_object",
+      "created": "2020-03-21T10:43:08Z",
+      "modified": "2025-07-11T17:31:43Z",
+      "acquisition_date": "1985-04-16T00:00:00Z",
+      "acquisition_date_precision": "1985-04-16",
+      "dimensions": [
+        {
+          "notes": "520 x 634 mm",
+          "part": "Netto",
+          "type": "width",
+          "unit": "cm",
+          "value": "52"
+        },
+        {
+          "notes": "520 x 634 mm",
+          "part": "Netto",
+          "type": "height",
+          "unit": "cm",
+          "value": "63.4"
+        }
+      ],
+      "documentation": [
+        {
+          "title": "Barok. 1600-tallets kunst i SMK's samlinger",
+          "author": "Eva de la Fuente Pedersen",
+          "notes": "katalog p. 210",
+          "year_of_publication": "2023"
+        },
+        {
+          "title": "Dutch still-life painting from the 16th to the 18th centuries in Danish collections",
+          "author": "Poul Gammelbo",
+          "notes": "p. 44, nr. 47 (som tilskrevet Heda), afb. p. 45",
+          "shelfmark": "91-136",
+          "year_of_publication": "1960"
+        },
+        {
+          "title": "Hollandske og flamske stilleben fra 1600-tallet i dansk eje",
+          "author": "Poul Gammelbo",
+          "notes": "kat. 43 (som W.C. Heda)",
+          "shelfmark": "92-347",
+          "year_of_publication": "1965"
+        },
+        {
+          "title": "Et hollandsk stilleben fra det 17. århundrede",
+          "author": "Ubekendt"
+        },
+        {
+          "title": "Eat me",
+          "author": "Karen Grøn",
+          "notes": "afb. p. 94",
+          "year_of_publication": "2017"
+        }
+      ],
+      "exhibitions": [
+        {
+          "exhibition": "Barok - Ud af mørket",
+          "date_start": "2023-05-27T00:00:00.000Z",
+          "date_end": "2023-11-05T00:00:00.000Z",
+          "venue": "SMK København"
+        }
+      ],
+      "labels": [
+        {
+          "text": "A special type of still life is about the remains of meal. This theme became popular in the Dutch city of Haarlem, where the almost monochrome fashion of painting developed during the 1630s and 1640s. The protagonist artists are Pieter Claesz (c.1597/98-1660) and Willem Heda (1594-1680). An unknown artist from their immediate circle has painted Still life. Breakfast Piece in a Stone Niche. Someone has eaten what was on the pewter plate; only a bit of olive is left remaining on a plate of Chinese porcelain. On the move, the unfortunate guest has overturned a silver tazza, but two beautiful glasses, half-filled with wine, are left standing. The artist lets us think for a moment that the layout is part of our own reality, because the wall is cut off by the edge of the picture, and the pewter plate and the knife seems to topple out of the picture plane and extend into the viewers space. The deceptive realism is reinforced in the very way of using the brush - the artist imitates the surface structure of the various objects. That is, the lemon's shell is bulging and uneven, the underside of the silver tazza has the silversmith's processing imprinted as tangible surface structure. Both parts make the light in the existing room (i.e., now the museum’s exhibition hall) reflect and flicker in the same way as it would have done in real life. An important element in this and many other still lifes is that the artist wants to deceive his audience.",
+          "type": "OTHERTEXT",
+          "source": "Eva de la Fuente Pedersen",
+          "date": "2017-03-01T00:00:00.000Z"
+        },
+        {
+          "text": "The painting is on an oak panel to which a wood structure called a cradle has been added at a later stage. The cradle was made during a previous stage of conservation aimed at stabilising the wooden panel. Wooden panels cannot withstand changing climatic conditions. If the surroundings are too humid or too dry the wood can shrink or swell. A cradle could help prevent this. The method, which was common practice around 1900, consists of gluing battens of wood to the back of the painting in the direction of the grain, then inserting loose slats crosswise. Today the method is not considered ideal because the loose slats often get jammed, holding the panel in a rigid position with the risk of cracks when it moves. We now stabilise panel paintings using more careful and flexible methods.",
+          "type": "EXHIBITIONTEXT",
+          "source": "Anne Haack Christensen",
+          "date": "2018-09-08T00:00:00.000Z"
+        }
+      ],
+      "materials": [
+        "wood"
+      ],
+      "object_names": [
+        {
+          "name": "Painting"
+        }
+      ],
+      "production": [
+        {
+          "creator": "Heda, Willem Claesz.",
+          "creator_forename": "Willem Claesz.",
+          "creator_surname": "Heda",
+          "creator_date_of_birth": "1594-01-01T00:00:00.000Z",
+          "creator_date_of_death": "1680-01-01T00:00:00.000Z",
+          "creator_nationality": "Dutch",
+          "creator_gender": "MALE",
+          "creator_role": "follower of",
+          "creator_lref": "33087_person"
+        },
+        {
+          "creator": "Zuylen, Jan Hendricksz van",
+          "creator_forename": "Jan Hendricksz van",
+          "creator_surname": "Zuylen",
+          "creator_date_of_birth": "1613-01-01T00:00:00.000Z",
+          "creator_date_of_death": "1644-01-01T00:00:00.000Z",
+          "creator_nationality": "Dutch",
+          "creator_gender": "MALE",
+          "creator_role": "earlier ascribed to",
+          "creator_lref": "2090_person"
+        }
+      ],
+      "production_date": [
+        {
+          "start": "1640-01-01T00:00:00.000Z",
+          "end": "1649-12-31T00:00:00.000Z",
+          "period": "1640-1649"
+        }
+      ],
+      "techniques": [
+        "Oil on panel"
+      ],
+      "titles": [
+        {
+          "title": "Still life. Breakfast Piece in a Stone Niche",
+          "language": "engelsk"
+        }
+      ],
+      "number_of_parts": 1,
+      "object_number": "KMS7285",
+      "object_url": "https://api.smk.dk/api/v1/art?object_number=KMS7285",
+      "frontend_url": "https://open.smk.dk/artwork/image/KMS7285",
+      "iiif_manifest": "https://api.smk.dk/api/v1/iiif/manifest?id=KMS7285",
+      "enrichment_url": "https://enrichment.api.smk.dk/api/enrichment/KMS7285",
+      "similar_images_url": "https://similar.api.smk.dk/similar/?object_number=KMS7285",
+      "production_dates_notes": [
+        "Værkdatering: 1640'erne"
+      ],
+      "public_domain": true,
+      "rights": "https://creativecommons.org/publicdomain/mark/1.0/",
+      "on_display": false,
+      "has_3d_file": false,
+      "has_image": true,
+      "image_width": 1304,
+      "image_height": 1599,
+      "image_thumbnail": "https://api.smk.dk/api/v1/thumbnail/4062b692-bcc7-4bf6-902c-aa6524b966a4.jpg",
+      "image_native": "https://api.smk.dk/api/v1/thumbnail/4062b692-bcc7-4bf6-902c-aa6524b966a4.jpg",
+      "colors": [
+        "#191909",
+        "#111111",
+        "#170e06",
+        "#5a5527"
+      ],
+      "suggested_bg_color": [
+        "#5a5527"
+      ],
+      "entropy": 9.688229,
+      "contrast": 1.8871783,
+      "saturation": 3.296556,
+      "colortemp": 4.2050843,
+      "brightness": 1.5443851,
+      "artist": [
+        "Unknown"
+      ]
+    },
+    {
+      "id": "1170012436_object",
+      "created": "2020-03-21T10:43:12Z",
+      "modified": "2025-07-11T17:31:44Z",
+      "acquisition_date": "1968-01-01T00:00:00Z",
+      "acquisition_date_precision": "1968-12-31",
+      "dimensions": [
+        {
+          "notes": "245 x 177 mm",
+          "part": "Netto",
+          "type": "height",
+          "unit": "cm",
+          "value": "24.5"
+        },
+        {
+          "notes": "245 x 177 mm",
+          "part": "Netto",
+          "type": "width",
+          "unit": "cm",
+          "value": "17.7"
+        },
+        {
+          "notes": "328 x 261 x 38 mm",
+          "part": "Brutto",
+          "type": "height",
+          "unit": "cm",
+          "value": "32.8"
+        },
+        {
+          "notes": "328 x 261 x 38 mm",
+          "part": "Brutto",
+          "type": "width",
+          "unit": "cm",
+          "value": "26.1"
+        },
+        {
+          "notes": "328 x 261 x 38 mm",
+          "part": "Brutto",
+          "type": "depth",
+          "unit": "cm",
+          "value": "3.8"
+        }
+      ],
+      "documentation": [
+        {
+          "title": "Clinch: danske kunstnere markerer Kunstakademiets 250 års jubilæum på Statens Museum for Kunst",
+          "author": "Sven Bjerkhof",
+          "notes": "Udstillingsfotografi p. 88",
+          "shelfmark": "2004-276",
+          "year_of_publication": "2004"
+        },
+        {
+          "title": "Piranèse et les Françcais 1740-1790",
+          "author": "Ubekendt",
+          "notes": "p. 43",
+          "shelfmark": "45241",
+          "year_of_publication": "1976"
+        },
+        {
+          "title": "Jean Barbault (1718-1762): le théâtre de la vie italienne",
+          "author": "Ubekendt",
+          "notes": "kat. 38, omt. p. 83, ill. p. 113",
+          "shelfmark": "D 43915",
+          "year_of_publication": "2010"
+        },
+        {
+          "title": "Le Peuple de Rome: Représentatios et imaginaire de Napoléon à l'Unité italienne",
+          "author": "Olivier Bonfait",
+          "notes": "afb. p. 91 (1.4.), omt. p. 91",
+          "year_of_publication": "2013"
+        }
+      ],
+      "exhibitions": [
+        {
+          "exhibition": "Jean Barbault (1718-1762)",
+          "date_start": "2010-05-21T00:00:00.000Z",
+          "date_end": "2010-08-22T00:00:00.000Z",
+          "venue": "Musée de la Ville de Strasbourg"
+        },
+        {
+          "exhibition": "Clinch!",
+          "date_start": "2004-04-01T00:00:00.000Z",
+          "date_end": "2004-11-28T00:00:00.000Z",
+          "venue": "SMK København"
+        },
+        {
+          "exhibition": "Le peuple romain de la 1ére République á l'Unité: entre mythe et histoire",
+          "date_start": "2013-06-27T00:00:00.000Z",
+          "date_end": "2013-09-30T00:00:00.000Z",
+          "venue": "Palais Fesch Musée des Beaux-Arts De la Ville d'Aj"
+        }
+      ],
+      "inscriptions": [
+        {
+          "content": "Barbault. Romæ 1750",
+          "notes": "BAGSIDEN : med blæk forskellige påskrifter med forskellig hånd: no. 17 af Barboult, 181, 241. Dronais fecit Roma 1769. Samt en lille seddel med nr. 181. (foto af bagsiden i sammenligningsmappe)",
+          "type": "signature"
+        }
+      ],
+      "labels": [
+        {
+          "text": "The back of this painting is covered by a semi-transparent, polycarbonate sheet sealed along the edges with foil tape. The front of the painting is behind glass, which is also taped along the inner edges of the frame. This is called a microclimate frame, and ensures that the painting is kept in an airtight space. The construction is not visible from the front. Microclimate framing protects paintings that are particularly sensitive to fluctuations in humidity. This is true of paintings on wood or paintings on canvas that have been lined using glue-paste, i.e. that have had a new piece of canvas glued to the back of the original canvas. When works from the National Gallery of Denmark are on loan to museums with less adequate climatic control, or if a work is to travel over an extensive period of time, we mount fragile works in microclimate frames.",
+          "type": "EXHIBITIONTEXT",
+          "source": "Anne Haack Christensen",
+          "date": "2018-09-08T00:00:00.000Z"
+        }
+      ],
+      "materials": [
+        "wood"
+      ],
+      "object_names": [
+        {
+          "name": "Painting"
+        }
+      ],
+      "production": [
+        {
+          "creator": "Barbault, Jean",
+          "creator_forename": "Jean",
+          "creator_surname": "Barbault",
+          "creator_date_of_birth": "1705-01-01T00:00:00.000Z",
+          "creator_date_of_death": "1766-01-01T00:00:00.000Z",
+          "creator_nationality": "French",
+          "creator_gender": "MALE",
+          "creator_lref": "1456_person"
+        }
+      ],
+      "production_date": [
+        {
+          "start": "1750-01-01T00:00:00.000Z",
+          "end": "1750-12-31T00:00:00.000Z",
+          "period": "1750"
+        }
+      ],
+      "techniques": [
+        "Oil on panel"
+      ],
+      "titles": [
+        {
+          "title": "A Roman Cook´s Boy Sharpening a Knife",
+          "language": "engelsk"
+        }
+      ],
+      "number_of_parts": 1,
+      "object_number": "KMS6557",
+      "object_url": "https://api.smk.dk/api/v1/art?object_number=KMS6557",
+      "frontend_url": "https://open.smk.dk/artwork/image/KMS6557",
+      "iiif_manifest": "https://api.smk.dk/api/v1/iiif/manifest?id=KMS6557",
+      "enrichment_url": "https://enrichment.api.smk.dk/api/enrichment/KMS6557",
+      "similar_images_url": "https://similar.api.smk.dk/similar/?object_number=KMS6557",
+      "production_dates_notes": [
+        "Værkdatering: 1750"
+      ],
+      "public_domain": true,
+      "rights": "https://creativecommons.org/publicdomain/mark/1.0/",
+      "on_display": false,
+      "alternative_images": [
+        {
+          "mime_type": "image/tiff",
+          "iiif_id": "https://iip.smk.dk/iiif/jp2/8k71nj07t_KMS6557.tif.jp2",
+          "iiif_info": "https://iip.smk.dk/iiif/jp2/8k71nj07t_KMS6557.tif.jp2/info.json",
+          "width": 2037,
+          "height": 2402,
+          "size": 5069600,
+          "thumbnail": "https://iip-thumb.smk.dk/iiif/jp2/8k71nj07t_KMS6557.tif.jp2/full/!1024,/0/default.jpg",
+          "native": "https://iip.smk.dk/iiif/jp2/8k71nj07t_KMS6557.tif.jp2/full/full/0/native.jpg",
+          "orientation": "portrait"
+        },
+        {
+          "mime_type": "image/tiff",
+          "iiif_id": "https://iip.smk.dk/iiif/jp2/b5644s35d_KMSkms6557.tif.jp2",
+          "iiif_info": "https://iip.smk.dk/iiif/jp2/b5644s35d_KMSkms6557.tif.jp2/info.json",
+          "width": 9104,
+          "height": 11816,
+          "size": 111289859.31034483,
+          "thumbnail": "https://iip-thumb.smk.dk/iiif/jp2/b5644s35d_KMSkms6557.tif.jp2/full/!1024,/0/default.jpg",
+          "native": "https://iip.smk.dk/iiif/jp2/b5644s35d_KMSkms6557.tif.jp2/full/full/0/native.jpg",
+          "orientation": "portrait"
+        }
+      ],
+      "image_mime_type": "image/tiff",
+      "image_iiif_id": "https://iip.smk.dk/iiif/jp2/hx11xj865_KMS6557-cropped.tif.jp2",
+      "image_iiif_info": "https://iip.smk.dk/iiif/jp2/hx11xj865_KMS6557-cropped.tif.jp2/info.json",
+      "image_width": 1660,
+      "image_height": 2305,
+      "image_size": 3965765,
+      "image_thumbnail": "https://iip-thumb.smk.dk/iiif/jp2/hx11xj865_KMS6557-cropped.tif.jp2/full/!1024,/0/default.jpg",
+      "image_native": "https://api.smk.dk/api/v1/download/W3siaW1nX3VybCI6Imh0dHBzOi8vaWlwLnNtay5kay9paWlmL2pwMi9oeDExeGo4NjVfS01TNjU1Ny1jcm9wcGVkLnRpZi5qcDIvZnVsbC9mdWxsLzAvbmF0aXZlLmpwZyIsInB1YmxpY19kb21haW4iOnRydWUsIm9iamVjdF9udW1iZXIiOiJLTVM2NTU3IiwibnVtIjoiIn1d/KMS6557.jpg",
+      "image_orientation": "portrait",
+      "image_hq": true,
+      "has_3d_file": false,
+      "has_image": true,
+      "colors": [
+        "#444444",
+        "#333333",
+        "#222222",
+        "#191909",
+        "#999999",
+        "#777777"
+      ],
+      "suggested_bg_color": [
+        "#777777"
+      ],
+      "entropy": 9.587171,
+      "contrast": 2.1256177,
+      "saturation": 2.2463713,
+      "colortemp": 3.800761,
+      "brightness": 3.1932614,
+      "artist": [
+        "Jean Barbault"
+      ]
+    }
+  ],
+  "facets": {},
+  "facets_ranges": {},
+  "autocomplete": []
+}

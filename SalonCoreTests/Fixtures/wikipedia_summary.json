@@ -1,0 +1,49 @@
+{
+  "type": "standard",
+  "title": "Officer and Laughing Girl",
+  "displaytitle": "<i>Officer and Laughing Girl</i>",
+  "namespace": {
+    "id": 0,
+    "text": ""
+  },
+  "wikibase_item": "Q467376",
+  "titles": {
+    "canonical": "Officer_and_Laughing_Girl",
+    "normalized": "Officer and Laughing Girl",
+    "display": "<i>Officer and Laughing Girl</i>"
+  },
+  "pageid": 24520356,
+  "thumbnail": {
+    "source": "https://thumb.wikimedia.org/wikipedia/commons/thumb/2/2e/Johannes_Vermeer_-_De_Soldaat_en_het_Lachende_Meisje_-_Google_Art_Project.jpg/330px-Johannes_Vermeer_-_De_Soldaat_en_het_Lachende_Meisje_-_Google_Art_Project.jpg?utm_source=en.wikipedia.org&utm_campaign=api&utm_content=thumbnail",
+    "width": 330,
+    "height": 360
+  },
+  "originalimage": {
+    "source": "https://thumb.wikimedia.org/wikipedia/commons/thumb/2/2e/Johannes_Vermeer_-_De_Soldaat_en_het_Lachende_Meisje_-_Google_Art_Project.jpg/3840px-Johannes_Vermeer_-_De_Soldaat_en_het_Lachende_Meisje_-_Google_Art_Project.jpg?utm_source=en.wikipedia.org&utm_campaign=api&utm_content=thumbnail",
+    "width": 4785,
+    "height": 5213
+  },
+  "lang": "en",
+  "dir": "ltr",
+  "revision": "1361315629",
+  "tid": "3fa852ef-71da-11f1-9e75-1a7eb39200f5",
+  "timestamp": "2026-06-27T03:42:41Z",
+  "description": "Painting by Johannes Vermeer c. 1657",
+  "description_source": "local",
+  "content_urls": {
+    "desktop": {
+      "page": "https://en.wikipedia.org/wiki/Officer_and_Laughing_Girl",
+      "revisions": "https://en.wikipedia.org/wiki/Officer_and_Laughing_Girl?action=history",
+      "edit": "https://en.wikipedia.org/wiki/Officer_and_Laughing_Girl?action=edit",
+      "talk": "https://en.wikipedia.org/wiki/Talk:Officer_and_Laughing_Girl"
+    },
+    "mobile": {
+      "page": "https://en.wikipedia.org/wiki/Officer_and_Laughing_Girl",
+      "revisions": "https://en.wikipedia.org/wiki/Special:History/Officer_and_Laughing_Girl",
+      "edit": "https://en.wikipedia.org/wiki/Officer_and_Laughing_Girl?action=edit",
+      "talk": "https://en.wikipedia.org/wiki/Talk:Officer_and_Laughing_Girl"
+    }
+  },
+  "extract": "Officer and Laughing Girl, also known as Officer and a Laughing Girl, Officer With a Laughing Girl or, in Dutch, De Soldaat en het Lachende Meisje, is an oil painting on canvas executed ca. 1657 by the Dutch artist Johannes Vermeer. Its dimensions are 50.5 by 46 cm. It belongs to the Frick Collection in New York, along with Girl Interrupted at Her Music and Mistress and Maid.",
+  "extract_html": "<p><i><b>Officer and Laughing Girl</b></i>, also known as <i><b>Officer and a Laughing Girl</b></i>, <i><b>Officer With a Laughing Girl</b></i> or, in Dutch, <i><b>De Soldaat en het Lachende Meisje</b></i>, is an oil painting on canvas executed ca. 1657 by the Dutch artist Johannes Vermeer. Its dimensions are 50.5 by 46 cm. It belongs to the Frick Collection in New York, along with Girl Interrupted at Her Music and Mistress and Maid.</p>"
+}
