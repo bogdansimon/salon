@@ -72,6 +72,14 @@ final class AppModel {
         scheduler.start(time: settings.changeTime, changeOnWake: settings.changeOnWakeIfMissed) { [weak self] in
             self?.state.lastChange
         }
+        // The desktop picture is per Space; follow the user onto Spaces that don't show it yet.
+        wallpaper.hangOnActiveSpace(state.currentWallpaperFiles)
+        observers.append(NSWorkspace.shared.notificationCenter.addObserver(forName: NSWorkspace.activeSpaceDidChangeNotification, object: nil, queue: .main) { [weak self] _ in
+            MainActor.assumeIsolated {
+                guard let self else { return }
+                self.wallpaper.hangOnActiveSpace(self.state.currentWallpaperFiles)
+            }
+        })
         let center = NotificationCenter.default
         observers.append(center.addObserver(forName: NSApplication.didChangeScreenParametersNotification, object: nil, queue: .main) { [weak self] _ in
             MainActor.assumeIsolated { self?.scheduleRerender() }

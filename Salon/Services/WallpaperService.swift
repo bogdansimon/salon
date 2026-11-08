@@ -52,6 +52,23 @@ final class WallpaperService {
         return written
     }
 
+    /// Puts the already-rendered files on the active Space. `setDesktopImageURL`
+    /// only changes the Space that is active at the time (there is no public
+    /// all-Spaces API), so this runs at launch and on every Space switch.
+    /// `fileNames` are in `NSScreen.screens` order, as `apply` returns them.
+    func hangOnActiveSpace(_ fileNames: [String]) {
+        guard !dryRun, !fileNames.isEmpty else { return }
+        for (index, screen) in NSScreen.screens.enumerated() {
+            let file = directory.appendingPathComponent(fileNames[index % fileNames.count])
+            guard FileManager.default.fileExists(atPath: file.path),
+                  NSWorkspace.shared.desktopImageURL(for: screen)?.standardizedFileURL != file.standardizedFileURL else { continue }
+            try? NSWorkspace.shared.setDesktopImageURL(file, for: screen, options: [
+                .imageScaling: NSImageScaling.scaleProportionallyUpOrDown.rawValue,
+                .allowClipping: true,
+            ])
+        }
+    }
+
     /// Removes rendered wallpapers that are no longer on screen.
     func cleanUp(keeping: Set<String>) {
         let files = (try? FileManager.default.contentsOfDirectory(at: directory, includingPropertiesForKeys: nil)) ?? []
