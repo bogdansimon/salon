@@ -1,0 +1,125 @@
+<!doctype html>
+<html lang="en">
+<head>
+<meta charset="utf-8">
+<title>Salon design tokens</title>
+<script src="./support.js"></script>
+</head>
+<body>
+<x-dc>
+<helmet>
+<link href="https://fonts.googleapis.com/css2?family=Source+Serif+4:ital,opsz,wght@0,8..60,400;0,8..60,500;1,8..60,400&amp;display=swap" rel="stylesheet">
+<style>
+body{margin:0}
+.sans{font-family:-apple-system,BlinkMacSystemFont,"SF Pro Text","Helvetica Neue",system-ui,sans-serif}
+.serif{font-family:ui-serif,"New York","Source Serif 4",Georgia,serif}
+.mono{font-family:ui-monospace,"SF Mono",Menlo,monospace;font-size:11.5px;line-height:16px}
+.caps{font-size:10.5px;line-height:14px;letter-spacing:.09em;text-transform:uppercase;font-weight:500}
+.tnum{font-variant-numeric:tabular-nums}
+.card{background:#FAF8F3;border-radius:10px;box-shadow:0 0 0 .5px #E2DCD0;padding:22px 24px;display:flex;flex-direction:column;gap:14px}
+.h{margin:0;font-size:20px;line-height:26px;font-weight:400;color:#221F1A}
+.crow{display:grid;grid-template-columns:34px 34px 150px 78px 78px minmax(0,1fr);column-gap:12px;align-items:center;font-size:12.5px;line-height:17px;color:#221F1A;padding:7px 0}
+.crow + .crow{border-top:.5px solid #E2DCD0}
+.sw{width:34px;height:24px;border-radius:4px;box-shadow:inset 0 0 0 .5px rgba(0,0,0,.14)}
+.mut{color:#6E675B}
+.trow{display:grid;grid-template-columns:minmax(0,1fr) 230px;column-gap:20px;align-items:baseline;padding:12px 0}
+.trow + .trow{border-top:.5px solid #E2DCD0}
+.kv{display:flex;justify-content:space-between;gap:12px;font-size:12.5px;line-height:18px;color:#221F1A;padding:5px 0}
+.kv + .kv{border-top:.5px solid #E2DCD0}
+</style>
+</helmet>
+<div class="sans" style="width:1760px;height:1560px;box-sizing:border-box;padding:56px 64px;background:#EFEBE3;display:flex;flex-direction:column;gap:32px">
+<div style="display:flex;justify-content:space-between;align-items:flex-end">
+<div style="display:flex;flex-direction:column;gap:8px">
+<span class="caps mut">Design tokens · SwiftUI</span>
+<h1 class="serif" style="margin:0;font-size:40px;line-height:46px;font-weight:400;color:#221F1A">The catalogue, in numbers</h1>
+</div>
+<p class="serif" style="margin:0;max-width:560px;font-size:15px;line-height:23px;color:#5B5449">Ship these as an asset catalogue with Any / Dark appearances, plus one runtime colour — the painting accent. Everything else is stock AppKit and SwiftUI.</p>
+</div>
+
+<div style="display:flex;gap:32px;align-items:flex-start">
+<!-- colour -->
+<section class="card" style="width:860px;box-sizing:border-box">
+<h2 class="serif h">Colour</h2>
+<div class="crow caps mut" style="font-size:10px"><span>Light</span><span>Dark</span><span>Token</span><span>Light</span><span>Dark</span><span>Use</span></div>
+<div class="crow"><span class="sw" style="background:#F4F0E8"></span><span class="sw" style="background:#1C1A17"></span><span class="mono">salonPaper</span><span class="mono mut">#F4F0E8</span><span class="mono mut">#1C1A17</span><span>Window ground, gallery</span></div>
+<div class="crow"><span class="sw" style="background:#FAF8F3"></span><span class="sw" style="background:#24211D"></span><span class="mono">salonSurface</span><span class="mono mut">#FAF8F3</span><span class="mono mut">#24211D</span><span>Popover, inspector, grouped boxes</span></div>
+<div class="crow"><span class="sw" style="background:#ECE8E0"></span><span class="sw" style="background:#1E1C19"></span><span class="mono">salonMat</span><span class="mono mut">#ECE8E0</span><span class="mono mut">#1E1C19</span><span>Plate behind the work in the card</span></div>
+<div class="crow"><span class="sw" style="background:#E8E3D9"></span><span class="sw" style="background:#262320"></span><span class="mono">salonMatTile</span><span class="mono mut">#E8E3D9</span><span class="mono mut">#262320</span><span>Collection tiles</span></div>
+<div class="crow"><span class="sw" style="background:#221F1A"></span><span class="sw" style="background:#EEE9E0"></span><span class="mono">salonInk</span><span class="mono mut">#221F1A</span><span class="mono mut">#EEE9E0</span><span>Titles, primary text, default button</span></div>
+<div class="crow"><span class="sw" style="background:#5B5449"></span><span class="sw" style="background:#B8B0A3"></span><span class="mono">salonInk2</span><span class="mono mut">#5B5449</span><span class="mono mut">#B8B0A3</span><span>Descriptions, dates, secondary</span></div>
+<div class="crow"><span class="sw" style="background:#6E675B"></span><span class="sw" style="background:#9A9285"></span><span class="mono">salonInk3</span><span class="mono mut">#6E675B</span><span class="mono mut">#9A9285</span><span>Metadata, help — ≥ 4.8:1 on surface</span></div>
+<div class="crow"><span class="sw" style="background:#E2DCD0"></span><span class="sw" style="background:#37322C"></span><span class="mono">salonRule</span><span class="mono mut">#E2DCD0</span><span class="mono mut">#37322C</span><span>0.5 pt hairlines</span></div>
+<div class="crow"><span class="sw" style="background:#E6E0D5"></span><span class="sw" style="background:#2F2B26"></span><span class="mono">salonFill</span><span class="mono mut">#E6E0D5</span><span class="mono mut">#2F2B26</span><span>Segment track, switch off, skeleton</span></div>
+<div class="crow"><span class="sw" style="background:#4A453D"></span><span class="sw" style="background:#D9D2C6"></span><span class="mono">salonControlOn</span><span class="mono mut">#4A453D</span><span class="mono mut">#D9D2C6</span><span>Graphite tint for switches, checks</span></div>
+<div class="crow"><span class="sw" style="background:#7A5C22"></span><span class="sw" style="background:#D4B678"></span><span class="mono">accent (runtime)</span><span class="mono mut">#7A5C22</span><span class="mono mut">#D4B678</span><span>Kept state, selected tab/tile only</span></div>
+<div class="crow"><span class="sw" style="background:#4F7A55"></span><span class="sw" style="background:#8DB892"></span><span class="mono">healthOK</span><span class="mono mut">#4F7A55</span><span class="mono mut">#8DB892</span><span>Filled dot + “Healthy”</span></div>
+<div class="crow"><span class="sw" style="background:#9A6A1F"></span><span class="sw" style="background:#D6A75A"></span><span class="mono">healthWarn</span><span class="mono mut">#9A6A1F</span><span class="mono mut">#D6A75A</span><span>Half dot + “Degraded”</span></div>
+<div class="crow"><span class="sw" style="background:#A33F33"></span><span class="sw" style="background:#E08A7E"></span><span class="mono">healthBad</span><span class="mono mut">#A33F33</span><span class="mono mut">#E08A7E</span><span>Crossed ring + “Failing”; destructive text</span></div>
+<p style="margin:4px 0 0;font-size:12.5px;line-height:19px;color:#5B5449"><b style="font-weight:500;color:#221F1A">Accent rule.</b> Take the painting’s most common mid-tone (k-means, k = 5, skip near-greys), then fix it in OKLCH: light L 0.45, dark L 0.78, chroma clamped to 0.08, hue kept. Soft variant = accent at 10% (light) / 14% (dark). Animate changes with the artwork crossfade.</p>
+</section>
+
+<!-- type -->
+<section class="card" style="flex:1">
+<h2 class="serif h">Typography</h2>
+<div class="trow"><span class="serif" style="font-size:32px;line-height:38px;color:#221F1A">Nothing kept yet</span><div><div class="mono">.system(size: 32, design: .serif)</div><div class="mono mut">Display · New York 32/38</div></div></div>
+<div class="trow"><span class="serif" style="font-size:22px;line-height:27px;color:#221F1A">The Milkmaid<span style="color:#5B5449">, c. 1660</span></span><div><div class="mono">.system(size: 22, design: .serif)</div><div class="mono mut">Work title · 22/27 · date in ink2</div></div></div>
+<div class="trow"><span class="serif" style="font-size:17px;line-height:22px;color:#221F1A">November 2026</span><div><div class="mono">.system(size: 17, design: .serif)</div><div class="mono mut">Section heading · 17/22</div></div></div>
+<div class="trow"><span class="serif" style="font-size:14px;line-height:21px;color:#5B5449">A kitchen maid pours milk into an earthenware bowl, her attention entirely on the thin white stream.</span><div><div class="mono">.system(size: 14, design: .serif)</div><div class="mono mut">Description · 14/21 · ink2 · max 64 ch</div></div></div>
+<div class="trow"><span class="caps" style="font-size:11px;color:#5B5449">Johannes Vermeer</span><div><div class="mono">.system(size: 11, weight: .medium)</div><div class="mono mut">.textCase(.uppercase).tracking(1.0)</div></div></div>
+<div class="trow"><span class="caps" style="color:#6E675B">Today · 8 November</span><div><div class="mono">size 10.5, .medium, tracking 0.95</div><div class="mono mut">Label caps · ink3</div></div></div>
+<div class="trow"><span style="font-size:13px;line-height:17px;color:#221F1A">Also change on wake if a day was missed</span><div><div class="mono">.body (SF Pro 13/17)</div><div class="mono mut">All controls and settings rows</div></div></div>
+<div class="trow"><span style="font-size:12px;line-height:16px;color:#6E675B">Dutch, 1632–1675 · Oil on canvas · 45.5 × 41 cm</span><div><div class="mono">size 12 / 11.5, .regular</div><div class="mono mut">Metadata, help · .monospacedDigit()</div></div></div>
+<p style="margin:4px 0 0;font-size:12.5px;line-height:19px;color:#5B5449">Only two weights: regular and medium. No bold in the card; emphasis comes from size, case and ink level. Dimensions and counts use tabular figures.</p>
+</section>
+</div>
+
+<div style="display:grid;grid-template-columns:repeat(4,minmax(0,1fr));gap:32px">
+<section class="card">
+<h2 class="serif h">Spacing</h2>
+<div style="display:flex;flex-direction:column;gap:9px">
+<div style="display:flex;align-items:center;gap:12px"><span style="width:4px;height:12px;background:#4A453D"></span><span class="mono">4 · icon–label</span></div>
+<div style="display:flex;align-items:center;gap:12px"><span style="width:8px;height:12px;background:#4A453D"></span><span class="mono">8 · control groups</span></div>
+<div style="display:flex;align-items:center;gap:12px"><span style="width:12px;height:12px;background:#4A453D"></span><span class="mono">12 · label lines</span></div>
+<div style="display:flex;align-items:center;gap:12px"><span style="width:16px;height:12px;background:#4A453D"></span><span class="mono">16 · row padding</span></div>
+<div style="display:flex;align-items:center;gap:12px"><span style="width:20px;height:12px;background:#4A453D"></span><span class="mono">20 · card inset</span></div>
+<div style="display:flex;align-items:center;gap:12px"><span style="width:28px;height:12px;background:#4A453D"></span><span class="mono">28 · form inset</span></div>
+<div style="display:flex;align-items:center;gap:12px"><span style="width:40px;height:12px;background:#4A453D"></span><span class="mono">40 · empty states</span></div>
+</div>
+</section>
+<section class="card">
+<h2 class="serif h">Radii</h2>
+<div class="kv"><span>Artwork</span><span class="mono">0 — never rounded</span></div>
+<div class="kv"><span>Tile mat</span><span class="mono">2</span></div>
+<div class="kv"><span>Fields, popups</span><span class="mono">5</span></div>
+<div class="kv"><span>Buttons, tabs</span><span class="mono">6–7</span></div>
+<div class="kv"><span>Group box</span><span class="mono">10</span></div>
+<div class="kv"><span>Popover, window</span><span class="mono">12 (system)</span></div>
+<div class="kv"><span>App icon</span><span class="mono">system mask</span></div>
+</section>
+<section class="card">
+<h2 class="serif h">Elevation</h2>
+<div class="kv"><span>Work in UI</span><span class="mono">0 1 2 /22% · 0 6 18 /14%</span></div>
+<div class="kv"><span>Work on wallpaper</span><span class="mono">0 1 2 /24% · 0 12 32 /20%</span></div>
+<div class="kv"><span>Popover</span><span class="mono">system</span></div>
+<div class="kv"><span>Hairline</span><span class="mono">0.5 pt salonRule</span></div>
+<p style="margin:6px 0 0;font-size:12px;line-height:18px;color:#6E675B">Everything else is flat. No glass, no gradients on surfaces.</p>
+</section>
+<section class="card">
+<h2 class="serif h">Motion</h2>
+<div class="kv"><span>Card artwork</span><span class="mono">crossfade 0.6 s easeInOut</span></div>
+<div class="kv"><span>Wallpaper</span><span class="mono">crossfade 1.2 s easeInOut</span></div>
+<div class="kv"><span>More / Less</span><span class="mono">height 0.25 s easeOut</span></div>
+<div class="kv"><span>Keep</span><span class="mono">tint 0.2 s, no scale</span></div>
+<p style="margin:6px 0 0;font-size:12px;line-height:18px;color:#6E675B">No springs, no bounce. With Reduce Motion, swap instantly.</p>
+</section>
+</div>
+</div>
+</x-dc>
+<script type="text/x-dc" data-dc-script data-props='{"$preview":{"width":1760,"height":1560}}'>
+class Component extends DCLogic {
+  renderVals() { return {}; }
+}
+</script>
+</body>
+</html>

@@ -1,0 +1,35 @@
+# Xcode (the project is generated from project.yml)
+*.xcodeproj/
+*.xcworkspace/
+xcuserdata/
+DerivedData/
+build/
+*.xcresult
+*.ipa
+*.dSYM.zip
+*.dSYM
+
+# Swift Package Manager
+.build/
+.swiftpm/
+
+# Personal signing settings
+Local.xcconfig
+
+# macOS
+.DS_Store
+
+# Artwork: downloaded images and rendered wallpapers belong in
+# ~/Library/Application Support/Salon at runtime, never in the repo.
+*.img
+Images/
+Wallpapers/
+Catalogs/
+cache/
+*.cache
+
+# Secrets, just in case
+.env
+.env.*
+*.p12
+*.mobileprovision

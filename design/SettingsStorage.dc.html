@@ -1,0 +1,95 @@
+<!doctype html>
+<html lang="en">
+<head>
+<meta charset="utf-8">
+<title>Salon settings — Storage</title>
+<script src="./support.js"></script>
+</head>
+<body>
+<x-dc>
+<helmet>
+<link href="https://fonts.googleapis.com/css2?family=Source+Serif+4:ital,opsz,wght@0,8..60,400;0,8..60,500;1,8..60,400&amp;display=swap" rel="stylesheet">
+<style>
+body{margin:0}
+.light{--desk:#DAD4C9;--paper:#F4F0E8;--surface:#FAF8F3;--ink:#221F1A;--ink2:#5B5449;--ink3:#6E675B;--rule:#E2DCD0;--fill:#E6E0D5;--ring:rgba(34,31,26,.14);--chrome:#EFEBE3;--on:#4A453D;--a:#7A5C22;--a-soft:rgba(122,92,34,.11);--bad:#A33F33}
+.sans{font-family:-apple-system,BlinkMacSystemFont,"SF Pro Text","Helvetica Neue",system-ui,sans-serif}
+.serif{font-family:ui-serif,"New York","Source Serif 4",Georgia,serif}
+.caps{font-size:10.5px;line-height:14px;letter-spacing:.09em;text-transform:uppercase;font-weight:500}
+.tnum{font-variant-numeric:tabular-nums}
+.win{width:680px;border-radius:12px;overflow:hidden;background:var(--paper);box-shadow:0 0 0 .5px rgba(0,0,0,.18),0 18px 50px rgba(34,31,26,.22);display:flex;flex-direction:column}
+.tb{background:var(--chrome);border-bottom:.5px solid var(--rule);padding:10px 16px 8px;display:flex;flex-direction:column;gap:6px}
+.tabs{display:flex;justify-content:center;gap:2px}
+.tab{all:unset;box-sizing:border-box;width:68px;height:50px;border-radius:6px;display:flex;flex-direction:column;align-items:center;justify-content:center;gap:3px;font-size:11px;color:var(--ink2)}
+.tab[aria-selected="true"]{background:var(--a-soft);color:var(--a)}
+.form{padding:20px 28px 28px;display:flex;flex-direction:column;gap:8px}
+.gh{margin:12px 4px 0;color:var(--ink3)}
+.group{background:var(--surface);border-radius:10px;box-shadow:0 0 0 .5px var(--rule)}
+.row{display:flex;align-items:center;justify-content:space-between;gap:16px;min-height:44px;padding:10px 14px;box-sizing:border-box}
+.row + .row{border-top:.5px solid var(--rule)}
+.lbl{display:flex;flex-direction:column;gap:2px;font-size:13px;line-height:17px;color:var(--ink)}
+.help{font-size:11.5px;line-height:15px;color:var(--ink3)}
+.push{all:unset;box-sizing:border-box;height:22px;padding:0 11px;border-radius:5px;display:inline-flex;align-items:center;justify-content:center;font-size:13px;color:var(--ink);background:var(--surface);box-shadow:0 0 0 .5px var(--ring),0 1px 1.5px rgba(0,0,0,.08);white-space:nowrap}
+.pop{all:unset;box-sizing:border-box;height:22px;padding:0 6px 0 9px;border-radius:5px;display:inline-flex;align-items:center;gap:6px;font-size:13px;color:var(--ink);background:var(--surface);box-shadow:0 0 0 .5px var(--ring),0 1px 1.5px rgba(0,0,0,.08)}
+.meter{width:150px;height:5px;border-radius:3px;background:var(--fill);overflow:hidden}
+</style>
+</helmet>
+<div class="sans light" style="width:1240px;height:700px;box-sizing:border-box;padding:40px;background:var(--desk);display:flex;gap:60px;align-items:flex-start">
+<section class="win" aria-label="Salon Settings">
+<div class="tb">
+<div style="display:flex;align-items:center;height:16px"><div style="display:flex;gap:8px" aria-hidden="true"><span style="width:12px;height:12px;border-radius:6px;background:#FF5F57"></span><span style="width:12px;height:12px;border-radius:6px;background:#FEBC2E"></span><span style="width:12px;height:12px;border-radius:6px;background:#28C840"></span></div><span style="flex:1;text-align:center;font-size:13px;font-weight:600;color:var(--ink);margin-right:52px">Storage</span></div>
+<div class="tabs" role="tablist">
+<button class="tab" role="tab" aria-selected="false"><svg width="20" height="20" viewBox="0 0 20 20" fill="none" stroke="currentColor" stroke-width="1.3" stroke-linecap="round" aria-hidden="true"><circle cx="10" cy="10" r="2.6"/><path d="M10 2.5v2.2M10 15.3v2.2M2.5 10h2.2M15.3 10h2.2M4.7 4.7l1.6 1.6M13.7 13.7l1.6 1.6M4.7 15.3l1.6-1.6M13.7 6.3l1.6-1.6"/></svg>General</button>
+<button class="tab" role="tab" aria-selected="false"><svg width="20" height="20" viewBox="0 0 20 20" fill="none" stroke="currentColor" stroke-width="1.3" aria-hidden="true"><rect x="3" y="4" width="14" height="12" rx="1"/><rect x="6" y="7" width="8" height="6"/></svg>Artwork</button>
+<button class="tab" role="tab" aria-selected="false"><svg width="20" height="20" viewBox="0 0 20 20" fill="none" stroke="currentColor" stroke-width="1.3" stroke-linejoin="round" stroke-linecap="round" aria-hidden="true"><path d="M3 7.5L10 3.5l7 4M3.5 16.5h13M5.5 9.5v5M8.5 9.5v5M11.5 9.5v5M14.5 9.5v5M3 7.5h14"/></svg>Sources</button>
+<button class="tab" role="tab" aria-selected="true"><svg width="20" height="20" viewBox="0 0 20 20" fill="none" stroke="currentColor" stroke-width="1.3" stroke-linecap="round" aria-hidden="true"><rect x="3" y="6" width="14" height="8" rx="1.5"/><path d="M6 10h4"/><circle cx="14" cy="10" r=".8" fill="currentColor"/></svg>Storage</button>
+<button class="tab" role="tab" aria-selected="false"><svg width="20" height="20" viewBox="0 0 20 20" fill="none" stroke="currentColor" stroke-width="1.3" stroke-linecap="round" aria-hidden="true"><circle cx="10" cy="10" r="7"/><path d="M10 9v5"/><circle cx="10" cy="6.3" r=".8" fill="currentColor"/></svg>About</button>
+</div>
+</div>
+
+<div class="form">
+<span class="caps gh" style="margin-top:0">Image cache</span>
+<div class="group">
+<div class="row"><div class="lbl"><span class="tnum">412 MB · 186 images</span><span class="help">Full-size images of recent and kept works. Kept works are never removed.</span></div>
+<div style="display:flex;align-items:center;gap:12px"><div class="meter" role="img" aria-label="412 MB of 1 GB used"><div style="width:41%;height:100%;background:var(--on)"></div></div><button class="push">Clear Cache…</button></div></div>
+<div class="row"><div class="lbl">Keep up to</div><button class="pop tnum">1 GB<svg width="7" height="10" viewBox="0 0 7 10" fill="none" stroke="var(--ink2)" stroke-width="1.1" aria-hidden="true"><path d="M.8 3.5L3.5.8l2.7 2.7M.8 6.5l2.7 2.7 2.7-2.7"/></svg></button></div>
+</div>
+
+<span class="caps gh">History</span>
+<div class="group">
+<div class="row"><div class="lbl"><span class="tnum">214 works since 18 March 2026</span><span class="help">Clearing history keeps your kept works and the cache.</span></div><button class="push" style="color:var(--bad)">Clear History…</button></div>
+</div>
+
+<span class="caps gh">Export</span>
+<div class="group">
+<div class="row"><div class="lbl">Export kept works<span class="help">Title, artist, date, museum, object link and the day it was hung.</span></div>
+<div style="display:flex;align-items:center;gap:8px"><button class="pop">JSON<svg width="7" height="10" viewBox="0 0 7 10" fill="none" stroke="var(--ink2)" stroke-width="1.1" aria-hidden="true"><path d="M.8 3.5L3.5.8l2.7 2.7M.8 6.5l2.7 2.7 2.7-2.7"/></svg></button><button class="push">Export…</button></div></div>
+</div>
+</div>
+</section>
+
+<div style="display:flex;flex-direction:column;gap:14px;padding-top:120px">
+<span class="caps" style="color:var(--ink2)">Clear History… → alert</span>
+<div role="alertdialog" aria-labelledby="al-t" style="width:272px;box-sizing:border-box;padding:20px 16px 16px;border-radius:12px;background:var(--surface);box-shadow:0 0 0 .5px rgba(0,0,0,.18),0 20px 50px rgba(34,31,26,.28);display:flex;flex-direction:column;align-items:center;gap:12px;text-align:center">
+<div aria-hidden="true" style="width:64px;height:64px;border-radius:15px;background:linear-gradient(180deg,#DCD3C2,#C9BDA7);box-shadow:0 1px 2px rgba(0,0,0,.18);display:flex;align-items:center;justify-content:center;position:relative">
+<div style="width:30px;height:34px;box-sizing:border-box;padding:3px;background:#6B5432;box-shadow:0 2px 4px rgba(0,0,0,.25)"><div style="width:100%;height:100%;box-sizing:border-box;padding:3px;background:#EFE9DD"><div style="width:100%;height:100%;background:linear-gradient(180deg,#9F9479 0 30%,#C9A545 30% 55%,#40598A 55% 100%)"></div></div></div>
+</div>
+<div style="display:flex;flex-direction:column;gap:6px">
+<span id="al-t" style="font-size:13px;line-height:17px;font-weight:600;color:var(--ink)">Clear all history?</span>
+<span style="font-size:11.5px;line-height:15px;color:var(--ink2)">Salon will forget the 214 works it has shown. Kept works and the image cache stay.</span>
+</div>
+<div style="display:flex;gap:8px;width:100%;margin-top:4px">
+<button class="push" style="flex:1;height:26px;color:var(--bad)">Clear History</button>
+<button class="push" style="flex:1;height:26px;background:var(--ink);color:var(--surface);box-shadow:none">Cancel</button>
+</div>
+</div>
+<span class="help" style="max-width:272px">Cancel is the default (Return). The destructive action never is.</span>
+</div>
+</div>
+</x-dc>
+<script type="text/x-dc" data-dc-script data-props='{"$preview":{"width":1240,"height":700}}'>
+class Component extends DCLogic {
+  renderVals() { return {}; }
+}
+</script>
+</body>
+</html>

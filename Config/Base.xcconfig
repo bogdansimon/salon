@@ -1,0 +1,12 @@
+// Shared build settings. Personal signing settings go in Local.xcconfig
+// (gitignored; copy Local.xcconfig.example). Without it, the app is signed
+// ad hoc ("Sign to Run Locally"), which is fine for personal use.
+
+MARKETING_VERSION = 1.0
+CURRENT_PROJECT_VERSION = 1
+
+CODE_SIGN_STYLE = Automatic
+CODE_SIGN_IDENTITY = -
+DEVELOPMENT_TEAM =
+
+#include? "../Local.xcconfig"

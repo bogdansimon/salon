@@ -1,0 +1,81 @@
+<!doctype html>
+<html lang="en">
+<head>
+<meta charset="utf-8">
+<title>Salon settings — About</title>
+<script src="./support.js"></script>
+</head>
+<body>
+<x-dc>
+<helmet>
+<link href="https://fonts.googleapis.com/css2?family=Source+Serif+4:ital,opsz,wght@0,8..60,400;0,8..60,500;1,8..60,400&amp;display=swap" rel="stylesheet">
+<style>
+body{margin:0}
+.dark{--desk:#121110;--paper:#1C1A17;--surface:#24211D;--ink:#EEE9E0;--ink2:#B8B0A3;--ink3:#9A9285;--rule:#37322C;--fill:#2F2B26;--ring:rgba(238,233,224,.12);--chrome:#2A2622;--a:#D4B678;--a-soft:rgba(212,182,120,.14)}
+.sans{font-family:-apple-system,BlinkMacSystemFont,"SF Pro Text","Helvetica Neue",system-ui,sans-serif}
+.serif{font-family:ui-serif,"New York","Source Serif 4",Georgia,serif}
+.caps{font-size:10.5px;line-height:14px;letter-spacing:.09em;text-transform:uppercase;font-weight:500}
+.tnum{font-variant-numeric:tabular-nums}
+.win{width:680px;border-radius:12px;overflow:hidden;background:var(--paper);box-shadow:0 0 0 .5px rgba(255,255,255,.1),0 18px 50px rgba(0,0,0,.55);display:flex;flex-direction:column}
+.tb{background:var(--chrome);border-bottom:.5px solid var(--rule);padding:10px 16px 8px;display:flex;flex-direction:column;gap:6px}
+.tabs{display:flex;justify-content:center;gap:2px}
+.tab{all:unset;box-sizing:border-box;width:68px;height:50px;border-radius:6px;display:flex;flex-direction:column;align-items:center;justify-content:center;gap:3px;font-size:11px;color:var(--ink2)}
+.tab[aria-selected="true"]{background:var(--a-soft);color:var(--a)}
+.cr{display:flex;justify-content:space-between;gap:16px;padding:8px 14px;font-size:12.5px;line-height:17px}
+.cr + .cr{border-top:.5px solid var(--rule)}
+.link{color:var(--ink2);text-decoration:underline;text-decoration-color:var(--rule);text-underline-offset:3px}
+.link:hover{color:var(--ink)}
+</style>
+</helmet>
+<div class="sans dark" style="width:760px;height:700px;box-sizing:border-box;padding:40px;background:var(--desk)">
+<section class="win" aria-label="Salon Settings">
+<div class="tb">
+<div style="display:flex;align-items:center;height:16px"><div style="display:flex;gap:8px" aria-hidden="true"><span style="width:12px;height:12px;border-radius:6px;background:#FF5F57"></span><span style="width:12px;height:12px;border-radius:6px;background:#FEBC2E"></span><span style="width:12px;height:12px;border-radius:6px;background:#28C840"></span></div><span style="flex:1;text-align:center;font-size:13px;font-weight:600;color:var(--ink);margin-right:52px">About</span></div>
+<div class="tabs" role="tablist">
+<button class="tab" role="tab" aria-selected="false"><svg width="20" height="20" viewBox="0 0 20 20" fill="none" stroke="currentColor" stroke-width="1.3" stroke-linecap="round" aria-hidden="true"><circle cx="10" cy="10" r="2.6"/><path d="M10 2.5v2.2M10 15.3v2.2M2.5 10h2.2M15.3 10h2.2M4.7 4.7l1.6 1.6M13.7 13.7l1.6 1.6M4.7 15.3l1.6-1.6M13.7 6.3l1.6-1.6"/></svg>General</button>
+<button class="tab" role="tab" aria-selected="false"><svg width="20" height="20" viewBox="0 0 20 20" fill="none" stroke="currentColor" stroke-width="1.3" aria-hidden="true"><rect x="3" y="4" width="14" height="12" rx="1"/><rect x="6" y="7" width="8" height="6"/></svg>Artwork</button>
+<button class="tab" role="tab" aria-selected="false"><svg width="20" height="20" viewBox="0 0 20 20" fill="none" stroke="currentColor" stroke-width="1.3" stroke-linejoin="round" stroke-linecap="round" aria-hidden="true"><path d="M3 7.5L10 3.5l7 4M3.5 16.5h13M5.5 9.5v5M8.5 9.5v5M11.5 9.5v5M14.5 9.5v5M3 7.5h14"/></svg>Sources</button>
+<button class="tab" role="tab" aria-selected="false"><svg width="20" height="20" viewBox="0 0 20 20" fill="none" stroke="currentColor" stroke-width="1.3" stroke-linecap="round" aria-hidden="true"><rect x="3" y="6" width="14" height="8" rx="1.5"/><path d="M6 10h4"/><circle cx="14" cy="10" r=".8" fill="currentColor"/></svg>Storage</button>
+<button class="tab" role="tab" aria-selected="true"><svg width="20" height="20" viewBox="0 0 20 20" fill="none" stroke="currentColor" stroke-width="1.3" stroke-linecap="round" aria-hidden="true"><circle cx="10" cy="10" r="7"/><path d="M10 9v5"/><circle cx="10" cy="6.3" r=".8" fill="currentColor"/></svg>About</button>
+</div>
+</div>
+
+<div style="padding:28px 40px 32px;display:flex;flex-direction:column;gap:24px">
+<div style="display:flex;gap:22px;align-items:center">
+<div aria-hidden="true" style="width:88px;height:88px;flex:none;border-radius:20px;background:linear-gradient(180deg,#4A4339,#2E2A24);box-shadow:0 0 0 .5px rgba(255,255,255,.08),0 2px 6px rgba(0,0,0,.4);display:flex;align-items:center;justify-content:center">
+<div style="width:40px;height:46px;box-sizing:border-box;padding:4px;background:#8A6E40;box-shadow:0 3px 8px rgba(0,0,0,.45)"><div style="width:100%;height:100%;box-sizing:border-box;padding:4px;background:#E9E2D3"><div style="width:100%;height:100%;background:linear-gradient(180deg,#9F9479 0 30%,#C9A545 30% 55%,#40598A 55% 100%)"></div></div></div>
+</div>
+<div style="display:flex;flex-direction:column;gap:4px">
+<h1 class="serif" style="margin:0;font-size:32px;line-height:38px;font-weight:400;color:var(--ink)">Salon</h1>
+<span class="tnum" style="font-size:12px;color:var(--ink3)">Version 1.0 (14)</span>
+<p class="serif" style="margin:4px 0 0;font-size:15px;line-height:22px;font-style:italic;color:var(--ink2)">A painting a day, from the world’s open collections.</p>
+</div>
+</div>
+<div style="display:flex;gap:20px;font-size:12.5px">
+<a class="link" href="https://github.com/[YOUR-USERNAME]/salon">Source on GitHub ↗</a>
+<a class="link" href="#changes">Release notes</a>
+</div>
+
+<div style="display:flex;flex-direction:column;gap:8px">
+<span class="caps" style="color:var(--ink3);margin-left:4px">With thanks to</span>
+<div style="background:var(--surface);border-radius:10px;box-shadow:0 0 0 .5px var(--rule)">
+<div class="cr"><span style="color:var(--ink)">The Metropolitan Museum of Art</span><span style="color:var(--ink3)">Open Access API · CC0</span></div>
+<div class="cr"><span style="color:var(--ink)">Art Institute of Chicago</span><span style="color:var(--ink3)">Public API · CC0 public-domain images</span></div>
+<div class="cr"><span style="color:var(--ink)">Cleveland Museum of Art</span><span style="color:var(--ink3)">Open Access API · CC0</span></div>
+<div class="cr"><span style="color:var(--ink)">Rijksmuseum</span><span style="color:var(--ink3)">Data Services · public-domain images</span></div>
+<div class="cr"><span style="color:var(--ink)">Harvard Art Museums</span><span style="color:var(--ink3)">API · under its terms of use</span></div>
+<div class="cr"><span style="color:var(--ink)">Smithsonian Open Access</span><span style="color:var(--ink3)">api.data.gov · CC0</span></div>
+</div>
+<p style="margin:4px 4px 0;font-size:11.5px;line-height:16px;color:var(--ink3)">Images are shown under each museum’s open-access terms. Salon is a personal project and is not affiliated with any museum.</p>
+</div>
+</div>
+</section>
+</div>
+</x-dc>
+<script type="text/x-dc" data-dc-script data-props='{"$preview":{"width":760,"height":700}}'>
+class Component extends DCLogic {
+  renderVals() { return {}; }
+}
+</script>
+</body>
+</html>

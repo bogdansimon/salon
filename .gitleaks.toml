@@ -1,0 +1,30 @@
+# gitleaks configuration: the default rules plus checks specific to Salon.
+[extend]
+useDefault = true
+
+[[rules]]
+id = "api-key-in-url"
+description = "API key embedded in a request URL (e.g. a recorded fixture)"
+regex = '''(?i)[?&](api_key|apikey|wskey|access_token)=([A-Za-z0-9_\-]{8,})'''
+secretGroup = 2
+keywords = ["api_key", "apikey", "wskey", "access_token"]
+
+[[rules]]
+id = "apple-development-team"
+description = "Personal signing team committed outside Local.xcconfig"
+regex = '''DEVELOPMENT_TEAM\s*=\s*([A-Z0-9]{10})'''
+secretGroup = 1
+keywords = ["development_team"]
+
+[[rules]]
+id = "personal-home-path"
+description = "Absolute personal path"
+regex = '''/Users/([A-Za-z0-9._-]+)/'''
+secretGroup = 1
+keywords = ["/users/"]
+
+[allowlist]
+description = "Placeholders and public paging cursors that look like secrets"
+# Rijksmuseum pageToken = base64 of {"token": "https://id.rijksmuseum.nl/<id>"}, a public cursor.
+regexes = ['''REDACTED''', '''ABCDE12345''', '''eyJ0b2tlbiI6ICJodHRwczovL2lkLnJpamtzbXVzZXVtLm5sL[A-Za-z0-9+/=_-]*''']
+paths = ['''Local\.xcconfig\.example''']

@@ -1,0 +1,218 @@
+<!doctype html>
+<html lang="en">
+<head>
+<meta charset="utf-8">
+<title>Salon menu-bar popover</title>
+<script src="./support.js"></script>
+</head>
+<body>
+<x-dc>
+<helmet>
+<link rel="preconnect" href="https://fonts.googleapis.com">
+<link href="https://fonts.googleapis.com/css2?family=Source+Serif+4:ital,opsz,wght@0,8..60,400;0,8..60,500;1,8..60,400&amp;display=swap" rel="stylesheet">
+<style>
+body{margin:0}
+.light{--desk:#DAD4C9;--paper:#F4F0E8;--surface:#FAF8F3;--ink:#221F1A;--ink2:#5B5449;--ink3:#6E675B;--rule:#E2DCD0;--fill:#ECE7DD;--mat:#ECE8E0;--skel:#E6E0D5;--hover:rgba(34,31,26,.06);--ring:rgba(34,31,26,.12);--shadow:0 0 0 .5px rgba(34,31,26,.14),0 12px 32px rgba(34,31,26,.14);--bar:rgba(250,248,243,.72);--a:#7A5C22;--a-soft:rgba(122,92,34,.10)}
+.dark{--desk:#121110;--paper:#1C1A17;--surface:#24211D;--ink:#EEE9E0;--ink2:#B8B0A3;--ink3:#9A9285;--rule:#37322C;--fill:#2F2B26;--mat:#1E1C19;--skel:#332E28;--hover:rgba(238,233,224,.07);--ring:rgba(238,233,224,.10);--shadow:0 0 0 .5px rgba(255,255,255,.09),0 12px 36px rgba(0,0,0,.5);--bar:rgba(36,33,29,.78);--a:#D4B678;--a-soft:rgba(212,182,120,.14)}
+.sans{font-family:-apple-system,BlinkMacSystemFont,"SF Pro Text","Helvetica Neue",system-ui,sans-serif}
+.serif{font-family:ui-serif,"New York","Source Serif 4",Georgia,serif}
+.caps{font-size:10.5px;line-height:14px;letter-spacing:.09em;text-transform:uppercase;font-weight:500}
+.tnum{font-variant-numeric:tabular-nums}
+.pop{width:360px;background:var(--surface);border-radius:12px;box-shadow:var(--shadow);overflow:hidden;display:flex;flex-direction:column}
+.plate{background:var(--mat);height:236px;display:flex;align-items:center;justify-content:center}
+.work{box-shadow:0 1px 2px rgba(0,0,0,.22),0 6px 18px rgba(0,0,0,.14)}
+.btn{all:unset;box-sizing:border-box;height:36px;padding:0 12px;border-radius:7px;display:inline-flex;align-items:center;gap:7px;font-size:13px;color:var(--ink);cursor:default}
+.btn:hover{background:var(--hover)}
+.ibtn{all:unset;box-sizing:border-box;width:36px;height:36px;border-radius:7px;display:inline-flex;align-items:center;justify-content:center;color:var(--ink2)}
+.ibtn:hover{background:var(--hover)}
+.push{all:unset;box-sizing:border-box;height:28px;padding:0 14px;border-radius:6px;display:inline-flex;align-items:center;font-size:13px;color:var(--ink);background:var(--surface);box-shadow:0 0 0 .5px var(--ring),0 1px 1.5px rgba(0,0,0,.08)}
+.push.def{background:var(--ink);color:var(--surface)}
+.link{font-size:12.5px;color:var(--ink2);text-decoration:underline;text-decoration-color:var(--rule);text-underline-offset:3px}
+.link:hover{color:var(--ink)}
+.p-milkmaid{background:radial-gradient(ellipse 10% 8% at 47% 19%,#E6DBC1 0 55%,transparent 62%),radial-gradient(ellipse 19% 22% at 47% 40%,#D2AB45 0 58%,transparent 64%),radial-gradient(ellipse 18% 24% at 50% 66%,#3E5B8E 0 58%,transparent 64%),radial-gradient(ellipse 22% 10% at 26% 76%,#A86A3A 0 50%,transparent 62%),linear-gradient(180deg,transparent 72%,#4E4029 72% 100%),radial-gradient(ellipse 42% 36% at 16% 18%,#D6CDB4 0%,transparent 72%),linear-gradient(135deg,#ADA389 0%,#8F846B 52%,#665C49 100%)}
+.p-caillebotte{background:linear-gradient(90deg,transparent 48.6%,#2A2A28 48.6% 49.6%,transparent 49.6%),radial-gradient(ellipse 13% 6% at 76% 33%,#2E3033 0 70%,transparent 74%),radial-gradient(ellipse 8% 25% at 76% 60%,#25272A 0 70%,transparent 74%),radial-gradient(ellipse 6% 18% at 88% 64%,#2B2D30 0 70%,transparent 74%),linear-gradient(180deg,#CDCFCA 0%,#BABCB6 26%,#A7A190 33%,#958F7E 58%,#B6AF9C 100%)}
+.p-wheat{background:radial-gradient(ellipse 7% 40% at 73% 46%,#2B3820 0 66%,transparent 72%),radial-gradient(ellipse 17% 8% at 30% 20%,#EEEBDC 0 48%,transparent 72%),radial-gradient(ellipse 22% 7% at 60% 12%,#E5E2D0 0 44%,transparent 72%),linear-gradient(180deg,#7FA2C2 0%,#A8BFCD 36%,#6D7E45 45%,#8A8B3E 57%,#C8A33E 71%,#B78D2F 100%)}
+</style>
+</helmet>
+<div class="sans" style="width:2120px;height:1780px;box-sizing:border-box;padding:56px 40px 40px;background:#EFEBE3;display:flex;flex-direction:column;gap:36px">
+<div style="display:flex;justify-content:space-between;align-items:flex-end;padding:0 40px">
+<div style="display:flex;flex-direction:column;gap:8px">
+<span class="caps" style="color:#6E675B">Salon · Menu-bar popover · 360 pt</span>
+<h1 class="serif" style="margin:0;font-size:40px;line-height:46px;font-weight:400;color:#221F1A">The museum card</h1>
+</div>
+<p class="serif" style="margin:0;max-width:560px;font-size:15px;line-height:23px;color:#5B5449">The popover is the app. The work sits on a quiet mat, the wall label reads top to bottom like the Rijksmuseum’s, and the only colour is a muted tone sampled from the painting — here the ochre of the milkmaid’s bodice, used for the Kept state.</p>
+</div>
+
+<sc-for list="{{themes}}" as="t" hint-placeholder-count="2">
+<div class="{{t.cls}}" style="background:var(--desk);border-radius:20px;padding:28px 40px 40px;display:flex;flex-direction:column;gap:20px">
+<span class="caps" style="color:var(--ink2)">{{t.label}}</span>
+<div style="display:flex;gap:40px;align-items:flex-start">
+
+<!-- 1 · long description, truncated -->
+<div style="display:flex;flex-direction:column;gap:10px">
+<span class="caps" style="color:var(--ink3)">Long description · truncated</span>
+<div class="pop">
+<div class="plate"><div class="work p-milkmaid" style="width:174px;height:192px"></div></div>
+<div style="padding:16px 20px 0;display:flex;flex-direction:column;gap:12px">
+<div style="display:flex;justify-content:space-between"><span class="caps" style="color:var(--ink3)">Today · 8 November</span><span class="caps tnum" style="color:var(--ink3)">No. 214</span></div>
+<div style="display:flex;flex-direction:column;gap:3px">
+<span class="caps" style="font-size:11px;color:var(--ink2)">Johannes Vermeer</span>
+<span style="font-size:12px;line-height:16px;color:var(--ink3)">Dutch, 1632–1675</span>
+</div>
+<h2 class="serif" style="margin:0;font-size:22px;line-height:27px;font-weight:400;color:var(--ink)">The Milkmaid<span style="color:var(--ink2)">, c. 1660</span></h2>
+<div style="font-size:12px;line-height:17px;color:var(--ink3)">Oil on canvas · 45.5 × 41 cm<br>Rijksmuseum, Amsterdam</div>
+<div style="height:.5px;background:var(--rule)"></div>
+<div style="display:flex;flex-direction:column;gap:6px">
+<p class="serif" style="margin:0;font-size:14px;line-height:21px;color:var(--ink2);height:105px;overflow:hidden;-webkit-mask-image:linear-gradient(180deg,#000 62%,transparent);mask-image:linear-gradient(180deg,#000 62%,transparent)">A kitchen maid pours milk into an earthenware bowl, her attention entirely on the thin white stream. Vermeer builds the quiet of the scene out of light: it falls from the window at left across the bare wall, the bread and the brass. Small points of thick paint make the crust glisten. Technical research has shown that he painted out objects that once stood behind her, leaving the plaster that gives the picture its stillness.</p>
+<button class="btn" style="height:28px;padding:0 6px;margin-left:-6px;align-self:flex-start;font-size:12.5px;color:var(--ink2)">More<svg width="10" height="10" viewBox="0 0 10 10" fill="none" stroke="currentColor" stroke-width="1.3" aria-hidden="true"><path d="M2 3.5l3 3 3-3"/></svg></button>
+</div>
+<a class="link" href="https://www.rijksmuseum.nl/en/collection/SK-A-2344" style="align-self:flex-start;margin-bottom:14px">View at the Rijksmuseum ↗</a>
+</div>
+<div style="display:flex;align-items:center;gap:2px;padding:6px 8px;border-top:.5px solid var(--rule)">
+<button class="btn"><svg width="15" height="15" viewBox="0 0 16 16" fill="none" stroke="currentColor" stroke-width="1.4" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true"><path d="M3 8h9M8.5 4.5L12 8l-3.5 3.5"/></svg>Next</button>
+<button class="btn"><svg width="15" height="15" viewBox="0 0 16 16" fill="none" stroke="currentColor" stroke-width="1.4" stroke-linejoin="round" aria-hidden="true"><path d="M4.5 2.5h7v11L8 10.8l-3.5 2.7z"/></svg>Keep</button>
+<div style="flex:1"></div>
+<button class="ibtn" aria-label="History"><svg width="16" height="16" viewBox="0 0 16 16" fill="none" stroke="currentColor" stroke-width="1.3" stroke-linecap="round" aria-hidden="true"><rect x="2.5" y="4.5" width="11" height="9" rx="1"/><path d="M4.5 2.5h7"/></svg></button>
+<button class="ibtn" aria-label="Settings"><svg width="16" height="16" viewBox="0 0 16 16" fill="none" stroke="currentColor" stroke-width="1.3" stroke-linecap="round" aria-hidden="true"><path d="M2.5 4.5h11M2.5 11.5h11"/><circle cx="10" cy="4.5" r="1.6" fill="var(--surface)"/><circle cx="6" cy="11.5" r="1.6" fill="var(--surface)"/></svg></button>
+</div>
+</div>
+</div>
+
+<!-- 2 · long description, expanded + kept -->
+<div style="display:flex;flex-direction:column;gap:10px">
+<span class="caps" style="color:var(--ink3)">Expanded · scrolls inside · Kept</span>
+<div class="pop">
+<div class="plate" style="height:176px"><div class="work p-milkmaid" style="width:120px;height:133px"></div></div>
+<div style="padding:16px 20px 0;display:flex;flex-direction:column;gap:12px">
+<div style="display:flex;justify-content:space-between"><span class="caps" style="color:var(--ink3)">Today · 8 November</span><span class="caps tnum" style="color:var(--ink3)">No. 214</span></div>
+<div style="display:flex;flex-direction:column;gap:3px">
+<span class="caps" style="font-size:11px;color:var(--ink2)">Johannes Vermeer</span>
+<span style="font-size:12px;line-height:16px;color:var(--ink3)">Dutch, 1632–1675</span>
+</div>
+<h2 class="serif" style="margin:0;font-size:22px;line-height:27px;font-weight:400;color:var(--ink)">The Milkmaid<span style="color:var(--ink2)">, c. 1660</span></h2>
+<div style="font-size:12px;line-height:17px;color:var(--ink3)">Oil on canvas · 45.5 × 41 cm<br>Rijksmuseum, Amsterdam</div>
+<div style="height:.5px;background:var(--rule)"></div>
+<div style="position:relative;height:168px;overflow:hidden;-webkit-mask-image:linear-gradient(180deg,#000 85%,transparent);mask-image:linear-gradient(180deg,#000 85%,transparent)">
+<p class="serif" style="margin:0;padding-right:14px;font-size:14px;line-height:21px;color:var(--ink2)">A kitchen maid pours milk into an earthenware bowl, her attention entirely on the thin white stream. Vermeer builds the quiet of the scene out of light: it falls from the window at left across the bare wall, the bread and the brass. Small points of thick paint make the crust glisten. Technical research has shown that he painted out objects that once stood behind her, leaving the plaster that gives the picture its stillness. The foot warmer on the floor and the tiles along the skirting are the only ornaments he kept.</p>
+<div style="position:absolute;right:2px;top:4px;width:3px;height:64px;border-radius:2px;background:var(--ink3);opacity:.45"></div>
+</div>
+<div style="display:flex;justify-content:space-between;align-items:center;margin-bottom:10px">
+<a class="link" href="https://www.rijksmuseum.nl/en/collection/SK-A-2344">View at the Rijksmuseum ↗</a>
+<button class="btn" style="height:28px;padding:0 6px;font-size:12.5px;color:var(--ink2)">Less<svg width="10" height="10" viewBox="0 0 10 10" fill="none" stroke="currentColor" stroke-width="1.3" aria-hidden="true"><path d="M2 6.5l3-3 3 3"/></svg></button>
+</div>
+</div>
+<div style="display:flex;align-items:center;gap:2px;padding:6px 8px;border-top:.5px solid var(--rule)">
+<button class="btn"><svg width="15" height="15" viewBox="0 0 16 16" fill="none" stroke="currentColor" stroke-width="1.4" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true"><path d="M3 8h9M8.5 4.5L12 8l-3.5 3.5"/></svg>Next</button>
+<button class="btn" aria-pressed="true" style="color:var(--a);background:var(--a-soft)"><svg width="15" height="15" viewBox="0 0 16 16" fill="currentColor" stroke="currentColor" stroke-width="1.4" stroke-linejoin="round" aria-hidden="true"><path d="M4.5 2.5h7v11L8 10.8l-3.5 2.7z"/></svg>Kept</button>
+<div style="flex:1"></div>
+<button class="ibtn" aria-label="History"><svg width="16" height="16" viewBox="0 0 16 16" fill="none" stroke="currentColor" stroke-width="1.3" stroke-linecap="round" aria-hidden="true"><rect x="2.5" y="4.5" width="11" height="9" rx="1"/><path d="M4.5 2.5h7"/></svg></button>
+<button class="ibtn" aria-label="Settings"><svg width="16" height="16" viewBox="0 0 16 16" fill="none" stroke="currentColor" stroke-width="1.3" stroke-linecap="round" aria-hidden="true"><path d="M2.5 4.5h11M2.5 11.5h11"/><circle cx="10" cy="4.5" r="1.6" fill="var(--surface)"/><circle cx="6" cy="11.5" r="1.6" fill="var(--surface)"/></svg></button>
+</div>
+</div>
+</div>
+
+<!-- 3 · no description -->
+<div style="display:flex;flex-direction:column;gap:10px">
+<span class="caps" style="color:var(--ink3)">No description · card simply ends</span>
+<div class="pop" style="--a:{{t.aBlue}};--a-soft:{{t.aBlueSoft}}">
+<div class="plate"><div class="work p-caillebotte" style="width:276px;height:212px"></div></div>
+<div style="padding:16px 20px 0;display:flex;flex-direction:column;gap:12px">
+<div style="display:flex;justify-content:space-between"><span class="caps" style="color:var(--ink3)">Today · 9 November</span><span class="caps tnum" style="color:var(--ink3)">No. 215</span></div>
+<div style="display:flex;flex-direction:column;gap:3px">
+<span class="caps" style="font-size:11px;color:var(--ink2)">Gustave Caillebotte</span>
+<span style="font-size:12px;line-height:16px;color:var(--ink3)">French, 1848–1894</span>
+</div>
+<h2 class="serif" style="margin:0;font-size:22px;line-height:27px;font-weight:400;color:var(--ink)">Paris Street; Rainy Day<span style="color:var(--ink2)">, 1877</span></h2>
+<div style="font-size:12px;line-height:17px;color:var(--ink3)">Oil on canvas · 212.2 × 276.2 cm<br>The Art Institute of Chicago</div>
+<a class="link" href="https://www.artic.edu/artworks/20684" style="align-self:flex-start;margin:2px 0 14px">View at the Art Institute ↗</a>
+</div>
+<div style="display:flex;align-items:center;gap:2px;padding:6px 8px;border-top:.5px solid var(--rule)">
+<button class="btn"><svg width="15" height="15" viewBox="0 0 16 16" fill="none" stroke="currentColor" stroke-width="1.4" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true"><path d="M3 8h9M8.5 4.5L12 8l-3.5 3.5"/></svg>Next</button>
+<button class="btn"><svg width="15" height="15" viewBox="0 0 16 16" fill="none" stroke="currentColor" stroke-width="1.4" stroke-linejoin="round" aria-hidden="true"><path d="M4.5 2.5h7v11L8 10.8l-3.5 2.7z"/></svg>Keep</button>
+<div style="flex:1"></div>
+<button class="ibtn" aria-label="History"><svg width="16" height="16" viewBox="0 0 16 16" fill="none" stroke="currentColor" stroke-width="1.3" stroke-linecap="round" aria-hidden="true"><rect x="2.5" y="4.5" width="11" height="9" rx="1"/><path d="M4.5 2.5h7"/></svg></button>
+<button class="ibtn" aria-label="Settings"><svg width="16" height="16" viewBox="0 0 16 16" fill="none" stroke="currentColor" stroke-width="1.3" stroke-linecap="round" aria-hidden="true"><path d="M2.5 4.5h11M2.5 11.5h11"/><circle cx="10" cy="4.5" r="1.6" fill="var(--surface)"/><circle cx="6" cy="11.5" r="1.6" fill="var(--surface)"/></svg></button>
+</div>
+</div>
+</div>
+
+<!-- 4 · loading -->
+<div style="display:flex;flex-direction:column;gap:10px">
+<span class="caps" style="color:var(--ink3)">Loading · crossfades in when ready</span>
+<div class="pop" aria-busy="true">
+<div class="plate" style="flex-direction:column;gap:14px">
+<div style="width:174px;height:192px;background:var(--skel);display:flex;align-items:center;justify-content:center">
+<svg width="20" height="20" viewBox="0 0 20 20" fill="none" stroke="var(--ink3)" stroke-width="1.6" stroke-linecap="round" role="img" aria-label="Loading"><circle cx="10" cy="10" r="7.5" opacity=".25"/><path d="M10 2.5a7.5 7.5 0 0 1 7.5 7.5"/></svg>
+</div>
+</div>
+<div style="padding:16px 20px 0;display:flex;flex-direction:column;gap:12px">
+<div style="display:flex;justify-content:space-between"><span class="caps" style="color:var(--ink3)">Fetching from The Met</span><span class="caps tnum" style="color:var(--ink3)">No. 216</span></div>
+<div style="display:flex;flex-direction:column;gap:7px;padding:2px 0 4px">
+<div style="width:132px;height:9px;border-radius:2px;background:var(--skel)"></div>
+<div style="width:96px;height:9px;border-radius:2px;background:var(--skel)"></div>
+</div>
+<div style="width:250px;height:18px;border-radius:3px;background:var(--skel)"></div>
+<div style="display:flex;flex-direction:column;gap:7px">
+<div style="width:180px;height:9px;border-radius:2px;background:var(--skel)"></div>
+<div style="width:150px;height:9px;border-radius:2px;background:var(--skel)"></div>
+</div>
+<div style="height:.5px;background:var(--rule);margin-top:4px"></div>
+<p style="margin:0 0 14px;font-size:12px;line-height:17px;color:var(--ink3)">Your current wallpaper stays until the new work has fully downloaded.</p>
+</div>
+<div style="display:flex;align-items:center;gap:2px;padding:6px 8px;border-top:.5px solid var(--rule)">
+<button class="btn" disabled="" style="opacity:.4"><svg width="15" height="15" viewBox="0 0 16 16" fill="none" stroke="currentColor" stroke-width="1.4" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true"><path d="M3 8h9M8.5 4.5L12 8l-3.5 3.5"/></svg>Next</button>
+<button class="btn" disabled="" style="opacity:.4"><svg width="15" height="15" viewBox="0 0 16 16" fill="none" stroke="currentColor" stroke-width="1.4" stroke-linejoin="round" aria-hidden="true"><path d="M4.5 2.5h7v11L8 10.8l-3.5 2.7z"/></svg>Keep</button>
+<div style="flex:1"></div>
+<button class="ibtn" aria-label="History"><svg width="16" height="16" viewBox="0 0 16 16" fill="none" stroke="currentColor" stroke-width="1.3" stroke-linecap="round" aria-hidden="true"><rect x="2.5" y="4.5" width="11" height="9" rx="1"/><path d="M4.5 2.5h7"/></svg></button>
+<button class="ibtn" aria-label="Settings"><svg width="16" height="16" viewBox="0 0 16 16" fill="none" stroke="currentColor" stroke-width="1.3" stroke-linecap="round" aria-hidden="true"><path d="M2.5 4.5h11M2.5 11.5h11"/><circle cx="10" cy="4.5" r="1.6" fill="var(--surface)"/><circle cx="6" cy="11.5" r="1.6" fill="var(--surface)"/></svg></button>
+</div>
+</div>
+</div>
+
+<!-- 5 · error -->
+<div style="display:flex;flex-direction:column;gap:10px">
+<span class="caps" style="color:var(--ink3)">Error · source unreachable</span>
+<div class="pop">
+<div class="plate" style="height:168px">
+<div style="width:120px;height:120px;border:1px solid var(--rule);display:flex;align-items:center;justify-content:center">
+<svg width="26" height="26" viewBox="0 0 26 26" fill="none" stroke="var(--ink3)" stroke-width="1.3" stroke-linecap="round" aria-hidden="true"><rect x="4.5" y="6.5" width="17" height="13" rx="1"/><path d="M4.5 16l4.5-4 3.5 3 3-2.5 5.5 4.5M2 2l22 22"/></svg>
+</div>
+</div>
+<div style="padding:18px 20px 0;display:flex;flex-direction:column;gap:10px">
+<span class="caps" style="color:var(--ink3)">Rijksmuseum · not responding</span>
+<h2 class="serif" style="margin:0;font-size:20px;line-height:25px;font-weight:400;color:var(--ink)">Couldn’t fetch a new work</h2>
+<p style="margin:0;font-size:13px;line-height:19px;color:var(--ink2)">The request timed out. Your wallpaper stays as it is, and Salon will try again in 15 minutes.</p>
+<div style="display:flex;gap:8px;margin-top:6px">
+<button class="push def">Try Again</button>
+<button class="push">Use Another Museum</button>
+</div>
+<a class="link" href="#sources" style="align-self:flex-start;margin:6px 0 14px">Check sources in Settings…</a>
+</div>
+<div style="display:flex;align-items:center;gap:2px;padding:6px 8px;border-top:.5px solid var(--rule)">
+<button class="btn" disabled="" style="opacity:.4"><svg width="15" height="15" viewBox="0 0 16 16" fill="none" stroke="currentColor" stroke-width="1.4" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true"><path d="M3 8h9M8.5 4.5L12 8l-3.5 3.5"/></svg>Next</button>
+<div style="flex:1"></div>
+<button class="ibtn" aria-label="History"><svg width="16" height="16" viewBox="0 0 16 16" fill="none" stroke="currentColor" stroke-width="1.3" stroke-linecap="round" aria-hidden="true"><rect x="2.5" y="4.5" width="11" height="9" rx="1"/><path d="M4.5 2.5h7"/></svg></button>
+<button class="ibtn" aria-label="Settings"><svg width="16" height="16" viewBox="0 0 16 16" fill="none" stroke="currentColor" stroke-width="1.3" stroke-linecap="round" aria-hidden="true"><path d="M2.5 4.5h11M2.5 11.5h11"/><circle cx="10" cy="4.5" r="1.6" fill="var(--surface)"/><circle cx="6" cy="11.5" r="1.6" fill="var(--surface)"/></svg></button>
+</div>
+</div>
+</div>
+
+</div>
+</div>
+</sc-for>
+</div>
+</x-dc>
+<script type="text/x-dc" data-dc-script data-props='{"$preview":{"width":2120,"height":1780}}'>
+class Component extends DCLogic {
+  renderVals() {
+    return {
+      themes: [
+        { cls: 'light', label: 'Light appearance', aBlue: '#4E5D68', aBlueSoft: 'rgba(78,93,104,.10)' },
+        { cls: 'dark', label: 'Dark appearance', aBlue: '#A9B8C2', aBlueSoft: 'rgba(169,184,194,.14)' }
+      ]
+    };
+  }
+}
+</script>
+</body>
+</html>

@@ -1,0 +1,120 @@
+<!doctype html>
+<html lang="en">
+<head>
+<meta charset="utf-8">
+<title>Salon collection window</title>
+<script src="./support.js"></script>
+</head>
+<body>
+<x-dc>
+<helmet>
+<link href="https://fonts.googleapis.com/css2?family=Source+Serif+4:ital,opsz,wght@0,8..60,400;0,8..60,500;1,8..60,400&amp;display=swap" rel="stylesheet">
+<style>
+body{margin:0}
+.light{--desk:#DAD4C9;--paper:#F4F0E8;--surface:#FAF8F3;--ink:#221F1A;--ink2:#5B5449;--ink3:#6E675B;--rule:#E2DCD0;--fill:#ECE7DD;--mat:#E8E3D9;--hover:rgba(34,31,26,.06);--ring:rgba(34,31,26,.12);--chrome:#EFEBE3;--a:#56632F;--a-soft:rgba(86,99,47,.10)}
+.dark{--desk:#121110;--paper:#1C1A17;--surface:#24211D;--ink:#EEE9E0;--ink2:#B8B0A3;--ink3:#9A9285;--rule:#37322C;--fill:#2F2B26;--mat:#262320;--hover:rgba(238,233,224,.07);--ring:rgba(238,233,224,.12);--chrome:#2A2622;--a:#B9C48A;--a-soft:rgba(185,196,138,.14)}
+.sans{font-family:-apple-system,BlinkMacSystemFont,"SF Pro Text","Helvetica Neue",system-ui,sans-serif}
+.serif{font-family:ui-serif,"New York","Source Serif 4",Georgia,serif}
+.caps{font-size:10.5px;line-height:14px;letter-spacing:.09em;text-transform:uppercase;font-weight:500}
+.tnum{font-variant-numeric:tabular-nums}
+.work{box-shadow:0 1px 2px rgba(0,0,0,.22),0 5px 14px rgba(0,0,0,.12)}
+.tile{all:unset;box-sizing:border-box;display:flex;flex-direction:column;gap:9px;min-width:0;cursor:default}
+.mat{height:156px;background:var(--mat);display:flex;align-items:center;justify-content:center;border-radius:2px}
+.tt{font-size:13.5px;line-height:18px;color:var(--ink);white-space:nowrap;overflow:hidden;text-overflow:ellipsis}
+.ta{font-size:10px;line-height:13px;letter-spacing:.08em;text-transform:uppercase;color:var(--ink3);font-weight:500;white-space:nowrap;overflow:hidden;text-overflow:ellipsis}
+.seg{display:inline-flex;padding:2px;border-radius:7px;background:var(--fill);gap:2px}
+.seg button{all:unset;box-sizing:border-box;height:24px;padding:0 14px;border-radius:5px;font-size:12.5px;color:var(--ink2);display:inline-flex;align-items:center;gap:6px}
+.seg button[aria-pressed="true"]{background:var(--surface);color:var(--ink);box-shadow:0 0 0 .5px var(--ring),0 1px 2px rgba(0,0,0,.08)}
+.push{all:unset;box-sizing:border-box;height:30px;padding:0 14px;border-radius:6px;display:inline-flex;align-items:center;justify-content:center;gap:7px;font-size:13px;color:var(--ink);background:var(--surface);box-shadow:0 0 0 .5px var(--ring),0 1px 1.5px rgba(0,0,0,.08)}
+.push.def{background:var(--ink);color:var(--surface)}
+.link{font-size:12.5px;color:var(--ink2);text-decoration:underline;text-decoration-color:var(--rule);text-underline-offset:3px}
+.p-milkmaid{background:radial-gradient(ellipse 10% 8% at 47% 19%,#E6DBC1 0 55%,transparent 62%),radial-gradient(ellipse 19% 22% at 47% 40%,#D2AB45 0 58%,transparent 64%),radial-gradient(ellipse 18% 24% at 50% 66%,#3E5B8E 0 58%,transparent 64%),radial-gradient(ellipse 22% 10% at 26% 76%,#A86A3A 0 50%,transparent 62%),linear-gradient(180deg,transparent 72%,#4E4029 72% 100%),radial-gradient(ellipse 42% 36% at 16% 18%,#D6CDB4 0%,transparent 72%),linear-gradient(135deg,#ADA389 0%,#8F846B 52%,#665C49 100%)}
+.p-wheat{background:radial-gradient(ellipse 7% 40% at 73% 46%,#2B3820 0 66%,transparent 72%),radial-gradient(ellipse 17% 8% at 30% 20%,#EEEBDC 0 48%,transparent 72%),radial-gradient(ellipse 22% 7% at 60% 12%,#E5E2D0 0 44%,transparent 72%),linear-gradient(180deg,#7FA2C2 0%,#A8BFCD 36%,#6D7E45 45%,#8A8B3E 57%,#C8A33E 71%,#B78D2F 100%)}
+.p-swan{background:radial-gradient(ellipse 30% 26% at 48% 54%,#EFEDE6 0 52%,transparent 70%),radial-gradient(ellipse 30% 25% at 18% 18%,#8FA6B8 0 40%,transparent 75%),linear-gradient(160deg,#4A5A55 0%,#3A3A2C 55%,#22231C 100%)}
+.p-hokusai{background:radial-gradient(ellipse 34% 46% at 26% 58%,#1F3B58 0 55%,transparent 60%),radial-gradient(ellipse 26% 16% at 30% 24%,#F0EADA 0 40%,transparent 62%),radial-gradient(ellipse 8% 6% at 62% 72%,#F3EEE2 0 45%,#5A6E83 46% 60%,transparent 62%),linear-gradient(180deg,#D9CEB4 0%,#CFC2A3 55%,#3E5A77 70%,#2B4867 100%)}
+.p-avercamp{background:radial-gradient(circle at 22% 68%,#3A3026 0 1.4%,transparent 1.8%),radial-gradient(circle at 34% 75%,#3A3026 0 1.4%,transparent 1.8%),radial-gradient(circle at 47% 70%,#5A2E24 0 1.4%,transparent 1.8%),radial-gradient(circle at 61% 77%,#3A3026 0 1.4%,transparent 1.8%),radial-gradient(circle at 73% 66%,#3A3026 0 1.4%,transparent 1.8%),radial-gradient(ellipse 9% 30% at 6% 42%,#6B5E4A 0 50%,transparent 72%),radial-gradient(ellipse 10% 14% at 90% 46%,#8A6B4F 0 50%,transparent 72%),linear-gradient(180deg,#D7D5CB 0%,#CBC7B9 46%,#B4AF9D 52%,#C8C3B2 100%)}
+.p-rembrandt{background:radial-gradient(ellipse 16% 16% at 52% 32%,#D8A87C 0 38%,#8A5A3A 66%,transparent 80%),radial-gradient(ellipse 36% 30% at 50% 82%,#2A1D14 0 60%,transparent 72%),radial-gradient(ellipse 70% 70% at 40% 30%,#4A3424 0%,#1E150F 80%)}
+.p-lilies{background:radial-gradient(ellipse 14% 6% at 30% 30%,#C9A3A8 0 40%,transparent 70%),radial-gradient(ellipse 18% 7% at 66% 52%,#8EA57A 0 45%,transparent 72%),radial-gradient(ellipse 14% 5% at 40% 76%,#D3B6B6 0 40%,transparent 70%),linear-gradient(170deg,#6E8FA6 0%,#8BA5A8 40%,#5D7D7E 70%,#43606B 100%)}
+.p-harvesters{background:radial-gradient(ellipse 8% 30% at 60% 40%,#3F4A2A 0 60%,transparent 70%),linear-gradient(180deg,#B9C2B0 0%,#9CAE9E 22%,#6F7F5A 30%,#C9A84E 40%,#D2B25A 62%,#8C7A3E 100%)}
+.p-jatte{background:radial-gradient(ellipse 5% 26% at 76% 56%,#2C2C2E 0 60%,transparent 70%),radial-gradient(ellipse 4% 18% at 64% 62%,#3A3436 0 60%,transparent 70%),linear-gradient(90deg,#7FA3B8 0 16%,transparent 16%),linear-gradient(180deg,#A9BFA5 0%,#7E9B66 30%,#6E8C52 55%,#A3A564 75%,#7D914F 100%)}
+.p-pitcher{background:radial-gradient(ellipse 12% 10% at 52% 24%,#EFE9DA 0 55%,transparent 64%),radial-gradient(ellipse 22% 30% at 50% 62%,#3F5C86 0 55%,transparent 64%),radial-gradient(ellipse 10% 10% at 72% 56%,#B59658 0 50%,transparent 64%),radial-gradient(ellipse 34% 40% at 14% 22%,#CFD2C8 0%,transparent 72%),linear-gradient(135deg,#B7B2A1 0%,#9C9686 50%,#7C7667 100%)}
+.p-irises{background:radial-gradient(ellipse 18% 12% at 35% 30%,#4C4E86 0 55%,transparent 66%),radial-gradient(ellipse 16% 10% at 62% 24%,#5E5FA2 0 55%,transparent 66%),radial-gradient(ellipse 20% 12% at 50% 46%,#46487C 0 55%,transparent 66%),radial-gradient(ellipse 26% 20% at 50% 80%,#5C7A4C 0 50%,transparent 66%),linear-gradient(180deg,#DCCDB1 0%,#D2BFA0 100%)}
+.p-biglin{background:radial-gradient(ellipse 22% 3% at 45% 66%,#ECE6D6 0 60%,transparent 70%),linear-gradient(180deg,#C7C3AE 0%,#B9B79D 40%,#6C7A5E 46%,#4F6A6B 52%,#5F7B7B 100%)}
+</style>
+</helmet>
+<div class="sans light" style="width:1180px;height:800px;box-sizing:border-box;padding:40px;background:var(--desk)">
+<section aria-label="Salon — Collection" style="width:1100px;height:720px;border-radius:12px;overflow:hidden;background:var(--paper);box-shadow:0 0 0 .5px rgba(0,0,0,.18),0 18px 50px rgba(34,31,26,.22);display:flex;flex-direction:column">
+
+<!-- unified titlebar + toolbar -->
+<div style="height:52px;flex:none;display:flex;align-items:center;gap:16px;padding:0 16px;background:var(--chrome);border-bottom:.5px solid var(--rule)">
+<div style="display:flex;gap:8px" aria-hidden="true"><span style="width:12px;height:12px;border-radius:6px;background:#FF5F57"></span><span style="width:12px;height:12px;border-radius:6px;background:#FEBC2E"></span><span style="width:12px;height:12px;border-radius:6px;background:#28C840"></span></div>
+<span style="font-size:13px;font-weight:600;color:var(--ink);margin-left:8px">Collection</span>
+<div style="flex:1;display:flex;justify-content:center">
+<div class="seg" role="group" aria-label="Show"><button aria-pressed="true">All <span class="tnum" style="color:var(--ink3)">214</span></button><button aria-pressed="false">Kept <span class="tnum" style="color:var(--ink3)">18</span></button></div>
+</div>
+<label style="display:flex;align-items:center;gap:6px;width:200px;height:28px;box-sizing:border-box;padding:0 8px;border-radius:6px;background:var(--fill)">
+<svg width="13" height="13" viewBox="0 0 14 14" fill="none" stroke="var(--ink3)" stroke-width="1.4" stroke-linecap="round" aria-hidden="true"><circle cx="6" cy="6" r="4.2"/><path d="M9.2 9.2L12.5 12.5"/></svg>
+<input type="search" placeholder="Title, artist, museum" aria-label="Search collection" style="all:unset;flex:1;font-size:12.5px;color:var(--ink)">
+</label>
+</div>
+
+<div style="flex:1;display:flex;min-height:0">
+<!-- gallery -->
+<div style="flex:1;min-width:0;overflow:hidden;padding:26px 32px 0;display:flex;flex-direction:column;gap:18px">
+<div style="display:flex;align-items:baseline;justify-content:space-between;border-bottom:.5px solid var(--rule);padding-bottom:8px">
+<h3 class="serif" style="margin:0;font-size:17px;font-weight:400;color:var(--ink)">November 2026</h3>
+<span class="caps tnum" style="color:var(--ink3)">8 works</span>
+</div>
+<div style="display:grid;grid-template-columns:repeat(4,minmax(0,1fr));column-gap:24px;row-gap:26px">
+<button class="tile"><div class="mat"><div class="work p-milkmaid" style="width:104px;height:116px"></div></div><div><div class="serif tt">The Milkmaid</div><div class="ta">Johannes Vermeer</div></div></button>
+<button class="tile" aria-pressed="true"><div class="mat" style="outline:2px solid var(--a);outline-offset:3px"><div class="work p-wheat" style="width:116px;height:90px"></div></div><div><div class="serif tt">Wheat Field with Cypresses</div><div class="ta" style="display:flex;align-items:center;gap:5px"><svg width="8" height="10" viewBox="0 0 8 10" fill="var(--a)" aria-label="Kept" role="img"><path d="M0 0h8v10L4 7.4 0 10z"/></svg>Vincent van Gogh</div></div></button>
+<button class="tile"><div class="mat"><div class="work p-swan" style="width:116px;height:97px"></div></div><div><div class="serif tt">The Threatened Swan</div><div class="ta">Jan Asselijn</div></div></button>
+<button class="tile"><div class="mat"><div class="work p-hokusai" style="width:116px;height:79px"></div></div><div><div class="serif tt">Under the Wave off Kanagawa</div><div class="ta">Katsushika Hokusai</div></div></button>
+<button class="tile"><div class="mat"><div class="work p-avercamp" style="width:116px;height:68px"></div></div><div><div class="serif tt">Winter Landscape with Ice Skaters</div><div class="ta" style="display:flex;align-items:center;gap:5px"><svg width="8" height="10" viewBox="0 0 8 10" fill="var(--ink3)" aria-label="Kept" role="img"><path d="M0 0h8v10L4 7.4 0 10z"/></svg>Hendrick Avercamp</div></div></button>
+<button class="tile"><div class="mat"><div class="work p-rembrandt" style="width:97px;height:116px"></div></div><div><div class="serif tt">Self-Portrait</div><div class="ta">Rembrandt van Rijn</div></div></button>
+<button class="tile"><div class="mat"><div class="work p-lilies" style="width:116px;height:111px"></div></div><div><div class="serif tt">Water Lilies</div><div class="ta" style="display:flex;align-items:center;gap:5px"><svg width="8" height="10" viewBox="0 0 8 10" fill="var(--ink3)" aria-label="Kept" role="img"><path d="M0 0h8v10L4 7.4 0 10z"/></svg>Claude Monet</div></div></button>
+<button class="tile"><div class="mat"><div class="work p-harvesters" style="width:116px;height:85px"></div></div><div><div class="serif tt">The Harvesters</div><div class="ta" style="display:flex;align-items:center;gap:5px"><svg width="8" height="10" viewBox="0 0 8 10" fill="var(--ink3)" aria-label="Kept" role="img"><path d="M0 0h8v10L4 7.4 0 10z"/></svg>Pieter Bruegel the Elder</div></div></button>
+</div>
+<div style="display:flex;align-items:baseline;justify-content:space-between;border-bottom:.5px solid var(--rule);padding-bottom:8px;margin-top:8px">
+<h3 class="serif" style="margin:0;font-size:17px;font-weight:400;color:var(--ink)">October 2026</h3>
+<span class="caps tnum" style="color:var(--ink3)">31 works</span>
+</div>
+<div style="display:grid;grid-template-columns:repeat(4,minmax(0,1fr));column-gap:24px;row-gap:26px">
+<button class="tile"><div class="mat"><div class="work p-jatte" style="width:116px;height:78px"></div></div></button>
+<button class="tile"><div class="mat"><div class="work p-pitcher" style="width:103px;height:116px"></div></div></button>
+<button class="tile"><div class="mat"><div class="work p-irises" style="width:93px;height:116px"></div></div></button>
+<button class="tile"><div class="mat"><div class="work p-biglin" style="width:116px;height:78px"></div></div></button>
+</div>
+</div>
+
+<!-- inspector -->
+<aside aria-label="Selected work" style="width:340px;flex:none;background:var(--surface);border-left:.5px solid var(--rule);display:flex;flex-direction:column">
+<div style="height:248px;flex:none;background:var(--mat);display:flex;align-items:center;justify-content:center"><div class="work p-wheat" style="width:256px;height:200px"></div></div>
+<div style="flex:1;min-height:0;padding:18px 22px 0;display:flex;flex-direction:column;gap:12px;overflow:hidden">
+<div style="display:flex;justify-content:space-between"><span class="caps" style="color:var(--ink3)">Hung 7 November</span><span class="caps tnum" style="color:var(--ink3)">No. 213</span></div>
+<div style="display:flex;flex-direction:column;gap:3px"><span class="caps" style="font-size:11px;color:var(--ink2)">Vincent van Gogh</span><span style="font-size:12px;line-height:16px;color:var(--ink3)">Dutch, 1853–1890</span></div>
+<h2 class="serif" style="margin:0;font-size:22px;line-height:27px;font-weight:400;color:var(--ink)">Wheat Field with Cypresses<span style="color:var(--ink2)">, 1889</span></h2>
+<div style="font-size:12px;line-height:17px;color:var(--ink3)">Oil on canvas · 73.2 × 93.4 cm<br>The Metropolitan Museum of Art, New York</div>
+<div style="height:.5px;background:var(--rule)"></div>
+<p class="serif" style="margin:0;font-size:14px;line-height:21px;color:var(--ink2);height:84px;overflow:hidden;-webkit-mask-image:linear-gradient(180deg,#000 55%,transparent);mask-image:linear-gradient(180deg,#000 55%,transparent)">Painted in the summer of 1889, while Van Gogh was staying at the asylum in Saint-Rémy. He wrote that the cypresses were as beautiful in line and proportion as an Egyptian obelisk, and here they rise like a dark flame against a sky of rolling white clouds.</p>
+<a class="link" href="https://www.metmuseum.org/art/collection/search/436535" style="align-self:flex-start">View at The Met ↗</a>
+</div>
+<div style="padding:14px 22px 18px;display:flex;flex-direction:column;gap:10px;border-top:.5px solid var(--rule)">
+<div style="display:flex;align-items:center;gap:6px;font-size:12px;color:var(--a)"><svg width="9" height="11" viewBox="0 0 8 10" fill="currentColor" aria-hidden="true"><path d="M0 0h8v10L4 7.4 0 10z"/></svg>Kept on 7 November</div>
+<div style="display:flex;gap:8px">
+<button class="push def" style="flex:1">Set as Wallpaper</button>
+<button class="push" style="flex:1">Remove from Kept</button>
+</div>
+</div>
+</aside>
+</div>
+</section>
+</div>
+</x-dc>
+<script type="text/x-dc" data-dc-script data-props='{"$preview":{"width":1180,"height":800}}'>
+class Component extends DCLogic {
+  renderVals() { return {}; }
+}
+</script>
+</body>
+</html>
