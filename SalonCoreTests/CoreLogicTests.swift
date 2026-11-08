@@ -80,7 +80,7 @@ final class SettingsTests: XCTestCase {
 
     func testRoundTrip() throws {
         var settings = AppSettings()
-        settings.matStyle = .custom(RGBColor(hex: "#336699")!)
+        settings.matStyle = .custom(SRGBColor(hex: "#336699")!)
         settings.objectTypes = [.painting, .drawing]
         settings.sourceEnabled = [.rijksmuseum: false]
         settings.nextShortcut = nil
@@ -96,19 +96,19 @@ final class SettingsTests: XCTestCase {
 
 final class PaletteTests: XCTestCase {
     func testOKLabRoundTrip() {
-        let color = RGBColor(hex: "#7A5C22")!
+        let color = SRGBColor(hex: "#7A5C22")!
         XCTAssertEqual(color.oklab.rgb.hex, "#7A5C22")
     }
 
     func testDarkPaintingGetsDeepMatLighterThanEdge() {
-        let umber = RGBColor(hex: "#1E150F")!
+        let umber = SRGBColor(hex: "#1E150F")!
         let mat = PaletteRules.autoMat(edge: umber).oklch
         XCTAssertEqual(mat.l, 0.30, accuracy: 0.005)
         XCTAssertLessThanOrEqual(mat.c, 0.035 + 1e-6)
     }
 
     func testBrightPaintingGetsLightMat() {
-        let sky = RGBColor(hex: "#A8BFCD")!
+        let sky = SRGBColor(hex: "#A8BFCD")!
         let mat = PaletteRules.autoMat(edge: sky).oklch
         XCTAssertTrue((0.88...0.92).contains(mat.l))
     }
@@ -119,15 +119,15 @@ final class PaletteTests: XCTestCase {
     }
 
     func testAccentKeepsHueAndFixesLightness() throws {
-        let ochre = Array(repeating: RGBColor(hex: "#D2AB45")!, count: 40) + Array(repeating: RGBColor(hex: "#3E5B8E")!, count: 10)
+        let ochre = Array(repeating: SRGBColor(hex: "#D2AB45")!, count: 40) + Array(repeating: SRGBColor(hex: "#3E5B8E")!, count: 10)
         let accent = try XCTUnwrap(PaletteRules.accent(pixels: ochre))
         XCTAssertEqual(accent.light.oklch.l, 0.45, accuracy: 0.01)
         XCTAssertEqual(accent.dark.oklch.l, 0.78, accuracy: 0.01)
-        XCTAssertEqual(accent.light.oklch.h, RGBColor(hex: "#D2AB45")!.oklch.h, accuracy: 3)
+        XCTAssertEqual(accent.light.oklch.h, SRGBColor(hex: "#D2AB45")!.oklch.h, accuracy: 3)
     }
 
     func testGreyPaintingFallsBackToDefaultAccent() {
-        XCTAssertNil(PaletteRules.accent(pixels: Array(repeating: RGBColor(red: 0.5, green: 0.5, blue: 0.5), count: 100)))
+        XCTAssertNil(PaletteRules.accent(pixels: Array(repeating: SRGBColor(red: 0.5, green: 0.5, blue: 0.5), count: 100)))
     }
 }
 

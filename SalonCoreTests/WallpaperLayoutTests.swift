@@ -81,7 +81,7 @@ final class WallpaperLayoutTests: XCTestCase {
     func testRendererProducesDisplaySizedImage() throws {
         let image = try XCTUnwrap(TestImages.solid(width: 300, height: 400, red: 0.6, green: 0.4, blue: 0.2))
         let display = WallpaperRenderer.Display(size: PixelSize(width: 640, height: 400), topInset: 12, backingScale: 2)
-        let options = WallpaperRenderer.Options(alwaysMat: false, margin: .medium, matColor: RGBColor(hex: "#E9E4DA")!)
+        let options = WallpaperRenderer.Options(alwaysMat: false, margin: .medium, matColor: SRGBColor(hex: "#E9E4DA")!)
         let output = try XCTUnwrap(WallpaperRenderer.render(image, on: display, options: options))
         XCTAssertEqual(output.width, 640)
         XCTAssertEqual(output.height, 400)

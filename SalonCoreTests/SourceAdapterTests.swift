@@ -116,6 +116,15 @@ final class SourceAdapterTests: XCTestCase {
         XCTAssertTrue(picked.hasExhibitionHistory)
     }
 
+    func testSMKCapsLargeImagesThroughIIIF() throws {
+        let items = try JSONDecoder().decode(SMKSearch.self, from: Fixtures.data("smk_search.json")).items ?? []
+        for artwork in items.compactMap(\.artwork) {
+            XCTAssertLessThanOrEqual(artwork.reportedPixelSize?.longSide ?? 0, SMKItem.maxLongSide)
+        }
+        let large = try XCTUnwrap(items.first { max($0.image_width ?? 0, $0.image_height ?? 0) > SMKItem.maxLongSide && $0.image_iiif_id != nil })
+        XCTAssertTrue(try XCTUnwrap(large.artwork).imageURL.absoluteString.hasSuffix("/full/!5120,5120/0/default.jpg"))
+    }
+
     func testSMKArtistDetails() throws {
         let item = try XCTUnwrap(JSONDecoder().decode(SMKSearch.self, from: Fixtures.data("smk_search.json")).items?.first)
         let maker = try XCTUnwrap(item.production?.first)

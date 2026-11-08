@@ -46,6 +46,10 @@ public struct RijksmuseumSource: ArtSource {
         _ = try await http.json(LinkedArtPage.self, from: Self.searchURL)
     }
 
+    public func warmUp() async {
+        _ = try? await catalog.entries { try await fetchAllIDs() }
+    }
+
     /// Walks the search pages (100 ids each) to the end.
     func fetchAllIDs() async throws -> [String] {
         var ids: [String] = []

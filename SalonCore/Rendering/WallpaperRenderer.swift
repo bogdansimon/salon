@@ -24,9 +24,9 @@ public enum WallpaperRenderer {
     public struct Options: Sendable {
         public var alwaysMat: Bool
         public var margin: MatMargin
-        public var matColor: RGBColor
+        public var matColor: SRGBColor
 
-        public init(alwaysMat: Bool, margin: MatMargin, matColor: RGBColor) {
+        public init(alwaysMat: Bool, margin: MatMargin, matColor: SRGBColor) {
             self.alwaysMat = alwaysMat
             self.margin = margin
             self.matColor = matColor
@@ -77,7 +77,7 @@ public enum WallpaperRenderer {
     }
 }
 
-extension RGBColor {
+extension SRGBColor {
     public var cgColor: CGColor {
         CGColor(colorSpace: CGColorSpace(name: CGColorSpace.sRGB)!, components: [red, green, blue, 1])!
     }

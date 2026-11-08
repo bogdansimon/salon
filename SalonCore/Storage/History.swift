@@ -30,8 +30,20 @@ public struct AppState: Codable, Sendable {
     public var shownCount = 0
     /// Rendered wallpaper files currently on screen (kept during cleanup).
     public var currentWallpaperFiles: [String] = []
+    /// History entries on screen right now; the first is the main display's (shown on the card).
+    public var currentEntryIDs: [UUID] = []
 
     public init() {}
+
+    private enum CodingKeys: String, CodingKey { case lastChange, shownCount, currentWallpaperFiles, currentEntryIDs }
+
+    public init(from decoder: Decoder) throws {
+        let c = try decoder.container(keyedBy: CodingKeys.self)
+        lastChange = try c.decodeIfPresent(Date.self, forKey: .lastChange)
+        shownCount = try c.decodeIfPresent(Int.self, forKey: .shownCount) ?? 0
+        currentWallpaperFiles = try c.decodeIfPresent([String].self, forKey: .currentWallpaperFiles) ?? []
+        currentEntryIDs = try c.decodeIfPresent([UUID].self, forKey: .currentEntryIDs) ?? []
+    }
 }
 
 /// Kept works out as JSON or CSV (Settings › Storage › Export).

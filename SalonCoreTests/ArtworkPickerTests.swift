@@ -57,6 +57,16 @@ final class ArtworkPickerTests: XCTestCase {
         XCTAssertTrue(http.requests.isEmpty)
     }
 
+    func testHandscrollShapesAreSkippedForTheNextWork() async throws {
+        let http = FixtureHTTPClient()
+        http.on("good.example/", data: TestImages.jpegData(width: 3200, height: 2400))
+        // A 3400×79 handscroll (seen live from Cleveland), then a normal work.
+        let source = StubSource(id: SourceID("good"), sizes: [PixelSize(width: 3400, height: 79), PixelSize(width: 3200, height: 2400)])
+        let picker = ArtworkPicker(sources: [source], http: http, cache: ImageCache(directory: cacheDirectory))
+        let picked = try await picker.pick(request(enabled: [source.id]))
+        XCTAssertEqual(picked.artwork.id, "good:2")
+    }
+
     func testThreeThousandPixelsIsAccepted() async throws {
         let http = FixtureHTTPClient()
         http.on("good.example/", data: TestImages.jpegData(width: 3000, height: 2348))

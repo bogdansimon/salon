@@ -67,6 +67,13 @@ public protocol ArtSource: Sendable {
 
     /// A cheap call proving the API answers (used by "Check All Now").
     func healthCheck(apiKey: String?) async throws
+
+    /// Prepares slow resources (e.g. downloads a catalogue) in the background, so a pick never waits on them.
+    func warmUp() async
+}
+
+extension ArtSource {
+    public func warmUp() async {}
 }
 
 public enum SourceError: Error, Equatable, LocalizedError {
@@ -77,6 +84,7 @@ public enum SourceError: Error, Equatable, LocalizedError {
     case noMatchingWorks
     case notPublicDomain
     case imageTooSmall(PixelSize)
+    case unsuitableShape(PixelSize)
     case unsupportedImage
     case allSourcesFailed(lastError: String)
 
@@ -90,8 +98,19 @@ public enum SourceError: Error, Equatable, LocalizedError {
         case .noMatchingWorks: "No unseen works match the current filters."
         case .notPublicDomain: "The work isn’t public domain."
         case .imageTooSmall(let size): "Image too small (\(size.width)×\(size.height))."
+        case .unsuitableShape(let size): "Too long and narrow for a wallpaper (\(size.width)×\(size.height))."
         case .unsupportedImage: "The image couldn’t be decoded."
         case .allSourcesFailed(let last): "Every enabled museum failed. Last error: \(last)"
+        }
+    }
+}
+
+extension SourceError {
+    /// The work can't be used (too small, odd shape), but the source itself is fine.
+    var isWorkUnsuitable: Bool {
+        switch self {
+        case .imageTooSmall, .unsuitableShape: true
+        default: false
         }
     }
 }

@@ -2,7 +2,7 @@ import Foundation
 
 /// An sRGB colour with 0…1 components, plus OKLab/OKLCH conversions
 /// (Björn Ottosson's OKLab, https://bottosson.github.io/posts/oklab/).
-public struct RGBColor: Codable, Hashable, Sendable {
+public struct SRGBColor: Codable, Hashable, Sendable {
     public var red: Double
     public var green: Double
     public var blue: Double
@@ -58,10 +58,10 @@ extension OKLCH {
         return OKLab(l: l, a: c * cos(radians), b: c * sin(radians))
     }
 
-    public var rgb: RGBColor { lab.rgb }
+    public var rgb: SRGBColor { lab.rgb }
 }
 
-extension RGBColor {
+extension SRGBColor {
     public var oklab: OKLab {
         func linear(_ v: Double) -> Double { v <= 0.04045 ? v / 12.92 : pow((v + 0.055) / 1.055, 2.4) }
         let r = linear(red), g = linear(green), b = linear(blue)
@@ -80,7 +80,7 @@ extension RGBColor {
 
 extension OKLab {
     /// Back to sRGB, clamped into gamut.
-    public var rgb: RGBColor {
+    public var rgb: SRGBColor {
         let l_ = l + 0.3963377774 * a + 0.2158037573 * b
         let m_ = l - 0.1055613458 * a - 0.0638541728 * b
         let s_ = l - 0.0894841775 * a - 1.2914855480 * b
@@ -89,7 +89,7 @@ extension OKLab {
             let c = min(max(v, 0), 1)
             return c <= 0.0031308 ? 12.92 * c : 1.055 * pow(c, 1 / 2.4) - 0.055
         }
-        return RGBColor(
+        return SRGBColor(
             red: gamma(4.0767416621 * l3 - 3.3077115913 * m3 + 0.2309699292 * s3),
             green: gamma(-1.2684380046 * l3 + 2.6097574011 * m3 - 0.3413193965 * s3),
             blue: gamma(-0.0041960863 * l3 - 0.7034186147 * m3 + 1.7076147010 * s3)

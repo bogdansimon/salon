@@ -40,6 +40,8 @@ actor CatalogCache<Entry: Codable & Sendable> {
     private let store: CatalogStore
     private let maxAge: TimeInterval
     private var cached: Catalog<Entry>?
+    /// One refresh at a time: a warm-up and a pick arriving together share it.
+    private var inFlight: Task<[Entry], Error>?
 
     init(name: String, store: CatalogStore, maxAge: TimeInterval) {
         self.name = name
@@ -47,7 +49,7 @@ actor CatalogCache<Entry: Codable & Sendable> {
         self.maxAge = maxAge
     }
 
-    func entries(now: Date = Date(), refresh: @Sendable () async throws -> [Entry]) async throws -> [Entry] {
+    func entries(now: Date = Date(), refresh: @escaping @Sendable () async throws -> [Entry]) async throws -> [Entry] {
         if cached == nil, let data = store.load(name) {
             cached = try? JSONDecoder.salon.decode(Catalog<Entry>.self, from: data)
         }
@@ -55,7 +57,10 @@ actor CatalogCache<Entry: Codable & Sendable> {
             return cached.entries
         }
         do {
-            let fresh = Catalog(fetchedAt: now, entries: try await refresh())
+            let task = inFlight ?? Task { try await refresh() }
+            inFlight = task
+            defer { inFlight = nil }
+            let fresh = Catalog(fetchedAt: now, entries: try await task.value)
             guard !fresh.entries.isEmpty else { throw SourceError.noMatchingWorks }
             cached = fresh
             if let data = try? JSONEncoder.salon.encode(fresh) { store.save(data, as: name) }

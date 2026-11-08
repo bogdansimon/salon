@@ -57,6 +57,10 @@ public struct WikidataSource: ArtSource {
         _ = try await http.data(for: URLRequest(url: .make("https://www.wikidata.org/w/api.php", ["action": "query", "meta": "siteinfo", "format": "json"])))
     }
 
+    public func warmUp() async {
+        _ = try? await catalog.entries { try await fetchCatalog() }
+    }
+
     func fetchCatalog() async throws -> [WikidataCatalogEntry] {
         var request = URLRequest(url: .make("https://query.wikidata.org/sparql", ["format": "json", "query": Self.sparql]))
         request.timeoutInterval = 90

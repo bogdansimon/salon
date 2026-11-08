@@ -14,8 +14,12 @@ public struct ArtworkPicker: Sendable {
     /// Images must be at least this long on their long side. The Art Institute and
     /// the Smithsonian serve exactly 3000 px, so it is inclusive.
     public static let minimumLongSide = 3000
+    /// Reject extreme shapes (handscrolls, friezes): longer side over 3× the shorter.
+    /// On a mat they would hang as a sliver.
+    public static let maxAspectRatio = 3.0
     /// How many works to try from one source before moving to the next.
     static let attemptsPerSource = 3
+    static let downloadTimeout: TimeInterval = 120
 
     public struct Request: Sendable {
         public var objectTypes: Set<ObjectType>
@@ -88,24 +92,28 @@ public struct ArtworkPicker: Sendable {
             await onStart(source.id)
             for _ in 0..<Self.attemptsPerSource {
                 let started = Date()
+                // Health latency measures the API, not the (often large) image download.
+                var apiLatency: TimeInterval { Date().timeIntervalSince(started) }
+                var measured: TimeInterval?
                 do {
                     let query = ArtworkQuery(objectTypes: request.objectTypes, highlightsOnly: request.highlightsOnly,
                                              excludedIDs: excluded, apiKey: request.apiKeys[source.id])
                     let artwork = try await source.randomArtwork(for: query)
+                    measured = apiLatency
                     excluded.insert(artwork.id)
                     let picked = try await download(artwork)
-                    await report(source.id, .success(latency: Date().timeIntervalSince(started)))
+                    await report(source.id, .success(latency: measured ?? apiLatency))
                     return picked
-                } catch SourceError.imageTooSmall(let size) {
+                } catch let error as SourceError where error.isWorkUnsuitable {
                     // The work's fault, not the source's: draw another from the same source.
-                    lastError = SourceError.imageTooSmall(size)
+                    lastError = error
                 } catch SourceError.noMatchingWorks {
                     // Nothing unseen matches the filters here; not a health problem.
                     lastError = SourceError.noMatchingWorks
                     break
                 } catch {
                     lastError = error
-                    await report(source.id, .failure(error: error, latency: Date().timeIntervalSince(started)))
+                    await report(source.id, .failure(error: error, latency: measured ?? apiLatency))
                     break
                 }
             }
@@ -115,15 +123,15 @@ public struct ArtworkPicker: Sendable {
 
     /// Downloads (or reuses) the full image and checks its real size.
     public func download(_ artwork: Artwork) async throws -> PickedArtwork {
-        if let reported = artwork.reportedPixelSize, reported.longSide < minimumLongSide {
-            throw SourceError.imageTooSmall(reported)
+        if let reported = artwork.reportedPixelSize {
+            try checkSuitable(reported)
         }
         let file: URL
         if let cached = cache.cachedFile(for: artwork.id) {
             file = cached
         } else {
             var request = URLRequest(url: artwork.imageURL)
-            request.timeoutInterval = 60
+            request.timeoutInterval = Self.downloadTimeout
             artwork.imageRequestHeaders?.forEach { request.setValue($1, forHTTPHeaderField: $0) }
             file = try cache.store(try await http.data(for: request), for: artwork.id)
         }
@@ -131,10 +139,18 @@ public struct ArtworkPicker: Sendable {
             try? FileManager.default.removeItem(at: file)
             throw SourceError.unsupportedImage
         }
-        guard size.longSide >= minimumLongSide else {
+        do {
+            try checkSuitable(size)
+        } catch {
             try? FileManager.default.removeItem(at: file)
-            throw SourceError.imageTooSmall(size)
+            throw error
         }
         return PickedArtwork(artwork: artwork, imageFile: file, pixelSize: size)
+    }
+
+    private func checkSuitable(_ size: PixelSize) throws {
+        guard size.longSide >= minimumLongSide else { throw SourceError.imageTooSmall(size) }
+        let shortSide = max(min(size.width, size.height), 1)
+        guard Double(size.longSide) / Double(shortSide) <= Self.maxAspectRatio else { throw SourceError.unsuitableShape(size) }
     }
 }

@@ -4,15 +4,15 @@ import Foundation
 /// Colours derived from a painting: the auto mat and the UI accent.
 /// Rules from design/Mat.dc.html (mat) and design/Tokens.dc.html (accent).
 public struct ArtworkPalette: Codable, Hashable, Sendable {
-    public var edge: RGBColor
-    public var accentLight: RGBColor
-    public var accentDark: RGBColor
+    public var edge: SRGBColor
+    public var accentLight: SRGBColor
+    public var accentDark: SRGBColor
 
     public static let fallback = ArtworkPalette(
-        edge: RGBColor(hex: "#8F846B")!, accentLight: RGBColor(hex: "#7A5C22")!, accentDark: RGBColor(hex: "#D4B678")!
+        edge: SRGBColor(hex: "#8F846B")!, accentLight: SRGBColor(hex: "#7A5C22")!, accentDark: SRGBColor(hex: "#D4B678")!
     )
 
-    public init(edge: RGBColor, accentLight: RGBColor, accentDark: RGBColor) {
+    public init(edge: SRGBColor, accentLight: SRGBColor, accentDark: SRGBColor) {
         self.edge = edge
         self.accentLight = accentLight
         self.accentDark = accentDark
@@ -28,8 +28,8 @@ public enum PaletteRules {
     static let deepMatL = 0.24...0.30
     static let lightMatL = 0.88...0.92
     // Fixed neutral mat
-    public static let neutralDark = RGBColor(hex: "#2B2825")!
-    public static let neutralLight = RGBColor(hex: "#E9E4DA")!
+    public static let neutralDark = SRGBColor(hex: "#2B2825")!
+    public static let neutralLight = SRGBColor(hex: "#E9E4DA")!
     // Accent
     static let accentClusters = 5
     static let greyChroma = 0.03
@@ -38,7 +38,7 @@ public enum PaletteRules {
     static let accentMaxChroma = 0.08
 
     /// The mat colour for `style`, given the painting's edge colour and the system appearance.
-    public static func matColor(style: MatStyle, edge: RGBColor, darkAppearance: Bool) -> RGBColor {
+    public static func matColor(style: MatStyle, edge: SRGBColor, darkAppearance: Bool) -> SRGBColor {
         switch style {
         case .custom(let color): return color
         case .neutral: return darkAppearance ? neutralDark : neutralLight
@@ -48,7 +48,7 @@ public enum PaletteRules {
 
     /// Keep the edge hue, cut chroma, go deep for dark paintings and light otherwise,
     /// picking the end of the range farthest from the edge so the border still reads.
-    public static func autoMat(edge: RGBColor) -> RGBColor {
+    public static func autoMat(edge: SRGBColor) -> SRGBColor {
         let lch = edge.oklch
         let range = lch.l < darkPaintingL ? deepMatL : lightMatL
         let mid = (range.lowerBound + range.upperBound) / 2
@@ -59,7 +59,7 @@ public enum PaletteRules {
 
     /// Most common chromatic mid-tone (k-means over the pixels, near-greys skipped),
     /// fixed to the accent lightness for each appearance.
-    public static func accent(pixels: [RGBColor]) -> (light: RGBColor, dark: RGBColor)? {
+    public static func accent(pixels: [SRGBColor]) -> (light: SRGBColor, dark: SRGBColor)? {
         let samples = pixels.map(\.oklab).filter { $0.lch.c >= greyChroma && (0.2...0.9).contains($0.l) }
         guard samples.count >= accentClusters else { return nil }
         guard let dominant = KMeans.dominantCenter(of: samples, k: accentClusters) else { return nil }
@@ -69,7 +69,7 @@ public enum PaletteRules {
     }
 
     /// Average colour (in OKLab) of the 4% band around the image's edges.
-    public static func edgeColor(pixels: [RGBColor], width: Int, height: Int) -> RGBColor {
+    public static func edgeColor(pixels: [SRGBColor], width: Int, height: Int) -> SRGBColor {
         let band = max(1, Int((Double(min(width, height)) * edgeBand).rounded()))
         var sum = (l: 0.0, a: 0.0, b: 0.0), count = 0.0
         for y in 0..<height {
@@ -126,7 +126,7 @@ enum KMeans {
 
 enum Bitmap {
     /// RGBA8 pixels of `image` scaled so its long side is `maxSide`.
-    static func pixels(of image: CGImage, maxSide: Int) -> (pixels: [RGBColor], width: Int, height: Int)? {
+    static func pixels(of image: CGImage, maxSide: Int) -> (pixels: [SRGBColor], width: Int, height: Int)? {
         let scale = Double(maxSide) / Double(max(image.width, image.height))
         let width = max(1, Int(Double(image.width) * min(scale, 1)))
         let height = max(1, Int(Double(image.height) * min(scale, 1)))
@@ -137,7 +137,7 @@ enum Bitmap {
         context.interpolationQuality = .medium
         context.draw(image, in: CGRect(x: 0, y: 0, width: width, height: height))
         let pixels = stride(from: 0, to: bytes.count, by: 4).map {
-            RGBColor(red: Double(bytes[$0]) / 255, green: Double(bytes[$0 + 1]) / 255, blue: Double(bytes[$0 + 2]) / 255)
+            SRGBColor(red: Double(bytes[$0]) / 255, green: Double(bytes[$0 + 1]) / 255, blue: Double(bytes[$0 + 2]) / 255)
         }
         return (pixels, width, height)
     }

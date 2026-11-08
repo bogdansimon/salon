@@ -80,16 +80,19 @@ struct SMKItem: Decodable {
     var exhibitions: [Exhibition]?
     var frontend_url: String?
     var image_native: String?
+    var image_iiif_id: String?
     var image_width: Int?
     var image_height: Int?
     var public_domain: Bool?
 
     var hasExhibitionHistory: Bool { !(exhibitions ?? []).isEmpty }
 
+    /// Long side requested from SMK's IIIF server: enough for 5K, and ~3× faster than the native original.
+    static let maxLongSide = 5120
+
     var artwork: Artwork? {
-        guard public_domain == true, let image = image_native.flatMap(URL.init(string:)) else { return nil }
+        guard public_domain == true, let (image, size) = imageAndSize else { return nil }
         let maker = production?.first
-        let size = image_width.flatMap { w in image_height.map { PixelSize(width: w, height: $0) } }
         return Artwork(
             id: "smk:\(object_number)",
             sourceID: .smk,
@@ -104,6 +107,17 @@ struct SMKItem: Decodable {
             imageURL: image,
             reportedPixelSize: size
         )
+    }
+
+    /// IIIF capped at `maxLongSide` when available, else the native file.
+    private var imageAndSize: (URL, PixelSize?)? {
+        let native = image_width.flatMap { w in image_height.map { PixelSize(width: w, height: $0) } }
+        if let iiif = Text.clean(image_iiif_id), let size = native, size.longSide > Self.maxLongSide,
+           let url = URL(string: "\(iiif)/full/!\(Self.maxLongSide),\(Self.maxLongSide)/0/default.jpg") {
+            let scale = Double(Self.maxLongSide) / Double(size.longSide)
+            return (url, PixelSize(width: Int((Double(size.width) * scale).rounded()), height: Int((Double(size.height) * scale).rounded())))
+        }
+        return image_native.flatMap(URL.init(string:)).map { ($0, native) }
     }
 
     /// "Kristian Zahrtmann" from forename + surname; falls back to "Surname, Forename".

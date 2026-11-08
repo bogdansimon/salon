@@ -20,7 +20,10 @@ public struct URLSessionHTTPClient: HTTPClient {
 
     public func data(for request: URLRequest) async throws -> Data {
         var request = request
-        request.timeoutInterval = SalonHTTP.timeout
+        // Use Salon's default unless the caller set its own (e.g. the slow Wikidata query).
+        if request.timeoutInterval == URLRequest(url: request.url!).timeoutInterval {
+            request.timeoutInterval = SalonHTTP.timeout
+        }
         if request.value(forHTTPHeaderField: "User-Agent") == nil {
             request.setValue(SalonHTTP.userAgent, forHTTPHeaderField: "User-Agent")
         }

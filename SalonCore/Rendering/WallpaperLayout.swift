@@ -110,5 +110,5 @@ public enum MatMargin: String, Codable, CaseIterable, Sendable {
 public enum MatStyle: Codable, Hashable, Sendable {
     case auto
     case neutral
-    case custom(RGBColor)
+    case custom(SRGBColor)
 }
