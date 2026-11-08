@@ -26,6 +26,7 @@ targets:
       - path: Salon
     dependencies:
       - target: SalonCore
+        embed: false
     info:
       path: Salon/Resources/Info.plist
       properties:
@@ -44,8 +45,11 @@ targets:
         ENABLE_HARDENED_RUNTIME: YES
         COMBINE_HIDPI_IMAGES: YES
 
+  # Static, so its code links into the app binary. A dynamic framework signed
+  # ad hoc (no Team ID) is rejected by Hardened Runtime library validation and
+  # the Release app dies in dyld at launch.
   SalonCore:
-    type: framework
+    type: framework.static
     platform: macOS
     sources:
       - path: SalonCore
