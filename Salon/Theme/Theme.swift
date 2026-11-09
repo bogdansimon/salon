@@ -118,8 +118,9 @@ enum Theme {
 
     enum Layout {
         static let popoverWidth: CGFloat = 360
-        static let cardPlateHeight: CGFloat = 236
-        static let cardWorkMax = CGSize(width: 300, height: 192)
+        static let cardPlateHeight: CGFloat = 236                     // minimum; loading and error plates
+        static let cardWorkMax = CGSize(width: 320, height: 288)      // the work, whole, never cropped
+        static let cardPlateInset: CGFloat = 20                       // mat above and below the work
         static let errorPlateHeight: CGFloat = 168
         static let collapsedDescription: CGFloat = 105   // five lines
         static let expandedDescription: CGFloat = 240

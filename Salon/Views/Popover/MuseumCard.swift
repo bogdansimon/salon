@@ -6,14 +6,28 @@ import SwiftUI
 struct MuseumCard: View {
     @Environment(AppModel.self) private var model
     var entry: HistoryEntry
+    /// Width ÷ height of the work; from the source's reported size, else from the loaded image.
+    @State private var loadedAspect: Double?
+
+    private var aspect: Double? {
+        loadedAspect ?? entry.artwork.reportedPixelSize.map(\.aspectRatio).flatMap { $0 > 0 ? $0 : nil }
+    }
+
+    /// The work fitted whole inside the card's box; the plate grows to hold it.
+    private var workSize: CGSize {
+        let box = Theme.Layout.cardWorkMax
+        guard let aspect else { return CGSize(width: box.height * 0.8, height: box.height) }
+        let width = min(box.width, box.height * aspect)
+        return CGSize(width: width.rounded(), height: (width / aspect).rounded())
+    }
 
     var body: some View {
         VStack(spacing: 0) {
             ZStack {
                 Theme.Palette.mat
-                ArtworkImage(file: model.imageFile(for: entry), maxSize: Theme.Layout.cardWorkMax)
+                ArtworkImage(file: model.imageFile(for: entry), maxSize: workSize) { loadedAspect = $0 }
             }
-            .frame(height: Theme.Layout.cardPlateHeight)
+            .frame(height: max(Theme.Layout.cardPlateHeight, workSize.height + 2 * Theme.Layout.cardPlateInset))
 
             VStack(alignment: .leading, spacing: Theme.Space.labelLines) {
                 HStack {
@@ -54,8 +68,10 @@ struct DescriptionText: View {
         VStack(alignment: .leading, spacing: 6) {
             Group {
                 if expanded {
-                    ScrollView { paragraph }
-                        .frame(maxHeight: min(fullHeight, Theme.Layout.expandedDescription))
+                    // An explicit height: the popover sizes to its content, and a ScrollView
+                    // with only a max height reports ~0 there, so the text vanished.
+                    ScrollView { paragraph.fixedSize(horizontal: false, vertical: true) }
+                        .frame(height: min(fullHeight, Theme.Layout.expandedDescription))
                 } else {
                     paragraph
                         .frame(height: needsMore ? Theme.Layout.collapsedDescription : nil, alignment: .top)
@@ -67,9 +83,9 @@ struct DescriptionText: View {
                 }
             }
             .background {
-                // Measure the natural height once to decide whether "More" is needed.
+                // Measure the natural height to decide whether "More" is needed and how tall to open.
                 paragraph.fixedSize(horizontal: false, vertical: true).hidden()
-                    .background(GeometryReader { proxy in Color.clear.onAppear { fullHeight = proxy.size.height } })
+                    .onGeometryChange(for: CGFloat.self) { $0.size.height } action: { fullHeight = $0 }
             }
 
             if needsMore {

@@ -6,6 +6,8 @@ import SwiftUI
 struct ArtworkImage: View {
     var file: URL?
     var maxSize: CGSize
+    /// Reports the loaded image's width ÷ height, so a container can size itself to the work.
+    var onAspect: ((Double) -> Void)? = nil
     @State private var image: NSImage?
 
     var body: some View {
@@ -23,6 +25,7 @@ struct ArtworkImage: View {
         }
         .task(id: file) {
             image = await Thumbnails.shared.image(for: file, maxPixelSize: Int(max(maxSize.width, maxSize.height) * 2))
+            if let size = image?.size, size.height > 0 { onAspect?(size.width / size.height) }
         }
     }
 }
