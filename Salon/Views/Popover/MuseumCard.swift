@@ -6,28 +6,14 @@ import SwiftUI
 struct MuseumCard: View {
     @Environment(AppModel.self) private var model
     var entry: HistoryEntry
-    /// Width ÷ height of the work; from the source's reported size, else from the loaded image.
-    @State private var loadedAspect: Double?
-
-    private var aspect: Double? {
-        loadedAspect ?? entry.artwork.reportedPixelSize.map(\.aspectRatio).flatMap { $0 > 0 ? $0 : nil }
-    }
-
-    /// The work fitted whole inside the card's box; the plate grows to hold it.
-    private var workSize: CGSize {
-        let box = Theme.Layout.cardWorkMax
-        guard let aspect else { return CGSize(width: box.height * 0.8, height: box.height) }
-        let width = min(box.width, box.height * aspect)
-        return CGSize(width: width.rounded(), height: (width / aspect).rounded())
-    }
 
     var body: some View {
         VStack(spacing: 0) {
             ZStack {
                 Theme.Palette.mat
-                ArtworkImage(file: model.imageFile(for: entry), maxSize: workSize) { loadedAspect = $0 }
+                ArtworkImage(file: model.imageFile(for: entry), maxSize: Theme.Layout.cardWorkMax)
             }
-            .frame(height: max(Theme.Layout.cardPlateHeight, workSize.height + 2 * Theme.Layout.cardPlateInset))
+            .frame(height: Theme.Layout.cardPlateHeight)
 
             VStack(alignment: .leading, spacing: Theme.Space.labelLines) {
                 HStack {
