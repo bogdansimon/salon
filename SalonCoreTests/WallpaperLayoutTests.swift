@@ -65,6 +65,20 @@ final class WallpaperLayoutTests: XCTestCase {
         XCTAssertEqual(bottom / top, 1.15, accuracy: 0.01, "hung slightly above centre")
     }
 
+    func testFlushMarginFillsTheVisibleHeight() {
+        let canvas = PixelSize(width: 2880, height: 1800)
+        let rect = WallpaperLayout.matRect(image: work(3, 4), canvas: canvas, topInset: 74, margin: .flush)
+        XCTAssertEqual(rect.minY, 74, accuracy: 1, "starts just under the menu bar")
+        XCTAssertEqual(rect.maxY, 1800, accuracy: 1, "runs to the bottom of the screen")
+    }
+
+    func testBottomInsetKeepsTheWorkAboveTheDock() {
+        let canvas = PixelSize(width: 2880, height: 1800)
+        let rect = WallpaperLayout.matRect(image: work(3, 4), canvas: canvas, topInset: 74, bottomInset: 140, margin: .flush)
+        XCTAssertEqual(rect.minY, 74, accuracy: 1)
+        XCTAssertEqual(rect.maxY, 1800 - 140, accuracy: 1)
+    }
+
     func testMatRectCapsWideWorksAtEightyPercentWidth() {
         let canvas = PixelSize(width: 2880, height: 1800)
         let rect = WallpaperLayout.matRect(image: PixelSize(width: 30_000, height: 10_000), canvas: canvas, topInset: 0, margin: .small)

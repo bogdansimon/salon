@@ -289,7 +289,8 @@ final class AppModel {
             scheduler.update(time: settings.changeTime, changeOnWake: settings.changeOnWakeIfMissed)
         }
         if settings.notifyOnChange && !old.notifyOnChange { ChangeNotifier.requestPermission() }
-        if settings.matStyle != old.matStyle || settings.matMargin != old.matMargin || settings.alwaysUseMat != old.alwaysUseMat {
+        if settings.matStyle != old.matStyle || settings.matMargin != old.matMargin || settings.alwaysUseMat != old.alwaysUseMat
+            || settings.avoidDock != old.avoidDock {
             scheduleRerender()
         }
         if settings.differentArtworkPerDisplay != old.differentArtworkPerDisplay {

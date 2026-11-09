@@ -48,6 +48,10 @@ struct ArtworkSettings: View {
                     .pickerStyle(.segmented)
                     .fixedSize()
                 }
+                Toggle(isOn: $model.settings.avoidDock) {
+                    Text("Keep clear of the Dock")
+                    Text("Otherwise the Dock sits over the bottom of the work. Best left off if the Dock hides automatically.")
+                }
                 Toggle(isOn: $model.settings.alwaysUseMat) {
                     Text("Always use mat")
                     Text("Otherwise the mat appears only when filling the screen would crop more than 12%.")
@@ -128,7 +132,7 @@ struct MatPreview: View {
     }
 
     private var renderKey: String {
-        "\(model.current?.id.uuidString ?? "")|\(model.settings.matStyle)|\(model.settings.matMargin)|\(model.settings.alwaysUseMat)|\(colorScheme)"
+        "\(model.current?.id.uuidString ?? "")|\(model.settings.matStyle)|\(model.settings.matMargin)|\(model.settings.avoidDock)|\(model.settings.alwaysUseMat)|\(colorScheme)"
     }
 
     private func render() async {

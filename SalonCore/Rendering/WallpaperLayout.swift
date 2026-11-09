@@ -61,9 +61,11 @@ public enum WallpaperLayout {
     /// - Parameters:
     ///   - canvas: the display in pixels.
     ///   - topInset: pixels taken by the menu bar (excluded from the visible frame).
-    ///   - margin: Small / Medium / Large.
-    public static func matRect(image: PixelSize, canvas: PixelSize, topInset: Double, margin: MatMargin) -> CGRect {
-        let visibleHeight = Double(canvas.height) - topInset
+    ///   - bottomInset: pixels kept clear at the bottom (the Dock, when the user asks for it).
+    ///   - margin: None / Small / Medium / Large.
+    public static func matRect(image: PixelSize, canvas: PixelSize, topInset: Double, bottomInset: Double = 0,
+                               margin: MatMargin) -> CGRect {
+        let visibleHeight = Double(canvas.height) - topInset - bottomInset
         var height = visibleHeight * margin.heightShare
         var width = height * image.aspectRatio
         let maxWidth = Double(canvas.width) * maxWidthShare
@@ -86,11 +88,14 @@ public enum WallpaperLayout {
 
 /// Settings › Artwork › Margin.
 public enum MatMargin: String, Codable, CaseIterable, Sendable {
+    /// No mat above or below: the work fills the visible height (the mat shows only at the sides).
+    case flush = "none"
     case small, medium, large
 
     /// The work's height as a share of the visible screen height.
     public var heightShare: Double {
         switch self {
+        case .flush: 1.0
         case .small: 0.84
         case .medium: 0.76
         case .large: 0.66
@@ -99,6 +104,7 @@ public enum MatMargin: String, Codable, CaseIterable, Sendable {
 
     public var displayName: String {
         switch self {
+        case .flush: "None"
         case .small: "Small"
         case .medium: "Medium"
         case .large: "Large"

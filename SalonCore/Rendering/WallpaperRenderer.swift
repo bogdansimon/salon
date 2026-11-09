@@ -11,12 +11,15 @@ public enum WallpaperRenderer {
         public var size: PixelSize
         /// Menu-bar height in pixels (excluded from the mat's visible frame).
         public var topInset: Double
+        /// Dock height in pixels, when the work should stay clear of it; otherwise 0.
+        public var bottomInset: Double
         /// Points → pixels, for scaling the shadow.
         public var backingScale: Double
 
-        public init(size: PixelSize, topInset: Double, backingScale: Double) {
+        public init(size: PixelSize, topInset: Double, bottomInset: Double = 0, backingScale: Double) {
             self.size = size
             self.topInset = topInset
+            self.bottomInset = bottomInset
             self.backingScale = backingScale
         }
     }
@@ -51,7 +54,8 @@ public enum WallpaperRenderer {
         case .mat:
             context.setFillColor(options.matColor.cgColor)
             context.fill(bounds)
-            let topLeft = WallpaperLayout.matRect(image: imageSize, canvas: canvas, topInset: display.topInset, margin: options.margin)
+            let topLeft = WallpaperLayout.matRect(image: imageSize, canvas: canvas, topInset: display.topInset,
+                                                     bottomInset: display.bottomInset, margin: options.margin)
             // CoreGraphics' origin is bottom-left.
             let rect = CGRect(x: topLeft.minX, y: bounds.height - topLeft.maxY, width: topLeft.width, height: topLeft.height)
             for layer in WallpaperLayout.shadow {

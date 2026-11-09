@@ -15,7 +15,9 @@ public struct AppSettings: Codable, Equatable, Sendable {
     public var highlightsOnly = true
     public var differentArtworkPerDisplay = false
     public var matStyle: MatStyle = .auto
-    public var matMargin: MatMargin = .medium
+    public var matMargin: MatMargin = .flush
+    /// Keep the work above the Dock instead of letting the Dock sit over it.
+    public var avoidDock = false
     public var alwaysUseMat = false
 
     // Sources: absent means "use the source's default".
@@ -32,7 +34,7 @@ public struct AppSettings: Codable, Equatable, Sendable {
 
     private enum CodingKeys: String, CodingKey {
         case changeTime, changeOnWakeIfMissed, notifyOnChange, nextShortcut, objectTypes, highlightsOnly,
-             differentArtworkPerDisplay, matStyle, matMargin, alwaysUseMat, sourceEnabled, cacheLimitMB
+             differentArtworkPerDisplay, matStyle, matMargin, avoidDock, alwaysUseMat, sourceEnabled, cacheLimitMB
     }
 
     public init(from decoder: Decoder) throws {
@@ -47,6 +49,7 @@ public struct AppSettings: Codable, Equatable, Sendable {
         differentArtworkPerDisplay = (try? c.decode(Bool.self, forKey: .differentArtworkPerDisplay)) ?? d.differentArtworkPerDisplay
         matStyle = (try? c.decode(MatStyle.self, forKey: .matStyle)) ?? d.matStyle
         matMargin = (try? c.decode(MatMargin.self, forKey: .matMargin)) ?? d.matMargin
+        avoidDock = (try? c.decode(Bool.self, forKey: .avoidDock)) ?? d.avoidDock
         alwaysUseMat = (try? c.decode(Bool.self, forKey: .alwaysUseMat)) ?? d.alwaysUseMat
         sourceEnabled = (try? c.decode([String: Bool].self, forKey: .sourceEnabled))
             .map { Dictionary(uniqueKeysWithValues: $0.map { (SourceID($0.key), $0.value) }) } ?? d.sourceEnabled
@@ -65,6 +68,7 @@ public struct AppSettings: Codable, Equatable, Sendable {
         try c.encode(differentArtworkPerDisplay, forKey: .differentArtworkPerDisplay)
         try c.encode(matStyle, forKey: .matStyle)
         try c.encode(matMargin, forKey: .matMargin)
+        try c.encode(avoidDock, forKey: .avoidDock)
         try c.encode(alwaysUseMat, forKey: .alwaysUseMat)
         try c.encode(Dictionary(uniqueKeysWithValues: sourceEnabled.map { ($0.key.rawValue, $0.value) }), forKey: .sourceEnabled)
         try c.encode(cacheLimitMB, forKey: .cacheLimitMB)

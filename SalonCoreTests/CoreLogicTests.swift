@@ -74,7 +74,8 @@ final class SettingsTests: XCTestCase {
         XCTAssertFalse(settings.notifyOnChange)
         XCTAssertFalse(settings.alwaysUseMat)
         XCTAssertEqual(settings.matStyle, .auto)
-        XCTAssertEqual(settings.matMargin, .medium)
+        XCTAssertEqual(settings.matMargin, .flush)
+        XCTAssertFalse(settings.avoidDock)
         XCTAssertEqual(settings.nextShortcut?.displayString, "⌃⌥⌘N")
     }
 
