@@ -64,7 +64,8 @@ struct WallLabel: View {
             title
             VStack(alignment: .leading, spacing: 0) {
                 if let line = [artwork.medium, artwork.dimensions].compactMap({ $0 }).joined(separator: " · ").nilIfEmpty {
-                    Text(line)
+                    // Wrap in full: the self-sizing popover otherwise cuts this to one line.
+                    Text(line).fixedSize(horizontal: false, vertical: true)
                 }
                 Text(artwork.museum)
             }
