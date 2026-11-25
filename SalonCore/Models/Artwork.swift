@@ -18,12 +18,15 @@ public struct Artwork: Codable, Hashable, Identifiable, Sendable {
     public var summary: String?
     /// Where `summary` came from when it is not the museum itself (e.g. "Wikipedia").
     public var summaryCredit: String?
+    /// The page `summary` was taken from, when it came from elsewhere (e.g. a Wikipedia article).
+    public var summaryURL: URL?
     public var objectURL: URL?
     /// Wikidata Q-id, e.g. "Q18689458".
     public var wikidataID: String?
     /// English Wikipedia pages for the artist and the work, when a checked match exists.
     public var artistWikipediaURL: URL?
     public var titleWikipediaURL: URL?
+    public var museumWikipediaURL: URL?
     public var imageURL: URL
     /// Extra headers some image hosts require (e.g. the Art Institute's AIC-User-Agent).
     public var imageRequestHeaders: [String: String]?

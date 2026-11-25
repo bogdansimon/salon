@@ -34,7 +34,7 @@ final class WikipediaLinksTests: XCTestCase {
 
     private func artwork(title: String, artist: String?, details: String?, date: String? = nil) -> Artwork {
         Artwork(id: "rijks:1", sourceID: SourceID("rijks"), title: title, artist: artist, artistDetails: details, date: date,
-                museum: "Rijksmuseum", imageURL: URL(string: "https://example.org/a.jpg")!)
+                museum: "Rijksmuseum, Amsterdam", imageURL: URL(string: "https://example.org/a.jpg")!)
     }
 
     // MARK: Search path
@@ -110,11 +110,50 @@ final class WikipediaLinksTests: XCTestCase {
         XCTAssertEqual(linked.titleWikipediaURL?.absoluteString, "https://en.wikipedia.org/wiki/Officer_and_Laughing_Girl")
         XCTAssertEqual(linked.artistWikipediaURL?.absoluteString, "https://en.wikipedia.org/wiki/Johannes_Vermeer")
         XCTAssertFalse(http.requestURLs().contains { $0.contains("search") })
+        XCTAssertEqual(linked.museumWikipediaURL?.absoluteString, "https://en.wikipedia.org/wiki/Rijksmuseum")
+        XCTAssertEqual(linked.artistDetails, "Dutch, 1632–1675", "the museum's own dates are kept")
+    }
+
+    func testMissingArtistDatesComeFromWikidata() async throws {
+        let http = FixtureHTTPClient()
+        http.on("ids=Q1", data: entities([("Q1", entity(label: "Saul and David", claims: ["P170": [item("Q5598")]]))]))
+        http.on("ids=Q5598", data: entities([("Q5598", rembrandt)]))
+        var work = artwork(title: "Saul and David", artist: "Rembrandt", details: nil)
+        work.wikidataID = "Q1"
+
+        let linked = await WikipediaLinks(http: http).enrich(work)
+
+        XCTAssertEqual(linked.artistDetails, "1606–1669")
+    }
+
+    func testMuseumFoundByNameMustBeAnInstitution() async throws {
+        let http = FixtureHTTPClient()
+        http.on("wbsearchentities", data: Data(#"{"search":[{"id":"Q9","label":"Hirshhorn","description":"surname"},{"id":"Q1192","label":"Hirshhorn Museum and Sculpture Garden","description":"art museum in Washington, D.C."}]}"#.utf8))
+        http.on("ids=Q1192", data: entities([("Q1192", entity(label: "Hirshhorn Museum and Sculpture Garden", enwiki: "Hirshhorn Museum and Sculpture Garden"))]))
+
+        let url = try await WikipediaLinks(http: http).museumURL("Hirshhorn Museum and Sculpture Garden", work: nil)
+
+        XCTAssertEqual(url?.absoluteString, "https://en.wikipedia.org/wiki/Hirshhorn_Museum_and_Sculpture_Garden")
+    }
+
+    func testArtistDetailsSplit() {
+        func split(_ s: String?) -> [String?] { let d = ArtistDetails(s); return [d.lifespan, d.nationality] }
+        XCTAssertEqual(split("Dutch, Zundert 1853–1890 Auvers-sur-Oise"), ["1853–1890", "Dutch"])
+        XCTAssertEqual(split("Dutch, 1606/07–1669"), ["1606–1669", "Dutch"])
+        XCTAssertEqual(split("American, born Germany, 1830–1902"), ["1830–1902", "American"])
+        XCTAssertEqual(split("Danish, born 1843"), ["born 1843", "Danish"])
+        XCTAssertEqual(split("Flemish, active 1620–1650"), ["active 1620–1650", "Flemish"])
+        XCTAssertEqual(split("Dutch, ca. 1600–1650"), ["c. 1600–1650", "Dutch"])
+        XCTAssertEqual(split("1606–1669"), ["1606–1669", nil])
+        XCTAssertEqual(split("French"), [nil, "French"])
+        XCTAssertEqual(split(nil), [nil, nil])
     }
 
     func testNetworkFailureLeavesArtworkUnlinked() async {
         let work = artwork(title: "The Night Watch", artist: "Rembrandt", details: nil)
-        let linked = await WikipediaLinks(http: FixtureHTTPClient()).enrich(work)
+        var linked = await WikipediaLinks(http: FixtureHTTPClient()).enrich(work)
+        XCTAssertNotNil(linked.museumWikipediaURL, "a known museum needs no network")
+        linked.museumWikipediaURL = nil
         XCTAssertEqual(linked, work)
     }
 

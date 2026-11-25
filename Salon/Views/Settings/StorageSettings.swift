@@ -17,7 +17,7 @@ struct StorageSettings: View {
         Form {
             Section("Image cache") {
                 SettingRow(title: "\(ByteCountFormatter.string(fromByteCount: model.cacheBytes, countStyle: .file)) · \(model.cacheCount) images",
-                           help: "Full-size images of recent and kept works. Kept works are never removed.") {
+                           help: "Full-size images of recent and saved works. Saved works are never removed.") {
                     Button("Clear Cache…") { confirmClearCache = true }
                 }
                 Picker("Keep up to", selection: $model.settings.cacheLimitMB) {
@@ -29,14 +29,14 @@ struct StorageSettings: View {
             }
 
             Section("History") {
-                SettingRow(title: historySummary, help: "Clearing history keeps your kept works and the cache.") {
+                SettingRow(title: historySummary, help: "Clearing history keeps your saved works and the cache.") {
                     Button("Clear History…") { confirmClearHistory = true }
                         .disabled(model.history.isEmpty)
                 }
             }
 
             Section("Export") {
-                SettingRow(title: "Export kept works", help: "Title, artist, date, museum, object link and the day it was hung.") {
+                SettingRow(title: "Export saved works", help: "Title, artist, date, museum, object link and the day it was hung.") {
                     HStack {
                         Picker("", selection: $exportFormat) {
                             ForEach(FavoritesExporter.Format.allCases, id: \.self) { Text($0.displayName).tag($0) }
@@ -56,13 +56,13 @@ struct StorageSettings: View {
             Button("Cancel", role: .cancel) {}
             Button("Clear Cache", role: .destructive) { model.clearCache() }
         } message: {
-            Text("Downloaded images are removed. Kept works and the current wallpaper stay.")
+            Text("Downloaded images are removed. Saved works and the current wallpaper stay.")
         }
         .alert("Clear all history?", isPresented: $confirmClearHistory) {
             Button("Cancel", role: .cancel) {}
             Button("Clear History", role: .destructive) { model.clearHistory() }
         } message: {
-            Text("Salon will forget the \(model.history.count) works it has shown. Kept works and the image cache stay, and works already shown still won’t repeat.")
+            Text("Salon will forget the \(model.history.count) works it has shown. Saved works and the image cache stay, and works already shown still won’t repeat.")
         }
     }
 
@@ -74,7 +74,7 @@ struct StorageSettings: View {
 
     private func export() {
         let panel = NSSavePanel()
-        panel.nameFieldStringValue = "Salon kept works.\(exportFormat.rawValue)"
+        panel.nameFieldStringValue = "Salon saved works.\(exportFormat.rawValue)"
         panel.allowedContentTypes = [exportFormat == .json ? .json : .commaSeparatedText]
         guard panel.runModal() == .OK, let url = panel.url else { return }
         do {

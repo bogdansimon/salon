@@ -11,7 +11,7 @@ struct MuseumCard: View {
         VStack(spacing: 0) {
             ZStack {
                 Theme.Palette.mat
-                ArtworkImage(file: model.imageFile(for: entry), maxSize: Theme.Layout.cardWorkMax)
+                PreviewableArtwork(file: model.imageFile(for: entry), title: entry.artwork.title, maxSize: Theme.Layout.cardWorkMax)
             }
             .frame(height: Theme.Layout.cardPlateHeight)
 

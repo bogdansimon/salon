@@ -1,7 +1,7 @@
 import SalonCore
 import SwiftUI
 
-/// The card's toolbar buttons: label buttons ("Next", "Keep") and icon buttons.
+/// The card's toolbar buttons: label buttons ("Next", "Save") and icon buttons.
 struct ToolbarButtonStyle: ButtonStyle {
     var tint: Color = Theme.Palette.ink
 
@@ -76,15 +76,21 @@ struct HealthBadge: View {
     }
 }
 
-/// "Today · 8 November", "Hung 7 November".
+/// "8 November" (today), "Hung 7 November", "Hung 7 November 2025" (an earlier year).
 enum DateText {
-    static func hung(_ date: Date) -> String {
-        let day = date.formatted(.dateTime.day().month(.wide))
-        return Calendar.current.isDateInToday(date) ? "Today · \(day)" : "Hung \(day)"
+    static func hung(_ date: Date, now: Date = Date()) -> String {
+        let day = dayMonth(date, now: now)
+        return Calendar.current.isDate(date, inSameDayAs: now) ? day : "Hung \(day)"
     }
 
-    static func kept(_ date: Date) -> String {
-        "Kept on " + date.formatted(.dateTime.day().month(.wide))
+    static func kept(_ date: Date, now: Date = Date()) -> String {
+        "Saved on " + dayMonth(date, now: now)
+    }
+
+    /// The year only when it isn't this year's.
+    private static func dayMonth(_ date: Date, now: Date) -> String {
+        let sameYear = Calendar.current.isDate(date, equalTo: now, toGranularity: .year)
+        return sameYear ? date.formatted(.dateTime.day().month(.wide)) : date.formatted(.dateTime.day().month(.wide).year())
     }
 
     static func lastFetch(_ date: Date?) -> String {

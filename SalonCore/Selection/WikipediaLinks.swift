@@ -17,34 +17,77 @@ public struct WikipediaLinks: Sendable {
 
     public init(http: HTTPClient) { self.http = http }
 
-    /// Returns the artwork with `artistWikipediaURL` / `titleWikipediaURL` filled where
-    /// a page was found. A work matched by search also gets its `wikidataID`, which lets
-    /// `WikipediaSummary` fill a missing description.
+    /// Returns the artwork with `artistWikipediaURL`, `titleWikipediaURL` and
+    /// `museumWikipediaURL` filled where a page was found. A work matched by search also
+    /// gets its `wikidataID`, which lets `WikipediaSummary` fill a missing description.
+    /// When the museum gives no artist dates, the matched artist's Wikidata dates fill them.
     public func enrich(_ artwork: Artwork) async -> Artwork {
         var result = artwork
+        var work: WBEntity?
         do {
             if let id = artwork.wikidataID {
-                guard let work = try await entities([id])[id] else { return result }
-                result.titleWikipediaURL = work.englishWikipediaURL
-                if Self.isNamedArtist(artwork.artist), let creatorID = work.itemID("P170"),
+                work = try await entities([id])[id]
+                result.titleWikipediaURL = work?.englishWikipediaURL
+                if Self.isNamedArtist(artwork.artist), let creatorID = work?.itemID("P170"),
                    let creator = try await entities([creatorID])[creatorID], creator.isHuman {
                     result.artistWikipediaURL = creator.englishWikipediaURL
+                    result.artistDetails = artwork.artistDetails ?? creator.lifespan
                 }
-                return result
-            }
-
-            guard let name = artwork.artist, let (artistID, artist) = try await findArtist(name: name, details: artwork.artistDetails) else {
-                return result
-            }
-            result.artistWikipediaURL = artist.englishWikipediaURL
-            if let (workID, work) = try await findWork(title: artwork.title, year: Self.firstYear(in: artwork.date), artistID: artistID) {
-                result.titleWikipediaURL = work.englishWikipediaURL
-                result.wikidataID = workID
+            } else if let name = artwork.artist, let (artistID, artist) = try await findArtist(name: name, details: artwork.artistDetails) {
+                result.artistWikipediaURL = artist.englishWikipediaURL
+                result.artistDetails = artwork.artistDetails ?? artist.lifespan
+                if let (workID, found) = try await findWork(title: artwork.title, year: Self.firstYear(in: artwork.date), artistID: artistID) {
+                    work = found
+                    result.titleWikipediaURL = found.englishWikipediaURL
+                    result.wikidataID = workID
+                }
             }
         } catch {
             // Network trouble: keep whatever was found so far.
         }
+        result.museumWikipediaURL = try? await museumURL(artwork.museum, work: work)
         return result
+    }
+
+    // MARK: Museum
+
+    /// The fixed museums of Salon's own sources.
+    static let knownMuseums: [String: String] = [
+        "The Art Institute of Chicago": "Art_Institute_of_Chicago",
+        "Cleveland Museum of Art": "Cleveland_Museum_of_Art",
+        "Rijksmuseum, Amsterdam": "Rijksmuseum",
+        "The Metropolitan Museum of Art, New York": "Metropolitan_Museum_of_Art",
+        "SMK – National Gallery of Denmark, Copenhagen": "National_Gallery_of_Denmark",
+    ]
+
+    /// Known museum → the work's own collection on Wikidata, when its name matches →
+    /// a search by name for a museum, gallery or collection with exactly that name.
+    func museumURL(_ museum: String, work: WBEntity?) async throws -> URL? {
+        if let page = Self.knownMuseums[museum] { return URL(string: "https://en.wikipedia.org/wiki/\(page)") }
+        let names = Set([Self.normalize(museum), Self.normalize(Self.mainTitle(museum))])
+
+        if let collectionIDs = work?.itemIDs("P195"), !collectionIDs.isEmpty {
+            let collections = try await entities(collectionIDs)
+            for id in collectionIDs {
+                if let collection = collections[id], !names.isDisjoint(with: collection.englishTitles.map(Self.normalize)),
+                   let url = collection.englishWikipediaURL { return url }
+            }
+        }
+
+        for query in [museum, Self.mainTitle(museum)] {
+            let hits = try await get(WBSearch.self, [
+                "action": "wbsearchentities", "format": "json", "language": "en", "uselang": "en",
+                "type": "item", "limit": "5", "search": query,
+            ]).search
+            let institution = hits.first { hit in
+                let matched = [hit.label, hit.match?.text].compactMap { $0 }.map(Self.normalize)
+                let description = hit.description?.lowercased() ?? ""
+                return !names.isDisjoint(with: matched)
+                    && ["museum", "gallery", "collection", "institution", "library"].contains(where: description.contains)
+            }
+            if let institution { return try await entities([institution.id])[institution.id]?.englishWikipediaURL }
+        }
+        return nil
     }
 
     // MARK: Artist
@@ -171,10 +214,7 @@ public struct WikipediaLinks: Sendable {
     // MARK: Helpers
 
     /// Every 3–4 digit number: "Dutch, Zundert 1853–1890 Auvers" → [1853, 1890].
-    static func years(in text: String?) -> [Int] {
-        guard let text else { return [] }
-        return text.matches(of: /\d+/).compactMap { $0.output.count >= 3 && $0.output.count <= 4 ? Int($0.output) : nil }
-    }
+    static func years(in text: String?) -> [Int] { Text.years(in: text) }
 
     static func firstYear(in text: String?) -> Int? { years(in: text).first }
 
@@ -193,7 +233,13 @@ public struct WikipediaLinks: Sendable {
 }
 
 struct WBSearch: Decodable {
-    struct Hit: Decodable { var id: String }
+    struct Match: Decodable { var text: String }
+    struct Hit: Decodable {
+        var id: String
+        var label: String?
+        var description: String?
+        var match: Match?
+    }
     var search: [Hit]
 }
 
@@ -206,6 +252,12 @@ struct WQuerySearch: Decodable {
 extension WBEntity {
     var isHuman: Bool { itemIDs("P31").contains("Q5") }
     var isArtist: Bool { !WikipediaLinks.artistOccupations.isDisjoint(with: itemIDs("P106")) }
+
+    /// "1606–1669", or "born 1950" for the living; nil without a birth year.
+    var lifespan: String? {
+        guard let born = year("P569") else { return nil }
+        return year("P570").map { "\(born)–\($0)" } ?? "born \(born)"
+    }
 
     /// English label plus English aliases.
     var englishTitles: [String] { [englishLabel].compactMap { $0 } + (aliases?["en"] ?? []).map(\.value) }

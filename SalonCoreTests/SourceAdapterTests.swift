@@ -184,6 +184,7 @@ final class SourceAdapterTests: XCTestCase {
         let enriched = await WikipediaSummary(http: http).enrich(bare)
 
         XCTAssertEqual(enriched.summaryCredit, "Wikipedia")
+        XCTAssertEqual(enriched.summaryURL?.absoluteString, "https://en.wikipedia.org/wiki/Officer_and_Laughing_Girl")
         XCTAssertTrue(enriched.summary?.hasPrefix("Officer and Laughing Girl") ?? false)
         XCTAssertTrue(http.requestURLs().last?.hasSuffix("/Officer_and_Laughing_Girl") ?? false)
     }

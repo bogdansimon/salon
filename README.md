@@ -16,7 +16,7 @@ It's a personal project: no App Store, no notarization, no sandbox. It's the fir
 - **One new work per calendar day** at a time you choose. It also checks at launch and on wake, so a closed lid never means a skipped day. If you're offline, the current wallpaper stays and Salon retries with backoff (15 min, 30 min, 1 h, … up to 4 h).
 - **Fully random.** It picks an enabled source at random, then a random qualifying work from it. There's no taste weighting, and a work is never shown twice.
 - **Full-bleed or museum mat.** If filling the screen would crop at most 12% of the painting, it's shown full-bleed. Otherwise the whole painting hangs on a mat whose colour is sampled from the painting's edges, with a soft shadow, slightly above centre. Each display is rendered at its native resolution.
-- **History and Kept.** A gallery of everything that has hung, with favourites, search and "Set as Wallpaper" to bring a work back.
+- **History and Saved.** A gallery of everything that has hung, with favourites, search and "Set as Wallpaper" to bring a work back.
 - **Sources health.** Shows the last fetch and the last error, and marks each source healthy, degraded or failing. A source is skipped after 3 failures in a row.
 
 <p>
@@ -90,10 +90,10 @@ Everything is in `~/Library/Application Support/Salon/`:
 | Path | Contents |
 |---|---|
 | `settings.json` | All settings (one typed model, `AppSettings`) |
-| `history.json` | Every hung work with its metadata, palette and Kept date |
+| `history.json` | Every hung work with its metadata, palette and Saved date |
 | `shown.json` | Ids of every work ever shown, so works never repeat, even after Clear History |
 | `health.json`, `state.json` | Source health; last change time and what's on screen |
-| `Images/` | Full-size downloads (LRU cache, 1 GB by default; kept works are never evicted) |
+| `Images/` | Full-size downloads (LRU cache, 1 GB by default; saved works are never evicted) |
 | `Wallpapers/` | The rendered wallpapers currently on screen (older ones are deleted) |
 | `Catalogs/` | Cached work lists for Rijksmuseum and Wikidata |
 

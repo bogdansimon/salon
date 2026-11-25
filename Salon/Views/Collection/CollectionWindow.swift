@@ -6,7 +6,7 @@ import SwiftUI
 struct CollectionWindow: View {
     static let id = "collection"
 
-    enum Filter: String, CaseIterable { case all = "All", kept = "Kept" }
+    enum Filter: String, CaseIterable { case all = "All", kept = "Saved" }
 
     @Environment(AppModel.self) private var model
     @State private var filter: Filter = .all
@@ -38,7 +38,7 @@ struct CollectionWindow: View {
             ToolbarItem(placement: .principal) {
                 Picker("Show", selection: $filter) {
                     Text("All \(model.history.count)").tag(Filter.all)
-                    Text("Kept \(model.keptCount)").tag(Filter.kept)
+                    Text("Saved \(model.keptCount)").tag(Filter.kept)
                 }
                 .pickerStyle(.segmented)
                 .fixedSize()
@@ -76,6 +76,7 @@ private struct Gallery: View {
     @Environment(AppModel.self) private var model
     var sections: [(title: String, entries: [HistoryEntry])]
     @Binding var selection: UUID?
+    @FocusState private var focused: Bool
 
     private let columns = Array(repeating: GridItem(.flexible(minimum: 120), spacing: 24, alignment: .top), count: 4)
 
@@ -94,7 +95,12 @@ private struct Gallery: View {
 
                     LazyVGrid(columns: columns, alignment: .leading, spacing: 26) {
                         ForEach(section.entries) { entry in
-                            Tile(entry: entry, selected: selection == entry.id) { selection = entry.id }
+                            Tile(entry: entry, selected: selection == entry.id) {
+                                selection = entry.id
+                                focused = true
+                            } open: {
+                                preview(entry, toggle: false)
+                            }
                         }
                     }
                 }
@@ -102,6 +108,20 @@ private struct Gallery: View {
             .padding(.horizontal, 32)
             .padding(.vertical, 26)
         }
+        // Space opens the selected work full size, as in Finder.
+        .focusable()
+        .focusEffectDisabled()
+        .focused($focused)
+        .onKeyPress(.space) {
+            guard let entry = sections.lazy.flatMap(\.entries).first(where: { $0.id == selection }) else { return .ignored }
+            preview(entry, toggle: true)
+            return .handled
+        }
+    }
+
+    private func preview(_ entry: HistoryEntry, toggle: Bool) {
+        guard let file = model.imageFile(for: entry) else { return }
+        if toggle { ImagePreview.shared.toggle(file, title: entry.artwork.title) } else { ImagePreview.shared.show(file, title: entry.artwork.title) }
     }
 }
 
@@ -110,6 +130,8 @@ private struct Tile: View {
     var entry: HistoryEntry
     var selected: Bool
     var action: () -> Void
+    var open: () -> Void
+    @State private var hovering = false
 
     var body: some View {
         let accent = Theme.Palette.accent(entry.palette)
@@ -123,6 +145,8 @@ private struct Tile: View {
                 .overlay {
                     if selected {
                         RoundedRectangle(cornerRadius: Theme.Radius.tileMat + 3).stroke(accent, lineWidth: 2).padding(-3)
+                    } else if hovering {
+                        RoundedRectangle(cornerRadius: Theme.Radius.tileMat).stroke(Theme.Palette.rule, lineWidth: 1)
                     }
                 }
                 VStack(alignment: .leading, spacing: 0) {
@@ -133,7 +157,7 @@ private struct Tile: View {
                         if entry.isKept {
                             Image(systemName: "bookmark.fill").imageScale(.small)
                                 .foregroundStyle(selected ? accent : Theme.Palette.ink3)
-                                .accessibilityLabel("Kept")
+                                .accessibilityLabel("Saved")
                         }
                         Text(entry.artwork.artist ?? entry.artwork.museum)
                             .font(Theme.Typeface.tileArtist)
@@ -148,6 +172,9 @@ private struct Tile: View {
             .contentShape(Rectangle())
         }
         .buttonStyle(.plain)
+        .onHover { hovering = $0 }
+        .simultaneousGesture(TapGesture(count: 2).onEnded(open))
+        .help("Double-click or press Space to view full size")
         .accessibilityAddTraits(selected ? .isSelected : [])
     }
 }
@@ -161,7 +188,7 @@ private struct Inspector: View {
         VStack(spacing: 0) {
             ZStack {
                 Theme.Palette.matTile
-                ArtworkImage(file: model.imageFile(for: entry), maxSize: Theme.Layout.inspectorWorkMax)
+                PreviewableArtwork(file: model.imageFile(for: entry), title: entry.artwork.title, maxSize: Theme.Layout.inspectorWorkMax)
             }
             .frame(height: Theme.Layout.inspectorPlate)
 
@@ -207,7 +234,7 @@ private struct Inspector: View {
                     .tint(Theme.Palette.ink)
                     .disabled(working)
                     Button { model.toggleKeep(entry) } label: {
-                        Text(entry.isKept ? "Remove from Kept" : "Keep").frame(maxWidth: .infinity)
+                        Text(entry.isKept ? "Remove from Saved" : "Save").frame(maxWidth: .infinity)
                     }
                 }
                 .controlSize(.large)
@@ -247,18 +274,18 @@ private struct EmptyCollection: View {
 
     private var caption: String {
         if searching { return "No matches" }
-        return filter == .kept ? "Kept · 0 works" : "Collection · 0 works"
+        return filter == .kept ? "Saved · 0 works" : "Collection · 0 works"
     }
 
     private var title: String {
         if searching { return "Nothing by that name" }
-        return filter == .kept ? "Nothing kept yet" : "Nothing hung yet"
+        return filter == .kept ? "Nothing saved yet" : "Nothing hung yet"
     }
 
     private var message: String {
         if searching { return "Try a title, an artist or a museum." }
         if filter == .kept {
-            return "When a work stays with you, press Keep on the menu-bar card. It will hang here, and Salon can show it again whenever you like."
+            return "When a work stays with you, press Save on the menu-bar card. It will hang here, and Salon can show it again whenever you like."
         }
         return "Salon hangs a new work every day. Each one appears here, newest first."
     }

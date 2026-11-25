@@ -28,6 +28,40 @@ struct ArtworkImage: View {
     }
 }
 
+/// A work that opens full size in Quick Look when clicked. A small ⤢ badge on
+/// hover says so; the pointer stays an arrow, as on any Mac button.
+struct PreviewableArtwork: View {
+    var file: URL?
+    var title: String
+    var maxSize: CGSize
+    @State private var hovering = false
+    @Environment(\.accessibilityReduceMotion) private var reduceMotion
+
+    var body: some View {
+        Button {
+            if let file { ImagePreview.shared.show(file, title: title) }
+        } label: {
+            ArtworkImage(file: file, maxSize: maxSize)
+                .overlay(alignment: .topTrailing) {
+                    if hovering, file != nil {
+                        Image(systemName: "arrow.up.left.and.arrow.down.right")
+                            .font(.system(size: 11, weight: .semibold))
+                            .foregroundStyle(.white)
+                            .padding(6)
+                            .background(.black.opacity(0.5), in: RoundedRectangle(cornerRadius: 6))
+                            .padding(8)
+                            .transition(.opacity)
+                    }
+                }
+        }
+        .buttonStyle(.plain)
+        .disabled(file == nil)
+        .onHover { hover in withAnimation(reduceMotion ? nil : .easeOut(duration: 0.15)) { hovering = hover } }
+        .help("View full size")
+        .accessibilityLabel("View full size")
+    }
+}
+
 /// Stand-in when the image isn't cached (e.g. evicted from an old history item).
 struct MissingImage: View {
     var size: CGSize
@@ -51,17 +85,25 @@ struct WallLabel: View {
     var body: some View {
         VStack(alignment: .leading, spacing: Theme.Space.labelLines) {
             if let artist = artwork.artist {
+                let details = ArtistDetails(artwork.artistDetails)
                 VStack(alignment: .leading, spacing: Theme.Space.tight) {
-                    WikipediaLink(url: artwork.artistWikipediaURL) {
-                        Text(artist)
-                            .font(Theme.Typeface.artist)
-                            .tracking(Theme.Tracking.artist)
-                            .underline(artwork.artistWikipediaURL != nil, color: Theme.Palette.rule)
-                            .textCase(.uppercase)
-                            .foregroundStyle(Theme.Palette.ink2)
+                    // "REMBRANDT (1606–1669)": only the name is the link.
+                    HStack(alignment: .firstTextBaseline, spacing: 0) {
+                        WikipediaLink(url: artwork.artistWikipediaURL) {
+                            artistText(artist)
+                                .underline(artwork.artistWikipediaURL != nil, color: Theme.Palette.rule)
+                                .textCase(.uppercase)
+                                .foregroundStyle(Theme.Palette.ink2)
+                        }
+                        if let lifespan = details.lifespan {
+                            artistText(" (\(lifespan))")
+                                .textCase(.uppercase)
+                                .foregroundStyle(Theme.Palette.ink3)
+                                .fixedSize()
+                        }
                     }
-                    if let details = artwork.artistDetails {
-                        Text(details).font(Theme.Typeface.metadata).foregroundStyle(Theme.Palette.ink3)
+                    if let nationality = details.nationality {
+                        Text(nationality).font(Theme.Typeface.metadata).foregroundStyle(Theme.Palette.ink3)
                     }
                 }
             }
@@ -71,13 +113,19 @@ struct WallLabel: View {
                     // Wrap in full: the self-sizing popover otherwise cuts this to one line.
                     Text(line).fixedSize(horizontal: false, vertical: true)
                 }
-                Text(artwork.museum)
+                WikipediaLink(url: artwork.museumWikipediaURL) {
+                    Text(artwork.museum).underline(artwork.museumWikipediaURL != nil, color: Theme.Palette.rule)
+                }
             }
             .font(Theme.Typeface.metadata)
             .lineSpacing(Theme.LineSpacing.metadata)
             .foregroundStyle(Theme.Palette.ink3)
         }
         .textSelection(.enabled)
+    }
+
+    private func artistText(_ text: String) -> Text {
+        Text(text).font(Theme.Typeface.artist).tracking(Theme.Tracking.artist)
     }
 
     private var title: some View {
@@ -142,13 +190,23 @@ struct MuseumLink: View {
     }
 }
 
-/// Wikipedia text is CC BY-SA, so it is credited where it's shown.
+/// "From Wikipedia": where a description came from, when not the museum itself.
 struct SummaryCredit: View {
     var artwork: Artwork
 
     var body: some View {
-        if artwork.summaryCredit == "Wikipedia" {
-            Text("From Wikipedia · CC BY-SA").labelCaps()
+        if let credit = artwork.summaryCredit {
+            // Links to the article: the text is CC BY-SA, and this is its attribution.
+            if let url = artwork.summaryURL {
+                Link(destination: url) {
+                    Text("From \(credit)").labelCaps().underline(color: Theme.Palette.rule)
+                }
+                .buttonStyle(.plain)
+                .linkCursor()
+                .help("Open on Wikipedia")
+            } else {
+                Text("From \(credit)").labelCaps()
+            }
         }
     }
 }

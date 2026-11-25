@@ -53,13 +53,13 @@ struct CardToolbar: View {
 
             if model.phase.isFailed == false {
                 Button { if let entry { withAnimation(Theme.Motion.keep) { model.toggleKeep(entry) } } } label: {
-                    Label(kept ? "Kept" : "Keep", systemImage: kept ? "bookmark.fill" : "bookmark")
+                    Label(kept ? "Saved" : "Save", systemImage: kept ? "bookmark.fill" : "bookmark")
                 }
                 .buttonStyle(ToolbarButtonStyle(tint: kept ? accent : Theme.Palette.ink))
                 .background(RoundedRectangle(cornerRadius: Theme.Radius.button).fill(kept ? Theme.Palette.accentSoft(entry?.palette) : .clear))
                 .disabled(busy || entry == nil)
                 .opacity(busy ? 0.4 : 1)
-                .accessibilityValue(kept ? "Kept" : "Not kept")
+                .accessibilityValue(kept ? "Saved" : "Not saved")
             }
 
             Spacer()

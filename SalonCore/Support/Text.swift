@@ -41,4 +41,10 @@ enum Text {
         guard let value, let range = value.range(of: "Q[0-9]+$", options: .regularExpression) else { return nil }
         return String(value[range])
     }
+
+    /// Every 3–4 digit number: "Dutch, Zundert 1853–1890 Auvers" → [1853, 1890].
+    static func years(in text: String?) -> [Int] {
+        guard let text else { return [] }
+        return text.matches(of: /\d+/).compactMap { $0.output.count >= 3 && $0.output.count <= 4 ? Int($0.output) : nil }
+    }
 }

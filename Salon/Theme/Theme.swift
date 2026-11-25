@@ -22,7 +22,7 @@ enum Theme {
         static let healthWarn = Color(light: 0x9A6A1F, dark: 0xD6A75A)
         static let healthBad = Color(light: 0xA33F33, dark: 0xE08A7E)    // also destructive text
 
-        /// The runtime accent: a muted tone from the current painting (Kept state, selection only).
+        /// The runtime accent: a muted tone from the current painting (Saved state, selection only).
         static func accent(_ palette: ArtworkPalette?) -> Color {
             let p = palette ?? .fallback
             return Color(lightRGB: p.accentLight, darkRGB: p.accentDark)
