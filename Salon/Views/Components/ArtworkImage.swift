@@ -57,7 +57,7 @@ struct PreviewableArtwork: View {
         .buttonStyle(.plain)
         .disabled(file == nil)
         .onHover { hover in withAnimation(reduceMotion ? nil : .easeOut(duration: 0.15)) { hovering = hover } }
-        .hoverTip("View full size", .insideBottom)
+        .hoverTip("View full size")
         .accessibilityLabel("View full size")
     }
 }
@@ -221,20 +221,14 @@ private struct LinkCursor: ViewModifier {
     @State private var pushed = false
 
     func body(content: Content) -> some View {
-        if #available(macOS 15, *) {
-            // Owned by SwiftUI, so it survives a hover tip appearing on top of the link
-            // (that redraw reset the pushed cursor back to the arrow).
-            content.pointerStyle(.link)
-        } else {
-            content
-                .onHover { hovering in
-                    guard hovering != pushed else { return }
-                    hovering ? NSCursor.pointingHand.push() : NSCursor.pop()
-                    pushed = hovering
-                }
-                // A card can change under a still pointer; don't leave the hand behind.
-                .onDisappear { if pushed { NSCursor.pop(); pushed = false } }
-        }
+        content
+            .onHover { hovering in
+                guard hovering != pushed else { return }
+                hovering ? NSCursor.pointingHand.push() : NSCursor.pop()
+                pushed = hovering
+            }
+            // A card can change under a still pointer; don't leave the hand behind.
+            .onDisappear { if pushed { NSCursor.pop(); pushed = false } }
     }
 }
 

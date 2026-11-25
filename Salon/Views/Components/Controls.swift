@@ -113,83 +113,30 @@ enum DateText {
     }
 }
 
-// MARK: Hover tips
+// MARK: Tooltips
 
 extension EnvironmentValues {
-    /// True inside the menu-bar popover, where macOS doesn't show `.help` tooltips
-    /// (they only appear in regular windows), so the card draws its own.
-    @Entry var drawsHoverTips = false
-}
-
-enum HoverTipPlacement {
-    /// Above the control, lined up with its leading or trailing edge so it stays on screen.
-    case above(HorizontalAlignment)
-    /// Over the bottom of the control (for the image at the top of the card).
-    case insideBottom
+    /// True inside the menu-bar popover. macOS doesn't show tooltips there, and the
+    /// workarounds broke the links' pointing hand, so the card has none.
+    @Entry var showsTooltips = true
 }
 
 extension View {
-    /// A tooltip: native `.help` in windows, a drawn one in the popover.
-    func hoverTip(_ text: String, _ placement: HoverTipPlacement = .above(.leading)) -> some View {
-        modifier(HoverTip(text: text, placement: placement))
+    /// A tooltip in windows (Collection, Settings); in the card, only a VoiceOver hint.
+    func hoverTip(_ text: String) -> some View {
+        modifier(HoverTip(text: text))
     }
 }
 
 private struct HoverTip: ViewModifier {
     var text: String
-    var placement: HoverTipPlacement
-    @Environment(\.drawsHoverTips) private var drawn
-    @State private var showing = false
-    @State private var pending: Task<Void, Never>?
+    @Environment(\.showsTooltips) private var showsTooltips
 
     func body(content: Content) -> some View {
-        if drawn {
-            content
-                .onHover { hovering in
-                    pending?.cancel()
-                    guard hovering else { showing = false; return }
-                    pending = Task {
-                        try? await Task.sleep(for: .milliseconds(700)) // about the system tooltip delay
-                        if !Task.isCancelled { showing = true }
-                    }
-                }
-                .simultaneousGesture(TapGesture().onEnded { pending?.cancel(); showing = false })
-                .overlay(alignment: .top) {
-                    if showing, case .above(let horizontal) = placement {
-                        // A zero-height strip along the control's top edge; the tip hangs
-                        // from it upwards, so it never covers the control.
-                        Color.clear
-                            .frame(maxWidth: .infinity, maxHeight: 0)
-                            .overlay(alignment: Alignment(horizontal: horizontal, vertical: .bottom)) {
-                                tip.padding(.bottom, 6)
-                            }
-                            .transition(.opacity)
-                    }
-                }
-                .overlay(alignment: .bottom) {
-                    if showing, case .insideBottom = placement {
-                        tip.padding(.bottom, 8).transition(.opacity)
-                    }
-                }
-                .animation(.easeOut(duration: 0.12), value: showing)
-                .accessibilityHint(text)
-        } else {
+        if showsTooltips {
             content.help(text)
+        } else {
+            content.accessibilityHint(text)
         }
-    }
-
-    private var tip: some View {
-        Text(text)
-            .font(.system(size: 11))
-            .foregroundStyle(Theme.Palette.ink)
-            .lineLimit(1)
-            .fixedSize()
-            .padding(.horizontal, 7)
-            .padding(.vertical, 4)
-            .background(Theme.Palette.surface, in: RoundedRectangle(cornerRadius: 5))
-            .overlay(RoundedRectangle(cornerRadius: 5).strokeBorder(Theme.Palette.rule, lineWidth: 0.5))
-            .shadow(color: .black.opacity(0.25), radius: 4, y: 1)
-            .allowsHitTesting(false)
-            .accessibilityHidden(true)
     }
 }

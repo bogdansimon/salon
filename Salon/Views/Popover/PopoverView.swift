@@ -29,7 +29,7 @@ struct PopoverView: View {
         .frame(width: Theme.Layout.popoverWidth)
         .background(Theme.Palette.surface)
         .background(ActivateWhenShown())
-        .environment(\.drawsHoverTips, true)
+        .environment(\.showsTooltips, false)
         .animation(reduceMotion ? nil : Theme.Motion.cardCrossfade, value: model.phase)
         .animation(reduceMotion ? nil : Theme.Motion.cardCrossfade, value: model.current?.id)
     }
@@ -96,7 +96,7 @@ struct CardToolbar: View {
             }
             .disabled(busy)
             .opacity(busy ? 0.4 : 1)
-            .hoverTip(nextHelp, .above(.leading))
+            .hoverTip(nextHelp)
 
             if model.phase.isFailed == false {
                 Button { if let entry { withAnimation(Theme.Motion.keep) { model.toggleKeep(entry) } } } label: {
@@ -114,15 +114,15 @@ struct CardToolbar: View {
 
             Button { model.togglePause() } label: { Image(systemName: model.isPaused ? "play" : "pause") }
                 .buttonStyle(ToolbarButtonStyle(tint: Theme.Palette.ink2))
-                .hoverTip(model.isPaused ? "Resume changing: \(model.settings.resumeFrequency.title.lowercased())" : "Pause changing", .above(.trailing))
+                .hoverTip(model.isPaused ? "Resume changing: \(model.settings.resumeFrequency.title.lowercased())" : "Pause changing")
                 .accessibilityLabel(model.isPaused ? "Resume changing" : "Pause changing")
             Button { open(window: true) } label: { Image(systemName: "rectangle.stack") }
                 .buttonStyle(ToolbarButtonStyle(tint: Theme.Palette.ink2))
-                .hoverTip("Collection", .above(.trailing))
+                .hoverTip("Collection")
                 .accessibilityLabel("Collection")
             Button { open(window: false) } label: { Image(systemName: "slider.horizontal.3") }
                 .buttonStyle(ToolbarButtonStyle(tint: Theme.Palette.ink2))
-                .hoverTip("Settings", .above(.trailing))
+                .hoverTip("Settings")
                 .accessibilityLabel("Settings")
         }
         .buttonStyle(ToolbarButtonStyle())
