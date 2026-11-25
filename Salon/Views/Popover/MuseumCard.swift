@@ -59,7 +59,10 @@ struct DescriptionText: View {
                     ScrollView { paragraph.fixedSize(horizontal: false, vertical: true) }
                         .frame(height: min(fullHeight, Theme.Layout.expandedDescription))
                 } else {
+                    // Full height first: the self-sizing popover otherwise cuts a short
+                    // description to one line ("…painting by").
                     paragraph
+                        .fixedSize(horizontal: false, vertical: true)
                         .frame(height: needsMore ? Theme.Layout.collapsedDescription : nil, alignment: .top)
                         .clipped()
                         .mask {
