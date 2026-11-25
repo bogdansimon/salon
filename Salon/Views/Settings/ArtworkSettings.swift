@@ -17,49 +17,76 @@ struct ArtworkSettings: View {
                 }
                 Toggle(isOn: $model.settings.highlightsOnly) {
                     Text("Highlights only")
-                    Text("Only works a museum marks as a highlight. Sources without a quality flag use their best stand-in.")
-                }
-                SettingRow(title: "With several displays") {
-                    Picker("", selection: $model.settings.differentArtworkPerDisplay) {
-                        Text("Same work on all").tag(false)
-                        Text("A different work on each").tag(true)
-                    }
-                    .labelsHidden()
-                    .pickerStyle(.segmented)
-                    .fixedSize()
+                    Text("Only a museum’s best-known works. The Rijksmuseum doesn’t mark these, so it ignores this setting.")
                 }
             }
 
-            Section("Mat") {
-                Picker("Colour", selection: matKind) {
-                    Text("Auto").tag(MatKind.auto)
-                    Text("Fixed neutral").tag(MatKind.neutral)
-                    Text("Custom").tag(MatKind.custom)
-                }
-                .pickerStyle(.radioGroup)
-                if case .custom = model.settings.matStyle {
-                    ColorPicker("Custom colour", selection: customColor, supportsOpacity: false)
-                }
-                SettingRow(title: "Margin") {
-                    Picker("", selection: $model.settings.matMargin) {
-                        ForEach(MatMargin.allCases, id: \.self) { Text($0.displayName).tag($0) }
+            Section("Framing") {
+                SettingRow(title: "Show", help: fitHelp) {
+                    Picker("", selection: $model.settings.workFit) {
+                        ForEach(WorkFit.allCases, id: \.self) { Text($0.displayName).tag($0) }
                     }
                     .labelsHidden()
                     .pickerStyle(.segmented)
                     .fixedSize()
                 }
-                Toggle(isOn: $model.settings.avoidDock) {
-                    Text("Keep clear of the Dock")
-                    Text("Otherwise the Dock sits over the bottom of the work. Best left off if the Dock hides automatically.")
+                Group {
+                    SettingRow(title: "Background", help: backgroundHelp) {
+                        Picker("", selection: matKind) {
+                            Text("Auto").tag(MatKind.auto)
+                            Text("Neutral").tag(MatKind.neutral)
+                            Text("Custom").tag(MatKind.custom)
+                        }
+                        .labelsHidden()
+                        .pickerStyle(.radioGroup)
+                        .horizontalRadioGroupLayout()
+                    }
+                    if case .custom = model.settings.matStyle {
+                        ColorPicker("Custom background", selection: customColor, supportsOpacity: false)
+                    }
+                    SettingRow(title: "Margin") {
+                        Picker("", selection: $model.settings.matMargin) {
+                            ForEach(MatMargin.allCases, id: \.self) { Text($0.displayName).tag($0) }
+                        }
+                        .labelsHidden()
+                        .pickerStyle(.segmented)
+                        .fixedSize()
+                    }
+                    Toggle(isOn: $model.settings.avoidMenuBar) {
+                        Text("Keep clear of the menu bar")
+                        Text("Otherwise the menu bar sits over the top of the work.")
+                    }
+                    Toggle(isOn: $model.settings.avoidDock) {
+                        Text("Keep clear of the Dock")
+                        Text("Otherwise the Dock sits over the bottom of the work. Best left off if the Dock hides automatically.")
+                    }
                 }
-                Toggle(isOn: $model.settings.alwaysUseMat) {
-                    Text("Always use mat")
-                    Text("Otherwise the mat appears only when filling the screen would crop more than 12%.")
-                }
+                .disabled(fills)
+                .opacity(fills ? 0.45 : 1)
                 MatPreview()
             }
         }
         .settingsForm()
+    }
+
+    /// "Fill screen": the mat options don't apply (a too-small work uses the default mat).
+    private var fills: Bool { model.settings.workFit == .fill }
+
+    private var fitHelp: String {
+        switch model.settings.workFit {
+        case .whole: "The whole work on a background, never cropped."
+        case .auto: "Fills the screen when that crops 12% or less; otherwise the whole work on a background."
+        case .fill: "Fills the screen, cropping the edges. A work too small to fill it sharply goes on the default background."
+        }
+    }
+
+    private var backgroundHelp: String {
+        let what = "The area around the painting. "
+        switch model.settings.matStyle {
+        case .auto: return what + "A quiet tone picked from the painting’s edges: dark for dark works, light for light ones."
+        case .neutral: return what + "Dark grey in Dark mode, warm off-white in Light mode."
+        case .custom: return what + "One colour of your choice for every work."
+        }
     }
 
     private func typeBinding(_ type: ObjectType) -> Binding<Bool> {
@@ -132,7 +159,7 @@ struct MatPreview: View {
     }
 
     private var renderKey: String {
-        "\(model.current?.id.uuidString ?? "")|\(model.settings.matStyle)|\(model.settings.matMargin)|\(model.settings.avoidDock)|\(model.settings.alwaysUseMat)|\(colorScheme)"
+        "\(model.current?.id.uuidString ?? "")|\(model.settings.matStyle)|\(model.settings.matMargin)|\(model.settings.avoidDock)|\(model.settings.avoidMenuBar)|\(model.settings.workFit)|\(colorScheme)"
     }
 
     private func render() async {

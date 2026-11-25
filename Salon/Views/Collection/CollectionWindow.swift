@@ -178,6 +178,8 @@ private struct Tile: View {
             Button("Open", action: open)
                 .disabled(model.imageFile(for: entry) == nil)
             Button("Set as Wallpaper") { Task { await model.setAsWallpaper(entry) } }
+            Button("Save Image As…") { model.saveImageCopy(of: entry) }
+                .disabled(model.imageFile(for: entry) == nil)
             Divider()
             Button(entry.isKept ? "Remove from Saved" : "Save") { model.toggleKeep(entry) }
         }

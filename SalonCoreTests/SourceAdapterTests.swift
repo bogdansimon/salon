@@ -157,23 +157,6 @@ final class SourceAdapterTests: XCTestCase {
         XCTAssertEqual(artwork.wikidataID, "Q467376")
     }
 
-    func testSmithsonianNeedsKeyAndRejectsSmallImages() async throws {
-        let source = SmithsonianSource(http: FixtureHTTPClient())
-        do {
-            _ = try await source.randomArtwork(for: paintings)
-            XCTFail("Expected missingAPIKey")
-        } catch {
-            XCTAssertEqual(error as? SourceError, .missingAPIKey)
-        }
-
-        let row = try XCTUnwrap(JSONDecoder().decode(SISearch.self, from: Fixtures.data("si_search.json")).response.rows.first)
-        let artwork = try XCTUnwrap(row.artwork)
-        XCTAssertEqual(artwork.artist, "Abraham Walkowitz")
-        XCTAssertEqual(artwork.dimensions, "35.8 × 28.1 cm")
-        XCTAssertEqual(artwork.museum, "Hirshhorn Museum and Sculpture Garden")
-        XCTAssertEqual(artwork.reportedPixelSize, PixelSize(width: 795, height: 1024), "the picker will reject this one")
-    }
-
     func testWikipediaSummaryFillsMissingDescription() async throws {
         let http = FixtureHTTPClient()
         http.on("wbgetentities", fixture: "wikidata_entity.json")

@@ -218,17 +218,27 @@ extension View {
 }
 
 private struct LinkCursor: ViewModifier {
+    @Environment(\.inMenuBarPopover) private var inPopover
     @State private var pushed = false
 
     func body(content: Content) -> some View {
-        content
-            .onHover { hovering in
-                guard hovering != pushed else { return }
-                hovering ? NSCursor.pointingHand.push() : NSCursor.pop()
-                pushed = hovering
-            }
-            // A card can change under a still pointer; don't leave the hand behind.
-            .onDisappear { if pushed { NSCursor.pop(); pushed = false } }
+        if inPopover {
+            // In the menu-bar panel only a pushed cursor shows reliably.
+            content
+                .onHover { hovering in
+                    guard hovering != pushed else { return }
+                    hovering ? NSCursor.pointingHand.push() : NSCursor.pop()
+                    pushed = hovering
+                }
+                // A card can change under a still pointer; don't leave the hand behind.
+                .onDisappear { if pushed { NSCursor.pop(); pushed = false } }
+        } else if #available(macOS 15, *) {
+            // In windows (Settings, Collection) the form resets a pushed cursor on every
+            // mouse move, so let SwiftUI own it.
+            content.pointerStyle(.link)
+        } else {
+            content
+        }
     }
 }
 

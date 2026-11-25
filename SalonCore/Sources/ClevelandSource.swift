@@ -14,7 +14,8 @@ public struct ClevelandSource: ArtSource {
         supportedTypes: [.painting, .print, .drawing],
         hasQualityFlag: true,
         credit: "Open Access API · CC0",
-        homepage: URL(string: "https://openaccess-api.clevelandart.org/")!
+        homepage: URL(string: "https://openaccess-api.clevelandart.org/")!,
+        website: URL(string: "https://www.clevelandart.org/")!
     )
 
     private static let base = "https://openaccess-api.clevelandart.org/api/artworks/"

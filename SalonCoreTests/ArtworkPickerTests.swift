@@ -16,6 +16,16 @@ final class ArtworkPickerTests: XCTestCase {
         ArtworkPicker.Request(objectTypes: [.painting], highlightsOnly: true, enabledSources: enabled, excludedIDs: excluded)
     }
 
+    func testCacheUsesTheRealExtensionAndRenamesOldImgFiles() throws {
+        try FileManager.default.createDirectory(at: cacheDirectory, withIntermediateDirectories: true)
+        let jpeg = Data([0xFF, 0xD8, 0xFF, 0xE0, 0, 0x10, 0x4A, 0x46, 0x49, 0x46, 0]) // JPEG header
+        try jpeg.write(to: cacheDirectory.appendingPathComponent("met_1.img"))
+        let cache = ImageCache(directory: cacheDirectory)
+        XCTAssertEqual(cache.cachedFile(for: "met:1")?.lastPathComponent, "met_1.jpg")
+        XCTAssertEqual(try cache.store(jpeg, for: "aic:2").lastPathComponent, "aic_2.jpg")
+        XCTAssertEqual(cache.fileCount, 2)
+    }
+
     func testFallsBackWhenASourceFails() async throws {
         let http = FixtureHTTPClient()
         http.on("good.example/", data: TestImages.jpegData(width: 3200, height: 2000))
@@ -126,7 +136,7 @@ actor StubSource: ArtSource {
         self.sizes = sizes
         self.error = error
         self.info = SourceInfo(name: id.rawValue, shortName: id.rawValue, supportedTypes: types, hasQualityFlag: true,
-                               requiresAPIKey: needsKey, credit: "", homepage: URL(string: "https://example.org")!)
+                               requiresAPIKey: needsKey, credit: "", homepage: URL(string: "https://example.org")!, website: URL(string: "https://example.org")!)
     }
 
     func randomArtwork(for query: ArtworkQuery) async throws -> Artwork {

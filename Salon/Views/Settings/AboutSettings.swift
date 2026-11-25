@@ -17,7 +17,7 @@ struct AboutSettings: View {
                     VStack(alignment: .leading, spacing: 4) {
                         Text("Salon").font(Theme.Typeface.display).foregroundStyle(Theme.Palette.ink)
                         Text("Version \(version)").font(Theme.Typeface.metadata).foregroundStyle(Theme.Palette.ink3)
-                        Text("A painting a day, from the world’s open collections.")
+                        Text("Your desktop as a gallery, hung from the world’s open collections.")
                             .font(Theme.Typeface.tagline)
                             .foregroundStyle(Theme.Palette.ink2)
                             .padding(.top, 4)

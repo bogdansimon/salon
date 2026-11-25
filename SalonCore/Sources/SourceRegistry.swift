@@ -10,7 +10,6 @@ public enum SourceRegistry {
             RijksmuseumSource(http: http, store: catalogs),
             SMKSource(http: http),
             WikidataSource(http: http, store: catalogs),
-            SmithsonianSource(http: http),
         ]
     }
 }

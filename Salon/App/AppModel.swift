@@ -109,6 +109,23 @@ final class AppModel {
 
     func imageFile(for entry: HistoryEntry) -> URL? { cache.cachedFile(for: entry.artwork.id) }
 
+    /// Opens the image cache folder in Finder.
+    func showCacheInFinder() { NSWorkspace.shared.open(cache.directory) }
+
+    /// Saves a copy of a work's image under a readable name ("Caravaggio – Salome….jpg").
+    func saveImageCopy(of entry: HistoryEntry) {
+        guard let file = imageFile(for: entry) else { return }
+        let name = [entry.artwork.artist, entry.artwork.title].compactMap { $0 }.joined(separator: " – ")
+            .replacingOccurrences(of: "[/:]", with: "-", options: .regularExpression)
+        let panel = NSSavePanel()
+        panel.nameFieldStringValue = name + "." + file.pathExtension
+        panel.canCreateDirectories = true
+        NSApp.activate(ignoringOtherApps: true)
+        guard panel.runModal() == .OK, let destination = panel.url else { return }
+        try? FileManager.default.removeItem(at: destination) // the panel already asked to replace
+        try? FileManager.default.copyItem(at: file, to: destination)
+    }
+
     var retryMinutes: Int? { scheduler.retryMinutes }
 
     // MARK: Actions
@@ -215,39 +232,30 @@ final class AppModel {
         defer { isChanging = false }
 
         let screens = NSScreen.screens
-        let count = settings.differentArtworkPerDisplay ? max(screens.count, 1) : 1
         phase = .loading(sourceName: nil)
 
-        var picks: [PickedArtwork] = []
+        // One work on every display, so the card always describes what's on screen.
+        let picked: PickedArtwork
         do {
-            for _ in 0..<count {
-                var request = pickRequest(preferred: preferred, avoiding: avoiding)
-                request.excludedIDs.formUnion(picks.map(\.artwork.id))
-                let picked = try await picker.pick(request, onStart: { [weak self] id in
-                    await self?.showLoading(from: id)
-                }, report: { [weak self] id, event in
-                    await self?.record(id, event)
-                })
-                picks.append(picked)
-            }
+            picked = try await picker.pick(pickRequest(preferred: preferred, avoiding: avoiding), onStart: { [weak self] id in
+                await self?.showLoading(from: id)
+            }, report: { [weak self] id, event in
+                await self?.record(id, event)
+            })
         } catch {
             fail(with: error, source: preferred)
             return
         }
 
-        var entries: [HistoryEntry] = []
-        for picked in picks {
-            let palette = await Self.palette(of: picked.imageFile)
-            // Links first: a work it matches gains a Wikidata id, which the summary can use.
-            let artwork = await wikipedia.enrich(wikipediaLinks.enrich(picked.artwork))
-            state.shownCount += 1
-            entries.append(HistoryEntry(artwork: artwork, shownAt: Date(), number: state.shownCount, palette: palette))
-        }
+        let palette = await Self.palette(of: picked.imageFile)
+        // Links first: a work it matches gains a Wikidata id, which the summary can use.
+        let artwork = await wikipedia.enrich(wikipediaLinks.enrich(picked.artwork))
+        state.shownCount += 1
+        let entries = [HistoryEntry(artwork: artwork, shownAt: Date(), number: state.shownCount, palette: palette)]
 
         do {
-            let assignments = screens.enumerated().map { index, screen in
-                let i = settings.differentArtworkPerDisplay ? index % picks.count : 0
-                return WallpaperService.Assignment(screen: screen, imageFile: picks[i].imageFile, palette: entries[i].palette ?? .fallback)
+            let assignments = screens.map { screen in
+                WallpaperService.Assignment(screen: screen, imageFile: picked.imageFile, palette: palette)
             }
             state.currentWallpaperFiles = try await wallpaper.apply(assignments, settings: settings)
         } catch {
@@ -312,13 +320,9 @@ final class AppModel {
             scheduleEdited()
         }
         if settings.notifyOnChange && !old.notifyOnChange { ChangeNotifier.requestPermission() }
-        if settings.matStyle != old.matStyle || settings.matMargin != old.matMargin || settings.alwaysUseMat != old.alwaysUseMat
-            || settings.avoidDock != old.avoidDock {
+        if settings.matStyle != old.matStyle || settings.matMargin != old.matMargin || settings.workFit != old.workFit
+            || settings.avoidDock != old.avoidDock || settings.avoidMenuBar != old.avoidMenuBar {
             scheduleRerender()
-        }
-        if settings.differentArtworkPerDisplay != old.differentArtworkPerDisplay {
-            // Different works need new picks; the same work just re-renders.
-            if settings.differentArtworkPerDisplay && NSScreen.screens.count > 1 { next() } else { scheduleRerender() }
         }
         if settings.cacheLimitMB < old.cacheLimitMB {
             cache.evict(toFit: Int64(settings.cacheLimitMB) * 1_048_576, protecting: protectedImageIDs)
@@ -338,11 +342,10 @@ final class AppModel {
 
     private func rerenderCurrent() async {
         let entries = state.currentEntryIDs.compactMap { id in history.first { $0.id == id } }
-        let available = entries.compactMap { entry in cache.cachedFile(for: entry.artwork.id).map { (entry, $0) } }
-        guard !available.isEmpty, !isChanging else { return }
-        let assignments = NSScreen.screens.enumerated().map { index, screen in
-            let (entry, file) = available[settings.differentArtworkPerDisplay ? index % available.count : 0]
-            return WallpaperService.Assignment(screen: screen, imageFile: file, palette: entry.palette ?? .fallback)
+        guard let (entry, file) = entries.lazy.compactMap({ entry in self.cache.cachedFile(for: entry.artwork.id).map { (entry, $0) } }).first,
+              !isChanging else { return }
+        let assignments = NSScreen.screens.map { screen in
+            WallpaperService.Assignment(screen: screen, imageFile: file, palette: entry.palette ?? .fallback)
         }
         if let files = try? await wallpaper.apply(assignments, settings: settings) {
             state.currentWallpaperFiles = files

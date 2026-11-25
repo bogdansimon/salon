@@ -4,14 +4,11 @@
 #
 #   scripts/record-fixtures.sh
 #
-# Optional: SALON_SI_KEY=<your api.data.gov key> (defaults to the public DEMO_KEY).
-# The key is only used for the request; it never ends up in a fixture.
 set -euo pipefail
 
 cd "$(dirname "$0")/.."
 OUT="SalonCoreTests/Fixtures"
 UA="Salon/1.0 (+https://github.com/bogdansimon/salon)"
-SI_KEY="${SALON_SI_KEY:-DEMO_KEY}"
 mkdir -p "$OUT"
 
 get() { # get <file> <url> [extra curl args...]
@@ -47,9 +44,6 @@ get wikidata_entity.json "https://www.wikidata.org/w/api.php?action=wbgetentitie
 get wikidata_labels.json "https://www.wikidata.org/w/api.php?action=wbgetentities&format=json&ids=Q41264%7CQ682827%7CQ296955&props=labels&languages=en"
 get commons_imageinfo.json "https://commons.wikimedia.org/w/api.php?action=query&format=json&prop=imageinfo&iiprop=url%7Csize%7Cextmetadata&iiextmetadatafilter=LicenseShortName&iiurlwidth=4096&titles=File:Johannes%20Vermeer%20-%20De%20Soldaat%20en%20het%20Lachende%20Meisje%20-%20Google%20Art%20Project.jpg"
 get wikipedia_summary.json "https://en.wikipedia.org/api/rest_v1/page/summary/Officer_and_Laughing_Girl"
-
-# Smithsonian Open Access (needs a key; DEMO_KEY works for a handful of calls)
-get si_search.json "https://api.si.edu/openaccess/api/v1.0/search?q=online_media_type:%22Images%22+AND+object_type:%22Paintings%22&rows=1&start=200&api_key=$SI_KEY"
 
 python3 scripts/scrub-fixtures.py "$OUT"
 echo "Done. Review 'git diff $OUT' before committing."

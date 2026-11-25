@@ -16,7 +16,8 @@ public struct RijksmuseumSource: ArtSource {
         supportedTypes: [.painting],
         hasQualityFlag: false,
         credit: "Data Services · public-domain images",
-        homepage: URL(string: "https://data.rijksmuseum.nl/")!
+        homepage: URL(string: "https://data.rijksmuseum.nl/")!,
+        website: URL(string: "https://www.rijksmuseum.nl/en")!
     )
 
     private static let searchURL = URL.make("https://data.rijksmuseum.nl/search/collection", ["type": "painting", "imageAvailable": "true"])

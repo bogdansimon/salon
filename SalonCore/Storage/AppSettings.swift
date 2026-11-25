@@ -15,12 +15,13 @@ public struct AppSettings: Codable, Equatable, Sendable {
     // Artwork
     public var objectTypes: Set<ObjectType> = [.painting]
     public var highlightsOnly = true
-    public var differentArtworkPerDisplay = false
     public var matStyle: MatStyle = .auto
     public var matMargin: MatMargin = .flush
     /// Keep the work above the Dock instead of letting the Dock sit over it.
-    public var avoidDock = false
-    public var alwaysUseMat = false
+    public var avoidDock = true
+    /// Keep the work below the menu bar instead of letting the menu bar sit over its top.
+    public var avoidMenuBar = true
+    public var workFit: WorkFit = .auto
 
     // Sources: absent means "use the source's default".
     public var sourceEnabled: [SourceID: Bool] = [:]
@@ -30,6 +31,19 @@ public struct AppSettings: Codable, Equatable, Sendable {
 
     public init() {}
 
+    /// The settings the wallpaper is drawn with. With "Fill screen" the mat options
+    /// are hidden, so a work too small to fill falls back to the default mat.
+    public var forRendering: AppSettings {
+        guard workFit == .fill else { return self }
+        var settings = self
+        let defaults = AppSettings()
+        settings.matStyle = defaults.matStyle
+        settings.matMargin = defaults.matMargin
+        settings.avoidDock = defaults.avoidDock
+        settings.avoidMenuBar = defaults.avoidMenuBar
+        return settings
+    }
+
     public var changeSchedule: ChangeSchedule { ChangeSchedule(frequency: changeFrequency, time: changeTime) }
 
     public func isEnabled(_ source: ArtSource) -> Bool {
@@ -38,7 +52,7 @@ public struct AppSettings: Codable, Equatable, Sendable {
 
     private enum CodingKeys: String, CodingKey {
         case changeFrequency, resumeFrequency, changeTime, notifyOnChange, nextShortcut, objectTypes, highlightsOnly,
-             differentArtworkPerDisplay, matStyle, matMargin, avoidDock, alwaysUseMat, sourceEnabled, cacheLimitMB
+             matStyle, matMargin, avoidDock, avoidMenuBar, workFit, alwaysUseMat, sourceEnabled, cacheLimitMB
     }
 
     public init(from decoder: Decoder) throws {
@@ -52,11 +66,13 @@ public struct AppSettings: Codable, Equatable, Sendable {
         nextShortcut = c.contains(.nextShortcut) ? try? c.decode(GlobalShortcut?.self, forKey: .nextShortcut) : d.nextShortcut
         objectTypes = (try? c.decode(Set<ObjectType>.self, forKey: .objectTypes)) ?? d.objectTypes
         highlightsOnly = (try? c.decode(Bool.self, forKey: .highlightsOnly)) ?? d.highlightsOnly
-        differentArtworkPerDisplay = (try? c.decode(Bool.self, forKey: .differentArtworkPerDisplay)) ?? d.differentArtworkPerDisplay
         matStyle = (try? c.decode(MatStyle.self, forKey: .matStyle)) ?? d.matStyle
         matMargin = (try? c.decode(MatMargin.self, forKey: .matMargin)) ?? d.matMargin
         avoidDock = (try? c.decode(Bool.self, forKey: .avoidDock)) ?? d.avoidDock
-        alwaysUseMat = (try? c.decode(Bool.self, forKey: .alwaysUseMat)) ?? d.alwaysUseMat
+        avoidMenuBar = (try? c.decode(Bool.self, forKey: .avoidMenuBar)) ?? d.avoidMenuBar
+        // Older files had an "Always use mat" switch; on means "Whole work".
+        let legacyAlwaysMat = (try? c.decode(Bool.self, forKey: .alwaysUseMat)) ?? false
+        workFit = (try? c.decode(WorkFit.self, forKey: .workFit)) ?? (legacyAlwaysMat ? .whole : d.workFit)
         sourceEnabled = (try? c.decode([String: Bool].self, forKey: .sourceEnabled))
             .map { Dictionary(uniqueKeysWithValues: $0.map { (SourceID($0.key), $0.value) }) } ?? d.sourceEnabled
         cacheLimitMB = (try? c.decode(Int.self, forKey: .cacheLimitMB)) ?? d.cacheLimitMB
@@ -72,11 +88,11 @@ public struct AppSettings: Codable, Equatable, Sendable {
         try c.encode(nextShortcut, forKey: .nextShortcut)
         try c.encode(objectTypes.sorted { $0.rawValue < $1.rawValue }, forKey: .objectTypes)
         try c.encode(highlightsOnly, forKey: .highlightsOnly)
-        try c.encode(differentArtworkPerDisplay, forKey: .differentArtworkPerDisplay)
         try c.encode(matStyle, forKey: .matStyle)
         try c.encode(matMargin, forKey: .matMargin)
         try c.encode(avoidDock, forKey: .avoidDock)
-        try c.encode(alwaysUseMat, forKey: .alwaysUseMat)
+        try c.encode(avoidMenuBar, forKey: .avoidMenuBar)
+        try c.encode(workFit, forKey: .workFit)
         try c.encode(Dictionary(uniqueKeysWithValues: sourceEnabled.map { ($0.key.rawValue, $0.value) }), forKey: .sourceEnabled)
         try c.encode(cacheLimitMB, forKey: .cacheLimitMB)
     }

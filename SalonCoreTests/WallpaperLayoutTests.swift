@@ -10,31 +10,31 @@ final class WallpaperLayoutTests: XCTestCase {
 
     func testSixteenByTenLandscapeIsFullBleed() {
         XCTAssertEqual(WallpaperLayout.cropFraction(image: work(16, 10), display: display), 0, accuracy: 1e-9)
-        XCTAssertEqual(WallpaperLayout.presentation(image: work(16, 10), display: display, alwaysMat: false), .fullBleed)
+        XCTAssertEqual(WallpaperLayout.presentation(image: work(16, 10), display: display, fit: .auto), .fullBleed)
     }
 
     func testThreeByTwoLandscapeIsFullBleed() {
         // 1 - 1.5/1.6 = 6.25% crop
         XCTAssertEqual(WallpaperLayout.cropFraction(image: work(3, 2), display: display), 0.0625, accuracy: 1e-9)
-        XCTAssertEqual(WallpaperLayout.presentation(image: work(3, 2), display: display, alwaysMat: false), .fullBleed)
+        XCTAssertEqual(WallpaperLayout.presentation(image: work(3, 2), display: display, fit: .auto), .fullBleed)
     }
 
     func testFourByThreeLandscapeGoesOnMat() {
         // 1 - (4/3)/1.6 = 16.7% crop: over the 12% threshold.
         XCTAssertEqual(WallpaperLayout.cropFraction(image: work(4, 3), display: display), 1 - (4.0 / 3.0) / 1.6, accuracy: 1e-9)
-        XCTAssertEqual(WallpaperLayout.presentation(image: work(4, 3), display: display, alwaysMat: false), .mat)
+        XCTAssertEqual(WallpaperLayout.presentation(image: work(4, 3), display: display, fit: .auto), .mat)
     }
 
     func testThreeByFourPortraitGoesOnMat() {
         // 1 - 0.75/1.6 = 53% crop
         XCTAssertGreaterThan(WallpaperLayout.cropFraction(image: work(3, 4), display: display), 0.5)
-        XCTAssertEqual(WallpaperLayout.presentation(image: work(3, 4), display: display, alwaysMat: false), .mat)
+        XCTAssertEqual(WallpaperLayout.presentation(image: work(3, 4), display: display, fit: .auto), .mat)
     }
 
     func testSquareGoesOnMat() {
         // 1 - 1/1.6 = 37.5% crop
         XCTAssertEqual(WallpaperLayout.cropFraction(image: work(1, 1), display: display), 0.375, accuracy: 1e-9)
-        XCTAssertEqual(WallpaperLayout.presentation(image: work(1, 1), display: display, alwaysMat: false), .mat)
+        XCTAssertEqual(WallpaperLayout.presentation(image: work(1, 1), display: display, fit: .auto), .mat)
     }
 
     func testThresholdBoundaryIsInclusive() {
@@ -42,17 +42,27 @@ final class WallpaperLayoutTests: XCTestCase {
         let ratio = 1.6 * (1 - WallpaperLayout.fullBleedCropThreshold)
         let image = PixelSize(width: Int((ratio * 10_000).rounded(.up)), height: 10_000)
         XCTAssertLessThanOrEqual(WallpaperLayout.cropFraction(image: image, display: display), WallpaperLayout.fullBleedCropThreshold + 1e-4)
-        XCTAssertEqual(WallpaperLayout.presentation(image: image, display: display, alwaysMat: false), .fullBleed)
+        XCTAssertEqual(WallpaperLayout.presentation(image: image, display: display, fit: .auto), .fullBleed)
     }
 
     func testAlwaysUseMatOverridesFullBleed() {
-        XCTAssertEqual(WallpaperLayout.presentation(image: work(16, 10), display: display, alwaysMat: true), .mat)
+        XCTAssertEqual(WallpaperLayout.presentation(image: work(16, 10), display: display, fit: .whole), .mat)
+    }
+
+    func testFillScreenCropsAnyShape() {
+        XCTAssertEqual(WallpaperLayout.presentation(image: PixelSize(width: 4000, height: 4000), display: display, fit: .fill), .fullBleed)
+        XCTAssertEqual(WallpaperLayout.presentation(image: work(3, 4), display: display, fit: .fill), .fullBleed)
+    }
+
+    func testFillScreenStillAvoidsBlur() {
+        let fiveK = PixelSize(width: 5120, height: 3200)
+        XCTAssertEqual(WallpaperLayout.presentation(image: PixelSize(width: 2000, height: 2000), display: fiveK, fit: .fill), .mat)
     }
 
     func testTooSmallForFullBleedGoesOnMat() {
         // 16:10 but would need 1.44× upscaling on a 5K display.
         let fiveK = PixelSize(width: 5120, height: 3200)
-        XCTAssertEqual(WallpaperLayout.presentation(image: PixelSize(width: 3552, height: 2220), display: fiveK, alwaysMat: false), .mat)
+        XCTAssertEqual(WallpaperLayout.presentation(image: PixelSize(width: 3552, height: 2220), display: fiveK, fit: .auto), .mat)
     }
 
     func testMatRectFollowsTheDesign() {
@@ -95,7 +105,7 @@ final class WallpaperLayoutTests: XCTestCase {
     func testRendererProducesDisplaySizedImage() throws {
         let image = try XCTUnwrap(TestImages.solid(width: 300, height: 400, red: 0.6, green: 0.4, blue: 0.2))
         let display = WallpaperRenderer.Display(size: PixelSize(width: 640, height: 400), topInset: 12, backingScale: 2)
-        let options = WallpaperRenderer.Options(alwaysMat: false, margin: .medium, matColor: SRGBColor(hex: "#E9E4DA")!)
+        let options = WallpaperRenderer.Options(fit: .auto, margin: .medium, matColor: SRGBColor(hex: "#E9E4DA")!)
         let output = try XCTUnwrap(WallpaperRenderer.render(image, on: display, options: options))
         XCTAssertEqual(output.width, 640)
         XCTAssertEqual(output.height, 400)

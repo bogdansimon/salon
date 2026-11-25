@@ -17,15 +17,22 @@ struct StorageSettings: View {
         Form {
             Section("Image cache") {
                 SettingRow(title: "\(ByteCountFormatter.string(fromByteCount: model.cacheBytes, countStyle: .file)) · \(model.cacheCount) images",
-                           help: "Full-size images of recent and saved works. Saved works are never removed.") {
-                    Button("Clear Cache…") { confirmClearCache = true }
-                }
-                Picker("Keep up to", selection: $model.settings.cacheLimitMB) {
-                    ForEach(limits, id: \.self) { mb in
-                        Text(ByteCountFormatter.string(fromByteCount: Int64(mb) * 1_048_576, countStyle: .memory)).tag(mb)
+                           help: "Full-size images of the works you’ve seen, so they open instantly.") {
+                    HStack {
+                        Button("Show in Finder") { model.showCacheInFinder() }
+                        Button("Clear Cache…") { confirmClearCache = true }
                     }
                 }
-                .fixedSize()
+                SettingRow(title: "Keep up to",
+                           help: "When it’s full, the images you saw longest ago are deleted first. Saved works and the current wallpaper are never deleted. Deleted works stay in your history and download again if you hang them.") {
+                    Picker("", selection: $model.settings.cacheLimitMB) {
+                        ForEach(limits, id: \.self) { mb in
+                            Text(ByteCountFormatter.string(fromByteCount: Int64(mb) * 1_048_576, countStyle: .memory)).tag(mb)
+                        }
+                    }
+                    .labelsHidden()
+                    .fixedSize()
+                }
             }
 
             Section("History") {

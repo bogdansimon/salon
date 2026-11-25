@@ -32,50 +32,6 @@ private struct HoverHighlight: ViewModifier {
     }
 }
 
-/// Healthy / Degraded / Failing, with shape as well as colour (filled dot, half dot, crossed ring).
-struct HealthBadge: View {
-    var status: SourceHealth.Status
-    var enabled = true
-
-    var body: some View {
-        HStack(spacing: Theme.Space.iconLabel + 2) {
-            symbol
-            Text(label).font(Theme.Typeface.metadata)
-        }
-        .foregroundStyle(color)
-        .accessibilityElement(children: .combine)
-    }
-
-    private var label: String {
-        guard enabled else { return "Off" }
-        switch status {
-        case .healthy: return "Healthy"
-        case .degraded: return "Degraded"
-        case .failing: return "Failing"
-        case .unknown: return "Not checked"
-        }
-    }
-
-    private var color: Color {
-        guard enabled else { return Theme.Palette.ink3 }
-        switch status {
-        case .healthy: return Theme.Palette.healthOK
-        case .degraded: return Theme.Palette.healthWarn
-        case .failing: return Theme.Palette.healthBad
-        case .unknown: return Theme.Palette.ink3
-        }
-    }
-
-    @ViewBuilder private var symbol: some View {
-        switch (enabled, status) {
-        case (false, _), (true, .unknown): Image(systemName: "circle").imageScale(.small)
-        case (true, .healthy): Image(systemName: "circle.fill").imageScale(.small)
-        case (true, .degraded): Image(systemName: "circle.lefthalf.filled").imageScale(.small)
-        case (true, .failing): Image(systemName: "xmark.circle").imageScale(.small)
-        }
-    }
-}
-
 /// "8 November" (today), "Hung 7 November", "Hung 7 November 2025" (an earlier year).
 enum DateText {
     static func hung(_ date: Date, now: Date = Date()) -> String {
@@ -119,6 +75,8 @@ extension EnvironmentValues {
     /// True inside the menu-bar popover. macOS doesn't show tooltips there, and the
     /// workarounds broke the links' pointing hand, so the card has none.
     @Entry var showsTooltips = true
+    /// True inside the menu-bar popover, where only a pushed NSCursor shows the hand.
+    @Entry var inMenuBarPopover = false
 }
 
 extension View {

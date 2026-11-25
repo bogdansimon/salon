@@ -103,10 +103,29 @@ final class SettingsTests: XCTestCase {
         XCTAssertTrue(settings.highlightsOnly)
         XCTAssertEqual(settings.changeFrequency, .daily)
         XCTAssertFalse(settings.notifyOnChange)
-        XCTAssertFalse(settings.alwaysUseMat)
+        XCTAssertEqual(settings.workFit, .auto)
+    }
+
+    func testFillScreenRendersWithTheDefaultMat() {
+        var settings = AppSettings()
+        settings.matMargin = .large
+        settings.avoidDock = false
+        settings.matStyle = .neutral
+        XCTAssertEqual(settings.forRendering, settings) // Auto keeps the user's mat
+        settings.workFit = .fill
+        let rendered = settings.forRendering
+        XCTAssertEqual(rendered.matMargin, AppSettings().matMargin)
+        XCTAssertEqual(rendered.avoidDock, AppSettings().avoidDock)
+        XCTAssertEqual(rendered.matStyle, AppSettings().matStyle)
+    }
+
+    func testOldAlwaysUseMatBecomesWholeWork() throws {
+        let settings = try JSONDecoder.salon.decode(AppSettings.self, from: Data(#"{"alwaysUseMat": true}"#.utf8))
+        XCTAssertEqual(settings.workFit, .whole)
         XCTAssertEqual(settings.matStyle, .auto)
         XCTAssertEqual(settings.matMargin, .flush)
-        XCTAssertFalse(settings.avoidDock)
+        XCTAssertTrue(settings.avoidDock)
+        XCTAssertTrue(settings.avoidMenuBar)
         XCTAssertEqual(settings.nextShortcut?.displayString, "⌃⌥⌘N")
     }
 

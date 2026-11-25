@@ -11,8 +11,8 @@ public struct PickedArtwork: Sendable {
 /// it. Fully random, no taste weighting. Falls back to the other sources when one
 /// fails, rejects images below the resolution threshold, never repeats a work.
 public struct ArtworkPicker: Sendable {
-    /// Images must be at least this long on their long side. The Art Institute and
-    /// the Smithsonian serve exactly 3000 px, so it is inclusive.
+    /// Images must be at least this long on their long side. The Art Institute
+    /// serves exactly 3000 px, so it is inclusive.
     public static let minimumLongSide = 3000
     /// Reject extreme shapes (handscrolls, friezes): longer side over 3× the shorter.
     /// On a mat they would hang as a sliver.

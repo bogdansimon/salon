@@ -18,7 +18,8 @@ public struct WikidataSource: ArtSource {
         supportedTypes: [.painting],
         hasQualityFlag: true,
         credit: "CC0 data · public-domain images",
-        homepage: URL(string: "https://www.wikidata.org/")!
+        homepage: URL(string: "https://www.wikidata.org/")!,
+        website: URL(string: "https://commons.wikimedia.org/")!
     )
 
     /// "Highlights only": a Wikipedia article in at least this many languages (~700 works).

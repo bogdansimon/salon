@@ -22,12 +22,13 @@ final class WallpaperService {
 
     /// Renders and sets one image per screen. Returns the written file names.
     func apply(_ assignments: [Assignment], settings: AppSettings) async throws -> [String] {
+        let settings = settings.forRendering
         let dark = NSApp.effectiveAppearance.isDark
         var written: [String] = []
         for assignment in assignments {
-            let display = Self.displayInfo(for: assignment.screen, avoidDock: settings.avoidDock)
+            let display = Self.displayInfo(for: assignment.screen, avoidDock: settings.avoidDock, avoidMenuBar: settings.avoidMenuBar)
             let options = WallpaperRenderer.Options(
-                alwaysMat: settings.alwaysUseMat,
+                fit: settings.workFit,
                 margin: settings.matMargin,
                 matColor: PaletteRules.matColor(style: settings.matStyle, edge: assignment.palette.edge, darkAppearance: dark)
             )
@@ -77,11 +78,11 @@ final class WallpaperService {
         }
     }
 
-    static func displayInfo(for screen: NSScreen, avoidDock: Bool) -> WallpaperRenderer.Display {
+    static func displayInfo(for screen: NSScreen, avoidDock: Bool, avoidMenuBar: Bool) -> WallpaperRenderer.Display {
         let scale = screen.backingScaleFactor
         let size = PixelSize(width: Int(screen.frame.width * scale), height: Int(screen.frame.height * scale))
         // Menu bar: the gap between the top of the screen and the top of the visible frame.
-        let menuBar = max(0, screen.frame.maxY - screen.visibleFrame.maxY) * scale
+        let menuBar = avoidMenuBar ? max(0, screen.frame.maxY - screen.visibleFrame.maxY) * scale : 0
         // Dock (when it sits at the bottom and isn't hidden): the gap below the visible frame.
         let dock = avoidDock ? max(0, screen.visibleFrame.minY - screen.frame.minY) * scale : 0
         return WallpaperRenderer.Display(size: size, topInset: menuBar, bottomInset: dock, backingScale: scale)
@@ -89,10 +90,11 @@ final class WallpaperService {
 
     /// A small render for the live preview in Settings › Artwork.
     nonisolated static func preview(of image: CGImage, size: PixelSize, palette: ArtworkPalette, settings: AppSettings, dark: Bool) -> CGImage? {
-        let display = WallpaperRenderer.Display(size: size, topInset: Double(size.height) * 0.03,
+        let settings = settings.forRendering
+        let display = WallpaperRenderer.Display(size: size, topInset: settings.avoidMenuBar ? Double(size.height) * 0.03 : 0,
                                                 bottomInset: settings.avoidDock ? Double(size.height) * 0.07 : 0,
                                                 backingScale: Double(size.width) / 1440)
-        let options = WallpaperRenderer.Options(alwaysMat: settings.alwaysUseMat, margin: settings.matMargin,
+        let options = WallpaperRenderer.Options(fit: settings.workFit, margin: settings.matMargin,
                                                 matColor: PaletteRules.matColor(style: settings.matStyle, edge: palette.edge, darkAppearance: dark))
         return WallpaperRenderer.render(image, on: display, options: options)
     }

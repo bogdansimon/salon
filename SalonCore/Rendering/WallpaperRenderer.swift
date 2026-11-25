@@ -25,12 +25,12 @@ public enum WallpaperRenderer {
     }
 
     public struct Options: Sendable {
-        public var alwaysMat: Bool
+        public var fit: WorkFit
         public var margin: MatMargin
         public var matColor: SRGBColor
 
-        public init(alwaysMat: Bool, margin: MatMargin, matColor: SRGBColor) {
-            self.alwaysMat = alwaysMat
+        public init(fit: WorkFit, margin: MatMargin, matColor: SRGBColor) {
+            self.fit = fit
             self.margin = margin
             self.matColor = matColor
         }
@@ -45,7 +45,7 @@ public enum WallpaperRenderer {
         context.interpolationQuality = .high
         let bounds = CGRect(x: 0, y: 0, width: canvas.width, height: canvas.height)
 
-        switch WallpaperLayout.presentation(image: imageSize, display: canvas, alwaysMat: options.alwaysMat) {
+        switch WallpaperLayout.presentation(image: imageSize, display: canvas, fit: options.fit) {
         case .fullBleed:
             let scale = WallpaperLayout.fillScale(image: imageSize, display: canvas)
             let size = CGSize(width: Double(image.width) * scale, height: Double(image.height) * scale)

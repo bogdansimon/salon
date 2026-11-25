@@ -15,7 +15,8 @@ public struct ArtInstituteSource: ArtSource {
         supportedTypes: [.painting, .print, .drawing],
         hasQualityFlag: true,
         credit: "Public API · CC0 public-domain images",
-        homepage: URL(string: "https://api.artic.edu/docs/")!
+        homepage: URL(string: "https://api.artic.edu/docs/")!,
+        website: URL(string: "https://www.artic.edu/")!
     )
 
     static let maxIIIFLongSide = 3000

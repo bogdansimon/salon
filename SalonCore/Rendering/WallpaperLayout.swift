@@ -48,9 +48,10 @@ public enum WallpaperLayout {
         return max(Double(display.width) / Double(image.width), Double(display.height) / Double(image.height))
     }
 
-    public static func presentation(image: PixelSize, display: PixelSize, alwaysMat: Bool) -> Presentation {
-        if alwaysMat { return .mat }
-        if cropFraction(image: image, display: display) > fullBleedCropThreshold { return .mat }
+    public static func presentation(image: PixelSize, display: PixelSize, fit: WorkFit) -> Presentation {
+        if fit == .whole { return .mat }
+        if fit == .auto, cropFraction(image: image, display: display) > fullBleedCropThreshold { return .mat }
+        // Even "Fill screen" never shows a blurry, over-enlarged work.
         if fillScale(image: image, display: display) > maxFullBleedUpscale { return .mat }
         return .fullBleed
     }
@@ -83,6 +84,24 @@ public enum WallpaperLayout {
         return CGRect(x: ((Double(canvas.width) - width) / 2).rounded(),
                       y: (topInset + top).rounded(),
                       width: width.rounded(), height: height.rounded())
+    }
+}
+
+/// Settings › Artwork › Show: how a work meets the screen.
+public enum WorkFit: String, Codable, CaseIterable, Sendable {
+    /// Always on the mat, never cropped.
+    case whole
+    /// Fill when that crops 12% or less, otherwise the mat.
+    case auto
+    /// Always fill, cropping as little as possible (centred).
+    case fill
+
+    public var displayName: String {
+        switch self {
+        case .whole: "Whole work"
+        case .auto: "Auto"
+        case .fill: "Fill screen"
+        }
     }
 }
 

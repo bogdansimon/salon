@@ -14,7 +14,8 @@ public struct SMKSource: ArtSource {
         supportedTypes: [.painting, .print, .drawing],
         hasQualityFlag: false,
         credit: "Open API · public-domain images",
-        homepage: URL(string: "https://open.smk.dk/en")!
+        homepage: URL(string: "https://open.smk.dk/en")!,
+        website: URL(string: "https://www.smk.dk/en/")!
     )
 
     private static let base = "https://api.smk.dk/api/v1/art/search/"

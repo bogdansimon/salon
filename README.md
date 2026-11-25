@@ -1,6 +1,6 @@
 # Salon
 
-A painting a day, from the world's open collections.
+Your desktop as a gallery, hung from the world's open collections.
 
 Salon is a small macOS menu-bar app that sets your desktop wallpaper to a random public-domain artwork once a day (or every 2 days, week or month; or paused). Works come from several museums' open-access APIs. Full information about each work (title, artist, date, museum and a short description) lives in the menu-bar popover, styled like a museum wall label. Nothing is ever drawn on the desktop except the artwork itself.
 
@@ -40,7 +40,6 @@ It's a personal project: no App Store, no notarization, no sandbox. It's the fir
 | Rijksmuseum | none | none (all paintings) | full | Linked Art API; ~5,000 painting ids cached monthly; paintings only |
 | SMK – National Gallery of Denmark | none | has exhibition history | 5120 px | |
 | Wikidata & Wikimedia Commons | none | ≥ 15 Wikipedia language editions | ≤ 4096 px | Famous works from museums with no open API (Louvre, Prado, Uffizi…); list cached weekly |
-| Smithsonian Open Access | free [api.data.gov](https://api.data.gov/signup/) key | none | 3000 px | Off by default |
 
 Every image must be at least **3000 px on its long side**, and no more than 3:1 in shape (handscrolls are skipped). When an image is smaller than a display needs for full-bleed, it goes on the mat instead of being stretched.
 
@@ -121,7 +120,7 @@ scripts/          Fixture recording/scrubbing, icon rendering, git hooks
 
 ## Credits
 
-Artwork images and data come from the open-access programmes of The Metropolitan Museum of Art, the Art Institute of Chicago, the Cleveland Museum of Art, the Rijksmuseum, SMK – National Gallery of Denmark, Wikidata and Wikimedia Commons, and the Smithsonian Institution. Descriptions marked "From Wikipedia" are from Wikipedia under CC BY-SA. Salon is not affiliated with any of these institutions.
+Artwork images and data come from the open-access programmes of The Metropolitan Museum of Art, the Art Institute of Chicago, the Cleveland Museum of Art, the Rijksmuseum, SMK – National Gallery of Denmark, and Wikidata and Wikimedia Commons. Descriptions marked "From Wikipedia" are from Wikipedia under CC BY-SA. Salon is not affiliated with any of these institutions.
 
 ## License
 

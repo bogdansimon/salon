@@ -14,7 +14,8 @@ public struct MetSource: ArtSource {
         supportedTypes: [.painting, .print, .drawing],
         hasQualityFlag: true,
         credit: "Open Access API · CC0",
-        homepage: URL(string: "https://metmuseum.github.io/")!
+        homepage: URL(string: "https://metmuseum.github.io/")!,
+        website: URL(string: "https://www.metmuseum.org/")!
     )
 
     private let http: HTTPClient

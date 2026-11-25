@@ -30,6 +30,7 @@ struct PopoverView: View {
         .background(Theme.Palette.surface)
         .background(ActivateWhenShown())
         .environment(\.showsTooltips, false)
+        .environment(\.inMenuBarPopover, true)
         .animation(reduceMotion ? nil : Theme.Motion.cardCrossfade, value: model.phase)
         .animation(reduceMotion ? nil : Theme.Motion.cardCrossfade, value: model.current?.id)
     }

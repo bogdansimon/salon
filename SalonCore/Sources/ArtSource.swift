@@ -19,12 +19,15 @@ public struct SourceInfo: Sendable {
     public var requiresAPIKey: Bool
     public var apiKeyHelp: String?
     public var credit: String
+    /// The API's documentation.
     public var homepage: URL
+    /// The museum's own website, linked from Settings › Sources.
+    public var website: URL
     public var enabledByDefault: Bool
 
     public init(
         name: String, shortName: String, supportedTypes: Set<ObjectType>, hasQualityFlag: Bool,
-        requiresAPIKey: Bool = false, apiKeyHelp: String? = nil, credit: String, homepage: URL,
+        requiresAPIKey: Bool = false, apiKeyHelp: String? = nil, credit: String, homepage: URL, website: URL,
         enabledByDefault: Bool = true
     ) {
         self.name = name
@@ -35,6 +38,7 @@ public struct SourceInfo: Sendable {
         self.apiKeyHelp = apiKeyHelp
         self.credit = credit
         self.homepage = homepage
+        self.website = website
         self.enabledByDefault = enabledByDefault
     }
 }
