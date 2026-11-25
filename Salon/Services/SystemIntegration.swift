@@ -21,6 +21,17 @@ enum LaunchAtLogin {
     static func openLoginItemsSettings() {
         SMAppService.openSystemSettingsLoginItems()
     }
+
+    private static let defaultAppliedKey = "launchAtLoginDefaultApplied"
+
+    /// On by default: turned on once, on the first launch. If the user turns it off
+    /// later, it stays off.
+    static func applyDefaultOnce() {
+        let defaults = UserDefaults.standard
+        guard !defaults.bool(forKey: defaultAppliedKey) else { return }
+        defaults.set(true, forKey: defaultAppliedKey)
+        if SMAppService.mainApp.status == .notRegistered { try? set(true) }
+    }
 }
 
 /// A system-wide hot key through Carbon's RegisterEventHotKey: works from any app
@@ -68,6 +79,20 @@ final class HotKeyCenter {
 
 /// The optional "painting changed" notification (off by default).
 enum ChangeNotifier {
+    /// Without a delegate, macOS hides notifications while Salon is the active app
+    /// (popover or Settings open). This shows them anyway.
+    private final class Presenter: NSObject, UNUserNotificationCenterDelegate {
+        func userNotificationCenter(_ center: UNUserNotificationCenter, willPresent notification: UNNotification,
+                                    withCompletionHandler completionHandler: @escaping (UNNotificationPresentationOptions) -> Void) {
+            completionHandler([.banner, .list])
+        }
+    }
+    private static let presenter = Presenter()
+
+    static func install() {
+        UNUserNotificationCenter.current().delegate = presenter
+    }
+
     static func requestPermission() {
         UNUserNotificationCenter.current().requestAuthorization(options: [.alert]) { _, _ in }
     }

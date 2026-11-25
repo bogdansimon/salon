@@ -63,6 +63,9 @@ final class AppModel {
     }
 
     func start() {
+        LaunchAtLogin.applyDefaultOnce()
+        ChangeNotifier.install()
+        if settings.notifyOnChange { ChangeNotifier.requestPermission() }
         refreshCacheStats()
         // Download slow catalogues (Rijksmuseum ids, Wikidata list) ahead of the first pick.
         for source in sources where settings.isEnabled(source) {

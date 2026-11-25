@@ -58,7 +58,7 @@ make hooks      # gitleaks pre-commit hook
 make install    # Release build → /Applications/Salon.app, then launches it
 ```
 
-The frame icon appears in the menu bar and the first work is hung within a minute. To start Salon automatically, turn on **Settings › General › Launch at login**.
+The frame icon appears in the menu bar and the first work is hung within a minute. Salon turns on **Settings › General › Launch at login** the first time it opens, so it starts by itself after a restart. You can turn it off there.
 
 Other targets: `make test`, `make build`, `make run`, `make project` (regenerates `Salon.xcodeproj` from `project.yml`; the project file isn't committed).
 

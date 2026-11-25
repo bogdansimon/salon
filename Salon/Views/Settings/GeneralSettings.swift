@@ -39,7 +39,7 @@ struct GeneralSettings: View {
             }
 
             Section("Keyboard") {
-                SettingRow(title: "Next work", help: "A global shortcut — works from any app.") {
+                SettingRow(title: "Next work", help: "Must include ⌘, ⌥ or ⌃.") {
                     ShortcutRecorder(shortcut: $model.settings.nextShortcut)
                 }
             }
