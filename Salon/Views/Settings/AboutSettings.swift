@@ -24,7 +24,7 @@ struct AboutSettings: View {
                     }
                 }
                 .padding(.vertical, Theme.Space.group)
-                Link("Source on GitHub ↗", destination: Self.repository).font(Theme.Typeface.link)
+                Link("Source on GitHub ↗", destination: Self.repository).font(Theme.Typeface.link).linkCursor()
             }
 
             Section {

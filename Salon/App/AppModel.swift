@@ -33,6 +33,7 @@ final class AppModel {
     @ObservationIgnored private let picker: ArtworkPicker
     @ObservationIgnored private let cache: ImageCache
     @ObservationIgnored private let wikipedia: WikipediaSummary
+    @ObservationIgnored private let wikipediaLinks: WikipediaLinks
     @ObservationIgnored private let wallpaper: WallpaperService
     @ObservationIgnored private let scheduler = Scheduler()
     @ObservationIgnored private let keychain = KeychainStore.standard
@@ -49,6 +50,7 @@ final class AppModel {
         self.cache = ImageCache(directory: paths.images)
         self.picker = ArtworkPicker(sources: sources, http: http, cache: cache)
         self.wikipedia = WikipediaSummary(http: http)
+        self.wikipediaLinks = WikipediaLinks(http: http)
         self.wallpaper = WallpaperService(directory: paths.wallpapers, dryRun: dryRun)
 
         let history = JSONFile<[HistoryEntry]>(paths.history).load() ?? []
@@ -219,7 +221,8 @@ final class AppModel {
         var entries: [HistoryEntry] = []
         for picked in picks {
             let palette = await Self.palette(of: picked.imageFile)
-            let artwork = await wikipedia.enrich(picked.artwork)
+            // Links first: a work it matches gains a Wikidata id, which the summary can use.
+            let artwork = await wikipedia.enrich(wikipediaLinks.enrich(picked.artwork))
             state.shownCount += 1
             entries.append(HistoryEntry(artwork: artwork, shownAt: Date(), number: state.shownCount, palette: palette))
         }

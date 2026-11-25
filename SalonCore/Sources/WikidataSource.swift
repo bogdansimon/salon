@@ -171,6 +171,7 @@ struct WBEntity: Decodable {
     }
 
     var labels: [String: Label]?
+    var aliases: [String: [Label]]?
     var claims: [String: [Claim]]?
     var sitelinks: [String: Sitelink]?
 
@@ -181,8 +182,11 @@ struct WBEntity: Decodable {
     }
 
     func itemID(_ property: String) -> String? {
-        for case .item(let id) in values(property) { return id }
-        return nil
+        itemIDs(property).first
+    }
+
+    func itemIDs(_ property: String) -> [String] {
+        values(property).compactMap { if case .item(let id) = $0 { id } else { nil } }
     }
 
     func string(_ property: String) -> String? {

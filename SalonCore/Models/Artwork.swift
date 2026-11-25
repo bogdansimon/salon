@@ -21,6 +21,9 @@ public struct Artwork: Codable, Hashable, Identifiable, Sendable {
     public var objectURL: URL?
     /// Wikidata Q-id, e.g. "Q18689458".
     public var wikidataID: String?
+    /// English Wikipedia pages for the artist and the work, when a checked match exists.
+    public var artistWikipediaURL: URL?
+    public var titleWikipediaURL: URL?
     public var imageURL: URL
     /// Extra headers some image hosts require (e.g. the Art Institute's AIC-User-Agent).
     public var imageRequestHeaders: [String: String]?
@@ -33,7 +36,7 @@ public struct Artwork: Codable, Hashable, Identifiable, Sendable {
         dimensions: String? = nil, museum: String, summary: String? = nil,
         summaryCredit: String? = nil, objectURL: URL? = nil, wikidataID: String? = nil,
         imageURL: URL, imageRequestHeaders: [String: String]? = nil,
-        reportedPixelSize: PixelSize? = nil
+        reportedPixelSize: PixelSize? = nil, artistWikipediaURL: URL? = nil, titleWikipediaURL: URL? = nil
     ) {
         self.id = id
         self.sourceID = sourceID
@@ -51,6 +54,8 @@ public struct Artwork: Codable, Hashable, Identifiable, Sendable {
         self.imageURL = imageURL
         self.imageRequestHeaders = imageRequestHeaders
         self.reportedPixelSize = reportedPixelSize
+        self.artistWikipediaURL = artistWikipediaURL
+        self.titleWikipediaURL = titleWikipediaURL
     }
 }
 

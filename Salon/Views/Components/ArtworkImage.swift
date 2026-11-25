@@ -1,3 +1,4 @@
+import AppKit
 import SalonCore
 import SwiftUI
 
@@ -51,17 +52,20 @@ struct WallLabel: View {
         VStack(alignment: .leading, spacing: Theme.Space.labelLines) {
             if let artist = artwork.artist {
                 VStack(alignment: .leading, spacing: Theme.Space.tight) {
-                    Text(artist)
-                        .font(Theme.Typeface.artist)
-                        .tracking(Theme.Tracking.artist)
-                        .textCase(.uppercase)
-                        .foregroundStyle(Theme.Palette.ink2)
+                    WikipediaLink(url: artwork.artistWikipediaURL) {
+                        Text(artist)
+                            .font(Theme.Typeface.artist)
+                            .tracking(Theme.Tracking.artist)
+                            .underline(artwork.artistWikipediaURL != nil, color: Theme.Palette.rule)
+                            .textCase(.uppercase)
+                            .foregroundStyle(Theme.Palette.ink2)
+                    }
                     if let details = artwork.artistDetails {
                         Text(details).font(Theme.Typeface.metadata).foregroundStyle(Theme.Palette.ink3)
                     }
                 }
             }
-            title
+            WikipediaLink(url: artwork.titleWikipediaURL) { title }
             VStack(alignment: .leading, spacing: 0) {
                 if let line = [artwork.medium, artwork.dimensions].compactMap({ $0 }).joined(separator: " · ").nilIfEmpty {
                     // Wrap in full: the self-sizing popover otherwise cuts this to one line.
@@ -79,6 +83,10 @@ struct WallLabel: View {
     private var title: some View {
         var text = AttributedString(artwork.title)
         text.foregroundColor = Theme.Palette.ink
+        if artwork.titleWikipediaURL != nil {
+            // Underline the title only, not the date after it.
+            text.underlineStyle = Text.LineStyle(pattern: .solid, color: Theme.Palette.rule)
+        }
         if let date = artwork.date {
             var suffix = AttributedString(", \(date)")
             suffix.foregroundColor = Theme.Palette.ink2
@@ -89,6 +97,23 @@ struct WallLabel: View {
             .lineSpacing(Theme.LineSpacing.workTitle)
             .fixedSize(horizontal: false, vertical: true)
             .accessibilityAddTraits(.isHeader)
+    }
+}
+
+/// Wraps a wall-label line in a link to its English Wikipedia page, when there is one.
+private struct WikipediaLink<Label: View>: View {
+    var url: URL?
+    @ViewBuilder var label: Label
+
+    var body: some View {
+        if let url {
+            Link(destination: url) { label }
+                .buttonStyle(.plain)
+                .linkCursor()
+                .help("Open on Wikipedia")
+        } else {
+            label
+        }
     }
 }
 
@@ -106,6 +131,7 @@ struct MuseumLink: View {
                     .foregroundStyle(Theme.Palette.ink2)
             }
             .buttonStyle(.plain)
+            .linkCursor()
         }
     }
 
@@ -124,6 +150,26 @@ struct SummaryCredit: View {
         if artwork.summaryCredit == "Wikipedia" {
             Text("From Wikipedia · CC BY-SA").labelCaps()
         }
+    }
+}
+
+extension View {
+    /// The pointing hand while the pointer is over a link.
+    func linkCursor() -> some View { modifier(LinkCursor()) }
+}
+
+private struct LinkCursor: ViewModifier {
+    @State private var pushed = false
+
+    func body(content: Content) -> some View {
+        content
+            .onHover { hovering in
+                guard hovering != pushed else { return }
+                hovering ? NSCursor.pointingHand.push() : NSCursor.pop()
+                pushed = hovering
+            }
+            // A card can change under a still pointer; don't leave the hand behind.
+            .onDisappear { if pushed { NSCursor.pop(); pushed = false } }
     }
 }
 
