@@ -1,3 +1,4 @@
+import AppKit
 import SalonCore
 import SwiftUI
 
@@ -42,6 +43,47 @@ extension View {
         formStyle(.grouped)
             .scrollContentBackground(.hidden)
             .background(Theme.Palette.paper)
+            .background(FocusClearer())
             .fixedSize(horizontal: false, vertical: true)
+    }
+}
+
+/// Text fields keep keyboard focus (the blue highlight) until something else takes it,
+/// and the first one is focused when a tab opens. This leaves nothing focused on open
+/// and drops focus when you click anywhere that isn't a text field.
+private struct FocusClearer: NSViewRepresentable {
+    func makeNSView(context: Context) -> NSView { Watcher() }
+    func updateNSView(_ nsView: NSView, context: Context) {}
+
+    final class Watcher: NSView {
+        private var monitor: Any?
+
+        override func viewDidMoveToWindow() {
+            super.viewDidMoveToWindow()
+            if let monitor { NSEvent.removeMonitor(monitor) }
+            monitor = nil
+            guard let window else { return }
+            DispatchQueue.main.async { [weak window] in window?.makeFirstResponder(nil) }
+            monitor = NSEvent.addLocalMonitorForEvents(matching: .leftMouseDown) { [weak window] event in
+                guard let window, event.window === window,
+                      let hit = window.contentView?.hitTest(event.locationInWindow),
+                      !Self.isTextInput(hit) else { return event }
+                window.makeFirstResponder(nil)
+                return event
+            }
+        }
+
+        private static func isTextInput(_ view: NSView) -> Bool {
+            var current: NSView? = view
+            while let v = current {
+                if v is NSText || v is NSTextField || v is NSDatePicker { return true }
+                current = v.superview
+            }
+            return false
+        }
+
+        deinit {
+            if let monitor { NSEvent.removeMonitor(monitor) }
+        }
     }
 }

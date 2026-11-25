@@ -5,8 +5,10 @@ import Foundation
 /// Unknown or missing keys fall back to defaults, so old files keep loading.
 public struct AppSettings: Codable, Equatable, Sendable {
     // General
+    public var changeFrequency: ChangeFrequency = .daily
+    /// What Resume goes back to after a pause.
+    public var resumeFrequency: ChangeFrequency = .daily
     public var changeTime = TimeOfDay(hour: 9, minute: 0)
-    public var changeOnWakeIfMissed = true
     public var notifyOnChange = false
     public var nextShortcut: GlobalShortcut? = .defaultNext
 
@@ -28,20 +30,24 @@ public struct AppSettings: Codable, Equatable, Sendable {
 
     public init() {}
 
+    public var changeSchedule: ChangeSchedule { ChangeSchedule(frequency: changeFrequency, time: changeTime) }
+
     public func isEnabled(_ source: ArtSource) -> Bool {
         sourceEnabled[source.id] ?? source.info.enabledByDefault
     }
 
     private enum CodingKeys: String, CodingKey {
-        case changeTime, changeOnWakeIfMissed, notifyOnChange, nextShortcut, objectTypes, highlightsOnly,
+        case changeFrequency, resumeFrequency, changeTime, notifyOnChange, nextShortcut, objectTypes, highlightsOnly,
              differentArtworkPerDisplay, matStyle, matMargin, avoidDock, alwaysUseMat, sourceEnabled, cacheLimitMB
     }
 
     public init(from decoder: Decoder) throws {
         let c = try decoder.container(keyedBy: CodingKeys.self)
         let d = AppSettings()
+        changeFrequency = (try? c.decode(ChangeFrequency.self, forKey: .changeFrequency)) ?? d.changeFrequency
+        resumeFrequency = (try? c.decode(ChangeFrequency.self, forKey: .resumeFrequency)) ?? d.resumeFrequency
+        if resumeFrequency == .never { resumeFrequency = d.resumeFrequency }
         changeTime = (try? c.decode(TimeOfDay.self, forKey: .changeTime)) ?? d.changeTime
-        changeOnWakeIfMissed = (try? c.decode(Bool.self, forKey: .changeOnWakeIfMissed)) ?? d.changeOnWakeIfMissed
         notifyOnChange = (try? c.decode(Bool.self, forKey: .notifyOnChange)) ?? d.notifyOnChange
         nextShortcut = c.contains(.nextShortcut) ? try? c.decode(GlobalShortcut?.self, forKey: .nextShortcut) : d.nextShortcut
         objectTypes = (try? c.decode(Set<ObjectType>.self, forKey: .objectTypes)) ?? d.objectTypes
@@ -59,8 +65,9 @@ public struct AppSettings: Codable, Equatable, Sendable {
 
     public func encode(to encoder: Encoder) throws {
         var c = encoder.container(keyedBy: CodingKeys.self)
+        try c.encode(changeFrequency, forKey: .changeFrequency)
+        try c.encode(resumeFrequency, forKey: .resumeFrequency)
         try c.encode(changeTime, forKey: .changeTime)
-        try c.encode(changeOnWakeIfMissed, forKey: .changeOnWakeIfMissed)
         try c.encode(notifyOnChange, forKey: .notifyOnChange)
         try c.encode(nextShortcut, forKey: .nextShortcut)
         try c.encode(objectTypes.sorted { $0.rawValue < $1.rawValue }, forKey: .objectTypes)

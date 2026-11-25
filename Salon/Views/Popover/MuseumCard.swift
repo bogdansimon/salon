@@ -17,7 +17,7 @@ struct MuseumCard: View {
 
             VStack(alignment: .leading, spacing: Theme.Space.labelLines) {
                 HStack {
-                    Text(DateText.hung(entry.shownAt))
+                    Text(DateText.hung(entry.shownAt) + (model.isPaused ? " · Paused" : ""))
                     Spacer()
                     Text("No. \(entry.number)").monospacedDigit()
                 }
@@ -88,6 +88,7 @@ struct DescriptionText: View {
                     .foregroundStyle(Theme.Palette.ink2)
                 }
                 .buttonStyle(.plain)
+                .hoverTip(expanded ? "Show less of the description" : "Read the full description")
             }
         }
     }

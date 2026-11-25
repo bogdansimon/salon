@@ -12,29 +12,60 @@ final class ScheduleTests: XCTestCase {
         calendar.date(from: DateComponents(year: 2026, month: 11, day: day, hour: hour, minute: minute))!
     }
 
+    private func schedule(_ frequency: ChangeFrequency = .daily, _ hour: Int = 9, _ minute: Int = 0) -> ChangeSchedule {
+        ChangeSchedule(frequency: frequency, time: TimeOfDay(hour: hour, minute: minute), calendar: calendar)
+    }
+
     func testDueWhenNeverChanged() {
-        XCTAssertTrue(DailySchedule(time: TimeOfDay(hour: 9, minute: 0), calendar: calendar).isChangeDue(lastChange: nil, now: date(8, 8)))
+        XCTAssertTrue(schedule().isChangeDue(lastChange: nil, now: date(8, 8)))
     }
 
     func testNotDueBeforeTodaysTimeIfChangedYesterdayAfterTime() {
-        let schedule = DailySchedule(time: TimeOfDay(hour: 9, minute: 0), calendar: calendar)
-        XCTAssertFalse(schedule.isChangeDue(lastChange: date(7, 9, 5), now: date(8, 8, 59)))
+        XCTAssertFalse(schedule().isChangeDue(lastChange: date(7, 9, 5), now: date(8, 8, 59)))
     }
 
     func testDueAfterTodaysTime() {
-        let schedule = DailySchedule(time: TimeOfDay(hour: 9, minute: 0), calendar: calendar)
-        XCTAssertTrue(schedule.isChangeDue(lastChange: date(7, 9, 5), now: date(8, 9, 0)))
+        XCTAssertTrue(schedule().isChangeDue(lastChange: date(7, 9, 5), now: date(8, 9, 0)))
     }
 
     func testMissedDaysAfterSleepAreDue() {
-        let schedule = DailySchedule(time: TimeOfDay(hour: 9, minute: 0), calendar: calendar)
-        XCTAssertTrue(schedule.isChangeDue(lastChange: date(4, 9), now: date(8, 7)))
+        XCTAssertTrue(schedule().isChangeDue(lastChange: date(4, 9), now: date(8, 7)))
     }
 
-    func testNextChange() {
-        let schedule = DailySchedule(time: TimeOfDay(hour: 9, minute: 30), calendar: calendar)
-        XCTAssertEqual(schedule.nextChange(after: date(8, 8)), date(8, 9, 30))
-        XCTAssertEqual(schedule.nextChange(after: date(8, 10)), date(9, 9, 30))
+    func testChangeByHandRestartsTheCount() {
+        // Next pressed at 08:00, before the 09:00 change: the next one is tomorrow.
+        XCTAssertEqual(schedule().dueDate(lastChange: date(8, 8)), date(9, 9))
+        XCTAssertEqual(schedule(.weekly).dueDate(lastChange: date(11, 15)), date(18, 9))
+    }
+
+    func testFrequencies() {
+        XCTAssertEqual(schedule(.everyTwoDays, 9, 30).dueDate(lastChange: date(8, 9, 30)), date(10, 9, 30))
+        XCTAssertEqual(schedule(.weekly).dueDate(lastChange: date(2, 9)), date(9, 9))
+        XCTAssertEqual(schedule(.monthly).dueDate(lastChange: date(8, 9)),
+                       calendar.date(from: DateComponents(year: 2026, month: 12, day: 8, hour: 9)))
+    }
+
+    func testMonthlyFromTheLastDayOfAMonth() {
+        let jan31 = calendar.date(from: DateComponents(year: 2027, month: 1, day: 31, hour: 9))!
+        XCTAssertEqual(schedule(.monthly).dueDate(lastChange: jan31),
+                       calendar.date(from: DateComponents(year: 2027, month: 2, day: 28, hour: 9)))
+    }
+
+    func testPausedIsNeverDue() {
+        XCTAssertNil(schedule(.never).dueDate(lastChange: date(1, 9)))
+        XCTAssertFalse(schedule(.never).isChangeDue(lastChange: date(1, 9), now: date(30, 9)))
+    }
+
+    func testNotBeforeHoldsBackAnOverdueChange() {
+        // Resumed at 15:00 on the 8th after a long pause: wait for 09:00 on the 9th.
+        let s = schedule()
+        XCTAssertFalse(s.isChangeDue(lastChange: date(1, 9), notBefore: date(9, 9), now: date(8, 18)))
+        XCTAssertTrue(s.isChangeDue(lastChange: date(1, 9), notBefore: date(9, 9), now: date(9, 9)))
+    }
+
+    func testNextTime() {
+        XCTAssertEqual(schedule(.daily, 9, 30).nextTime(after: date(8, 8)), date(8, 9, 30))
+        XCTAssertEqual(schedule(.daily, 9, 30).nextTime(after: date(8, 10)), date(9, 9, 30))
     }
 
     func testBackoff() {
@@ -70,7 +101,7 @@ final class SettingsTests: XCTestCase {
         XCTAssertEqual(settings, AppSettings())
         XCTAssertEqual(settings.objectTypes, [.painting])
         XCTAssertTrue(settings.highlightsOnly)
-        XCTAssertTrue(settings.changeOnWakeIfMissed)
+        XCTAssertEqual(settings.changeFrequency, .daily)
         XCTAssertFalse(settings.notifyOnChange)
         XCTAssertFalse(settings.alwaysUseMat)
         XCTAssertEqual(settings.matStyle, .auto)

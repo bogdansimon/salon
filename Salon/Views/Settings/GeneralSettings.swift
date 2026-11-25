@@ -22,16 +22,25 @@ struct GeneralSettings: View {
                 }
             }
 
-            Section("Daily change") {
-                SettingRow(title: "Hang a new work at", help: "Every day at this time, the wallpaper changes once.") {
+            Section("Changing") {
+                SettingRow(title: "Change the painting",
+                           help: isPaused ? "Paused. The current painting stays until you pick another option." : nil) {
+                    Picker("", selection: $model.settings.changeFrequency) {
+                        ForEach(ChangeFrequency.allCases.filter { $0 != .never }, id: \.self) { Text($0.title).tag($0) }
+                        Divider()
+                        Text(ChangeFrequency.never.title).tag(ChangeFrequency.never)
+                    }
+                    .labelsHidden()
+                    .pickerStyle(.menu)
+                    .fixedSize()
+                }
+                SettingRow(title: "At", help: atHelp) {
                     DatePicker("", selection: timeBinding, displayedComponents: .hourAndMinute)
                         .labelsHidden()
                         .datePickerStyle(.field)
                 }
-                Toggle(isOn: $model.settings.changeOnWakeIfMissed) {
-                    Text("Also change on wake if a day was missed")
-                    Text("For days when your Mac was asleep or off at the change time.")
-                }
+                .disabled(isPaused)
+                .opacity(isPaused ? 0.45 : 1)
                 Toggle(isOn: $model.settings.notifyOnChange) {
                     Text("Notify when the painting changes")
                     Text("A quiet notification with the title and artist.")
@@ -45,6 +54,14 @@ struct GeneralSettings: View {
             }
         }
         .settingsForm()
+    }
+
+    private var isPaused: Bool { model.isPaused }
+
+    private var atHelp: String {
+        let wake = "If your Mac is asleep or off then, it changes when it wakes."
+        guard let next = model.nextChangeDate else { return wake }
+        return "Next change: \(DateText.nextChange(next)).\n" + wake
     }
 
     private var timeBinding: Binding<Date> {

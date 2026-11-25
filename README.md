@@ -2,7 +2,7 @@
 
 A painting a day, from the world's open collections.
 
-Salon is a small macOS menu-bar app that sets your desktop wallpaper to a random public-domain artwork once a day. Works come from several museums' open-access APIs. Full information about each work (title, artist, date, museum and a short description) lives in the menu-bar popover, styled like a museum wall label. Nothing is ever drawn on the desktop except the artwork itself.
+Salon is a small macOS menu-bar app that sets your desktop wallpaper to a random public-domain artwork once a day (or every 2 days, week or month; or paused). Works come from several museums' open-access APIs. Full information about each work (title, artist, date, museum and a short description) lives in the menu-bar popover, styled like a museum wall label. Nothing is ever drawn on the desktop except the artwork itself.
 
 <p>
   <img src="docs/screenshots/popover-light.png" width="300" alt="The museum card in light mode">
@@ -13,7 +13,7 @@ It's a personal project: no App Store, no notarization, no sandbox. It's the fir
 
 ## What it does
 
-- **One new work per calendar day** at a time you choose. It also checks at launch and on wake, so a closed lid never means a skipped day. If you're offline, the current wallpaper stays and Salon retries with backoff (15 min, 30 min, 1 h, … up to 4 h).
+- **A new work every day, 2 days, week or month** at a time you choose, or never (paused). The count restarts when you change the work by hand. It also checks at launch and on wake, so a closed lid never means a skipped change. If you're offline, the current wallpaper stays and Salon retries with backoff (15 min, 30 min, 1 h, … up to 4 h).
 - **Fully random.** It picks an enabled source at random, then a random qualifying work from it. There's no taste weighting, and a work is never shown twice.
 - **Full-bleed or museum mat.** If filling the screen would crop at most 12% of the painting, it's shown full-bleed. Otherwise the whole painting hangs on a mat whose colour is sampled from the painting's edges, with a soft shadow, slightly above centre. Each display is rendered at its native resolution.
 - **History and Saved.** A gallery of everything that has hung, with favourites, search and "Set as Wallpaper" to bring a work back.

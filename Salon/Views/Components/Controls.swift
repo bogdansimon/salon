@@ -87,6 +87,17 @@ enum DateText {
         "Saved on " + dayMonth(date, now: now)
     }
 
+    /// "today, 09:00", "tomorrow, 09:00" or "Wednesday 2 December, 09:00".
+    static func nextChange(_ date: Date, now: Date = Date()) -> String {
+        let calendar = Calendar.current
+        let time = date.formatted(date: .omitted, time: .shortened)
+        if calendar.isDate(date, inSameDayAs: now) { return "today, \(time)" }
+        if let tomorrow = calendar.date(byAdding: .day, value: 1, to: now), calendar.isDate(date, inSameDayAs: tomorrow) {
+            return "tomorrow, \(time)"
+        }
+        return date.formatted(.dateTime.weekday(.wide).day().month(.wide)) + ", " + time
+    }
+
     /// The year only when it isn't this year's.
     private static func dayMonth(_ date: Date, now: Date) -> String {
         let sameYear = Calendar.current.isDate(date, equalTo: now, toGranularity: .year)
@@ -99,5 +110,86 @@ enum DateText {
         if Calendar.current.isDateInToday(date) { return "Last fetch today, \(time)" }
         if Calendar.current.isDateInYesterday(date) { return "Last fetch yesterday, \(time)" }
         return "Last fetch " + date.formatted(.dateTime.day().month(.wide)) + ", \(time)"
+    }
+}
+
+// MARK: Hover tips
+
+extension EnvironmentValues {
+    /// True inside the menu-bar popover, where macOS doesn't show `.help` tooltips
+    /// (they only appear in regular windows), so the card draws its own.
+    @Entry var drawsHoverTips = false
+}
+
+enum HoverTipPlacement {
+    /// Above the control, lined up with its leading or trailing edge so it stays on screen.
+    case above(HorizontalAlignment)
+    /// Over the bottom of the control (for the image at the top of the card).
+    case insideBottom
+}
+
+extension View {
+    /// A tooltip: native `.help` in windows, a drawn one in the popover.
+    func hoverTip(_ text: String, _ placement: HoverTipPlacement = .above(.leading)) -> some View {
+        modifier(HoverTip(text: text, placement: placement))
+    }
+}
+
+private struct HoverTip: ViewModifier {
+    var text: String
+    var placement: HoverTipPlacement
+    @Environment(\.drawsHoverTips) private var drawn
+    @State private var showing = false
+    @State private var pending: Task<Void, Never>?
+
+    func body(content: Content) -> some View {
+        if drawn {
+            content
+                .onHover { hovering in
+                    pending?.cancel()
+                    guard hovering else { showing = false; return }
+                    pending = Task {
+                        try? await Task.sleep(for: .milliseconds(700)) // about the system tooltip delay
+                        if !Task.isCancelled { showing = true }
+                    }
+                }
+                .simultaneousGesture(TapGesture().onEnded { pending?.cancel(); showing = false })
+                .overlay(alignment: .top) {
+                    if showing, case .above(let horizontal) = placement {
+                        // A zero-height strip along the control's top edge; the tip hangs
+                        // from it upwards, so it never covers the control.
+                        Color.clear
+                            .frame(maxWidth: .infinity, maxHeight: 0)
+                            .overlay(alignment: Alignment(horizontal: horizontal, vertical: .bottom)) {
+                                tip.padding(.bottom, 6)
+                            }
+                            .transition(.opacity)
+                    }
+                }
+                .overlay(alignment: .bottom) {
+                    if showing, case .insideBottom = placement {
+                        tip.padding(.bottom, 8).transition(.opacity)
+                    }
+                }
+                .animation(.easeOut(duration: 0.12), value: showing)
+                .accessibilityHint(text)
+        } else {
+            content.help(text)
+        }
+    }
+
+    private var tip: some View {
+        Text(text)
+            .font(.system(size: 11))
+            .foregroundStyle(Theme.Palette.ink)
+            .lineLimit(1)
+            .fixedSize()
+            .padding(.horizontal, 7)
+            .padding(.vertical, 4)
+            .background(Theme.Palette.surface, in: RoundedRectangle(cornerRadius: 5))
+            .overlay(RoundedRectangle(cornerRadius: 5).strokeBorder(Theme.Palette.rule, lineWidth: 0.5))
+            .shadow(color: .black.opacity(0.25), radius: 4, y: 1)
+            .allowsHitTesting(false)
+            .accessibilityHidden(true)
     }
 }

@@ -29,6 +29,7 @@ struct PopoverView: View {
         .frame(width: Theme.Layout.popoverWidth)
         .background(Theme.Palette.surface)
         .background(ActivateWhenShown())
+        .environment(\.drawsHoverTips, true)
         .animation(reduceMotion ? nil : Theme.Motion.cardCrossfade, value: model.phase)
         .animation(reduceMotion ? nil : Theme.Motion.cardCrossfade, value: model.current?.id)
     }
@@ -77,7 +78,7 @@ private struct ActivateWhenShown: NSViewRepresentable {
     }
 }
 
-/// Next · Save · History · Settings
+/// Next · Save · Pause · Collection · Settings
 struct CardToolbar: View {
     @Environment(AppModel.self) private var model
     @Environment(\.openWindow) private var openWindow
@@ -95,6 +96,7 @@ struct CardToolbar: View {
             }
             .disabled(busy)
             .opacity(busy ? 0.4 : 1)
+            .hoverTip(nextHelp, .above(.leading))
 
             if model.phase.isFailed == false {
                 Button { if let entry { withAnimation(Theme.Motion.keep) { model.toggleKeep(entry) } } } label: {
@@ -105,23 +107,33 @@ struct CardToolbar: View {
                 .disabled(busy || entry == nil)
                 .opacity(busy ? 0.4 : 1)
                 .accessibilityValue(kept ? "Saved" : "Not saved")
+                .hoverTip(kept ? "Remove from your saved works" : "Save this work to your collection")
             }
 
             Spacer()
 
+            Button { model.togglePause() } label: { Image(systemName: model.isPaused ? "play" : "pause") }
+                .buttonStyle(ToolbarButtonStyle(tint: Theme.Palette.ink2))
+                .hoverTip(model.isPaused ? "Resume changing: \(model.settings.resumeFrequency.title.lowercased())" : "Pause changing", .above(.trailing))
+                .accessibilityLabel(model.isPaused ? "Resume changing" : "Pause changing")
             Button { open(window: true) } label: { Image(systemName: "rectangle.stack") }
                 .buttonStyle(ToolbarButtonStyle(tint: Theme.Palette.ink2))
-                .help("History")
-                .accessibilityLabel("History")
+                .hoverTip("Collection", .above(.trailing))
+                .accessibilityLabel("Collection")
             Button { open(window: false) } label: { Image(systemName: "slider.horizontal.3") }
                 .buttonStyle(ToolbarButtonStyle(tint: Theme.Palette.ink2))
-                .help("Settings")
+                .hoverTip("Settings", .above(.trailing))
                 .accessibilityLabel("Settings")
         }
         .buttonStyle(ToolbarButtonStyle())
         .padding(.horizontal, Theme.Space.group)
         .padding(.vertical, 6)
         .hairline(.top)
+    }
+
+    private var nextHelp: String {
+        let shortcut = model.settings.nextShortcut.map { " (\($0.displayString))" } ?? ""
+        return "Hang a new work now" + shortcut
     }
 
     private func open(window collection: Bool) {

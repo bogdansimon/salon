@@ -74,8 +74,8 @@ final class AppModel {
         HotKeyCenter.shared.onPress = { [weak self] in self?.next() }
         HotKeyCenter.shared.register(settings.nextShortcut)
         scheduler.onDue = { [weak self] in self?.next() }
-        scheduler.start(time: settings.changeTime, changeOnWake: settings.changeOnWakeIfMissed) { [weak self] in
-            self?.state.lastChange
+        scheduler.start(schedule: settings.changeSchedule) { [weak self] in
+            (self?.state.lastChange, self?.state.changeNotBefore)
         }
         // The desktop picture is per Space; follow the user onto Spaces that don't show it yet.
         wallpaper.hangOnActiveSpace(state.currentWallpaperFiles)
@@ -115,6 +115,20 @@ final class AppModel {
 
     func next() { Task { await change() } }
 
+    var isPaused: Bool { settings.changeFrequency == .never }
+
+    /// Pause stops the automatic change; Resume goes back to the frequency used before.
+    func togglePause() {
+        settings.changeFrequency = isPaused ? settings.resumeFrequency : .never
+    }
+
+    /// When the next automatic change will happen; nil while paused.
+    var nextChangeDate: Date? {
+        let schedule = settings.changeSchedule
+        guard let due = schedule.dueDate(lastChange: state.lastChange, notBefore: state.changeNotBefore) else { return nil }
+        return due > Date() ? due : schedule.nextTime(after: Date())
+    }
+
     func tryAgain() {
         guard case .failed(let sourceID, _) = phase else { return next() }
         Task { await change(preferred: sourceID) }
@@ -138,7 +152,7 @@ final class AppModel {
             let assignments = NSScreen.screens.map { WallpaperService.Assignment(screen: $0, imageFile: file, palette: entry.palette ?? .fallback) }
             state.currentWallpaperFiles = try await wallpaper.apply(assignments, settings: settings)
             state.currentEntryIDs = [entry.id]
-            state.lastChange = Date()
+            markChanged()
             save()
         } catch {
             phase = .failed(sourceID: entry.artwork.sourceID, message: Self.message(for: error))
@@ -244,7 +258,7 @@ final class AppModel {
         history.append(contentsOf: entries)
         shownIDs.formUnion(entries.map(\.artwork.id))
         state.currentEntryIDs = entries.map(\.id)
-        state.lastChange = Date()
+        markChanged()
         consecutiveFailures = 0
         scheduler.cancelRetry()
         phase = .idle
@@ -291,8 +305,11 @@ final class AppModel {
     private func settingsChanged(from old: AppSettings) {
         JSONFile<AppSettings>(paths.settings).save(settings)
         if settings.nextShortcut != old.nextShortcut { HotKeyCenter.shared.register(settings.nextShortcut) }
-        if settings.changeTime != old.changeTime || settings.changeOnWakeIfMissed != old.changeOnWakeIfMissed {
-            scheduler.update(time: settings.changeTime, changeOnWake: settings.changeOnWakeIfMissed)
+        if settings.changeFrequency == .never, old.changeFrequency != .never {
+            settings.resumeFrequency = old.changeFrequency // re-enters settingsChanged once
+        }
+        if settings.changeTime != old.changeTime || settings.changeFrequency != old.changeFrequency {
+            scheduleEdited()
         }
         if settings.notifyOnChange && !old.notifyOnChange { ChangeNotifier.requestPermission() }
         if settings.matStyle != old.matStyle || settings.matMargin != old.matMargin || settings.alwaysUseMat != old.alwaysUseMat
@@ -343,6 +360,27 @@ final class AppModel {
     private func refreshCacheStats() {
         cacheBytes = cache.totalBytes
         cacheCount = cache.fileCount
+    }
+
+    /// Every change, automatic or by hand, restarts the count to the next one.
+    private func markChanged() {
+        state.lastChange = Date()
+        state.changeNotBefore = nil
+        scheduler.scheduleNext()
+    }
+
+    /// A new frequency or time never changes the painting at once: if the new schedule
+    /// is already overdue (e.g. resuming after a pause), wait for the next change time.
+    private func scheduleEdited() {
+        let schedule = settings.changeSchedule
+        let now = Date()
+        if let lastChange = state.lastChange, schedule.isChangeDue(lastChange: lastChange, now: now) {
+            state.changeNotBefore = schedule.nextTime(after: now)
+        } else {
+            state.changeNotBefore = nil
+        }
+        saveState()
+        scheduler.update(schedule: schedule)
     }
 
     private func save() {

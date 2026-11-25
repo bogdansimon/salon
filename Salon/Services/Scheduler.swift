@@ -1,24 +1,22 @@
 import AppKit
 import SalonCore
 
-/// Fires once per calendar day at the chosen time, checks at launch and on wake,
-/// and retries with backoff after a failure.
+/// Fires when the next change is due (every day, 2 days, week or month at the chosen
+/// time, counted from the last change), checks at launch and on wake, and retries
+/// with backoff after a failure.
 @MainActor
 final class Scheduler {
-    /// A timer that fires this long after its instant (Mac was asleep) counts as "missed".
-    private static let missedTolerance: TimeInterval = 15 * 60
-
     var onDue: (() -> Void)?
     private var timer: Timer?
     private var retryTimer: Timer?
     private var wakeObserver: NSObjectProtocol?
-    private var schedule = DailySchedule(time: TimeOfDay(hour: 9, minute: 0))
-    private var changeOnWake = true
-    private var lastChange: () -> Date? = { nil }
+    private var schedule = ChangeSchedule(frequency: .daily, time: TimeOfDay(hour: 9, minute: 0))
+    /// The last change and the "not before" hold after a schedule edit.
+    private var anchors: () -> (lastChange: Date?, notBefore: Date?) = { (nil, nil) }
 
-    func start(time: TimeOfDay, changeOnWake: Bool, lastChange: @escaping () -> Date?) {
-        self.lastChange = lastChange
-        update(time: time, changeOnWake: changeOnWake)
+    func start(schedule: ChangeSchedule, anchors: @escaping () -> (lastChange: Date?, notBefore: Date?)) {
+        self.anchors = anchors
+        update(schedule: schedule)
         wakeObserver = NSWorkspace.shared.notificationCenter.addObserver(
             forName: NSWorkspace.didWakeNotification, object: nil, queue: .main
         ) { [weak self] _ in
@@ -27,9 +25,8 @@ final class Scheduler {
         checkAfterLaunchOrWake()
     }
 
-    func update(time: TimeOfDay, changeOnWake: Bool) {
-        schedule = DailySchedule(time: time)
-        self.changeOnWake = changeOnWake
+    func update(schedule: ChangeSchedule) {
+        self.schedule = schedule
         scheduleNext()
     }
 
@@ -53,28 +50,34 @@ final class Scheduler {
         return max(1, Int((date.timeIntervalSinceNow / 60).rounded()))
     }
 
+    /// Call after every change (automatic or by hand) and every schedule edit.
     func scheduleNext() {
         timer?.invalidate()
-        let instant = schedule.nextChange(after: Date())
+        timer = nil
+        let (lastChange, notBefore) = anchors()
+        guard var instant = schedule.dueDate(lastChange: lastChange, notBefore: notBefore) else { return } // paused
+        // Already due: a change is in flight or failed (the retry timer covers it).
+        // Check again at the next time of day rather than firing in a loop.
+        if instant <= Date() { instant = schedule.nextTime(after: Date()) }
         let timer = Timer(fire: instant, interval: 0, repeats: false) { [weak self] _ in
-            MainActor.assumeIsolated { self?.timerFired(scheduledFor: instant) }
+            MainActor.assumeIsolated { self?.timerFired() }
         }
         timer.tolerance = 30
         RunLoop.main.add(timer, forMode: .common)
         self.timer = timer
     }
 
-    private func timerFired(scheduledFor instant: Date) {
-        let late = Date().timeIntervalSince(instant) > Self.missedTolerance
-        if !late || changeOnWake { onDue?() }
+    private func timerFired() {
+        let (lastChange, notBefore) = anchors()
+        if schedule.isChangeDue(lastChange: lastChange, notBefore: notBefore, now: Date()) { onDue?() }
         scheduleNext()
     }
 
+    /// Catches up on a change missed while the Mac was asleep or off.
     private func checkAfterLaunchOrWake() {
-        let last = lastChange()
-        let due = schedule.isChangeDue(lastChange: last, now: Date())
-        // First run always hangs something; otherwise honour "change on wake if missed".
-        if due && (last == nil || changeOnWake) { onDue?() }
+        let (lastChange, notBefore) = anchors()
+        // First run always hangs something, even when paused.
+        if lastChange == nil || schedule.isChangeDue(lastChange: lastChange, notBefore: notBefore, now: Date()) { onDue?() }
         scheduleNext()
     }
 }

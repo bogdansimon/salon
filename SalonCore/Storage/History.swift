@@ -26,6 +26,9 @@ public struct HistoryEntry: Codable, Hashable, Identifiable, Sendable {
 public struct AppState: Codable, Sendable {
     /// When the wallpaper last changed (for the daily schedule).
     public var lastChange: Date?
+    /// After a schedule edit that would be overdue, the next automatic change waits
+    /// until this time instead of happening at once. Cleared by the next change.
+    public var changeNotBefore: Date?
     /// Running count for "No. 214"; never reset, so numbers stay unique.
     public var shownCount = 0
     /// Rendered wallpaper files currently on screen (kept during cleanup).
@@ -35,11 +38,12 @@ public struct AppState: Codable, Sendable {
 
     public init() {}
 
-    private enum CodingKeys: String, CodingKey { case lastChange, shownCount, currentWallpaperFiles, currentEntryIDs }
+    private enum CodingKeys: String, CodingKey { case lastChange, changeNotBefore, shownCount, currentWallpaperFiles, currentEntryIDs }
 
     public init(from decoder: Decoder) throws {
         let c = try decoder.container(keyedBy: CodingKeys.self)
         lastChange = try c.decodeIfPresent(Date.self, forKey: .lastChange)
+        changeNotBefore = try c.decodeIfPresent(Date.self, forKey: .changeNotBefore)
         shownCount = try c.decodeIfPresent(Int.self, forKey: .shownCount) ?? 0
         currentWallpaperFiles = try c.decodeIfPresent([String].self, forKey: .currentWallpaperFiles) ?? []
         currentEntryIDs = try c.decodeIfPresent([UUID].self, forKey: .currentEntryIDs) ?? []

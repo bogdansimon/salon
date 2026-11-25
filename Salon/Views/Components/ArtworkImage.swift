@@ -57,7 +57,7 @@ struct PreviewableArtwork: View {
         .buttonStyle(.plain)
         .disabled(file == nil)
         .onHover { hover in withAnimation(reduceMotion ? nil : .easeOut(duration: 0.15)) { hovering = hover } }
-        .help("View full size")
+        .hoverTip("View full size", .insideBottom)
         .accessibilityLabel("View full size")
     }
 }
@@ -158,7 +158,7 @@ private struct WikipediaLink<Label: View>: View {
             Link(destination: url) { label }
                 .buttonStyle(.plain)
                 .linkCursor()
-                .help("Open on Wikipedia")
+                .hoverTip("Open on Wikipedia")
         } else {
             label
         }
@@ -180,6 +180,7 @@ struct MuseumLink: View {
             }
             .buttonStyle(.plain)
             .linkCursor()
+            .hoverTip("Open \(url.host ?? "the museum’s page") in your browser")
         }
     }
 
@@ -203,7 +204,7 @@ struct SummaryCredit: View {
                 }
                 .buttonStyle(.plain)
                 .linkCursor()
-                .help("Open on Wikipedia")
+                .hoverTip("Open on Wikipedia")
             } else {
                 Text("From \(credit)").labelCaps()
             }
@@ -220,14 +221,20 @@ private struct LinkCursor: ViewModifier {
     @State private var pushed = false
 
     func body(content: Content) -> some View {
-        content
-            .onHover { hovering in
-                guard hovering != pushed else { return }
-                hovering ? NSCursor.pointingHand.push() : NSCursor.pop()
-                pushed = hovering
-            }
-            // A card can change under a still pointer; don't leave the hand behind.
-            .onDisappear { if pushed { NSCursor.pop(); pushed = false } }
+        if #available(macOS 15, *) {
+            // Owned by SwiftUI, so it survives a hover tip appearing on top of the link
+            // (that redraw reset the pushed cursor back to the arrow).
+            content.pointerStyle(.link)
+        } else {
+            content
+                .onHover { hovering in
+                    guard hovering != pushed else { return }
+                    hovering ? NSCursor.pointingHand.push() : NSCursor.pop()
+                    pushed = hovering
+                }
+                // A card can change under a still pointer; don't leave the hand behind.
+                .onDisappear { if pushed { NSCursor.pop(); pushed = false } }
+        }
     }
 }
 
