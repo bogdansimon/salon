@@ -1,3 +1,4 @@
+import AppKit
 import SalonCore
 import SwiftUI
 
@@ -27,12 +28,38 @@ struct PopoverView: View {
         }
         .frame(width: Theme.Layout.popoverWidth)
         .background(Theme.Palette.surface)
+        .background(ActivateWhenShown())
         .animation(reduceMotion ? nil : Theme.Motion.cardCrossfade, value: model.phase)
         .animation(reduceMotion ? nil : Theme.Motion.cardCrossfade, value: model.current?.id)
     }
 }
 
-/// Next · Keep · History · Settings
+/// Makes Salon the active app each time the card opens. Only the active app may
+/// change the pointer, so without this the links' hand appeared only after a first click.
+private struct ActivateWhenShown: NSViewRepresentable {
+    func makeNSView(context: Context) -> NSView { WindowWatcher() }
+    func updateNSView(_ nsView: NSView, context: Context) {}
+
+    final class WindowWatcher: NSView {
+        private var observer: NSObjectProtocol?
+
+        override func viewDidMoveToWindow() {
+            super.viewDidMoveToWindow()
+            observer.map(NotificationCenter.default.removeObserver)
+            observer = nil
+            guard let window else { return }
+            observer = NotificationCenter.default.addObserver(
+                forName: NSWindow.didChangeOcclusionStateNotification, object: window, queue: .main
+            ) { [weak window] _ in
+                guard let window, window.occlusionState.contains(.visible) else { return }
+                NSApp.activate()
+                window.makeKey()
+            }
+        }
+    }
+}
+
+/// Next · Save · History · Settings
 struct CardToolbar: View {
     @Environment(AppModel.self) private var model
     @Environment(\.openWindow) private var openWindow
