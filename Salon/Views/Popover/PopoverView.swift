@@ -6,24 +6,24 @@ import SwiftUI
 struct PopoverView: View {
     @Environment(AppModel.self) private var model
     @Environment(\.accessibilityReduceMotion) private var reduceMotion
+    /// The card's natural height, measured inside the scroll view.
+    @State private var cardHeight: CGFloat?
+
+    /// Room for the card under the menu bar, leaving the toolbar and a margin on screen.
+    private var maxCardHeight: CGFloat {
+        (NSScreen.main?.visibleFrame.height ?? 900) - Theme.Layout.toolbarButton - 48
+    }
 
     var body: some View {
         VStack(spacing: 0) {
-            Group {
-                switch model.phase {
-                case .loading(let sourceName):
-                    LoadingCard(sourceName: sourceName, nextNumber: (model.current?.number ?? 0) + 1)
-                case .failed(let sourceID, let message):
-                    ErrorCard(sourceName: sourceID.flatMap { model.source($0)?.info.name }, message: message, retryMinutes: model.retryMinutes)
-                case .idle:
-                    if let entry = model.current {
-                        MuseumCard(entry: entry).id(entry.id)
-                    } else {
-                        LoadingCard(sourceName: nil, nextNumber: 1)
-                    }
-                }
+            // The card scrolls as a whole once it's taller than the screen (a long
+            // description opened with More); the toolbar stays put below it.
+            ScrollView {
+                card.onGeometryChange(for: CGFloat.self) { $0.size.height } action: { cardHeight = $0 }
             }
-            .transition(.opacity)
+            .scrollBounceBehavior(.basedOnSize)
+            // An explicit height: in the self-sizing popover a ScrollView without one collapses.
+            .frame(height: cardHeight.map { min($0, maxCardHeight) })
             CardToolbar()
         }
         .frame(width: Theme.Layout.popoverWidth)
@@ -31,6 +31,24 @@ struct PopoverView: View {
         .background(ActivateWhenShown())
         .animation(reduceMotion ? nil : Theme.Motion.cardCrossfade, value: model.phase)
         .animation(reduceMotion ? nil : Theme.Motion.cardCrossfade, value: model.current?.id)
+    }
+
+    private var card: some View {
+        Group {
+            switch model.phase {
+            case .loading(let sourceName):
+                LoadingCard(sourceName: sourceName, nextNumber: (model.current?.number ?? 0) + 1)
+            case .failed(let sourceID, let message):
+                ErrorCard(sourceName: sourceID.flatMap { model.source($0)?.info.name }, message: message, retryMinutes: model.retryMinutes)
+            case .idle:
+                if let entry = model.current {
+                    MuseumCard(entry: entry).id(entry.id)
+                } else {
+                    LoadingCard(sourceName: nil, nextNumber: 1)
+                }
+            }
+        }
+        .transition(.opacity)
     }
 }
 

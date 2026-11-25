@@ -54,10 +54,9 @@ struct DescriptionText: View {
         VStack(alignment: .leading, spacing: 6) {
             Group {
                 if expanded {
-                    // An explicit height: the popover sizes to its content, and a ScrollView
-                    // with only a max height reports ~0 there, so the text vanished.
-                    ScrollView { paragraph.fixedSize(horizontal: false, vertical: true) }
-                        .frame(height: min(fullHeight, Theme.Layout.expandedDescription))
+                    // In full: the whole card scrolls when it outgrows the screen (PopoverView),
+                    // so there's no box-in-a-box with a scrollbar over the text.
+                    paragraph.fixedSize(horizontal: false, vertical: true)
                 } else {
                     // Full height first: the self-sizing popover otherwise cuts a short
                     // description to one line ("…painting by").

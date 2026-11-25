@@ -122,7 +122,6 @@ enum Theme {
         static let cardWorkMax = CGSize(width: 300, height: 192)
         static let errorPlateHeight: CGFloat = 168
         static let collapsedDescription: CGFloat = 105   // five lines
-        static let expandedDescription: CGFloat = 240
         static let toolbarButton: CGFloat = 36
         static let tileMatHeight: CGFloat = 156
         static let tileWorkMax: CGFloat = 116
