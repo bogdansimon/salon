@@ -174,6 +174,13 @@ private struct Tile: View {
         .buttonStyle(.plain)
         .onHover { hovering = $0 }
         .simultaneousGesture(TapGesture(count: 2).onEnded(open))
+        .contextMenu {
+            Button("Open", action: open)
+                .disabled(model.imageFile(for: entry) == nil)
+            Button("Set as Wallpaper") { Task { await model.setAsWallpaper(entry) } }
+            Divider()
+            Button(entry.isKept ? "Remove from Saved" : "Save") { model.toggleKeep(entry) }
+        }
         .help("Double-click or press Space to view full size")
         .accessibilityAddTraits(selected ? .isSelected : [])
     }
